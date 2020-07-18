@@ -1,0 +1,26 @@
+[
+  {
+    "id": "A01",
+    "name": "Groovy Grove",
+    "bannedHero": [],
+    "type": "regular"
+  },
+  {
+    "id": "A02",
+    "name": "Spooky Spot",
+    "bannedHero": [],
+    "type": "regular"
+  },
+  {
+    "id": "A03",
+    "name": "Creepy Crag",
+    "bannedHero": [],
+    "type": "regular"
+  },
+  {
+    "id": "A04",
+    "name": "Boss Realm",
+    "bannedHero": [],
+    "type": "boss"
+  }
+]

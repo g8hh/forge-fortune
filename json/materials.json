@@ -1,0 +1,282 @@
+[
+  {
+    "id": "M001",
+    "name": "Gold",
+    "tier": 0,
+    "fortuneLvl": 0,
+    "type": "gold",
+    "description": "Standard currency used for purchases."
+  },
+  {
+    "id": "M002",
+    "name": "Monster Trophy",
+    "tier": 0,
+    "fortuneLvl": 0,
+    "type": "trophy",
+    "description": "Earned in the Monster House."
+  },
+  {
+    "id": "M101",
+    "name": "Emerald Slime",
+    "tier": 31,
+    "fortuneLvl": 1,
+    "type": "dungeon",
+    "description": "Found in Spooky Spot I."
+  },
+  {
+    "id": "M102",
+    "name": "Peach Slime",
+    "tier": 28,
+    "fortuneLvl": 2,
+    "type": "dungeon",
+    "description": "Found in Spooky Spot II."
+  },
+  {
+    "id": "M103",
+    "name": "Indigo Slime",
+    "tier": 25,
+    "fortuneLvl": 3,
+    "type": "dungeon",
+    "description": "Found in Spooky Spot III."
+  },
+  {
+    "id": "M104",
+    "name": "Ginger Slime",
+    "tier": 22,
+    "fortuneLvl": 4,
+    "type": "dungeon",
+    "description": "Found in Spooky Spot IV."
+  },
+  {
+    "id": "M105",
+    "name": "Stinky Slime",
+    "tier": 19,
+    "fortuneLvl": 5,
+    "type": "dungeon",
+    "description": "Found in Spooky Spot V."
+  },
+  {
+    "id": "M106",
+    "name": "Clear Slime",
+    "tier": 16,
+    "fortuneLvl": 6,
+    "type": "dungeon",
+    "description": "Found in Spooky Spot VI."
+  },
+  {
+    "id": "M107",
+    "name": "Magenta Slime",
+    "tier": 13,
+    "fortuneLvl": 7,
+    "type": "dungeon",
+    "description": "Found in Spooky Spot VII."
+  },
+  {
+    "id": "M108",
+    "name": "Grey Slime",
+    "tier": 10,
+    "fortuneLvl": 8,
+    "type": "dungeon",
+    "description": "Found in Spooky Spot VIII."
+  },
+  {
+    "id": "M109",
+    "name": "Cobalt Slime",
+    "tier": 7,
+    "fortuneLvl": 9,
+    "type": "dungeon",
+    "description": "Found in Spooky Spot IX."
+  },
+  {
+    "id": "M110",
+    "name": "Technicolor Slime",
+    "tier": 4,
+    "fortuneLvl": 10,
+    "type": "dungeon",
+    "description": "Found in Spooky Spot X."
+  },
+  {
+    "id": "M201",
+    "name": "Bee Chunks",
+    "tier": 32,
+    "fortuneLvl": 1,
+    "type": "dungeon",
+    "description": "Found in Groovy Grove I."
+  },
+  {
+    "id": "M202",
+    "name": "Cobra Chunks",
+    "tier": 29,
+    "fortuneLvl": 2,
+    "type": "dungeon",
+    "description": "Found in Groovy Grove II."
+  },
+  {
+    "id": "M203",
+    "name": "Worm Chunks",
+    "tier": 26,
+    "fortuneLvl": 3,
+    "type": "dungeon",
+    "description": "Found in Groovy Grove III."
+  },
+  {
+    "id": "M204",
+    "name": "Rat Chunks",
+    "tier": 23,
+    "fortuneLvl": 4,
+    "type": "dungeon",
+    "description": "Found in Groovy Grove IV."
+  },
+  {
+    "id": "M205",
+    "name": "Scorpion Chunks",
+    "tier": 20,
+    "fortuneLvl": 5,
+    "type": "dungeon",
+    "description": "Found in Groovy Grove V."
+  },
+  {
+    "id": "M206",
+    "name": "Spider Chunks",
+    "tier": 17,
+    "fortuneLvl": 6,
+    "type": "dungeon",
+    "description": "Found in Groovy Grove VI."
+  },
+  {
+    "id": "M207",
+    "name": "Snake Chunks",
+    "tier": 14,
+    "fortuneLvl": 7,
+    "type": "dungeon",
+    "description": "Found in Groovy Grove VII."
+  },
+  {
+    "id": "M208",
+    "name": "Parasite Chunks",
+    "tier": 11,
+    "fortuneLvl": 8,
+    "type": "dungeon",
+    "description": "Found in Groovy Grove VIII."
+  },
+  {
+    "id": "M209",
+    "name": "Wasp Chunks",
+    "tier": 8,
+    "fortuneLvl": 9,
+    "type": "dungeon",
+    "description": "Found in Groovy Grove IX."
+  },
+  {
+    "id": "M210",
+    "name": "Bat Chunks",
+    "tier": 5,
+    "fortuneLvl": 10,
+    "type": "dungeon",
+    "description": "Found in Groovy Grove X."
+  },
+  {
+    "id": "M301",
+    "name": "Earth Crystal",
+    "tier": 33,
+    "fortuneLvl": 1,
+    "type": "dungeon",
+    "description": "Found in Creepy Crag I."
+  },
+  {
+    "id": "M302",
+    "name": "Psychic Crystal",
+    "tier": 30,
+    "fortuneLvl": 2,
+    "type": "dungeon",
+    "description": "Found in Creepy Crag II."
+  },
+  {
+    "id": "M303",
+    "name": "Life Crystal",
+    "tier": 27,
+    "fortuneLvl": 3,
+    "type": "dungeon",
+    "description": "Found in Creepy Crag III."
+  },
+  {
+    "id": "M304",
+    "name": "Wind Crystal",
+    "tier": 24,
+    "fortuneLvl": 4,
+    "type": "dungeon",
+    "description": "Found in Creepy Crag IV."
+  },
+  {
+    "id": "M305",
+    "name": "Lightning Crystal",
+    "tier": 21,
+    "fortuneLvl": 5,
+    "type": "dungeon",
+    "description": "Found in Creepy Crag V."
+  },
+  {
+    "id": "M306",
+    "name": "Fire Crystal",
+    "tier": 18,
+    "fortuneLvl": 6,
+    "type": "dungeon",
+    "description": "Found in Creepy Crag VI."
+  },
+  {
+    "id": "M307",
+    "name": "Ice Crystal",
+    "tier": 15,
+    "fortuneLvl": 7,
+    "type": "dungeon",
+    "description": "Found in Creepy Crag VII."
+  },
+  {
+    "id": "M308",
+    "name": "Poison Crystal",
+    "tier": 12,
+    "fortuneLvl": 8,
+    "type": "dungeon",
+    "description": "Found in Creepy Crag VIII."
+  },
+  {
+    "id": "M309",
+    "name": "Storm Crystal",
+    "tier": 9,
+    "fortuneLvl": 9,
+    "type": "dungeon",
+    "description": "Found in Creepy Crag IX."
+  },
+  {
+    "id": "M310",
+    "name": "Death Crystal",
+    "tier": 6,
+    "fortuneLvl": 10,
+    "type": "dungeon",
+    "description": "Found in Creepy Crag X."
+  },
+  {
+    "id": "M700",
+    "name": "Green Essence",
+    "tier": 1,
+    "fortuneLvl": 0,
+    "type": "synth",
+    "description": "Obtained via Desynthesis."
+  },
+  {
+    "id": "M701",
+    "name": "Blue Essence",
+    "tier": 2,
+    "fortuneLvl": 0,
+    "type": "synth",
+    "description": "Obtained via Desynthesis."
+  },
+  {
+    "id": "M702",
+    "name": "Purple Essence",
+    "tier": 3,
+    "fortuneLvl": 0,
+    "type": "synth",
+    "description": "Obtained via Desynthesis."
+  }
+]

@@ -1,0 +1,146 @@
+[
+  {
+    "workerID": "WN001",
+    "name": "Oren",
+    "production": "G001",
+    "type": "standard",
+    "description": "Oren comes from a long line of crafters.",
+    "guildUnlock": "G001",
+    "perkUnlock": "AL1001"
+  },
+  {
+    "workerID": "WN002",
+    "name": "Eryn",
+    "production": "G001",
+    "type": "standard",
+    "description": "Eryn carefully chooses which materials to use.",
+    "guildUnlock": "G001",
+    "perkUnlock": "AL1010"
+  },
+  {
+    "workerID": "WN003",
+    "name": "Herbie",
+    "production": "G001",
+    "type": "standard",
+    "description": "Herbie is a fledgling botanist in his spare time.",
+    "guildUnlock": "G001",
+    "perkUnlock": "AL1017"
+  },
+  {
+    "workerID": "WN004",
+    "name": "Lakur",
+    "production": "G001",
+    "type": "standard",
+    "description": "Lakur is a skilled hunter and is proud to use her own products.",
+    "guildUnlock": "G001",
+    "perkUnlock": "AL1023"
+  },
+  {
+    "workerID": "WN101",
+    "name": "Tiny",
+    "production": "G002",
+    "type": "standard",
+    "description": "Tiny is a hard-working student, hoping to learn all he can.",
+    "guildUnlock": "G002",
+    "perkUnlock": "AL1002"
+  },
+  {
+    "workerID": "WN102",
+    "name": "Crash",
+    "production": "G002",
+    "type": "standard",
+    "description": "Crash relies on reputable traders for raw materials.",
+    "guildUnlock": "G002",
+    "perkUnlock": "AL1011"
+  },
+  {
+    "workerID": "WN103",
+    "name": "Titan",
+    "production": "G002",
+    "type": "standard",
+    "description": "Titan often finds himself moderating disputes in the shop.",
+    "guildUnlock": "G002",
+    "perkUnlock": "AL1018"
+  },
+  {
+    "workerID": "WN104",
+    "name": "Smash",
+    "production": "G002",
+    "type": "standard",
+    "description": "Smash has excellent attention to detail, and it shows.",
+    "guildUnlock": "G002",
+    "perkUnlock": "AL1024"
+  },
+  {
+    "workerID": "WN201",
+    "name": "Francis",
+    "production": "G003",
+    "type": "standard",
+    "description": "Francis wants to be the very best, the best that ever was.",
+    "guildUnlock": "G003",
+    "perkUnlock": null
+  },
+  {
+    "workerID": "WN202",
+    "name": "Squeaks",
+    "production": "G003",
+    "type": "standard",
+    "description": "Squeaks is shy around new customers, but is very loyal.",
+    "guildUnlock": "G003",
+    "perkUnlock": "AL1008"
+  },
+  {
+    "workerID": "WN203",
+    "name": "Renae",
+    "production": "G003",
+    "type": "standard",
+    "description": "Renae was taught by her mother to produce high quality goods.",
+    "guildUnlock": "G003",
+    "perkUnlock": "AL1016"
+  },
+  {
+    "workerID": "WN204",
+    "name": "Tawny",
+    "production": "G003",
+    "type": "standard",
+    "description": "Tawny secretly moonlights as a dancer after business hours.",
+    "guildUnlock": "G003",
+    "perkUnlock": "AL1022"
+  },
+  {
+    "workerID": "WN301",
+    "name": "Gilbert",
+    "production": "G004",
+    "type": "standard",
+    "description": "Gilbert is an excellent understudy with a bright future.",
+    "guildUnlock": "G004",
+    "perkUnlock": "AL1004"
+  },
+  {
+    "workerID": "WN302",
+    "name": "Gillian",
+    "production": "G004",
+    "type": "standard",
+    "description": "Gillian has a underground black market supplier.",
+    "guildUnlock": "G004",
+    "perkUnlock": "AL1012"
+  },
+  {
+    "workerID": "WN303",
+    "name": "Gilfred",
+    "production": "G004",
+    "type": "standard",
+    "description": "Gilfred hopes to become a designer one day.",
+    "guildUnlock": "G004",
+    "perkUnlock": "AL1019"
+  },
+  {
+    "workerID": "WN304",
+    "name": "Gilda",
+    "production": "G004",
+    "type": "standard",
+    "description": "Gilda doesn't enjoy her job, but her bills get paid on time.",
+    "guildUnlock": "G004",
+    "perkUnlock": "AL1025"
+  }
+]

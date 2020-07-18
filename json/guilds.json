@@ -1,0 +1,26 @@
+[
+  {
+    "id": "G001",
+    "name": "Aviation Association",
+    "icon": "<i class=\"fas fa-crow\"></i>",
+    "description": "The Skyfire Clan is a proud and noble race, and are expert weaponmakers."
+  },
+  {
+    "id": "G002",
+    "name": "Green Guard",
+    "icon": "<i class=\"fas fa-salad\"></i>",
+    "description": "Residing in the Rapid Chi Orchard, these stoic beings are superb at defense."
+  },
+  {
+    "id": "G003",
+    "name": "The Cat's Meow",
+    "icon": "<i class=\"fas fa-paw\"></i>",
+    "description": "If you plan on fighting in the shadows, this is the place to start."
+  },
+  {
+    "id": "G004",
+    "name": "Trawled Treasures",
+    "icon": "<i class=\"fas fa-fish\"></i>",
+    "description": "This guild became expert crafters after studying shipwrecked valuables."
+  }
+]

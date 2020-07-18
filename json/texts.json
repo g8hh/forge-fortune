@@ -1,0 +1,842 @@
+[
+  {
+    "tid": "tab_inventory",
+    "en": "Inventory"
+  },
+  {
+    "tid": "tab_guilds",
+    "en": "Guilds"
+  },
+  {
+    "tid": "tab_recipes",
+    "en": "Recipes"
+  },
+  {
+    "tid": "tab_heroes",
+    "en": "Heroes"
+  },
+  {
+    "tid": "tab_adventures",
+    "en": "Adventures"
+  },
+  {
+    "tid": "tab_quests",
+    "en": "Quests"
+  },
+  {
+    "tid": "tab_town",
+    "en": "Town"
+  },
+  {
+    "tid": "tab_market",
+    "en": "Market"
+  },
+  {
+    "tid": "warning_github_title",
+    "en": "Our github.io domain will be deprecated soon!"
+  },
+  {
+    "tid": "warning_github_desc",
+    "en": "Please move over to our official domain to continue playing in the future! Transfer all of your progress by exporting your save and importing it on the official site."
+  },
+  {
+    "tid": "warning_github_button",
+    "en": "Visit Now (forgeandfortune.com)"
+  },
+  {
+    "tid": "type_armor",
+    "en": "Armor"
+  },
+  {
+    "tid": "type_belts",
+    "en": "Belts"
+  },
+  {
+    "tid": "type_cloaks",
+    "en": "Cloaks"
+  },
+  {
+    "tid": "type_gauntlets",
+    "en": "Gauntlets"
+  },
+  {
+    "tid": "type_gloves",
+    "en": "Gloves"
+  },
+  {
+    "tid": "type_hats",
+    "en": "Hats"
+  },
+  {
+    "tid": "type_helmets",
+    "en": "Helmets"
+  },
+  {
+    "tid": "type_knives",
+    "en": "Knives"
+  },
+  {
+    "tid": "type_masks",
+    "en": "Masks"
+  },
+  {
+    "tid": "type_pendants",
+    "en": "Pendants"
+  },
+  {
+    "tid": "type_rings",
+    "en": "Rings"
+  },
+  {
+    "tid": "type_shields",
+    "en": "Shields"
+  },
+  {
+    "tid": "type_shoes",
+    "en": "Shoes"
+  },
+  {
+    "tid": "type_staves",
+    "en": "Staves"
+  },
+  {
+    "tid": "type_swords",
+    "en": "Swords"
+  },
+  {
+    "tid": "type_thrown",
+    "en": "Thrown"
+  },
+  {
+    "tid": "type_tomes",
+    "en": "Tomes"
+  },
+  {
+    "tid": "type_trinkets",
+    "en": "Trinkets"
+  },
+  {
+    "tid": "type_vests",
+    "en": "Vests"
+  },
+  {
+    "tid": "rarity_common",
+    "en": "Common"
+  },
+  {
+    "tid": "rarity_good",
+    "en": "Good"
+  },
+  {
+    "tid": "rarity_great",
+    "en": "Great"
+  },
+  {
+    "tid": "rarity_epic",
+    "en": "Epic"
+  },
+  {
+    "tid": "recipes_card_tab_details",
+    "en": "Details"
+  },
+  {
+    "tid": "recipes_card_tab_mastery",
+    "en": "Mastery"
+  },
+  {
+    "tid": "recipes_card_details_crafted_count",
+    "en": "{0} crafted"
+  },
+  {
+    "tid": "recipes_card_mastery_available_notice",
+    "en": "Crafting this recipe will reduce the material cost to master it."
+  },
+  {
+    "tid": "recipes_card_mastery_attained_notice",
+    "en": "You have mastered this recipe. Its material cost has been removed, if any, and its higher rarity crafting chance has been doubled."
+  },
+  {
+    "tid": "recipes_card_mastery_master_button",
+    "en": "Master Recipe"
+  },
+  {
+    "tid": "recipes_card_mastery_recipe_unmastered",
+    "en": "Unmastered"
+  },
+  {
+    "tid": "recipes_card_mastery_recipe_mastered",
+    "en": "Mastered"
+  },
+  {
+    "tid": "equipment_select_title",
+    "en": "Select Your Hero Equipment"
+  },
+  {
+    "tid": "equipment_select_desc",
+    "en": "Equip your hero with items from your inventory."
+  },
+  {
+    "tid": "trinket_select_title",
+    "en": "Select Your Hero Trinket"
+  },
+  {
+    "tid": "trinket_select_desc",
+    "en": "Equip your hero with trinkets from your inventory."
+  },
+  {
+    "tid": "no_equipment_desc",
+    "en": "No equipment available to equip in this slot."
+  },
+  {
+    "tid": "no_trinkets_desc",
+    "en": "No trinkets available to equip in this slot."
+  },
+  {
+    "tid": "equipment_recipes_button",
+    "en": "View {0} Recipes"
+  },
+  {
+    "tid": "playbook_locked",
+    "en": "Locked"
+  },
+  {
+    "tid": "hero_tab_upgrade",
+    "en": "Upgrades"
+  },
+  {
+    "tid": "hero_tab_trinket",
+    "en": "Trinket"
+  },
+  {
+    "tid": "header_adventure_areas_title",
+    "en": "Adventure Areas"
+  },
+  {
+    "tid": "header_adventure_areas_desc",
+    "en": "Select an area for your heroes to explore."
+  },
+  {
+    "tid": "adventure_dungeon_abandon",
+    "en": "Abandon Dungeon"
+  },
+  {
+    "tid": "adventure_dungeon_abandon_all",
+    "en": "Abandon All Dungeons"
+  },
+  {
+    "tid": "adventure_area_status_idle",
+    "en": "Idle"
+  },
+  {
+    "tid": "adventure_area_status_in_progress",
+    "en": "Adventure In Progress"
+  },
+  {
+    "tid": "adventure_area_status_success",
+    "en": "Adventure Completed"
+  },
+  {
+    "tid": "adventure_area_status_failure",
+    "en": "Adventure Failed"
+  },
+  {
+    "tid": "adventure_area_desc_success",
+    "en": "You have successfully completed this adventure!"
+  },
+  {
+    "tid": "adventure_area_desc_failure",
+    "en": "You have failed to complete this adventure. Try different hero combinations or gear!"
+  },
+  {
+    "tid": "adventure_launch_floor",
+    "en": "Start At Floor 1"
+  },
+  {
+    "tid": "adventure_launch_floor_highest",
+    "en": "Start At Highest Floor Reached"
+  },
+  {
+    "tid": "adventure_launch_floor_boss",
+    "en": "Start Boss Fight"
+  },
+  {
+    "tid": "adventure_launch_floor_boss_refight",
+    "en": "Rechallenge Boss"
+  },
+  {
+    "tid": "slot_party_empty",
+    "en": "Empty Party Slot"
+  },
+  {
+    "tid": "enemy_party_show",
+    "en": "Show Enemy Party"
+  },
+  {
+    "tid": "enemy_party_hide",
+    "en": "Hide Enemy Party"
+  },
+  {
+    "tid": "header_party_heroes_title",
+    "en": "Your Available Heroes"
+  },
+  {
+    "tid": "header_party_heroes_desc",
+    "en": "Select the heroes to send on this adventure."
+  },
+  {
+    "tid": "header_quests_select_title",
+    "en": "Questing Locations"
+  },
+  {
+    "tid": "header_quests_select_desc",
+    "en": "Select a quest for your heroes to partake in."
+  },
+  {
+    "tid": "quests_location_heading_reqs",
+    "en": "Requirements"
+  },
+  {
+    "tid": "quests_status_idle",
+    "en": "Quest Inactive"
+  },
+  {
+    "tid": "quests_status_in_progress",
+    "en": "Quest In Progress"
+  },
+  {
+    "tid": "quests_status_success",
+    "en": "Quest Succeeded"
+  },
+  {
+    "tid": "quests_status_failure",
+    "en": "Quest Failed"
+  },
+  {
+    "tid": "quests_success_chance",
+    "en": "{0}% Success Chance"
+  },
+  {
+    "tid": "quests_start_quest_button",
+    "en": "Start Quest"
+  },
+  {
+    "tid": "header_quests_party_title",
+    "en": "Your Questing Party"
+  },
+  {
+    "tid": "header_quests_party_desc",
+    "en": "The heroes you have selected for this quest."
+  },
+  {
+    "tid": "header_quests_heroes_title",
+    "en": "Your Available Heroes"
+  },
+  {
+    "tid": "header_quests_heroes_desc",
+    "en": "Select the heroes to send on this quest."
+  },
+  {
+    "tid": "header_building_construct_title",
+    "en": "Construct Building"
+  },
+  {
+    "tid": "header_building_construct_desc",
+    "en": "Unlock this building by crafting the recipe below."
+  },
+  {
+    "tid": "header_synthesizer_desynth_title",
+    "en": "Items Available for Synthesizer"
+  },
+  {
+    "tid": "header_synthesizer_desynth_desc",
+    "en": "Items in your inventory that can be used in the Synthesizer."
+  },
+  {
+    "tid": "synthesizer_inventory_empty",
+    "en": "You currently have no items available for the synthesizer."
+  },
+  {
+    "tid": "synthesizer_settings_title",
+    "en": "Synthesizer Setting"
+  },
+  {
+    "tid": "synthesizer_desynth_setting",
+    "en": "Desynthesis"
+  },
+  {
+    "tid": "synthesizer_synth_setting",
+    "en": "Synthesis"
+  },
+  {
+    "tid": "synthesizer_desynth_assign_button",
+    "en": "Desynthesize"
+  },
+  {
+    "tid": "synthesizer_synth_assign_button",
+    "en": "Synthesize"
+  },
+  {
+    "tid": "synthesizer_assign_button",
+    "en": "Assign Item"
+  },
+  {
+    "tid": "synthesizer_synth_unavailable",
+    "en": "Cannot be used in synthesizer."
+  },
+  {
+    "tid": "synthesizer_tutorial_head_title",
+    "en": "How it works"
+  },
+  {
+    "tid": "synthesizer_tutorial_resynth_desc",
+    "en": "Use Essence to transform the stats on a piece of equipment."
+  },
+  {
+    "tid": "synthesizer_tutorial_desynth_desc",
+    "en": "Receive special Essence in exchange for lowering the rarity of a piece of equipment by one tier."
+  },
+  {
+    "tid": "bank_nav_inventory",
+    "en": "Your Inventory"
+  },
+  {
+    "tid": "bank_nav_storage",
+    "en": "Bank Storage"
+  },
+  {
+    "tid": "header_bank_inventory_title",
+    "en": "Your Inventory"
+  },
+  {
+    "tid": "header_bank_inventory_desc",
+    "en": "Items you currently have in your inventory."
+  },
+  {
+    "tid": "header_bank_storage_title",
+    "en": "Bank Storage"
+  },
+  {
+    "tid": "header_bank_storage_desc",
+    "en": "Items you currently have stored in the bank."
+  },
+  {
+    "tid": "bank_sort_inventory_button",
+    "en": "Sort Inventory"
+  },
+  {
+    "tid": "bank_sort_bank_button",
+    "en": "Sort Bank Storage"
+  },
+  {
+    "tid": "bank_stow_item_button",
+    "en": "Store in Bank"
+  },
+  {
+    "tid": "bank_remove_item_button",
+    "en": "Add to Inventory"
+  },
+  {
+    "tid": "bank_inventory_empty",
+    "en": "You currently have no items in your inventory."
+  },
+  {
+    "tid": "bank_storage_empty",
+    "en": "You currently have no items stored in the bank."
+  },
+  {
+    "tid": "header_fusion_possible_fuse_title",
+    "en": "Items Available for Fusion"
+  },
+  {
+    "tid": "header_fusion_possible_fuse_desc",
+    "en": "Use three of the same item to fuse into higher rarity."
+  },
+  {
+    "tid": "fusion_possible_empty",
+    "en": "You currently have no items available to fuse."
+  },
+  {
+    "tid": "fusion_slot_empty",
+    "en": "Empty Fusion Slot"
+  },
+  {
+    "tid": "fusion_possible_fuse_rarity",
+    "en": "{0} Fusion"
+  },
+  {
+    "tid": "fusion_possible_assign_button",
+    "en": "Assign Fusion"
+  },
+  {
+    "tid": "fusion_slot_start_fuse_button",
+    "en": "Start Fusion"
+  },
+  {
+    "tid": "fusion_slot_collect_fuse_button",
+    "en": "Collect Fused Item"
+  },
+  {
+    "tid": "header_forge_inventory_title",
+    "en": "Your Inventory"
+  },
+  {
+    "tid": "header_forge_inventory_desc",
+    "en": "Items in your inventory that you can upgrade."
+  },
+  {
+    "tid": "header_forge_heroes_title",
+    "en": "Heroes' Inventory"
+  },
+  {
+    "tid": "header_forge_heroes_desc",
+    "en": "Items your heroes have equipped that you can upgrade."
+  },
+  {
+    "tid": "forge_smith_slot_empty",
+    "en": "Empty Forge Slot"
+  },
+  {
+    "tid": "forge_smith_confirm_button",
+    "en": "Confirm Smith"
+  },
+  {
+    "tid": "forge_inventory_assign_button",
+    "en": "Assign Smith"
+  },
+  {
+    "tid": "forge_inventory_empty",
+    "en": "You have no items in your inventory that can be upgraded using the forge."
+  },
+  {
+    "tid": "forge_heroes_empty",
+    "en": "This hero has no items equipped that can be upgraded using the forge."
+  },
+  {
+    "tid": "forge_heroes_back_button",
+    "en": "Back to Heroes"
+  },
+  {
+    "tid": "forge_heroes_browsing",
+    "en": "Browsing {0}"
+  },
+  {
+    "tid": "header_fortune_possible_title",
+    "en": "Fortune Offerings Available"
+  },
+  {
+    "tid": "header_fortune_possible_desc",
+    "en": "You can offer up the following items for a fortune."
+  },
+  {
+    "tid": "fortune_possible_empty",
+    "en": "You currently have no items available to offer."
+  },
+  {
+    "tid": "fortune_slot_rarity_chance",
+    "en": "+{0} Base {1} Rarity Chance"
+  },
+  {
+    "tid": "fortune_slot_available",
+    "en": "Fortune Available"
+  },
+  {
+    "tid": "fortune_slot_confirm_button",
+    "en": "Confirm Offering"
+  },
+  {
+    "tid": "fortune_possible_assign_button",
+    "en": "Assign Offering"
+  },
+  {
+    "tid": "fortune_slot_crafts_remaining",
+    "en": "{0} Crafts Remaining"
+  },
+  {
+    "tid": "fortune_slot_empty",
+    "en": "No Active Fortune"
+  },
+  {
+    "tid": "header_tinker_research_title",
+    "en": "Trinket Research"
+  },
+  {
+    "tid": "header_tinker_research_desc",
+    "en": "Research new trinket recipes that can be crafted for gold. "
+  },
+  {
+    "tid": "tinker_view_recipes_button",
+    "en": "View {0} Recipes"
+  },
+  {
+    "tid": "tinker_command_enabled",
+    "en": "Enabled"
+  },
+  {
+    "tid": "tinker_command_disabled",
+    "en": "Disabled"
+  },
+  {
+    "tid": "tinker_command_research_cost",
+    "en": "Research Cost"
+  },
+  {
+    "tid": "tinker_command_research_complete",
+    "en": "Complete Research"
+  },
+  {
+    "tid": "museum_nav_collections",
+    "en": "Collection"
+  },
+  {
+    "tid": "museum_nav_rewards",
+    "en": "Rewards"
+  },
+  {
+    "tid": "header_museum_item_types_title",
+    "en": "Recipe Lines"
+  },
+  {
+    "tid": "header_museum_item_types_desc",
+    "en": "View your contribution details for each line."
+  },
+  {
+    "tid": "header_museum_donations_title",
+    "en": "Contribute to the Museum"
+  },
+  {
+    "tid": "header_museum_donations_desc",
+    "en": "Donate your items to earn points to spend on museum rewards."
+  },
+  {
+    "tid": "museum_no_donations_message",
+    "en": "You have no items available to donate."
+  },
+  {
+    "tid": "museum_donations_donate_button",
+    "en": "Donate"
+  },
+  {
+    "tid": "museum_item_types_back_button",
+    "en": "Back to Recipe Types"
+  },
+  {
+    "tid": "header_museum_reward_points_title",
+    "en": "Museum Rewards"
+  },
+  {
+    "tid": "header_museum_reward_points_desc",
+    "en": "Earn more points by donating unique items to the museum."
+  },
+  {
+    "tid": "museum_reward_points_balance",
+    "en": "You have <span>{0} point</span> left to spend."
+  },
+  {
+    "tid": "museum_reward_points_balance_plural",
+    "en": "You have <span>{0} points</span> left to spend."
+  },
+  {
+    "tid": "museum_reward_craft_time_redux_title",
+    "en": "Craft Time Reduction"
+  },
+  {
+    "tid": "museum_reward_craft_good_rate_title",
+    "en": "Good Rarity Rate"
+  },
+  {
+    "tid": "museum_reward_craft_great_rate_title",
+    "en": "Great Rarity Rate"
+  },
+  {
+    "tid": "museum_reward_craft_epic_rate_title",
+    "en": "Epic Rarity Rate"
+  },
+  {
+    "tid": "museum_reward_craft_time_redux_desc",
+    "en": "{0} Base Crafting Time"
+  },
+  {
+    "tid": "museum_reward_craft_good_rate_desc",
+    "en": "{0} Base Good Rarity Chance"
+  },
+  {
+    "tid": "museum_reward_craft_great_rate_desc",
+    "en": "{0} Base Great Rarity Chance"
+  },
+  {
+    "tid": "museum_reward_craft_epic_rate_desc",
+    "en": "{0} Base Epic Rarity Chance"
+  },
+  {
+    "tid": "museum_reward_level",
+    "en": "Level {0}"
+  },
+  {
+    "tid": "museum_reward_current",
+    "en": "Current Reward"
+  },
+  {
+    "tid": "museum_reward_next",
+    "en": "Next Reward"
+  },
+  {
+    "tid": "museum_reward_purchase",
+    "en": "Purchase ({0} Point)"
+  },
+  {
+    "tid": "museum_reward_purchase_plural",
+    "en": "Purchase ({0} Points)"
+  },
+  {
+    "tid": "header_market_perks_available_title",
+    "en": "Available Perks"
+  },
+  {
+    "tid": "header_market_perks_available_desc",
+    "en": "Perks you can purchase from the Market."
+  },
+  {
+    "tid": "header_market_perks_purchased_title",
+    "en": "Purchased Perks"
+  },
+  {
+    "tid": "header_market_perks_purchased_desc",
+    "en": "Perks you have already purchased from the Market."
+  },
+  {
+    "tid": "market_perk_purchase_button",
+    "en": "Purchase"
+  },
+  {
+    "tid": "universal_locked",
+    "en": "Locked"
+  },
+  {
+    "tid": "tutorial_header",
+    "en": "Introduction"
+  },
+  {
+    "tid": "tutorial_desc_0",
+    "en": "Craft a Knife."
+  },
+  {
+    "tid": "tutorial_desc_1",
+    "en": "Sell the Knife in your Inventory."
+  },
+  {
+    "tid": "tutorial_desc_2",
+    "en": "Unlock the hero Revere in the Market."
+  },
+  {
+    "tid": "tutorial_desc_3",
+    "en": "Unlock the adventure area Groovy Grove in the Market."
+  },
+  {
+    "tid": "tutorial_desc_4",
+    "en": "Send Revere on an adventure to start collecting materials.  Revere will stay in the dungeon until you cancel it."
+  },
+  {
+    "tid": "tutorial_desc_5",
+    "en": "Equip Revere with a Knife to make further dungeon progress."
+  },
+  {
+    "tid": "tutorial_desc_6",
+    "en": "Reach Floor 5 of in the Groovy Grove dungeon.  Adventures will progress on their own.  If a floor is too difficult, heroes will drop down until they are on a floor they can complete."
+  },
+  {
+    "tid": "tutorial_desc_7",
+    "en": "Unlock the guild The Cat's Meow in the Market."
+  },
+  {
+    "tid": "tutorial_desc_8",
+    "en": "Advance the Cat's Meow to Level 1 by submitting 5 Knives."
+  },
+  {
+    "tid": "tutorial_desc_9",
+    "en": "Purchase the Simple Hat recipe."
+  },
+  {
+    "tid": "tutorial_desc_10",
+    "en": "Grow the Cat's Meow to Level 2."
+  },
+  {
+    "tid": "tutorial_desc_11",
+    "en": "Unlock the adventure area Spooky Spot in the Market."
+  },
+  {
+    "tid": "tutorial_desc_12",
+    "en": "Unlock the Aviation Association guild in the Market."
+  },
+  {
+    "tid": "tutorial_desc_13",
+    "en": "Advance the Aviation Association to Level 1."
+  },
+  {
+    "tid": "tutorial_desc_14",
+    "en": "Earth Staff requires a new material; send Revere to adventure in the Spooky Spot."
+  },
+  {
+    "tid": "tutorial_desc_15",
+    "en": "Craft an Earth Staff."
+  },
+  {
+    "tid": "tutorial_desc_16",
+    "en": "Grow the Aviation Association to Level 2."
+  },
+  {
+    "tid": "tutorial_desc_17",
+    "en": "Purchase the hero Beorn in the Market."
+  },
+  {
+    "tid": "tutorial_desc_18",
+    "en": "Equip Beorn with a Meager Sword."
+  },
+  {
+    "tid": "tutorial_desc_19",
+    "en": "Send Beorn to the Groovy Grove to collect more materials."
+  },
+  {
+    "tid": "tutorial_desc_20",
+    "en": "Purchase the Green Guard guild from the Market and grow it to Level 2."
+  },
+  {
+    "tid": "tutorial_desc_21",
+    "en": "Keep leveling your Guilds and purchase a second Crafting Slot from the Market."
+  },
+  {
+    "tid": "tutorial_desc_22",
+    "en": "Unlock the Creepy Crag adventure area, hire Neve and send her out on an adventure."
+  },
+  {
+    "tid": "tutorial_desc_23",
+    "en": "Unlock Autosell, allowing you to automatically sell from the crafting slot."
+  },
+  {
+    "tid": "tutorial_desc_24",
+    "en": "Master your first recipe.  Mastering a recipe will increase exceptional craft chances, and completely removes material costs."
+  },
+  {
+    "tid": "tutorial_desc_25",
+    "en": "Advance all four crafting guilds to Level 4."
+  },
+  {
+    "tid": "tutorial_desc_26",
+    "en": "Unlock the Boss Realm and slay the foe!  If you struggle with the boss, consider giving your heroes stronger equipment."
+  },
+  {
+    "tid": "tutorial_desc_27",
+    "en": "After defeating a boss, your max guild levels increase. New recipes require new materials. Buy the Dungeon Levels perk from the market."
+  },
+  {
+    "tid": "tutorial_desc_28",
+    "en": "Send a team to Groovy Grove II to start collecting the next tier of material and end this tutorial. You may need to abandon Groovy Grove I if someone is adventuring there."
+  },
+  {
+    "tid": "offline_dialog_time_since_header",
+    "en": "Time Spent Offline"
+  },
+  {
+    "tid": "offline_dialog_gold_earned_header",
+    "en": "Gold Earned"
+  }
+]

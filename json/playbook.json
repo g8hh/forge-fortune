@@ -1,0 +1,326 @@
+[
+  {
+    "id": "PB0010",
+    "name": "Shield Up",
+    "skill1": "S0010",
+    "skill2": "S0000",
+    "skill3": "S0000",
+    "skill4": "S0000",
+    "playbookIcon": "S0010"
+  },
+  {
+    "id": "PB0011",
+    "name": "Revenge",
+    "skill1": "S0000",
+    "skill2": "S0011",
+    "skill3": "S0000",
+    "skill4": "S0000",
+    "playbookIcon": "S0011"
+  },
+  {
+    "id": "PB0012",
+    "name": "Stay Behind Me",
+    "skill1": "S0000",
+    "skill2": "S0000",
+    "skill3": "S0012",
+    "skill4": "S0000",
+    "playbookIcon": "S0012"
+  },
+  {
+    "id": "PB0020",
+    "name": "Dig Deep",
+    "skill1": "S0020",
+    "skill2": "S0000",
+    "skill3": "S0000",
+    "skill4": "S0000",
+    "playbookIcon": "S0020"
+  },
+  {
+    "id": "PB0021",
+    "name": "Intercept",
+    "skill1": "S0000",
+    "skill2": "S0000",
+    "skill3": "S0021",
+    "skill4": "S0000",
+    "playbookIcon": "S0021"
+  },
+  {
+    "id": "PB0022",
+    "name": "Fall From Grace",
+    "skill1": "S0000",
+    "skill2": "S0022",
+    "skill3": "S0000",
+    "skill4": "S0000",
+    "playbookIcon": "S0022"
+  },
+  {
+    "id": "PB0030",
+    "name": "Bloodlust",
+    "skill1": "S0000",
+    "skill2": "S0000",
+    "skill3": "S0030",
+    "skill4": "S0000",
+    "playbookIcon": "S0030"
+  },
+  {
+    "id": "PB0031",
+    "name": "Blood Bond",
+    "skill1": "S0000",
+    "skill2": "S0000",
+    "skill3": "S0000",
+    "skill4": "S0031",
+    "playbookIcon": "S0031"
+  },
+  {
+    "id": "PB0032",
+    "name": "Bloodbath",
+    "skill1": "S0000",
+    "skill2": "S0032",
+    "skill3": "S0000",
+    "skill4": "S0000",
+    "playbookIcon": "S0032"
+  },
+  {
+    "id": "PB0040",
+    "name": "Swipe",
+    "skill1": "S0040",
+    "skill2": "S0000",
+    "skill3": "S0000",
+    "skill4": "S0000",
+    "playbookIcon": "S0040"
+  },
+  {
+    "id": "PB0041",
+    "name": "Waning Blows",
+    "skill1": "S0000",
+    "skill2": "S0041",
+    "skill3": "S0000",
+    "skill4": "S0000",
+    "playbookIcon": "S0041"
+  },
+  {
+    "id": "PB0042",
+    "name": "Overexcited",
+    "skill1": "S0000",
+    "skill2": "S0000",
+    "skill3": "S0042",
+    "skill4": "S0000",
+    "playbookIcon": "S0042"
+  },
+  {
+    "id": "PB0050",
+    "name": "Rain Fire",
+    "skill1": "S0000",
+    "skill2": "S0000",
+    "skill3": "S0000",
+    "skill4": "S1010",
+    "playbookIcon": "S1010"
+  },
+  {
+    "id": "PB0051",
+    "name": "Catastrophe",
+    "skill1": "S0000",
+    "skill2": "S1011",
+    "skill3": "S0000",
+    "skill4": "S0000",
+    "playbookIcon": "S1011"
+  },
+  {
+    "id": "PB0052",
+    "name": "Cataclysm",
+    "skill1": "S0000",
+    "skill2": "S0000",
+    "skill3": "S1012",
+    "skill4": "S0000",
+    "playbookIcon": "S1012"
+  },
+  {
+    "id": "PB0060",
+    "name": "Icy Embrace",
+    "skill1": "S0000",
+    "skill2": "S1020",
+    "skill3": "S0000",
+    "skill4": "S0000",
+    "playbookIcon": "S1020"
+  },
+  {
+    "id": "PB0061",
+    "name": "Blizzard",
+    "skill1": "S1021",
+    "skill2": "S0000",
+    "skill3": "S1021",
+    "skill4": "S0000",
+    "playbookIcon": "S1021"
+  },
+  {
+    "id": "PB0062",
+    "name": "Cold As Ice",
+    "skill1": "S0000",
+    "skill2": "S0000",
+    "skill3": "S0000",
+    "skill4": "S1022",
+    "playbookIcon": "S1022"
+  },
+  {
+    "id": "PB0070",
+    "name": "Infection",
+    "skill1": "S1030",
+    "skill2": "S0000",
+    "skill3": "S0000",
+    "skill4": "S0000",
+    "playbookIcon": "S1030"
+  },
+  {
+    "id": "PB0071",
+    "name": "Outbreak",
+    "skill1": "S0000",
+    "skill2": "S1031",
+    "skill3": "S0000",
+    "skill4": "S0000",
+    "playbookIcon": "S1031"
+  },
+  {
+    "id": "PB0072",
+    "name": "Pandemic",
+    "skill1": "S0000",
+    "skill2": "S0000",
+    "skill3": "S1032",
+    "skill4": "S0000",
+    "playbookIcon": "S1032"
+  },
+  {
+    "id": "PB0080",
+    "name": "Light Squeeze",
+    "skill1": "S0000",
+    "skill2": "S0000",
+    "skill3": "S1040",
+    "skill4": "S0000",
+    "playbookIcon": "S1040"
+  },
+  {
+    "id": "PB0081",
+    "name": "Light Hug",
+    "skill1": "S0000",
+    "skill2": "S0000",
+    "skill3": "S0000",
+    "skill4": "S1041",
+    "playbookIcon": "S1041"
+  },
+  {
+    "id": "PB0082",
+    "name": "Light Connection",
+    "skill1": "S1042",
+    "skill2": "S0000",
+    "skill3": "S0000",
+    "skill4": "S0000",
+    "playbookIcon": "S1042"
+  },
+  {
+    "id": "PB0090",
+    "name": "Song Of Life",
+    "skill1": "S0000",
+    "skill2": "S2010",
+    "skill3": "S0000",
+    "skill4": "S0000",
+    "playbookIcon": "S2010"
+  },
+  {
+    "id": "PB0091",
+    "name": "Song Of Strength",
+    "skill1": "S2011",
+    "skill2": "S0000",
+    "skill3": "S0000",
+    "skill4": "S0000",
+    "playbookIcon": "S2011"
+  },
+  {
+    "id": "PB0092",
+    "name": "Song Of Pain",
+    "skill1": "S0000",
+    "skill2": "S0000",
+    "skill3": "S0000",
+    "skill4": "S2012",
+    "playbookIcon": "S2012"
+  },
+  {
+    "id": "PB0100",
+    "name": "Wounded Target",
+    "skill1": "S0000",
+    "skill2": "S0000",
+    "skill3": "S0000",
+    "skill4": "S2020",
+    "playbookIcon": "S2020"
+  },
+  {
+    "id": "PB0101",
+    "name": "Marked Target",
+    "skill1": "S0000",
+    "skill2": "S0000",
+    "skill3": "S2021",
+    "skill4": "S0000",
+    "playbookIcon": "S2021"
+  },
+  {
+    "id": "PB0102",
+    "name": "Smug Target",
+    "skill1": "S2022",
+    "skill2": "S0000",
+    "skill3": "S0000",
+    "skill4": "S0000",
+    "playbookIcon": "S2022"
+  },
+  {
+    "id": "PB0110",
+    "name": "Punching Bag",
+    "skill1": "S0000",
+    "skill2": "S0000",
+    "skill3": "S2030",
+    "skill4": "S0000",
+    "playbookIcon": "S2030"
+  },
+  {
+    "id": "PB0111",
+    "name": "Cold Confidence",
+    "skill1": "S0000",
+    "skill2": "S2031",
+    "skill3": "S0000",
+    "skill4": "S0000",
+    "playbookIcon": "S2031"
+  },
+  {
+    "id": "PB0112",
+    "name": "Better Than Good",
+    "skill1": "S0000",
+    "skill2": "S0000",
+    "skill3": "S0000",
+    "skill4": "S2032",
+    "playbookIcon": "S2032"
+  },
+  {
+    "id": "PB0120",
+    "name": "Just A Second",
+    "skill1": "S2040",
+    "skill2": "S0000",
+    "skill3": "S0000",
+    "skill4": "S0000",
+    "playbookIcon": "S2040"
+  },
+  {
+    "id": "PB0121",
+    "name": "Third Time",
+    "skill1": "S0000",
+    "skill2": "S2041",
+    "skill3": "S0000",
+    "skill4": "S0000",
+    "playbookIcon": "S2041"
+  },
+  {
+    "id": "PB0122",
+    "name": "Back And Fourth",
+    "skill1": "S0000",
+    "skill2": "S0000",
+    "skill3": "S2042",
+    "skill4": "S0000",
+    "playbookIcon": "S2042"
+  }
+]

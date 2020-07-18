@@ -1,0 +1,200 @@
+[
+  {
+    "id": "craft_warning",
+    "heading": "Insufficient Workers",
+    "text": "You do not have the required workers free for this craft.",
+    "icon": "error"
+  },
+  {
+    "id": "slots_full",
+    "heading": "No Crafting Slots Available",
+    "text": "Your crafting slots are all in use, please remove a craft to continue.",
+    "icon": "error"
+  },
+  {
+    "id": "fortune_no_slot",
+    "heading": "No Fortune Slots Available",
+    "text": "You do not have any available fortune slots.",
+    "icon": "error"
+  },
+  {
+    "id": "fortune_inv_full",
+    "heading": "Cannot Recollect Fortune",
+    "text": "Your inventory is currently full.",
+    "icon": "error"
+  },
+  {
+    "id": "worker_gold_req",
+    "heading": "Cannot Upgrade Worker",
+    "text": "You do not have enough gold to upgrade this worker.",
+    "icon": "error"
+  },
+  {
+    "id": "exceptional_craft_epic",
+    "heading": "Epic Craft!",
+    "text": "You crafted a {0} of Epic rarity!",
+    "icon": "craftEpic"
+  },
+  {
+    "id": "exceptional_craft_great",
+    "heading": "Great Craft!",
+    "text": "You crafted a {0} of Great rarity!",
+    "icon": "craftGreat"
+  },
+  {
+    "id": "exceptional_craft_good",
+    "heading": "Good Craft!",
+    "text": "You crafted a {0} of Good rarity!",
+    "icon": "craftGood"
+  },
+  {
+    "id": "recipe_master_need_more",
+    "heading": "Insufficient Materials",
+    "text": "You do not have enough materials to master this recipe.",
+    "icon": "error"
+  },
+  {
+    "id": "inventory_full",
+    "heading": "Inventory Full",
+    "text": "Your inventory is full, please sell something to continue.",
+    "icon": "error"
+  },
+  {
+    "id": "no_party_selected",
+    "heading": "Cannot Start Dungeon",
+    "text": "You have no heroes in your party.",
+    "icon": "error"
+  },
+  {
+    "id": "search_length_invalid",
+    "heading": "Invalid Search Parameters",
+    "text": "Your search must contain at least two characters.",
+    "icon": "error"
+  },
+  {
+    "id": "fuse_inv_full",
+    "heading": "Cannot Collect Fusion",
+    "text": "Your inventory is currently full.",
+    "icon": "error"
+  },
+  {
+    "id": "cant_afford_fuse",
+    "heading": "Cannot Start Fusion",
+    "text": "You do not have enough gold.",
+    "icon": "error"
+  },
+  {
+    "id": "no_fuse_slots",
+    "heading": "No Fusion Slots Available",
+    "text": "You do not have any available fusion slots.",
+    "icon": "error"
+  },
+  {
+    "id": "cant_find_match",
+    "heading": "Cannot Fulfill Order",
+    "text": "You do not have this item.",
+    "icon": "error"
+  },
+  {
+    "id": "recipe_gold_req",
+    "heading": "Cannot Purchase Recipe",
+    "text": "You do not have enough gold.",
+    "icon": "error"
+  },
+  {
+    "id": "perk_cost",
+    "heading": "Cannot Purchase Perk",
+    "text": "You do not have enough gold or materials.",
+    "icon": "error"
+  },
+  {
+    "id": "buy_recipe",
+    "heading": "You purchased a recipe!",
+    "text": "Craft your new {0} on the recipe tab!",
+    "icon": "info"
+  },
+  {
+    "id": "master_recipe",
+    "heading": "{0} has been mastered!",
+    "text": "Rarity crafting chances doubled and material costs removed.",
+    "icon": "info"
+  },
+  {
+    "id": "recipe_not_owned",
+    "heading": "Cannot Start Craft",
+    "text": "You have not bought this recipe from the Guild Sales.",
+    "icon": "error"
+  },
+  {
+    "id": "cant_afford_smith_gold",
+    "heading": "Cannot Start Smithing",
+    "text": "You do not have enough gold.",
+    "icon": "error"
+  },
+  {
+    "id": "cant_afford_smith_material",
+    "heading": "Cannot Start Smithing",
+    "text": "Need {1} more {0}.",
+    "icon": "error"
+  },
+  {
+    "id": "smith_success",
+    "heading": "Forge Success!",
+    "text": "Your {0} has been improved!",
+    "icon": "info"
+  },
+  {
+    "id": "synth_collect",
+    "heading": "Extraction Complete!",
+    "text": "You collected {1} {0}!",
+    "icon": "info"
+  },
+  {
+    "id": "cant_smith_max",
+    "heading": "Cannot Smith Item",
+    "text": "Item is at maximum enhancement.",
+    "icon": "error"
+  },
+  {
+    "id": "insufficient_resynth_mats",
+    "heading": "Cannot Perform Resynthesis",
+    "text": "You do not have enough materials.",
+    "icon": "error"
+  },
+  {
+    "id": "cant_afford_museum_reward",
+    "heading": "Cannot Afford Reward",
+    "text": "You do not have enough points to purchase this reward.",
+    "icon": "error"
+  },
+  {
+    "id": "cant_afford_slot_upgrade",
+    "heading": "Cannot Afford Upgrade",
+    "text": "You do not have enough Monster Trophies to purchase this upgrade.",
+    "icon": "error"
+  },
+  {
+    "id": "tinker_disable",
+    "heading": "Tinker Command Disabled",
+    "text": "Not enough gold to research.",
+    "icon": "error"
+  },
+  {
+    "id": "tinker_research",
+    "heading": "Tinker Research Complete",
+    "text": "Not enough gold to complete research.",
+    "icon": "error"
+  },
+  {
+    "id": "hero_dungeon_playbook_swap",
+    "heading": "Cannot Swap Playbook",
+    "text": "Cannot swap while hero is on an adventure.",
+    "icon": "error"
+  },
+  {
+    "id": "invalid_quest_team",
+    "heading": "Cannot Start Quest",
+    "text": "Quest team is not fully populated.",
+    "icon": "error"
+  }
+]

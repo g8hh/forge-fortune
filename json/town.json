@@ -1,0 +1,58 @@
+[
+  {
+    "id": "TB001",
+    "name": "Magical Synthesizer",
+    "description": "Harness the magical arts to transform your equipment.",
+    "shorthand": "synth",
+    "recipeID": "R99410"
+  },
+  {
+    "id": "TB002",
+    "name": "The Bank",
+    "description": "An entire vault of safety deposit boxes, just for you.",
+    "shorthand": "bank",
+    "recipeID": "R99110"
+  },
+  {
+    "id": "TB003",
+    "name": "Fusion Cabin",
+    "description": "Become the master alchemist you've always wanted to be.",
+    "shorthand": "fusion",
+    "recipeID": "R99210"
+  },
+  {
+    "id": "TB004",
+    "name": "The Forge",
+    "description": "This hammer won't hurt your gear.  ",
+    "shorthand": "forge",
+    "recipeID": "R99310"
+  },
+  {
+    "id": "TB005",
+    "name": "Fortune Teller",
+    "description": "Hopefully she won't disappear.",
+    "shorthand": "fortune",
+    "recipeID": "R99510"
+  },
+  {
+    "id": "TB006",
+    "name": "Tinker Hut",
+    "description": "It's an artifact finding mission.",
+    "shorthand": "tinker",
+    "recipeID": "R99610"
+  },
+  {
+    "id": "TB008",
+    "name": "Museum",
+    "description": "Let us know if you have items to donate.",
+    "shorthand": "museum",
+    "recipeID": "R99810"
+  },
+  {
+    "id": "TB009",
+    "name": "Hall of Milestones",
+    "description": "A list of all of your accomplishments and progress.",
+    "shorthand": "milestone",
+    "recipeID": "R99910"
+  }
+]

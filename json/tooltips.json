@@ -1,0 +1,387 @@
+[
+  {
+    "id": "rep",
+    "title": "Reputation",
+    "description": "Used to level up guilds.",
+    "icon": "<i class=\"fas fa-grin-alt\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "in_inventory",
+    "title": "In Inventory",
+    "description": "Amount currently in your inventory.",
+    "icon": "<i class=\"fas fa-cube\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "sort_inventory",
+    "title": "Inventory Sorting",
+    "description": "Sort your inventory by tier, type, and then rarity.",
+    "icon": "<i class=\"fas fa-sort-size-up-alt\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "sort_bank",
+    "title": "Bank Storage Sorting",
+    "description": "Sort your bank by tier, type, and then rarity.",
+    "icon": "<i class=\"fas fa-sort-size-up-alt\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "recipe_desc",
+    "title": "#name#",
+    "description": "#description#",
+    "icon": "assets/images/recipes/#type#/#id#.png",
+    "type": "recipe"
+  },
+  {
+    "id": "recipe_gold",
+    "title": "#goldComma# Gold",
+    "description": "The amount of gold this recipe is worth.",
+    "icon": "assets/images/resources/M001.png",
+    "type": "recipe"
+  },
+  {
+    "id": "gold_value",
+    "title": "#value# Gold",
+    "description": "Standard currency used for purchases.",
+    "icon": "assets/images/resources/M001.png",
+    "type": "value"
+  },
+  {
+    "id": "crafting_time",
+    "title": "Crafting Time",
+    "description": "The amount of time needed to craft this recipe.",
+    "icon": "<i class=\"fas fa-clock\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "remaining_time",
+    "title": "Remaining Craft Time",
+    "description": "The amount of time remaining before this recipe is crafted.",
+    "icon": "<i class=\"fas fa-clock\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "materials_needed",
+    "title": "Missing Required Materials",
+    "description": "You do not have the required materials needed to craft this recipe.",
+    "icon": "<i class=\"fas fa-exclamation-circle\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "fuse_time",
+    "title": "Fuse Time",
+    "description": "The amount of time needed to complete the fusion of this recipe.",
+    "icon": "<i class=\"fas fa-clock\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "recipe_level",
+    "title": "Recipe Level",
+    "description": "This is the level of this recipe.",
+    "icon": null,
+    "type": "static"
+  },
+  {
+    "id": "item_level",
+    "title": "Item Level",
+    "description": "This is the level of this item.",
+    "icon": null,
+    "type": "static"
+  },
+  {
+    "id": "star_rating",
+    "title": "Star Rating",
+    "description": "Increases the stats of this item.",
+    "icon": "<i class=\"fas fa-star\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "rarity_common",
+    "title": "Common Rarity",
+    "description": "This item is of <span class=\"tooltip-item_common\">Common</span> rarity.",
+    "icon": "<i class=\"fad fa-diamond\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "rarity_good",
+    "title": "Good Rarity",
+    "description": "This item is of <span class=\"tooltip-item_good\">Good</span> rarity.",
+    "icon": "<i class=\"fad fa-diamond\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "rarity_great",
+    "title": "Great Rarity",
+    "description": "This item is of <span class=\"tooltip-item_great\">Great</span> rarity.",
+    "icon": "<i class=\"fad fa-diamond\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "rarity_epic",
+    "title": "Epic Rarity",
+    "description": "This item is of <span class=\"tooltip-item_epic\">Epic</span> rarity.",
+    "icon": "<i class=\"fad fa-diamond\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "hp",
+    "title": "Health",
+    "description": "The amount of damage an entity can sustain before being downed.",
+    "icon": "<i class=\"fas fa-heart statHP\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "pow",
+    "title": "Power",
+    "description": "The amount of damage an entity is capable of dealing.",
+    "icon": "<i class=\"fad fa-sword statPOW\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "material_desc",
+    "title": "#name#",
+    "description": "#description#</br>You have #amt#.",
+    "icon": "assets/images/resources/#id#.png",
+    "type": "material"
+  },
+  {
+    "id": "material_desc_mastered",
+    "title": "#name# Cost Removed",
+    "description": "Mastering this recipe has removed this material cost.",
+    "icon": "assets/images/resources/#id#.png",
+    "type": "material"
+  },
+  {
+    "id": "guild_worker",
+    "title": "#name#",
+    "description": "Represents a worker for the guild.",
+    "icon": "#icon#",
+    "type": "guild"
+  },
+  {
+    "id": "guild_mastery_recipe",
+    "title": "View in Recipes",
+    "description": "Redirects directly to this recipe's details.",
+    "icon": "<i class=\"fas fa-book\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "worker_desc",
+    "title": "#name#",
+    "description": "#description#",
+    "icon": null,
+    "type": "worker"
+  },
+  {
+    "id": "equipment_remove",
+    "title": "Remove Slotted Equipment",
+    "description": "This will remove the currently equipped item on this slot and return it to your inventory. ",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "playbooks_view",
+    "title": "View Hero Playbooks",
+    "description": "Selected Playbook: #name#",
+    "icon": "<i class=\"fas fa-book\"></i>",
+    "type": "playbook"
+  },
+  {
+    "id": "forge_remove",
+    "title": "Removed Slotted Forge",
+    "description": "This will remove the currently slotted item for forging and return it to your inventory.",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "fusion_remove",
+    "title": "Remove Slotted Fusion",
+    "description": "This will remove the currently slotted fusion and return the items to your inventory. ",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "offering_remove",
+    "title": "Remove Slotted Offering",
+    "description": "This will remove the currently slotted offering and return the item to your inventory. ",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "fortune_remove",
+    "title": "Remove Active Fortune",
+    "description": "This will remove the currently active fortune.",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "research_time",
+    "title": "Research Time",
+    "description": "The amount of time needed to increment this trinket research.",
+    "icon": "<i class=\"fas fa-stopwatch\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "research_level",
+    "title": "Research Level",
+    "description": "The level of this trinket research.",
+    "icon": "<i class=\"fas fa-spinner\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "skill_desc",
+    "title": "#name#",
+    "description": "#description#",
+    "icon": "#icon#",
+    "type": "skill"
+  },
+  {
+    "id": "hero_in_combat",
+    "title": "Hero Already Adventuring",
+    "description": "This hero is already on another adventure.",
+    "icon": "<i class=\"fas fa-swords\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "hero_in_party",
+    "title": "Hero Added To Party",
+    "description": "This hero is already assigned to your party.",
+    "icon": "<i class=\"fas fa-check\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "hero_in_quest",
+    "title": "Hero Already Questing",
+    "description": "This hero is already on a quest.",
+    "icon": "<i class=\"fas fa-map-signs\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "boss_refight_count",
+    "title": "Boss Defeats",
+    "description": "The amount of times you have defeated this boss.",
+    "icon": "<i class=\"fas fa-skull\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "quest_time",
+    "title": "Quest Time",
+    "description": "The amount of time needed to complete this quest.",
+    "icon": "<i class=\"fas fa-clock\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "quest_time_remaining",
+    "title": "Remaining Quest Time",
+    "description": "The amount of time remaining until this quest is completed.",
+    "icon": "<i class=\"fas fa-clock\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "perk_desc",
+    "title": "#title#",
+    "description": "#description#",
+    "icon": "#icon#",
+    "type": "perk"
+  },
+  {
+    "id": "perks_remaining",
+    "title": "Additional Perks Remaining",
+    "description": "The number of additional perks left in this line.",
+    "icon": "<i class=\"fas fa-plus-circle\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "autosell_none",
+    "title": "Auto-Sell Setting: None",
+    "description": "You are currently not autoselling any rarities of this item.",
+    "icon": null,
+    "type": "static"
+  },
+  {
+    "id": "autosell_common",
+    "title": "Auto-Sell Setting: Common",
+    "description": "You are currently auto-selling <span class=\"tooltip-item_common\">Common</span> rarity for this item.",
+    "icon": null,
+    "type": "static"
+  },
+  {
+    "id": "autosell_good",
+    "title": "Auto-Sell Setting: Good and below",
+    "description": "You are currently auto-selling <span class=\"tooltip-item_good\">Good</span> and <span class=\"tooltip-item_common\">Common</span> rarity for this item.",
+    "icon": null,
+    "type": "static"
+  },
+  {
+    "id": "autosell_great",
+    "title": "Auto-Sell Setting: Great and below",
+    "description": "You are currently auto-selling <span class=\"tooltip-item_great\">Great</span>, <span class=\"tooltip-item_good\">Good</span> and <span class=\"tooltip-item_common\">Common</span> rarity for this item.",
+    "icon": null,
+    "type": "static"
+  },
+  {
+    "id": "autosell_epic",
+    "title": "Auto-Sell Setting: All",
+    "description": "You are currently auto-selling all rarities (<span class=\"tooltip-item_epic\">Epic</span>, <span class=\"tooltip-item_great\">Great</span>, <span class=\"tooltip-item_good\">Good</span> and <span class=\"tooltip-item_common\">Common</span>) of this item.",
+    "icon": null,
+    "type": "static"
+  },
+  {
+    "id": "cancel_craft",
+    "title": "Cancel Crafting",
+    "description": "Cancel crafting this recipe. Materials will be refunded.",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "clear_save",
+    "title": "Clear Saved Game Data",
+    "description": "Permanently delete your current saved game data. This action is irreversible.",
+    "icon": "<i class=\"fas fa-file-times\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "import_save",
+    "title": "Import Game Data",
+    "description": "Import your own previously exported data or shared game data.",
+    "icon": "<i class=\"fas fa-file-export\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "export_save",
+    "title": "Export Game Data",
+    "description": "Export your current game data for sharing or importing at a later time.",
+    "icon": "<i class=\"fas fa-file-import\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "cloud_save",
+    "title": "Save or Load from Cloud",
+    "description": "Save or load your game data from the Cloud using Playfab.",
+    "icon": "<i class=\"fas fa-cloud-download\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "settings",
+    "title": "Settings",
+    "description": "Change your game preferences and settings.",
+    "icon": "<i class=\"fas fa-cog\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "debug",
+    "title": "Development Options",
+    "description": "Development and debugging options for testing various mechanics and features.",
+    "icon": "<i class=\"fas fa-bug\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "buff_desc",
+    "title": "#name#",
+    "description": "#description#",
+    "icon": "#icon#",
+    "type": "buff"
+  }
+]

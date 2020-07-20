@@ -119,7 +119,7 @@
   {
     "id": "R11005",
     "name": "Water Staff",
-    "description": "Expert water staff users can use floods in expertly timed, awe inspiring bursts of magic.",
+    "description": "Expert Water Staff users can use floods in expertly timed, awe inspiring bursts of magic.",
     "lvl": 5,
     "value": 15176,
     "craftTime": 66276,
@@ -1024,9 +1024,9 @@
       "G002"
     ],
     "mcost": {
-      "M105": 8
+      "M205": 8
     },
-    "smithCost": "M105",
+    "smithCost": "M205",
     "pts": 22,
     "pow": 0,
     "hp": 3,
@@ -1399,7 +1399,7 @@
   {
     "id": "R2208",
     "name": "Spellcasting Hat",
-    "description": "To awaken it's power, recite the following spell --  \"Lorem ipsum dolor sit amet\"",
+    "description": "To awaken its power, recite the following spell --  \"Lorem ipsum dolor sit amet\"",
     "lvl": 8,
     "value": 2413404,
     "craftTime": 178455,
@@ -1614,9 +1614,9 @@
       "G003"
     ],
     "mcost": {
-      "M205": 8
+      "M105": 8
     },
-    "smithCost": "M205",
+    "smithCost": "M105",
     "pts": 22,
     "pow": 0,
     "hp": 3,
@@ -2204,9 +2204,9 @@
       "G002"
     ],
     "mcost": {
-      "M205": 8
+      "M305": 8
     },
-    "smithCost": "M205",
+    "smithCost": "M305",
     "pts": 20,
     "pow": 0,
     "hp": 3,
@@ -3398,9 +3398,9 @@
       "G003"
     ],
     "mcost": {
-      "M305": 8
+      "M205": 8
     },
-    "smithCost": "M305",
+    "smithCost": "M205",
     "pts": 24,
     "pow": 0,
     "hp": 3,

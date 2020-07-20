@@ -473,7 +473,7 @@
   },
   {
     "tid": "fusion_slot_collect_fuse_button",
-    "en": "Collect Fused Item"
+    "en": "Collect Fusion"
   },
   {
     "tid": "header_forge_inventory_title",
@@ -741,7 +741,7 @@
   },
   {
     "tid": "tutorial_desc_6",
-    "en": "Reach Floor 5 of in the Groovy Grove dungeon.  Adventures will progress on their own.  If a floor is too difficult, heroes will drop down until they are on a floor they can complete."
+    "en": "Reach Floor 5 in the Groovy Grove dungeon.  Adventures will progress on their own.  If a floor is too difficult, heroes will drop down until they are on a floor they can complete."
   },
   {
     "tid": "tutorial_desc_7",

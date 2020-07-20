@@ -74,7 +74,7 @@
   {
     "id": "S0031",
     "name": "Blood Bond",
-    "description": "Grim deals 300% #POWICON# to the frontmost enemy.  If they has Necrosis, Grim will heal himself for the same amount as damage done.",
+    "description": "Grim deals 300% #POWICON# to the frontmost enemy.  If the enemy has Necrosis, Grim will heal himself for the same amount as damage done.",
     "icon": "<img src=\"assets/svg/skull-bolt.svg\">",
     "powMod": 3,
     "mod1": 1,
@@ -146,7 +146,7 @@
   {
     "id": "S1020",
     "name": "Frost Strike",
-    "description": "Neve attacks the frontmost enemy for 100% #POWICON# and applies Chilled.  If they are already has Chilled,  this attack does 250% #POWICON# instead.",
+    "description": "Neve attacks the frontmost enemy for 100% #POWICON# and applies Chilled.  If they are already Chilled,  this attack does 250% #POWICON# instead.",
     "icon": "<img src=\"assets/svg/ice-bolt.svg\">",
     "powMod": 1,
     "mod1": 2.5,

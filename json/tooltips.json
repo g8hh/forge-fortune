@@ -182,6 +182,13 @@
     "type": "static"
   },
   {
+    "id": "equipment_upgrade",
+    "title": "Gear Upgrade Available",
+    "description": "This item is an upgrade to gear equipped on another hero.",
+    "icon": "<i class=\"fas fa-arrow-up\"></i>",
+    "type": "static"
+  },
+  {
     "id": "playbooks_view",
     "title": "View Hero Playbooks",
     "description": "Selected Playbook: #name#",
@@ -193,6 +200,13 @@
     "title": "Removed Slotted Forge",
     "description": "This will remove the currently slotted item for forging and return it to your inventory.",
     "icon": "<i class=\"fas fa-times\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "forge_level",
+    "title": "Forge Enhancement",
+    "description": "The enhancement level of this item. You can enhance items in the Forge building.",
+    "icon": "<i class=\"fas fa-plus-circle\"></i>",
     "type": "static"
   },
   {

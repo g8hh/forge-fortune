@@ -8964,7 +8964,7 @@ $(document).on("click", ".heroTab", function(e) {
         return;
     $(".heroTab").removeClass("selected");
     $(e.currentTarget).addClass("selected");
-    var tabType = $(e.currentTarget).html();
+    var tabType = $(e.currentTarget).attr("data-herotabid");
     if (HeroManager.tabSelected === tabType)
         return;
     HeroManager.tabSelected = tabType;

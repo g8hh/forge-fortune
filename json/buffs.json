@@ -222,7 +222,7 @@
   {
     "id": "BM205",
     "name": "Phased",
-    "description": "Negates all damage taken from incoming attacks until Blinkie's next turn.",
+    "description": "Negates all damage taken from incoming attacks until Stinkie's next turn.",
     "icon": "<img src=\"assets/svg/spectre.svg\">",
     "maxStack": 1,
     "stackCast": 1,

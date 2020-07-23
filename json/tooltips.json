@@ -252,6 +252,27 @@
     "type": "skill"
   },
   {
+    "id": "dungeon_locked",
+    "title": "Dungeon Not Available",
+    "description": "Defeat bosses to unlock harder dungeons with new materials.",
+    "icon": "<i class=\"fas fa-swords\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "dungeon_locked_boss",
+    "title": "Boss Dungeon Not Available",
+    "description": "Defeating the boss previous to this dungeon will unlock this boss dungeon.",
+    "icon": "<i class=\"fas fa-swords\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "boss_defeated",
+    "title": "Boss Defeated",
+    "description": "You have defeated this boss already. You can rechallenge bosses in the future through a perk purchase.",
+    "icon": "<i class=\"fas fa-skull\"></i>",
+    "type": "static"
+  },
+  {
     "id": "hero_in_combat",
     "title": "Hero Already Adventuring",
     "description": "This hero is already on another adventure.",

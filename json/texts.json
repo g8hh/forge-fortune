@@ -260,6 +260,10 @@
     "en": "Start Boss Fight"
   },
   {
+    "tid": "adventure_launch_floor_boss_defeated",
+    "en": "Boss Defeated"
+  },
+  {
     "tid": "adventure_launch_floor_boss_refight",
     "en": "Rechallenge Boss"
   },
@@ -514,10 +518,6 @@
   {
     "tid": "forge_heroes_back_button",
     "en": "Back to Heroes"
-  },
-  {
-    "tid": "forge_heroes_browsing",
-    "en": "Browsing {0}"
   },
   {
     "tid": "header_fortune_possible_title",

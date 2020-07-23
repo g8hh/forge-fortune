@@ -74,10 +74,10 @@
   {
     "id": "S0031",
     "name": "Blood Bond",
-    "description": "Grim deals 300% #POWICON# to the frontmost enemy.  If the enemy has Necrosis, Grim will heal himself for the same amount as damage done.",
+    "description": "Grim deals 200% #POWICON# to the frontmost enemy.  If the enemy has Necrosis, Grim will heal himself for 100% #POWICON#.",
     "icon": "<img src=\"assets/svg/skull-bolt.svg\">",
-    "powMod": 3,
-    "mod1": 1,
+    "powMod": 2,
+    "mod1": 0.5,
     "mod2": null
   },
   {
@@ -182,7 +182,7 @@
   {
     "id": "S1031",
     "name": "Decompose",
-    "description": "Titus saps life energy from the ally in behind him to apply Necrosis on his enemy counterpart. Necrosis deals 30% #POWICON# per stack to enemies on their turn. Titus will not sap Grim.",
+    "description": "Titus saps life energy from the ally behind him to apply Necrosis on his enemy counterpart. Necrosis deals 30% #POWICON# per stack to enemies on their turn. Titus will not sap Grim.",
     "icon": "<img src=\"assets/svg/stoned-skull.svg\">",
     "powMod": 1,
     "mod1": 0.3,
@@ -299,10 +299,10 @@
   {
     "id": "S2032",
     "name": "Lucky Stab",
-    "description": "Revere deals 300% #POWICON# to the frontmost enemy.  If Revere's HP ends in a 7, Revere deals 1200% #POWICON# instead.",
+    "description": "Revere deals 300% #POWICON# to the frontmost enemy.  If Revere's HP ends in a 7, Revere deals 700% #POWICON# instead.",
     "icon": "<img src=\"assets/svg/card-7-hearts.svg\">",
     "powMod": 3,
-    "mod1": 4,
+    "mod1": 2.3333,
     "mod2": null
   },
   {
@@ -470,7 +470,7 @@
   {
     "id": "SM205",
     "name": "Phased",
-    "description": "Stinkie gains Phased. Phased negates all damage taken until Blinkie's next turn.",
+    "description": "Stinkie gains Phased. Phased negates all damage taken until Stinkie's next turn.",
     "icon": "<img src=\"assets/svg/spectre.svg\">",
     "powMod": 1,
     "mod1": null,

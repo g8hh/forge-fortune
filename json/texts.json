@@ -584,6 +584,10 @@
     "en": "Complete Research"
   },
   {
+    "tid": "tinker_command_research_empty",
+    "en": "There are no more Trinket recipes available for research."
+  },
+  {
     "tid": "museum_nav_collections",
     "en": "Collection"
   },

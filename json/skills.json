@@ -38,7 +38,7 @@
   {
     "id": "S0020",
     "name": "Purity",
-    "description": "Cedric gains Purity.  Purity increases Cedric's health by 100% #POWICON#, and increases his max HP by 100% #POWICON#.",
+    "description": "Cedric gains Purity.  Purity increases max HP by 100% #POWICON#.",
     "icon": "<img src=\"assets/svg/self-love.svg\">",
     "powMod": 1,
     "mod1": null,
@@ -128,9 +128,9 @@
   {
     "id": "S1011",
     "name": "Conflagrate",
-    "description": "Zoe deals 300% #POWICON# to the frontmost enemy and applies Scorch.  Scorch deals 10% #POWICON# to enemies on their turn.",
+    "description": "Zoe deals 250% #POWICON# to the frontmost enemy and applies Scorch.  Scorch deals 10% #POWICON# to enemies on their turn.",
     "icon": "<img src=\"assets/svg/fire-silhouette.svg\">",
-    "powMod": 3,
+    "powMod": 2.5,
     "mod1": 0.1,
     "mod2": null
   },
@@ -461,7 +461,7 @@
   {
     "id": "SM204",
     "name": "Lightning Storm",
-    "description": "Lighning Shaman deals 100% #POWICON# to all enemies.",
+    "description": "Lightning Shaman deals 100% #POWICON# to all enemies.",
     "icon": "<img src=\"assets/svg/lightning-branches.svg\">",
     "powMod": 1,
     "mod1": null,
@@ -648,63 +648,9 @@
     "mod2": null
   },
   {
-    "id": "SM909A1",
-    "name": "Cleave",
-    "description": "Cleave",
-    "icon": "<img src=\"assets/svg/wood-beam.svg\">",
-    "powMod": 2,
-    "mod1": null,
-    "mod2": null
-  },
-  {
-    "id": "SM909A2",
-    "name": "Protect",
-    "description": "Protect",
-    "icon": "<img src=\"assets/svg/wood-beam.svg\">",
-    "powMod": 2,
-    "mod1": null,
-    "mod2": null
-  },
-  {
-    "id": "SM909B1",
-    "name": "Heal",
-    "description": "Heal",
-    "icon": "<img src=\"assets/svg/wood-beam.svg\">",
-    "powMod": 2,
-    "mod1": null,
-    "mod2": null
-  },
-  {
-    "id": "SM909B2",
-    "name": "AoE",
-    "description": "AoE",
-    "icon": "<img src=\"assets/svg/wood-beam.svg\">",
-    "powMod": 2,
-    "mod1": null,
-    "mod2": null
-  },
-  {
-    "id": "SM909C1",
-    "name": "Pow Buff",
-    "description": "Pow Buff",
-    "icon": "<img src=\"assets/svg/wood-beam.svg\">",
-    "powMod": 2,
-    "mod1": null,
-    "mod2": null
-  },
-  {
-    "id": "SM909C2",
-    "name": "DoubleHit Execute",
-    "description": "DoubleHit Execute",
-    "icon": "<img src=\"assets/svg/wood-beam.svg\">",
-    "powMod": 2,
-    "mod1": 0.5,
-    "mod2": 0.5
-  },
-  {
     "id": "SMP909A",
     "name": "Red Taunt",
-    "description": "Red Taunt",
+    "description": "Red Taunt and gives buff to Goblin King on death",
     "icon": "<img src=\"assets/svg/wood-beam.svg\">",
     "powMod": 1,
     "mod1": null,
@@ -713,7 +659,7 @@
   {
     "id": "SMP909B",
     "name": "Blue Taunt",
-    "description": "Blue Taunt",
+    "description": "Blue Taunt and gives buff to Goblin King on death",
     "icon": "<img src=\"assets/svg/wood-beam.svg\">",
     "powMod": 1,
     "mod1": null,
@@ -722,9 +668,63 @@
   {
     "id": "SMP909C",
     "name": "Green Taunt",
-    "description": "Green Taunt",
+    "description": "Green Taunt and gives buff to Goblin King on death",
     "icon": "<img src=\"assets/svg/wood-beam.svg\">",
     "powMod": 1,
+    "mod1": null,
+    "mod2": null
+  },
+  {
+    "id": "SM909A1",
+    "name": "Moxie Smash",
+    "description": "Attacks the moxie hero closest to front for double damage, if none in party attacks first hero",
+    "icon": "<img src=\"assets/svg/wood-beam.svg\">",
+    "powMod": 2,
+    "mod1": 2,
+    "mod2": null
+  },
+  {
+    "id": "SM909B2",
+    "name": "Cleave",
+    "description": "Cleave",
+    "icon": "<img src=\"assets/svg/wood-beam.svg\">",
+    "powMod": 2,
+    "mod1": null,
+    "mod2": null
+  },
+  {
+    "id": "SM909B1",
+    "name": "AoE",
+    "description": "Attacks every unit, deals double damage against Might heroes",
+    "icon": "<img src=\"assets/svg/wood-beam.svg\">",
+    "powMod": 2,
+    "mod1": 2,
+    "mod2": null
+  },
+  {
+    "id": "SM909B2",
+    "name": "Heal",
+    "description": "Heals all allies",
+    "icon": "<img src=\"assets/svg/wood-beam.svg\">",
+    "powMod": 2,
+    "mod1": null,
+    "mod2": null
+  },
+  {
+    "id": "SM909C1",
+    "name": "Mind Sniper",
+    "description": "Hits lowest HP unit, deals double damage if Mind",
+    "icon": "<img src=\"assets/svg/wood-beam.svg\">",
+    "powMod": 2,
+    "mod1": 2,
+    "mod2": null
+  },
+  {
+    "id": "SM909C2",
+    "name": "Amplify",
+    "description": "Applies debuff to all enemies, take 1.5x damage on next attack",
+    "icon": "<img src=\"assets/svg/wood-beam.svg\">",
+    "powMod": 2,
     "mod1": null,
     "mod2": null
   },
@@ -848,19 +848,19 @@
   {
     "id": "SM907A",
     "name": "Knife Throw",
-    "description": "Monkey deals 200% #POWICON# to all enemies.",
+    "description": "Monkey deals 200% to frontmost enemy. Monkey then deals 200% #POWICON# to all enemies and an additional 10% damage done for each banana found (banana for scale).",
     "icon": "<img src=\"assets/svg/butterfly-knife.svg\">",
     "powMod": 2,
-    "mod1": null,
+    "mod1": 0.1,
     "mod2": null
   },
   {
     "id": "SM907B",
     "name": "Bananadine",
-    "description": "Monkey heals self for 200% #POWICON#,  and an additional 10% healing done for each banana found (banana for scale).",
+    "description": "Monkey deals 200% to frontmost enemy. Monkey then heals self for 200% #POWICON# and an additional 40% healing done for each banana found (banana for scale).",
     "icon": "<img src=\"assets/svg/banana-peeled.svg\">",
     "powMod": 2,
-    "mod1": 0.1,
+    "mod1": 0.4,
     "mod2": null
   },
   {
@@ -869,7 +869,7 @@
     "description": "Monkey is looking for bananas in the trees, hopefully stored away from heat and light, or someone will have to make bread in a few days.",
     "icon": "<img src=\"assets/svg/banana.svg\">",
     "powMod": 0,
-    "mod1": 0.1,
+    "mod1": null,
     "mod2": null
   },
   {
@@ -911,7 +911,25 @@
   {
     "id": "SMP909",
     "name": "Kingpin",
-    "description": null,
+    "description": "Goblin King takes 25% reduced damage for each other goblin alive",
+    "icon": "<i class=\"fas fa-fish\"></i>",
+    "powMod": 0,
+    "mod1": 0.25,
+    "mod2": null
+  },
+  {
+    "id": "SMP909A",
+    "name": "Hit Once a Lot",
+    "description": "Goblin King attacks the frontmost unit and repeats for each missing stack of Kingpin.",
+    "icon": null,
+    "powMod": null,
+    "mod1": null,
+    "mod2": null
+  },
+  {
+    "id": "SMP909B",
+    "name": "Hit a Lot Once",
+    "description": "Goblin King attacks the frontmost unit and attacks an additional unit for each missing stack of Kingpin.",
     "icon": null,
     "powMod": null,
     "mod1": null,

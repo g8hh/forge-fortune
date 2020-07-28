@@ -451,14 +451,80 @@
     "type": "buff"
   },
   {
-    "id": "BM909A2",
-    "name": "Protect",
-    "description": "Protect",
+    "id": "BM909",
+    "name": "Friends",
+    "description": "Takes reduced damage for each other goblin alive",
     "icon": "<i class=\"fas fa-fish\"></i>",
-    "maxStack": 2,
-    "stackCast": 2,
+    "maxStack": 3,
+    "stackCast": 3,
     "onCast": "refresh",
-    "decrease": "onHit",
+    "decrease": "onAllyDeath",
+    "type": "buff"
+  },
+  {
+    "id": "BM909A1",
+    "name": "Take my HP!",
+    "description": null,
+    "icon": null,
+    "maxStack": null,
+    "stackCast": null,
+    "onCast": null,
+    "decrease": null,
+    "type": null
+  },
+  {
+    "id": "BM909B1",
+    "name": "Take my Healing!",
+    "description": null,
+    "icon": null,
+    "maxStack": null,
+    "stackCast": null,
+    "onCast": null,
+    "decrease": null,
+    "type": null
+  },
+  {
+    "id": "BM909C1",
+    "name": "Take my Power!",
+    "description": null,
+    "icon": null,
+    "maxStack": null,
+    "stackCast": null,
+    "onCast": null,
+    "decrease": null,
+    "type": null
+  },
+  {
+    "id": "BM909A2",
+    "name": "Red Taunt",
+    "description": "Will taunt all attacks by Might heroes",
+    "icon": "<i class=\"fas fa-fish\"></i>",
+    "maxStack": 1,
+    "stackCast": 1,
+    "onCast": "refresh",
+    "decrease": "never",
+    "type": "buff"
+  },
+  {
+    "id": "BM909B2",
+    "name": "Blue Taunt",
+    "description": "Will taunt all attacks by Mind heroes",
+    "icon": "<i class=\"fas fa-fish\"></i>",
+    "maxStack": 1,
+    "stackCast": 1,
+    "onCast": "refresh",
+    "decrease": "never",
+    "type": "buff"
+  },
+  {
+    "id": "BM909C2",
+    "name": "Green Taunt",
+    "description": "Will taunt all attacks by Moxie heroes",
+    "icon": "<i class=\"fas fa-fish\"></i>",
+    "maxStack": 1,
+    "stackCast": 1,
+    "onCast": "refresh",
+    "decrease": "never",
     "type": "buff"
   }
 ]

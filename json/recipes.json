@@ -5650,9 +5650,7 @@
     "value": 1,
     "craftTime": 10184,
     "type": "Trinkets",
-    "gcost": [
-      "G002"
-    ],
+    "gcost": [],
     "mcost": {
       "M001": 150
     },
@@ -5679,9 +5677,7 @@
     "value": 3,
     "craftTime": 17122,
     "type": "Trinkets",
-    "gcost": [
-      "G002"
-    ],
+    "gcost": [],
     "mcost": {
       "M001": 1000
     },
@@ -5708,9 +5704,7 @@
     "value": 5,
     "craftTime": 28765,
     "type": "Trinkets",
-    "gcost": [
-      "G002"
-    ],
+    "gcost": [],
     "mcost": {
       "M001": 9700
     },
@@ -5737,9 +5731,7 @@
     "value": 10,
     "craftTime": 48062,
     "type": "Trinkets",
-    "gcost": [
-      "G002"
-    ],
+    "gcost": [],
     "mcost": {
       "M001": 61000
     },
@@ -5766,9 +5758,7 @@
     "value": 20,
     "craftTime": 79792,
     "type": "Trinkets",
-    "gcost": [
-      "G002"
-    ],
+    "gcost": [],
     "mcost": {
       "M001": 540000
     },
@@ -5795,9 +5785,7 @@
     "value": 40,
     "craftTime": 131615,
     "type": "Trinkets",
-    "gcost": [
-      "G002"
-    ],
+    "gcost": [],
     "mcost": {
       "M001": 3400000
     },
@@ -5824,9 +5812,7 @@
     "value": 80,
     "craftTime": 215766,
     "type": "Trinkets",
-    "gcost": [
-      "G002"
-    ],
+    "gcost": [],
     "mcost": {
       "M001": 27000000
     },
@@ -5853,9 +5839,7 @@
     "value": 160,
     "craftTime": 351769,
     "type": "Trinkets",
-    "gcost": [
-      "G002"
-    ],
+    "gcost": [],
     "mcost": {
       "M001": 170000000
     },
@@ -5882,9 +5866,7 @@
     "value": 320,
     "craftTime": 570860,
     "type": "Trinkets",
-    "gcost": [
-      "G002"
-    ],
+    "gcost": [],
     "mcost": {
       "M001": 1000000000
     },
@@ -5911,9 +5893,7 @@
     "value": 500,
     "craftTime": 923280,
     "type": "Trinkets",
-    "gcost": [
-      "G002"
-    ],
+    "gcost": [],
     "mcost": {
       "M001": 6700000000
     },
@@ -5940,9 +5920,7 @@
     "value": 1,
     "craftTime": 10184,
     "type": "Trinkets",
-    "gcost": [
-      "G001"
-    ],
+    "gcost": [],
     "mcost": {
       "M001": 150
     },
@@ -5969,9 +5947,7 @@
     "value": 3,
     "craftTime": 17122,
     "type": "Trinkets",
-    "gcost": [
-      "G001"
-    ],
+    "gcost": [],
     "mcost": {
       "M001": 1000
     },
@@ -5998,9 +5974,7 @@
     "value": 5,
     "craftTime": 28765,
     "type": "Trinkets",
-    "gcost": [
-      "G001"
-    ],
+    "gcost": [],
     "mcost": {
       "M001": 9700
     },
@@ -6027,9 +6001,7 @@
     "value": 10,
     "craftTime": 48062,
     "type": "Trinkets",
-    "gcost": [
-      "G001"
-    ],
+    "gcost": [],
     "mcost": {
       "M001": 61000
     },
@@ -6056,9 +6028,7 @@
     "value": 20,
     "craftTime": 79792,
     "type": "Trinkets",
-    "gcost": [
-      "G001"
-    ],
+    "gcost": [],
     "mcost": {
       "M001": 540000
     },
@@ -6085,9 +6055,7 @@
     "value": 40,
     "craftTime": 131615,
     "type": "Trinkets",
-    "gcost": [
-      "G001"
-    ],
+    "gcost": [],
     "mcost": {
       "M001": 3400000
     },
@@ -6114,9 +6082,7 @@
     "value": 80,
     "craftTime": 215766,
     "type": "Trinkets",
-    "gcost": [
-      "G001"
-    ],
+    "gcost": [],
     "mcost": {
       "M001": 27000000
     },
@@ -6143,9 +6109,7 @@
     "value": 160,
     "craftTime": 351769,
     "type": "Trinkets",
-    "gcost": [
-      "G001"
-    ],
+    "gcost": [],
     "mcost": {
       "M001": 170000000
     },
@@ -6172,9 +6136,7 @@
     "value": 320,
     "craftTime": 570860,
     "type": "Trinkets",
-    "gcost": [
-      "G001"
-    ],
+    "gcost": [],
     "mcost": {
       "M001": 1000000000
     },
@@ -6201,9 +6163,7 @@
     "value": 500,
     "craftTime": 923280,
     "type": "Trinkets",
-    "gcost": [
-      "G001"
-    ],
+    "gcost": [],
     "mcost": {
       "M001": 6700000000
     },

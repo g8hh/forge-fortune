@@ -29,7 +29,7 @@
     "maxStack": 1,
     "stackCast": 1,
     "onCast": "refresh",
-    "decrease": "onMyTurn",
+    "decrease": "onHit",
     "type": "buff"
   },
   {

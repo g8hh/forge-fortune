@@ -56,6 +56,13 @@
     "type": "static"
   },
   {
+    "id": "recipe_rarity",
+    "title": "Recipe Rarity",
+    "description": "The minimum rarity this recipe will craft at.",
+    "icon": "<i class=\"fad fa-diamond\"></i>",
+    "type": "static"
+  },
+  {
     "id": "remaining_time",
     "title": "Remaining Craft Time",
     "description": "The amount of time remaining before this recipe is crafted.",
@@ -273,6 +280,13 @@
     "type": "static"
   },
   {
+    "id": "boss_refight_count",
+    "title": "Boss Defeats",
+    "description": "The amount of times you have defeated this boss.",
+    "icon": "<i class=\"fas fa-skull\"></i>",
+    "type": "static"
+  },
+  {
     "id": "hero_in_combat",
     "title": "Hero Already Adventuring",
     "description": "This hero is already on another adventure.",
@@ -294,11 +308,11 @@
     "type": "static"
   },
   {
-    "id": "boss_refight_count",
-    "title": "Boss Defeats",
-    "description": "The amount of times you have defeated this boss.",
-    "icon": "<i class=\"fas fa-skull\"></i>",
-    "type": "static"
+    "id": "dungeon_material_gain_rate",
+    "title": "Material Gain Rate",
+    "description": "Gaining #rewardAmt# material every #rewardTimeRateRound# seconds.",
+    "icon": "assets/images/resources/#mat#.png",
+    "type": "dungeon"
   },
   {
     "id": "quest_time",
@@ -312,6 +326,13 @@
     "title": "Remaining Quest Time",
     "description": "The amount of time remaining until this quest is completed.",
     "icon": "<i class=\"fas fa-clock\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "quest_remove",
+    "title": "Abandon Quest",
+    "description": "Abandon this quest and forfeit any rewards.",
+    "icon": "<i class=\"fas fa-times\"></i>",
     "type": "static"
   },
   {

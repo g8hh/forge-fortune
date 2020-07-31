@@ -245,7 +245,7 @@
   {
     "id": "S2012",
     "name": "Requiem",
-    "description": "Alok applies Requiem to all enemies. Requiem doubles damage taken.",
+    "description": "Alok applies Requiem to all enemies. Requiem doubles damage taken for the next attack received.",
     "icon": "<img src=\"assets/svg/lyre.svg\">",
     "powMod": 1,
     "mod1": null,

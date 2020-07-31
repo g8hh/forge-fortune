@@ -548,8 +548,8 @@
     "en": "Assign Offering"
   },
   {
-    "tid": "fortune_slot_crafts_remaining",
-    "en": "{0} Crafts Remaining"
+    "tid": "fortune_slot_fortune_remaining",
+    "en": "Fortune expires once {0} {1} is crafted."
   },
   {
     "tid": "fortune_slot_empty",
@@ -586,6 +586,14 @@
   {
     "tid": "tinker_command_research_empty",
     "en": "There are no more Trinket recipes available for research."
+  },
+  {
+    "tid": "header_tinker_recipe_title",
+    "en": "Unlocked Tinker Recipes"
+  },
+  {
+    "tid": "header_tinker_recipe_desc",
+    "en": "Your available Trinket recipes. They are always crafted at Epic rarity!"
   },
   {
     "tid": "museum_nav_collections",

@@ -3276,291 +3276,6 @@ preloader.contentLoading();
         return C.$ === S && (C.$ = Qt), e && C.jQuery === S && (C.jQuery = Yt), S
     }, "undefined" == typeof e && (C.jQuery = C.$ = S), S
 });
-if (typeof Object.create !== "function") {
-    Object.create = function (obj) {
-        function F() {}
-        F.prototype = obj;
-        return new F
-    }
-}(function ($, window, document, undefined) {
-    "use strict";
-    var Toast = {
-        _positionClasses: ["bottom-left", "bottom-right", "top-right", "top-left", "bottom-center", "top-center", "mid-center"],
-        _defaultIcons: ["success", "error", "info", "warning", "craftGood", "craftGreat", "craftEpic"],
-        init: function (options, elem) {
-            this.prepareOptions(options, $.toast.options);
-            this.process()
-        },
-        prepareOptions: function (options, options_to_extend) {
-            var _options = {};
-            if (typeof options === "string" || options instanceof Array) {
-                _options.text = options
-            } else {
-                _options = options
-            }
-            this.options = $.extend({}, options_to_extend, _options)
-        },
-        process: function () {
-            this.setup();
-            this.addToDom();
-            this.position();
-            this.bindToast();
-            this.animate()
-        },
-        setup: function () {
-            var _toastContent = "";
-            this._toastEl = this._toastEl || $("<div></div>", {
-                class: "jq-toast-single"
-            });
-            _toastContent += '<span class="jq-toast-loader"></span>';
-            if (this.options.allowToastClose) {
-                _toastContent += '<span class="close-jq-toast-single">&times;</span>'
-            }
-            if (this.options.text instanceof Array) {
-                if (this.options.heading) {
-                    _toastContent += '<h2 class="jq-toast-heading">' + this.options.heading + "</h2>"
-                }
-                _toastContent += '<ul class="jq-toast-ul">';
-                for (var i = 0; i < this.options.text.length; i++) {
-                    _toastContent += '<li class="jq-toast-li" id="jq-toast-item-' + i + '">' + this.options.text[i] + "</li>"
-                }
-                _toastContent += "</ul>"
-            } else {
-                if (this.options.heading) {
-                    _toastContent += '<h2 class="jq-toast-heading">' + this.options.heading + "</h2>"
-                }
-                _toastContent += this.options.text
-            }
-            this._toastEl.html(_toastContent);
-            if (this.options.bgColor !== false) {
-                this._toastEl.css("background-color", this.options.bgColor)
-            }
-            if (this.options.textColor !== false) {
-                this._toastEl.css("color", this.options.textColor)
-            }
-            if (this.options.textAlign) {
-                this._toastEl.css("text-align", this.options.textAlign)
-            }
-            if (this.options.icon !== false) {
-                this._toastEl.addClass("jq-has-icon");
-                if ($.inArray(this.options.icon, this._defaultIcons) !== -1) {
-                    this._toastEl.addClass("jq-icon-" + this.options.icon)
-                }
-            }
-            if (this.options.class !== false) {
-                this._toastEl.addClass(this.options.class)
-            }
-        },
-        position: function () {
-            if (typeof this.options.position === "string" && $.inArray(this.options.position, this._positionClasses) !== -1) {
-                if (this.options.position === "bottom-center") {
-                    this._container.css({
-                        left: $(window).outerWidth() / 2 - this._container.outerWidth() / 2,
-                        bottom: 20
-                    })
-                } else if (this.options.position === "top-center") {
-                    this._container.css({
-                        left: $(window).outerWidth() / 2 - this._container.outerWidth() / 2,
-                        top: 20
-                    })
-                } else if (this.options.position === "mid-center") {
-                    this._container.css({
-                        left: $(window).outerWidth() / 2 - this._container.outerWidth() / 2,
-                        top: $(window).outerHeight() / 2 - this._container.outerHeight() / 2
-                    })
-                } else {
-                    this._container.addClass(this.options.position)
-                }
-            } else if (typeof this.options.position === "object") {
-                this._container.css({
-                    top: this.options.position.top ? this.options.position.top : "auto",
-                    bottom: this.options.position.bottom ? this.options.position.bottom : "auto",
-                    left: this.options.position.left ? this.options.position.left : "auto",
-                    right: this.options.position.right ? this.options.position.right : "auto"
-                })
-            } else {
-                this._container.addClass("bottom-left")
-            }
-        },
-        bindToast: function () {
-            var that = this;
-            this._toastEl.on("afterShown", function () {
-                that.processLoader()
-            });
-            this._toastEl.find(".close-jq-toast-single").on("click", function (e) {
-                e.preventDefault();
-                if (that.options.showHideTransition === "fade") {
-                    that._toastEl.trigger("beforeHide");
-                    that._toastEl.fadeOut(function () {
-                        that._toastEl.trigger("afterHidden")
-                    })
-                } else if (that.options.showHideTransition === "slide") {
-                    that._toastEl.trigger("beforeHide");
-                    that._toastEl.slideUp(function () {
-                        that._toastEl.trigger("afterHidden")
-                    })
-                } else {
-                    that._toastEl.trigger("beforeHide");
-                    that._toastEl.hide(function () {
-                        that._toastEl.trigger("afterHidden")
-                    })
-                }
-            });
-            if (typeof this.options.beforeShow == "function") {
-                this._toastEl.on("beforeShow", function () {
-                    that.options.beforeShow(that._toastEl)
-                })
-            }
-            if (typeof this.options.afterShown == "function") {
-                this._toastEl.on("afterShown", function () {
-                    that.options.afterShown(that._toastEl)
-                })
-            }
-            if (typeof this.options.beforeHide == "function") {
-                this._toastEl.on("beforeHide", function () {
-                    that.options.beforeHide(that._toastEl)
-                })
-            }
-            if (typeof this.options.afterHidden == "function") {
-                this._toastEl.on("afterHidden", function () {
-                    that.options.afterHidden(that._toastEl)
-                })
-            }
-            if (typeof this.options.onClick == "function") {
-                this._toastEl.on("click", function () {
-                    that.options.onClick(that._toastEl)
-                })
-            }
-        },
-        addToDom: function () {
-            var _container = $(".jq-toast-wrap");
-            if (_container.length === 0) {
-                _container = $("<div></div>", {
-                    class: "jq-toast-wrap",
-                    role: "alert",
-                    "aria-live": "polite"
-                });
-                $("body").append(_container)
-            } else if (!this.options.stack || isNaN(parseInt(this.options.stack, 10))) {
-                _container.empty()
-            }
-            _container.find(".jq-toast-single:hidden").remove();
-            _container.append(this._toastEl);
-            if (this.options.stack && !isNaN(parseInt(this.options.stack), 10)) {
-                var _prevToastCount = _container.find(".jq-toast-single").length,
-                    _extToastCount = _prevToastCount - this.options.stack;
-                if (_extToastCount > 0) {
-                    $(".jq-toast-wrap").find(".jq-toast-single").slice(0, _extToastCount).remove()
-                }
-            }
-            this._container = _container
-        },
-        canAutoHide: function () {
-            return this.options.hideAfter !== false && !isNaN(parseInt(this.options.hideAfter, 10))
-        },
-        processLoader: function () {
-            if (!this.canAutoHide() || this.options.loader === false) {
-                return false
-            }
-            var loader = this._toastEl.find(".jq-toast-loader");
-            var transitionTime = (this.options.hideAfter - 400) / 1e3 + "s";
-            var loaderBg = this.options.loaderBg;
-            var style = loader.attr("style") || "";
-            style = style.substring(0, style.indexOf("-webkit-transition"));
-            style += "-webkit-transition: width " + transitionTime + " ease-in;                       -o-transition: width " + transitionTime + " ease-in;                       transition: width " + transitionTime + " ease-in;                       background-color: " + loaderBg + ";";
-            loader.attr("style", style).addClass("jq-toast-loaded")
-        },
-        animate: function () {
-            var that = this;
-            this._toastEl.hide();
-            this._toastEl.trigger("beforeShow");
-            if (this.options.showHideTransition.toLowerCase() === "fade") {
-                this._toastEl.fadeIn(function () {
-                    that._toastEl.trigger("afterShown")
-                })
-            } else if (this.options.showHideTransition.toLowerCase() === "slide") {
-                this._toastEl.slideDown(function () {
-                    that._toastEl.trigger("afterShown")
-                })
-            } else {
-                this._toastEl.show(function () {
-                    that._toastEl.trigger("afterShown")
-                })
-            }
-            if (this.canAutoHide()) {
-                var that = this;
-                window.setTimeout(function () {
-                    if (that.options.showHideTransition.toLowerCase() === "fade") {
-                        that._toastEl.trigger("beforeHide");
-                        that._toastEl.fadeOut(function () {
-                            that._toastEl.trigger("afterHidden")
-                        })
-                    } else if (that.options.showHideTransition.toLowerCase() === "slide") {
-                        that._toastEl.trigger("beforeHide");
-                        that._toastEl.slideUp(function () {
-                            that._toastEl.trigger("afterHidden")
-                        })
-                    } else {
-                        that._toastEl.trigger("beforeHide");
-                        that._toastEl.hide(function () {
-                            that._toastEl.trigger("afterHidden")
-                        })
-                    }
-                }, this.options.hideAfter)
-            }
-        },
-        reset: function (resetWhat) {
-            if (resetWhat === "all") {
-                $(".jq-toast-wrap").remove()
-            } else {
-                this._toastEl.remove()
-            }
-        },
-        update: function (options) {
-            this.prepareOptions(options, this.options);
-            this.setup();
-            this.bindToast()
-        },
-        close: function () {
-            this._toastEl.find(".close-jq-toast-single").click()
-        }
-    };
-    $.toast = function (options) {
-        var toast = Object.create(Toast);
-        toast.init(options, this);
-        return {
-            reset: function (what) {
-                toast.reset(what)
-            },
-            update: function (options) {
-                toast.update(options)
-            },
-            close: function () {
-                toast.close()
-            }
-        }
-    };
-    $.toast.options = {
-        text: "",
-        heading: "",
-        showHideTransition: "fade",
-        allowToastClose: true,
-        hideAfter: 3e3,
-        loader: true,
-        loaderBg: "#9EC600",
-        stack: 5,
-        position: "bottom-left",
-        bgColor: false,
-        textColor: false,
-        textAlign: "left",
-        icon: false,
-        beforeShow: function () {},
-        afterShown: function () {},
-        beforeHide: function () {},
-        afterHidden: function () {},
-        onClick: function () {}
-    }
-})(jQuery, window, document);
 "use strict";
 
 function loadMisc() {
@@ -3817,17 +3532,17 @@ function loadQuest() {
             var quest = new Quest(props);
             QuestManager.addQuest(quest)
         });
-        loadToast()
+        loadToasts()
     })
 }
 
-function loadToast() {
+function loadToasts() {
     $.ajax({
         url: "json/toasts.json"
     }).done(function (data) {
         $.each(data, function (i, props) {
-            var toast = new toaster(props);
-            Notifications.addToast(toast)
+            var toast = new Toast(props);
+            ToastManager.addToast(toast)
         });
         afterLoad();
         preloader.setMessage("Finalizing your progress...")
@@ -3836,11 +3551,12 @@ function loadToast() {
 "use strict";
 var settings = {
     lang: "en",
-    toastPosition: "top-left",
+    toastPosition: "bottom-left",
     dialogStatus: 0,
     db: 0,
     tpref: 1,
-    opnotif: 0
+    opnotif: 0,
+    leavesite: 0
 };
 
 function saveSettings() {
@@ -3853,7 +3569,12 @@ function loadSettings() {
         settings[setting] = obj[setting]
     }
     portSettings();
-    localStorage.setItem("settings", JSON.stringify(settings))
+    localStorage.setItem("settings", JSON.stringify(settings));
+    if (settings.leavesite) {
+        $(window).bind("beforeunload", function () {
+            return "Are you sure you want to leave?"
+        })
+    }
 }
 
 function clearSettings() {
@@ -4591,12 +4312,12 @@ var Item = function () {
         }
     }, {
         key: "recipeListStats",
-        value: function recipeListStats() {
+        value: function recipeListStats(isEpic) {
             var d = $("<div/>").addClass("recipeStatList");
-            var pow = this.pow * this.pts;
-            var hp = 9 * this.hp * this.pts;
-            if (pow > 0) $("<div/>").addClass("recipeStatListPow tooltip").attr("data-tooltip", "pow").html("".concat(miscIcons.pow, '<span class="statValue">').concat(pow, "</span>")).appendTo(d);
-            if (hp > 0) $("<div/>").addClass("recipeStatListHP tooltip").attr("data-tooltip", "hp").html("".concat(miscIcons.hp, '<span class="statValue">').concat(hp, "</span>")).appendTo(d);
+            var pow = isEpic ? this.pow * this.pts * miscLoadedValues.rarityMod[3] : this.pow * this.pts;
+            var hp = isEpic ? 9 * this.hp * this.pts * miscLoadedValues.rarityMod[3] : 9 * this.hp * this.pts;
+            if (pow > 0) $("<div/>").addClass("recipeStat tooltip").attr("data-tooltip", "pow").html("".concat(miscIcons.pow, '<span class="statValue">').concat(pow, "</span>")).appendTo(d);
+            if (hp > 0) $("<div/>").addClass("recipeStat tooltip").attr("data-tooltip", "hp").html("".concat(miscIcons.hp, '<span class="statValue">').concat(hp, "</span>")).appendTo(d);
             return d
         }
     }, {
@@ -4615,12 +4336,12 @@ var Item = function () {
             if (this.isMastered()) return;
             var masteryCost = this.masteryCost();
             if (ResourceManager.materialAvailable(masteryCost.id) < masteryCost.amt) {
-                Notifications.popToast("recipe_master_need_more");
+                ToastManager.renderToast("recipe_master_need_more");
                 return
             }
             ResourceManager.addMaterial(masteryCost.id, -masteryCost.amt);
             this.mastered = true;
-            Notifications.popToast("master_recipe", this.name);
+            ToastManager.renderToast("master_recipe", this.name);
             refreshCraftedCount(this);
             destroyTooltip();
             refreshProgress();
@@ -4709,33 +4430,33 @@ var recipeList = {
             return r.owned && r.name.toLowerCase().includes(cleanString)
         });
         if (this.masteryFilter === MasteryFilter.BOTH && this.recipeFilterScope === "level") return this.recipes.filter(function (r) {
-            return r.owned && r.recipeType === "normal" && r.lvl === _this2.recipeFilterType
+            return r.owned && r.recipeType === "normal" && r.lvl === _this2.recipeFilterType && r.type !== "Trinkets"
         });
         if (this.masteryFilter === MasteryFilter.UNMASTERED && this.recipeFilterScope === "level") return this.recipes.filter(function (r) {
-            return r.owned && !r.mastered && r.recipeType === "normal" && r.lvl === _this2.recipeFilterType
+            return r.owned && !r.mastered && r.recipeType === "normal" && r.lvl === _this2.recipeFilterType && r.type !== "Trinkets"
         });
         if (this.masteryFilter === MasteryFilter.MASTERED && this.recipeFilterScope === "level") return this.recipes.filter(function (r) {
-            return r.owned && r.mastered && r.recipeType === "normal" && r.lvl === _this2.recipeFilterType
+            return r.owned && r.mastered && r.recipeType === "normal" && r.lvl === _this2.recipeFilterType && r.type !== "Trinkets"
         });
         if (this.masteryFilter === MasteryFilter.BOTH && this.recipeFilterScope === "itemType") return this.recipes.filter(function (r) {
-            return r.owned && r.type === _this2.recipeFilterType
+            return r.owned && r.type === _this2.recipeFilterType && r.type !== "Trinkets"
         });
         if (this.masteryFilter === MasteryFilter.UNMASTERED && this.recipeFilterScope === "itemType") return this.recipes.filter(function (r) {
-            return r.owned && !r.mastered && r.type === _this2.recipeFilterType
+            return r.owned && !r.mastered && r.type === _this2.recipeFilterType && r.type !== "Trinkets"
         });
         if (this.masteryFilter === MasteryFilter.MASTERED && this.recipeFilterScope === "itemType") return this.recipes.filter(function (r) {
-            return r.owned && r.mastered && r.type === _this2.recipeFilterType
+            return r.owned && r.mastered && r.type === _this2.recipeFilterType && r.type !== "Trinkets"
         })
     },
     buyRecipe: function buyRecipe(recipeID) {
         var recipe = this.idToItem(recipeID);
         if (ResourceManager.materialAvailable("M001") < recipe.goldCost) {
-            Notifications.popToast("recipe_gold_req");
+            ToastManager.renderToast("recipe_gold_req");
             return
         }
         ResourceManager.deductMoney(recipe.goldCost);
         recipe.owned = true;
-        Notifications.popToast("buy_recipe", recipe.name);
+        ToastManager.renderToast("buy_recipe", recipe.name);
         refreshRecipeMastery(GuildManager.idToGuild(recipe.guildUnlock));
         recipeFilterList();
         refreshRecipeFilters();
@@ -4838,7 +4559,7 @@ function refreshRecipeFilters() {
     $recipeFilter.empty();
     if (recipeList.recipeFilterScope === "itemType") {
         ItemType.forEach(function (itemtype) {
-            if (recipeList.ownAtLeastOne(itemtype)) {
+            if (itemtype !== "Trinkets" && recipeList.ownAtLeastOne(itemtype)) {
                 var recipeSelect = $("<div/>").addClass("recipeSelect").attr({
                     id: "rf".concat(itemtype)
                 }).data("itemType", itemtype).appendTo($recipeFilter);
@@ -4850,7 +4571,9 @@ function refreshRecipeFilters() {
     }
     if (recipeList.recipeFilterScope === "level") {
         var lvls = [];
-        recipeList.recipes.forEach(function (recipe) {
+        recipeList.recipes.filter(function (r) {
+            return r.type !== "Trinkets"
+        }).forEach(function (recipe) {
             if (!lvls.includes(recipe.lvl) && recipe.owned) lvls.push(recipe.lvl)
         });
         for (var i = 1; i <= lvls.length; i++) {
@@ -4874,7 +4597,7 @@ function initializeRecipes() {
     $("<div/>").addClass("recipeScopeName selectedRecipeScope").attr("id", "rs-itemType").html("Type").data("recipeScope", "itemType").appendTo($recipeFilterScope);
     $("<div/>").addClass("recipeScopeName").attr("id", "rs-Level").html("Level").data("recipeScope", "level").appendTo($recipeFilterScope);
     recipeList.recipes.filter(function (r) {
-        return r.recipeType === "normal"
+        return r.recipeType === "normal" && r.type !== "Trinkets"
     }).forEach(function (recipe) {
         var recipeCardInfo = $("<div/>").addClass("recipeCardInfo").append(recipeCardFront(recipe));
         var recipeCardContainer = $("<div/>").addClass("recipeCardContainer").data("recipeID", recipe.id).attr("id", "rr" + recipe.id).append(recipeCardInfo).hide();
@@ -4903,7 +4626,7 @@ function recipeFilterList() {
     })
 }
 
-function recipeCardFront(recipe) {
+function recipeCardFront(recipe, isTrinket) {
     var td1 = $("<div/>").addClass("recipeName").append(recipe.itemPicName());
     var td2 = $("<div/>").addClass("recipeDescription tooltip").attr({
         "data-tooltip": "recipe_desc",
@@ -4917,7 +4640,7 @@ function recipeCardFront(recipe) {
     if (recipe.isMastered()) td4a.addClass("isMastered");
     td4.append(td4a);
     var recipeStats = $("<div/>").addClass("recipeStatsContainer");
-    var gearStat = $("<div/>").addClass("recipeStats").html(recipe.recipeListStats());
+    var gearStat = $("<div/>").addClass("recipeStats").html(recipe.recipeListStats(isTrinket));
     var goldStat = $("<div/>").addClass("recipeStat tooltip").attr({
         "data-tooltip": "recipe_gold",
         "data-tooltip-value": recipe.id
@@ -4936,7 +4659,13 @@ function recipeCardFront(recipe) {
     var td6b = $("<div/>").addClass("recipeCraft rr".concat(recipe.id)).attr("id", recipe.id).html('<i class="fas fa-hammer"></i><span>Craft</span>');
     recipe.recipeDiv = td6b;
     td6.append(td6a, td6b);
-    return $("<div/>").addClass("recipeCardFront").append(td1, td2, td3, td4, recipeStats, td6)
+    var e = $("<div/>").addClass("recipeCardFront").append(td1, td2, td3, td4, recipeStats, td6);
+    if (isTrinket) {
+        e.addClass("recipeCardTrinket");
+        var rarityStat = $("<div/>").addClass("recipeStat rarityStat RT3 tooltip").attr("data-tooltip", "recipe_rarity").html(miscIcons.rarity).appendTo(recipeStats);
+        $("<div/>").addClass("statValue").html("Epic").appendTo(rarityStat)
+    }
+    return e
 }
 
 function refreshCraftTimes() {
@@ -4991,14 +4720,14 @@ function invokeSearch(string) {
 $(document).on("click", ".recipeSortButton", function (e) {
     e.preventDefault();
     var searchString = $recipeSortInput.val();
-    if (searchString.length < 2) return Notifications.popToast("search_length_invalid");
+    if (searchString.length < 2) return ToastManager.renderToast("search_length_invalid");
     invokeSearch(searchString)
 });
 $(document).on("keydown", ".recipeSortInput", function (e) {
     if (e.keyCode !== 13) return;
     e.preventDefault();
     var searchString = $recipeSortInput.val();
-    if (searchString.length < 2) return Notifications.popToast("search_length_invalid");
+    if (searchString.length < 2) return ToastManager.renderToast("search_length_invalid");
     invokeSearch(searchString)
 });
 $(document).on("focus", ".recipeSortInput", function (e) {
@@ -5030,17 +4759,17 @@ $(document).on("click", ".recipeScopeName", function (e) {
 });
 $(document).on("click", ".recipeMasterySort", function (e) {
     e.preventDefault();
-    var currentType = $(e.currentTarget).attr("data-sorttype");
+    var currentType = $(e.currentTarget).html();
     if (currentType === "All Recipes") {
-        $(e.currentTarget).attr("data-sorttype", "Unmastered Only");
+        $(e.currentTarget).html("Unmastered Only");
         recipeList.masteryFilter = MasteryFilter.UNMASTERED
     }
     if (currentType === "Unmastered Only") {
-        $(e.currentTarget).attr("data-sorttype", "Mastered Only");
+        $(e.currentTarget).html("Mastered Only");
         recipeList.masteryFilter = MasteryFilter.MASTERED
     }
     if (currentType === "Mastered Only") {
-        $(e.currentTarget).attr("data-sorttype", "All Recipes");
+        $(e.currentTarget).html("All Recipes");
         recipeList.masteryFilter = MasteryFilter.BOTH
     }
     recipeFilterList()
@@ -5135,6 +4864,7 @@ var $goldSidebar = $("#goldSidebar");
 var $goldSidebarAmt = $("#goldSidebarAmt");
 var ResourceManager = {
     materials: [],
+    uncapMats: false,
     createSave: function createSave() {
         var save = [];
         this.materials.forEach(function (m) {
@@ -5152,12 +4882,12 @@ var ResourceManager = {
     addNewMaterial: function addNewMaterial(material) {
         this.materials.push(material)
     },
-    addMaterial: function addMaterial(res, amt, skipAnimation, uncapMats) {
+    addMaterial: function addMaterial(res, amt, skipAnimation) {
         var mat = this.materials.find(function (mat) {
             return mat.id === res
         });
         mat.amt += amt;
-        if (mat.id !== "M001" && !uncapMats) mat.amt = Math.min(mat.amt, 1e3);
+        if (mat.id !== "M001" && !this.uncapMats) mat.amt = Math.min(mat.amt, 1e3);
         mat.seen = true;
         if (skipAnimation) return;
         refreshMaterial(res)
@@ -7173,7 +6903,7 @@ var Hero = function (_Combatant) {
         key: "unequip",
         value: function unequip(type) {
             if (Inventory.full()) {
-                Notifications.popToast("inventory_full");
+                ToastManager.renderToast("inventory_full");
                 return
             }
             var item = this.getSlot(type);
@@ -7385,7 +7115,7 @@ var HeroManager = {
         }).includes(containerID)
     },
     upgradeSlot: function upgradeSlot(heroID, gearType) {
-        if (this.totalUpgrades() >= DungeonManager.availableUpgrades()) return Notifications.popToast("cant_afford_slot_upgrade");
+        if (this.totalUpgrades() >= DungeonManager.availableUpgrades()) return ToastManager.renderToast("cant_afford_slot_upgrade");
         var hero = this.idToHero(heroID);
         hero.upgradeSlot(gearType)
     },
@@ -7641,7 +7371,7 @@ $(document).on("click", ".playbookSelectable", function (e) {
     var hid = $(e.currentTarget).data("hid");
     var hero = HeroManager.idToHero(hid);
     if (hero.state !== HeroState.idle) {
-        Notifications.popToast("hero_dungeon_playbook_swap");
+        ToastManager.renderToast("hero_dungeon_playbook_swap");
         return
     }
     $(".playbookSelectable").removeClass("playbookSelected hasEvent");
@@ -7913,7 +7643,7 @@ $(document).on("click", ".heroTab", function (e) {
     if ($(e.currentTarget).hasClass("heroTabLocked")) return;
     $(".heroTab").removeClass("selected");
     $(e.currentTarget).addClass("selected");
-    var tabType = $(e.currentTarget).attr("data-herotabid");
+    var tabType = $(e.currentTarget).html();
     if (HeroManager.tabSelected === tabType) return;
     HeroManager.tabSelected = tabType;
     showTab(tabType)
@@ -8474,7 +8204,7 @@ $(document).on("click", "#dungeonTeamButton", function (e) {
         $areaTeamSelect.hide();
         $dungeonRun.show()
     } else {
-        Notifications.popToast("no_party_selected")
+        ToastManager.renderToast("no_party_selected")
     }
 });
 $(document).on("click", "#dungeonTeamButtonBoss", function (e) {
@@ -8485,7 +8215,7 @@ $(document).on("click", "#dungeonTeamButtonBoss", function (e) {
         $areaTeamSelect.hide();
         $dungeonRun.show()
     } else {
-        Notifications.popToast("no_party_selected")
+        ToastManager.renderToast("no_party_selected")
     }
 });
 $(document).on("click", "#dungeonTeamButtonSkip", function (e) {
@@ -8496,7 +8226,7 @@ $(document).on("click", "#dungeonTeamButtonSkip", function (e) {
         $areaTeamSelect.hide();
         $dungeonRun.show()
     } else {
-        Notifications.popToast("no_party_selected")
+        ToastManager.renderToast("no_party_selected")
     }
 });
 
@@ -8849,7 +8579,8 @@ var Dungeon = function () {
         this.dungeonTime = 0;
         this.rewardTime = 0;
         this.rewardAmt = 0;
-        this.rewardTimeRate = 0
+        this.rewardTimeRate = 0;
+        this.rewardTimeRateRound = 0
     }
     _createClass(Dungeon, [{
         key: "createSave",
@@ -8898,13 +8629,13 @@ var Dungeon = function () {
         }
     }, {
         key: "addTime",
-        value: function addTime(t, uncapMats) {
+        value: function addTime(t) {
             if (this.status !== DungeonStatus.ADVENTURING) return;
             this.dungeonTime += Math.min(t, 36e5);
             var dungeonWaitTime = DungeonManager.speed;
             var refreshLater = this.dungeonTime >= DungeonManager.speed * 2;
             CombatManager.refreshLater = refreshLater;
-            this.addDungeonReward(t, refreshLater, uncapMats);
+            this.addDungeonReward(t, refreshLater);
             while (this.dungeonTime >= dungeonWaitTime) {
                 this.dungeonTime -= dungeonWaitTime;
                 var attacker = this.order.nextTurn();
@@ -8949,12 +8680,12 @@ var Dungeon = function () {
         }
     }, {
         key: "addDungeonReward",
-        value: function addDungeonReward(time, skipAnimation, uncapMats) {
+        value: function addDungeonReward(time, skipAnimation) {
             if (this.type === "boss" || this.floorClear === 0) return;
             this.rewardTime += time;
             while (this.rewardTime > this.rewardTimeRate) {
                 this.rewardTime -= this.rewardTimeRate;
-                ResourceManager.addMaterial(this.mat, this.rewardAmt, skipAnimation, uncapMats)
+                ResourceManager.addMaterial(this.mat, this.rewardAmt, skipAnimation)
             }
             if (!skipAnimation) refreshDungeonMatBar(this.id)
         }
@@ -8964,7 +8695,8 @@ var Dungeon = function () {
             this.floorClear = Math.max(floor, this.floorClear);
             this.rewardAmt = Math.ceil(floor / 40);
             var rewardRate = Math.floor(floor / 10) * .25 + 1;
-            this.rewardTimeRate = this.rewardAmt * 1e4 / rewardRate
+            this.rewardTimeRate = this.rewardAmt * 1e4 / rewardRate;
+            this.rewardTimeRateRound = (this.rewardTimeRate / 1e3).toFixed(1)
         }
     }, {
         key: "initializeParty",
@@ -9176,9 +8908,9 @@ var DungeonManager = {
             dungeon.loadSave(d)
         })
     },
-    addTime: function addTime(t, uncapMats) {
+    addTime: function addTime(t) {
         this.dungeons.forEach(function (dungeon) {
-            dungeon.addTime(t, uncapMats)
+            dungeon.addTime(t)
         })
     },
     dungeonStatus: function dungeonStatus(dungeonID) {
@@ -9411,8 +9143,13 @@ function generateTurnOrder(dungeonID) {
     if (DungeonManager.dungeonView !== dungeonID) return;
     $drTurnOrder.empty();
     var dungeon = DungeonManager.dungeonByID(DungeonManager.dungeonView);
+    var mobs = [dungeon.mob1, dungeon.mob2, dungeon.mob3, dungeon.mob4];
     dungeon.order.getOrder().forEach(function (unit, i) {
         var d1 = $("<div/>").addClass("orderUnit").appendTo($drTurnOrder);
+        if (mobs.includes(unit.id)) {
+            d1.addClass("mobUnit");
+            $("<div/>").addClass("mobUnitTag").html("Enemy").appendTo(d1)
+        }
         $("<div/>").addClass("orderUnitHeadImg").html(unit.head).appendTo(d1);
         $("<div/>").addClass("orderUnitHead").html(unit.name).appendTo(d1);
         $("<div/>").addClass("orderUnitHP").html(createHPBar(unit, "turnOrder")).appendTo(d1);
@@ -9534,7 +9271,10 @@ function refreshHPBar(hero) {
 
 function createDungeonSidebarReward(dungeon) {
     var matWidth = dungeon.rewardTimeRate === 0 ? "0%" : (dungeon.rewardTime / dungeon.rewardTimeRate).toFixed(1) + "%";
-    var d = $("<div/>").addClass("dungeonRewardDiv");
+    var d = $("<div/>").addClass("dungeonRewardDiv tooltip").attr({
+        "data-tooltip": "dungeon_material_gain_rate",
+        "data-tooltip-value": dungeon.id
+    });
     var t1 = $("<div/>").addClass("dungeonRewardRate").attr("id", "dRR" + dungeon.id).appendTo(d);
     $("<div/>").addClass("dungeonRewardRateIcon").html("".concat(ResourceManager.materialIcon(dungeon.mat))).appendTo(t1);
     $("<div/>").addClass("dungeonRewardRateAmt").attr("id", "dRA" + dungeon.id).html("+".concat(dungeon.rewardAmt)).appendTo(t1);
@@ -9893,6 +9633,7 @@ var itemContainer = function () {
         this.powRatio = this.item.pow;
         this.hpRatio = this.item.hp;
         this.pts = this.item.pts;
+        this.smithCost = this.item.smithCost;
         containerid += 1
     }
     _createClass(itemContainer, [{
@@ -10111,23 +9852,26 @@ var Inventory = {
             var epicItem = new itemContainer(id, 3);
             if (sellToggle < 4) {
                 this.addToInventory(epicItem, skipAnimation);
-                if (!skipAnimation && !isTrinket) Notifications.popToast("exceptional_craft_epic", item.name, "Epic", "craftEpic")
+                if (!skipAnimation && !isTrinket) ToastManager.renderToast("craft_epic", item.name)
             } else this.sellContainer(epicItem, skipAnimation);
-            if (!isTrinket) achievementStats.craftedItem("Epic")
+            if (!isTrinket) achievementStats.craftedItem("Epic");
+            FortuneManager.purgeDone(item.type, 3)
         } else if (roll < procRate.epic + procRate.great) {
             var greatItem = new itemContainer(id, 2);
             if (sellToggle < 3) {
                 this.addToInventory(greatItem, skipAnimation);
-                if (!skipAnimation) Notifications.popToast("exceptional_craft_great", item.name, "Great", "craftGreat")
+                if (!skipAnimation) ToastManager.renderToast("craft_great", item.name)
             } else this.sellContainer(greatItem, skipAnimation);
-            achievementStats.craftedItem("Great")
+            achievementStats.craftedItem("Great");
+            FortuneManager.purgeDone(item.type, 2)
         } else if (roll < procRate.epic + procRate.great + procRate.good) {
             var goodItem = new itemContainer(id, 1);
             if (sellToggle < 2) {
                 this.addToInventory(goodItem, skipAnimation);
-                if (!skipAnimation) Notifications.popToast("exceptional_craft_good", item.name, "Good", "craftGood")
+                if (!skipAnimation) ToastManager.renderToast("craft_good", item.name)
             } else this.sellContainer(goodItem, skipAnimation);
-            achievementStats.craftedItem("Good")
+            achievementStats.craftedItem("Good");
+            FortuneManager.purgeDone(item.type, 1)
         } else {
             var commonItem = new itemContainer(id, 0);
             if (sellToggle < 1) this.addToInventory(commonItem, skipAnimation);
@@ -10148,7 +9892,8 @@ var Inventory = {
         var container = this.nonblank().find(function (i) {
             return i.uniqueID() === uniqueID
         });
-        this.removeContainerFromInventory(container.containerID, skipAnimation)
+        this.removeContainerFromInventory(container.containerID, skipAnimation);
+        return container
     },
     removeContainerFromInventory: function removeContainerFromInventory(containerID, skipAnimation) {
         this.inv = this.inv.filter(function (c) {
@@ -10291,10 +10036,17 @@ var Inventory = {
             return i.rarity > 0
         })
     },
-    nonEpic: function nonEpic() {
-        return this.nonblank().filter(function (i) {
+    fortuneTargets: function fortuneTargets() {
+        var uniqueids = [];
+        var items = [];
+        this.nonblank().filter(function (i) {
             return i.rarity < 3 && i.item.recipeType === "normal"
-        })
+        }).forEach(function (item) {
+            if (uniqueids.includes(item.uniqueID())) return;
+            uniqueids.push(item.uniqueID());
+            items.push(item)
+        });
+        return items
     }
 };
 
@@ -10660,7 +10412,7 @@ var actionSlot = function () {
                 return
             }
             this.craftTime += t;
-            if (this.craftTime > this.maxCraft()) {
+            while (this.craftTime > this.maxCraft()) {
                 this.craftTime -= this.maxCraft();
                 Inventory.craftToInventory(this.itemid, skipAnimation);
                 if (this.itemid === "R13001" && recipeList.idToItem("R13001").craftCount === 1) {
@@ -10744,6 +10496,7 @@ var actionSlot = function () {
     }]);
     return actionSlot
 }();
+var craftCount = 0;
 var actionSlotManager = {
     maxSlots: 1,
     slots: [],
@@ -10770,14 +10523,14 @@ var actionSlotManager = {
     },
     addSlot: function addSlot(itemid) {
         if (this.slots.length >= this.maxSlots) {
-            Notifications.popToast("slots_full");
+            ToastManager.renderToast("slots_full");
             return
         }
         var item = recipeList.idToItem(itemid);
         if (item.recipeType !== "normal" && this.isAlreadySlotted(itemid)) return;
-        if (!item.owned) return Notifications.popToast("recipe_not_owned");
+        if (!item.owned) return ToastManager.renderToast("recipe_not_owned");
         if (!item.canProduce) {
-            Notifications.popToast("craft_warning");
+            ToastManager.renderToast("craft_warning");
             return
         }
         this.slots.push(new actionSlot(itemid, this.slots.length));
@@ -10840,12 +10593,14 @@ var actionSlotManager = {
             return
         }
         var timeRemaining = t;
+        var count = 0;
         var _loop = function _loop() {
             var timeChunk = Math.min(timeRemaining, _this2.minTime);
             _this2.slots.forEach(function (slot) {
                 slot.addTime(timeChunk, true)
             });
-            timeRemaining -= timeChunk
+            timeRemaining -= timeChunk;
+            count += 1
         };
         while (timeRemaining > 0) {
             _loop()
@@ -11142,12 +10897,12 @@ var FusionManager = {
     addFuse: function addFuse(uniqueid) {
         if (!Inventory.hasThree(uniqueid)) return;
         if (this.slots.length === this.maxSlots()) {
-            Notifications.popToast("no_fuse_slots");
+            ToastManager.renderToast("no_fuse_slots");
             return
         }
         var fuseProps = uniqueIDProperties(uniqueid);
         if (ResourceManager.materialAvailable("M001") < this.getFuseCost(fuseProps, 1)) {
-            Notifications.popToast("cant_afford_fuse");
+            ToastManager.renderToast("cant_afford_fuse");
             return
         }
         ResourceManager.deductMoney(this.getFuseCost(fuseProps, 1));
@@ -11175,14 +10930,16 @@ var FusionManager = {
     },
     cancelFuse: function cancelFuse(fuseid) {
         var fuse = this.fuseByID(fuseid);
-        if (Inventory.full(3)) {
-            Notifications.popToast("fuse_inv_full");
-            return
+        if (fuse.notStarted()) {
+            if (Inventory.full(3)) {
+                Notifications.popToast("fuse_inv_full");
+                return
+            }
+            ResourceManager.addMaterial("M001", this.getFuseCost(fuse, 1));
+            Inventory.addFuseToInventory(fuse, true);
+            Inventory.addFuseToInventory(fuse, true);
+            Inventory.addFuseToInventory(fuse, true)
         }
-        ResourceManager.addMaterial("M001", this.getFuseCost(fuse, 1));
-        Inventory.addFuseToInventory(fuse, true);
-        Inventory.addFuseToInventory(fuse, true);
-        Inventory.addFuseToInventory(fuse, true);
         this.slots = this.slots.filter(function (f) {
             return f.fuseID !== fuseid
         });
@@ -11212,7 +10969,7 @@ var FusionManager = {
         });
         if (slot === undefined || !slot.fuseComplete()) return;
         if (Inventory.full()) {
-            Notifications.popToast("fuse_inv_full");
+            ToastManager.renderToast("fuse_inv_full");
             return
         }
         Inventory.addFuseToInventory(slot);
@@ -11289,7 +11046,7 @@ function refreshFuseSlots() {
         var d4 = createFuseBar(slot);
         var d5 = $("<div/>").addClass("fuseSlotCollect actionButtonCard").attr("id", "fuseSlotCollect" + slot.fuseID).attr("fuseid", slot.fuseID).html(displayText("fusion_slot_collect_fuse_button")).hide();
         var d6 = $("<div/>").addClass("fuseSlotStart actionButtonCard").attr("id", "fuseSlotStart" + slot.fuseID).attr("fuseid", slot.fuseID).html(displayText("fusion_slot_start_fuse_button")).hide();
-        var d7 = $("<div/>").addClass("fuseCloseContainer").hide();
+        var d7 = $("<div/>").addClass("fuseCloseContainer");
         $("<div/>").addClass("fuseClose tooltip").attr({
             "data-tooltip": "fusion_remove",
             fuseid: slot.fuseID
@@ -11300,12 +11057,12 @@ function refreshFuseSlots() {
         }).html(miscIcons.rarity).appendTo(d8);
         if (slot.fuseComplete()) {
             d4.hide();
-            d5.show()
+            d5.show();
+            d7.hide()
         }
         if (slot.notStarted()) {
             d4.hide();
             d6.show();
-            d7.show();
             $("<div/>").addClass("fuseRaritySeparator").html('<i class="fas fa-arrow-right"></i>').appendTo(d8);
             $("<div/>").addClass("fuseRarity RT".concat(slot.rarity + 1, " tooltip")).attr({
                 "data-tooltip": "rarity_".concat(rarities[slot.rarity + 1].toLowerCase())
@@ -11508,7 +11265,7 @@ var BankManager = {
         if (Inventory.full()) return;
         var container = this.containerToItem(containerID);
         this.removeContainer(containerID);
-        Inventory.addToInventory(container, true);
+        Inventory.addToInventory(container, false);
         refreshBankCounts()
     },
     addLevel: function addLevel() {
@@ -11718,7 +11475,7 @@ var bloopSmith = {
     },
     addSmith: function addSmith(containerID, location) {
         var item = location === "inventory" ? Inventory.containerToItem(containerID) : HeroManager.getContainerID(containerID);
-        if (item.sharp >= this.maxSharp()) return Notifications.popToast("cant_smith_max");
+        if (item.sharp >= this.maxSharp()) return ToastManager.renderToast("cant_smith_max");
         this.smithStage = item;
         refreshSmithStage();
         refreshSmithInventory()
@@ -11728,7 +11485,7 @@ var bloopSmith = {
         var amt = [25, 50, 75, 100, 150, 200, 250, 300, 400, 500];
         return {
             gold: Math.floor(item.goldValue() * miscLoadedValues.smithChance[item.sharp]),
-            resType: item.material(),
+            resType: item.smithCost,
             resAmt: amt[item.sharp]
         }
     },
@@ -11736,17 +11493,17 @@ var bloopSmith = {
         if (this.smithStage === null) return;
         var params = this.getSmithCost();
         if (ResourceManager.materialAvailable("M001") < params.gold) {
-            Notifications.popToast("cant_afford_smith_gold");
+            ToastManager.renderToast("cant_afford_smith_gold");
             return
         }
         if (ResourceManager.materialAvailable(params.resType) < params.resAmt) {
-            Notifications.popToast("cant_afford_smith_material", ResourceManager.idToMaterial(params.resType).name, params.resAmt - ResourceManager.materialAvailable(params.resType));
+            ToastManager.renderToast("cant_afford_smith_material", ResourceManager.idToMaterial(params.resType).name, params.resAmt - ResourceManager.materialAvailable(params.resType));
             return
         }
         ResourceManager.deductMoney(params.gold);
         ResourceManager.addMaterial(params.resType, -params.resAmt);
         this.smithStage.sharp += 1;
-        Notifications.popToast("smith_success", this.smithStage.name);
+        ToastManager.renderToast("smith_success", this.smithStage.name);
         refreshInventoryPlaces();
         refreshSmithStage()
     },
@@ -11946,8 +11703,8 @@ function itemCardSmith(item, location) {
     }).html(miscIcons.rarity).appendTo(itemdiv);
     $("<div/>").addClass("smithItemMaterial tooltip").attr({
         "data-tooltip": "material_desc",
-        "data-tooltip-value": item.material()
-    }).html(ResourceManager.materialIcon(item.material())).appendTo(itemdiv);
+        "data-tooltip-value": item.smithCost
+    }).html(ResourceManager.materialIcon(item.smithCost)).appendTo(itemdiv);
     var equipStats = $("<div/>").addClass("equipStats").appendTo(itemdiv);
     for (var _i = 0, _Object$entries = Object.entries(item.itemStat(false)); _i < _Object$entries.length; _i++) {
         var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
@@ -11977,8 +11734,8 @@ function itemStageCardSmith(slot, upgrade) {
     }).html(miscIcons.rarity);
     var itemMaterial = $("<div/>").addClass("smithItemMaterial tooltip").attr({
         "data-tooltip": "material_desc",
-        "data-tooltip-value": slot.material()
-    }).html(ResourceManager.materialIcon(slot.material()));
+        "data-tooltip-value": slot.smithCost
+    }).html(ResourceManager.materialIcon(slot.smithCost));
     var smithClose = $("<div/>").addClass("smithClose tooltip").attr({
         "data-tooltip": "forge_remove"
     }).html('<i class="fas fa-times"></i>');
@@ -12057,14 +11814,11 @@ var fortuneSlot = function () {
     function fortuneSlot(container) {
         _classCallCheck(this, fortuneSlot);
         this.container = container;
+        this.name = container.item.name;
         this.type = container.item.type;
-        this.rarity = container.rarity;
+        this.rarity = container.rarity + 1;
         this.lvl = container.item.lvl;
         this.slotid = fortuneSlotid;
-        this.state = "unlocked";
-        if (container.rarity === 0) this.amt = 20;
-        else if (container.rarity === 1) this.amt = 50;
-        else if (container.rarity === 2) this.amt = 100;
         fortuneSlotid += 1
     }
     _createClass(fortuneSlot, [{
@@ -12075,8 +11829,6 @@ var fortuneSlot = function () {
             save.type = this.type;
             save.rarity = this.rarity;
             save.lvl = this.lvl;
-            save.amt = this.amt;
-            save.state = this.state;
             return save
         }
     }, {
@@ -12087,20 +11839,7 @@ var fortuneSlot = function () {
             this.lvl = save.lvl;
             var newContainer = new itemContainer(save.container.id, save.container.rarity);
             newContainer.loadSave(save.container);
-            this.container = newContainer;
-            this.state = save.state;
-            this.amt = save.amt
-        }
-    }, {
-        key: "lockFortune",
-        value: function lockFortune() {
-            this.state = "locked";
-            this.rarity += 1
-        }
-    }, {
-        key: "locked",
-        value: function locked() {
-            return this.state === "locked"
+            this.container = newContainer
         }
     }, {
         key: "picName",
@@ -12123,6 +11862,7 @@ var fortuneSlot = function () {
 var FortuneManager = {
     slots: [],
     lvl: 1,
+    stage: null,
     createSave: function createSave() {
         var save = {};
         save.lvl = this.lvl;
@@ -12146,14 +11886,10 @@ var FortuneManager = {
     },
     stageItem: function stageItem(containerID) {
         if (this.slots.length >= this.maxSlot()) {
-            Notifications.popToast("fortune_no_slot");
+            ToastManager.renderToast("fortune_no_slot");
             return
         }
-        var container = Inventory.containerToItem(containerID);
-        if (container === undefined) return;
-        var newfortuneSlot = new fortuneSlot(container);
-        this.slots.push(newfortuneSlot);
-        Inventory.removeContainerFromInventory(containerID);
+        this.stage = containerID;
         refreshFortuneSlots()
     },
     fortuneByID: function fortuneByID(fortuneID) {
@@ -12161,36 +11897,36 @@ var FortuneManager = {
             return f.slotid == fortuneID
         })
     },
-    removeFortune: function removeFortune(fortuneID) {
-        if (Inventory.full()) {
-            Notifications.popToast("fortune_inv_full");
-            return
-        }
-        var fortune = this.fortuneByID(fortuneID);
-        Inventory.addToInventory(fortune.container);
-        this.slots = this.slots.filter(function (f) {
-            return f.slotid !== fortuneID
-        });
+    removeFortune: function removeFortune() {
+        FortuneManager.stage = null;
+        refreshFortuneGear();
         refreshFortuneSlots()
     },
     removeLockedFortune: function removeLockedFortune(fortuneID) {
         this.slots = this.slots.filter(function (f) {
             return f.slotid !== fortuneID
         });
+        refreshFortuneGear();
         refreshFortuneSlots()
     },
-    lockFortune: function lockFortune(fortuneID) {
-        var fortune = this.fortuneByID(fortuneID);
-        fortune.lockFortune();
+    lockFortune: function lockFortune() {
+        if (FortuneManager.stage === null) return;
+        var container = Inventory.containerToItem(FortuneManager.stage);
+        Inventory.removeContainerFromInventory(FortuneManager.stage);
+        var newfortuneSlot = new fortuneSlot(container);
+        this.slots.push(newfortuneSlot);
+        FortuneManager.stage = null;
+        refreshFortuneGear();
         refreshFortuneSlots()
     },
     emptySlotCount: function emptySlotCount() {
-        return this.maxSlot() - this.slots.length
+        if (this.stage === null) return this.maxSlot() - this.slots.length;
+        return this.maxSlot() - this.slots.length - 1
     },
-    getMaterialCost: function getMaterialCost(slot) {
-        if (slot === null) return null;
+    getMaterialCost: function getMaterialCost(container) {
+        if (container === null) return null;
         return {
-            id: slot.material(),
+            id: container.material(),
             amt: 20
         }
     },
@@ -12200,27 +11936,32 @@ var FortuneManager = {
             return s.type === line && s.lvl === tier
         });
         mods.forEach(function (s) {
-            modifier[s.rarity - 1] = 2;
-            s.amt -= 1
+            modifier[s.rarity - 1] = 2
         });
-        if (this.slots.some(function (f) {
-                return f.amt <= 0
-            })) this.purgeDone();
         refreshFortuneSlots();
         return modifier
     },
     maxSlot: function maxSlot() {
         return this.lvl
     },
-    purgeDone: function purgeDone() {
+    purgeDone: function purgeDone(type, rarity) {
         this.slots = this.slots.filter(function (f) {
-            return f.amt > 0
+            return f.type !== type || f.rarity !== rarity
         });
         refreshFortuneSlots()
     },
     addLevel: function addLevel() {
         this.lvl += 1;
         refreshFortuneSlots()
+    },
+    hasFortune: function hasFortune(type, rarity) {
+        var result = false;
+        this.slots.forEach(function (slot) {
+            if (slot.type === type && slot.rarity === rarity + 1) {
+                result = true
+            }
+        });
+        return result
     }
 };
 var $fortuneStage = $("#fortuneStage");
@@ -12228,6 +11969,7 @@ var $fortuneGear = $("#fortuneGear");
 var $fortuneHeading = $("#fortuneHeading");
 
 function initiateFortuneBldg() {
+    FortuneManager.stage = null;
     $fortuneBuilding.show();
     refreshFortuneSlots();
     generateFortuneHeader();
@@ -12243,26 +11985,31 @@ function generateFortuneHeader() {
 }
 
 function refreshFortuneSlots() {
+    if (lastTab !== "townsTab" || TownManager.lastBldg !== "fortune") return;
     $fortuneStage.empty();
     FortuneManager.slots.forEach(function (slot) {
-        if (slot.locked()) $fortuneStage.append(createFortuneCardLocked(slot));
-        else $fortuneStage.append(createFortuneCard(slot))
+        $fortuneStage.append(createFortuneCardLocked(slot))
     });
+    if (FortuneManager.stage !== null) $fortuneStage.append(createFortuneCard(FortuneManager.stage));
     for (var i = 0; i < FortuneManager.emptySlotCount(); i++) {
         $fortuneStage.append(createFortuneBlank())
     }
 }
 
 function refreshFortuneGear() {
+    if (lastTab !== "townsTab" || TownManager.lastBldg !== "fortune") return;
     $fortuneGear.empty();
-    if (Inventory.nonEpic().length === 0) {
-        $("<div/>").addClass("emptyContentMessage").html(displayText("fortune_possible_empty")).appendTo($fortuneGear);
-        return
-    }
+    var noInv = false;
     var fortuneCardsContainer = $("<div/>").addClass("fortuneCardsContainer").appendTo($fortuneGear);
-    Inventory.nonEpic().forEach(function (container) {
-        fortuneCardsContainer.append(createFortuneInv(container))
-    })
+    Inventory.fortuneTargets().forEach(function (container) {
+        if (FortuneManager.hasFortune(container.type, container.rarity)) {
+            return
+        }
+        fortuneCardsContainer.append(createFortuneInv(container));
+        noInv = true
+    });
+    if (noInv) return;
+    $("<div/>").addClass("emptyContentMessage").html(displayText("fortune_possible_empty")).appendTo($fortuneGear)
 }
 
 function createFortuneInv(item) {
@@ -12276,18 +12023,19 @@ function createFortuneInv(item) {
     return itemdiv.append(itemName, itemLevel, itemRarity, fortuneButton)
 }
 
-function createFortuneCard(slot) {
+function createFortuneCard(containerID) {
+    var container = Inventory.containerToItem(containerID);
     var rarity = ["Common", "Good", "Great", "Epic"];
-    var itemdiv = $("<div/>").addClass("fortuneSlot").addClass("R" + slot.rarity);
-    $("<div/>").addClass("itemName").html(slot.picName()).appendTo(itemdiv);
-    $("<div/>").addClass("itemLevel").html(slot.itemLevel()).appendTo(itemdiv);
-    $("<div/>").addClass("itemRarity RT".concat(slot.rarity, " tooltip")).attr({
-        "data-tooltip": "rarity_".concat(rarities[slot.rarity].toLowerCase())
+    var itemdiv = $("<div/>").addClass("fortuneSlot").addClass("R" + (container.rarity + 1));
+    $("<div/>").addClass("itemName").html(container.picName()).appendTo(itemdiv);
+    $("<div/>").addClass("itemLevel").html(container.itemLevel()).appendTo(itemdiv);
+    $("<div/>").addClass("itemRarity RT".concat(container.rarity + 1, " tooltip")).attr({
+        "data-tooltip": "rarity_".concat(rarities[container.rarity + 1].toLowerCase())
     }).html(miscIcons.rarity).appendTo(itemdiv);
-    var rarityBonus = displayText("fortune_slot_rarity_chance").replace("{0}", "100%").replace("{1}", rarity[slot.rarity + 1]);
+    var rarityBonus = displayText("fortune_slot_rarity_chance").replace("{0}", "100%").replace("{1}", rarity[container.rarity + 1]);
     $("<div/>").addClass("fortuneItemDesc").html(rarityBonus).appendTo(itemdiv);
-    var cost = FortuneManager.getMaterialCost(slot);
-    var sacContainer = $("<div/>").addClass("actionButtonCardCost fortuneItemSac").data("fortuneID", slot.slotid).appendTo(itemdiv);
+    var cost = FortuneManager.getMaterialCost(container);
+    var sacContainer = $("<div/>").addClass("actionButtonCardCost fortuneItemSac").data("fortuneID", containerID).appendTo(itemdiv);
     $("<div/>").addClass("actionButtonCardText").html(displayText("fortune_slot_confirm_button")).appendTo(sacContainer);
     $("<div/>").addClass("actionButtonCardValue tooltip").attr({
         "data-tooltip": "material_desc",
@@ -12295,7 +12043,7 @@ function createFortuneCard(slot) {
     }).html("".concat(ResourceManager.idToMaterial(cost.id).img, " ").concat(cost.amt)).appendTo(sacContainer);
     $("<div/>").addClass("fortuneItemClose tooltip").attr({
         "data-tooltip": "offering_remove"
-    }).data("fortuneID", slot.slotid).html('<i class="fas fa-times"></i>').appendTo(itemdiv);
+    }).data("fortuneID", containerID).html('<i class="fas fa-times"></i>').appendTo(itemdiv);
     return itemdiv
 }
 
@@ -12309,7 +12057,7 @@ function createFortuneCardLocked(slot) {
     }).html(miscIcons.rarity).appendTo(itemdiv);
     var rarityBonus = displayText("fortune_slot_rarity_chance").replace("{0}", "100%").replace("{1}", rarity[slot.rarity]);
     $("<div/>").addClass("fortuneItemDesc").html(rarityBonus).appendTo(itemdiv);
-    $("<div/>").addClass("fortuneItemAmt").html(displayText("fortune_slot_crafts_remaining").replace("{0}", slot.amt)).appendTo(itemdiv);
+    $("<div/>").addClass("fortuneItemAmt").html(displayText("fortune_slot_fortune_remaining").replace("{0}", rarity[slot.rarity]).replace("{1}", slot.name)).appendTo(itemdiv);
     $("<div/>").addClass("fortuneItemSetClose tooltip").attr({
         "data-tooltip": "fortune_remove"
     }).data("fortuneID", slot.slotid).html('<i class="fas fa-times"></i>').appendTo(itemdiv);
@@ -12337,14 +12085,12 @@ $(document).on("click", ".fortuneStage", function (e) {
 $(document).on("click", ".fortuneItemSac", function (e) {
     e.preventDefault();
     destroyTooltip();
-    var fortuneID = parseInt($(e.currentTarget).data("fortuneID"));
-    FortuneManager.lockFortune(fortuneID);
+    FortuneManager.lockFortune();
     refreshFortuneSlots()
 });
 $(document).on("click", ".fortuneItemClose", function (e) {
     e.preventDefault();
-    var fortuneID = parseInt($(e.currentTarget).data("fortuneID"));
-    FortuneManager.removeFortune(fortuneID);
+    FortuneManager.removeFortune();
     refreshFortuneSlots();
     destroyTooltip()
 });
@@ -12444,7 +12190,7 @@ var SynthManager = {
         if (this.slot.rarity === 2) id = "M701";
         if (this.slot.rarity === 3) id = "M702";
         ResourceManager.addMaterial(id, this.amt());
-        Notifications.popToast("synth_collect", ResourceManager.idToMaterial(id).name, this.amt());
+        ToastManager.renderToast("synth_collect", ResourceManager.idToMaterial(id).name, this.amt());
         this.slot.rarity -= 1;
         if (this.slot.rarity === 0) this.slot = null;
         refreshSynthStage();
@@ -12454,7 +12200,7 @@ var SynthManager = {
         if (this.slot === null) return;
         var type = this.slot.item.resynth;
         if (!ResourceManager.available(type, this.resynthAmt())) {
-            Notifications.popToast("insufficient_resynth_mats");
+            ToastManager.renderToast("insufficient_resynth_mats");
             return
         }
         ResourceManager.addMaterial(type, -this.resynthAmt());
@@ -12725,6 +12471,8 @@ function _createClass(Constructor, protoProps, staticProps) {
 var $tinkerBuilding = $("#tinkerBuilding");
 var $tinkerCommands = $("#tinkerCommands");
 var $tinkerTopContainer = $("#tinkerTopContainer");
+var $tinkerBottomContainer = $("#tinkerBottomContainer");
+var $tinkerScreenRecipes = $("#tinkerScreenRecipes");
 var tinkerCommand = function () {
     function tinkerCommand(props) {
         _classCallCheck(this, tinkerCommand);
@@ -12766,7 +12514,7 @@ var tinkerCommand = function () {
                 this.time = 0;
                 this.enabled = false;
                 refreshCommandToggle(this);
-                Notifications.popToast("tinker_disable");
+                ToastManager.renderToast("tinker_disable");
                 return
             }
             this.time += ms;
@@ -12823,7 +12571,7 @@ var tinkerCommand = function () {
     }, {
         key: "completeResearch",
         value: function completeResearch() {
-            if (!ResourceManager.available("M001", this.completeCost())) return Notifications.popToast("tinker_research");
+            if (!ResourceManager.available("M001", this.completeCost())) return ToastManager.renderToast("tinker_research");
             ResourceManager.addMaterial("M001", -this.completeCost());
             var recipeID = this.recipeUnlock[this.lvl];
             recipeList.unlockTrinketRecipe(recipeID);
@@ -13016,7 +12764,8 @@ function refreshTinkerLvLBar(command) {
 function initiateTinkerBldg() {
     $tinkerBuilding.show();
     generateTinkerHeader();
-    refreshTinkerCommands()
+    refreshTinkerCommands();
+    refreshTinkerRecipes()
 }
 $(document).on("click", ".tinkerCommandInline", function (e) {
     e.preventDefault();
@@ -13043,6 +12792,23 @@ function refreshCommandToggle(command) {
         var _toggle2 = $("#ct" + command.id).removeClass("toggleEnabled").addClass("toggleDisabled").html("".concat(miscIcons.toggleOff));
         $("<span/>").html(displayText("tinker_command_disabled")).appendTo(_toggle2)
     }
+}
+
+function refreshTinkerRecipes() {
+    $tinkerBottomContainer.empty();
+    var tinkerHeader = $("<div/>").addClass("contentHeader tinkerHeader").appendTo($tinkerBottomContainer);
+    var headingDetails = $("<div/>").addClass("headingDetails").appendTo(tinkerHeader);
+    $("<div/>").addClass("headingTitle").html(displayText("header_tinker_recipe_title")).appendTo(headingDetails);
+    $("<div/>").addClass("headingDescription").html(displayText("header_tinker_recipe_desc")).appendTo(headingDetails);
+    $tinkerScreenRecipes.empty();
+    var trinkets = recipeList.recipes.filter(function (r) {
+        return r.type === "Trinkets" && r.owned
+    });
+    trinkets.forEach(function (trinket) {
+        var recipeCardInfo = $("<div/>").addClass("recipeCardInfo").append(recipeCardFront(trinket, true));
+        var recipeCardContainer = $("<div/>").addClass("recipeCardContainer").data("recipeID", trinket.id).attr("id", "rr" + trinket.id).append(recipeCardInfo);
+        $tinkerScreenRecipes.append(recipeCardContainer)
+    })
 }
 "use strict";
 
@@ -13490,7 +13256,7 @@ var Guild = function () {
             if (slot === 3) submitContainer = this.order3;
             var itemString = submitContainer.uniqueID();
             var itemMatch = Inventory.findCraftMatch(itemString);
-            if (itemMatch === undefined) return Notifications.popToast("cant_find_match");
+            if (itemMatch === undefined) return ToastManager.renderToast("cant_find_match");
             Inventory.removeContainerFromInventory(itemMatch.containerID);
             submitContainer.fufilled += 1;
             this.addRep(submitContainer.rep);
@@ -14051,7 +13817,7 @@ var Shop = {
     buyPerk: function buyPerk(id) {
         var perk = this.idToPerk(id);
         if (ResourceManager.materialAvailable("M001") < perk.goldCost) {
-            Notifications.popToast("perk_cost");
+            ToastManager.renderToast("perk_cost");
             return
         }
         ResourceManager.deductMoney(perk.goldCost);
@@ -14390,7 +14156,7 @@ var Museum = {
     purchaseReward: function purchaseReward(rewardID) {
         var reward = this.idToReward(rewardID);
         if (this.remainingPoints() < reward.purchaseCost()) {
-            Notifications.popToast("cant_afford_museum_reward");
+            ToastManager.renderToast("cant_afford_museum_reward");
             return
         }
         reward.purchase()
@@ -14768,6 +14534,16 @@ var Quest = function () {
             })
         }
     }, {
+        key: "cancel",
+        value: function cancel() {
+            if (this.state !== QuestState.running) return;
+            this.state = QuestState.idle;
+            this.heroids.forEach(function (heroid) {
+                var hero = HeroManager.idToHero(heroid);
+                hero.state = HeroState.idle
+            })
+        }
+    }, {
         key: "remaining",
         value: function remaining() {
             return this.timeReq - this.elapsed
@@ -15012,6 +14788,12 @@ function createQuestContainer(quest, skipAnim) {
     if (quest.state === QuestState.running) d.addClass("questActive");
     if (quest.state === QuestState.success) d.removeClass("questActive").addClass("questSuccess");
     if (quest.state === QuestState.failure) d.removeClass("questActive").addClass("questFailure");
+    if (quest.state === QuestState.running) {
+        var cancel = $("<div/>").addClass("questCloseContainer").appendTo(d);
+        $("<div/>").addClass("questClose tooltip").attr({
+            "data-tooltip": "quest_remove"
+        }).data("questID", quest.id).html(miscIcons.cancelSlot).appendTo(cancel)
+    }
     $("<div/>").addClass("questName").html(quest.name).appendTo(d);
     $("<div/>").addClass("questDesc").html("<span>".concat(quest.description, "</span>")).appendTo(d);
     $("<div/>").addClass("questRewardHeader").html("Rewards").appendTo(d);
@@ -15055,6 +14837,16 @@ function createQuestContainer(quest, skipAnim) {
     }
     return d
 }
+$(document).on("click", ".questClose", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var qid = $(e.currentTarget).data("questID");
+    var quest = QuestManager.idToQuest(qid);
+    if (quest.state !== QuestState.running) return;
+    quest.cancel();
+    refreshQuestLocations(true);
+    destroyTooltip()
+});
 $(document).on("click", ".questLocationContainer", function (e) {
     e.preventDefault();
     var qid = $(e.currentTarget).data("questID");
@@ -15209,7 +15001,7 @@ $(document).on("click", ".qpBackButton", function (e) {
 $(document).on("click", ".qpHeaderStartQuest", function (e) {
     e.preventDefault();
     if ($(e.currentTarget).hasClass("qpHeaderInvalidTeam")) {
-        Notifications.popToast("invalid_quest_team");
+        ToastManager.renderToast("invalid_quest_team");
         return
     }
     QuestManager.lockTeam();
@@ -15440,6 +15232,27 @@ function renderDialogActions(id) {
             $("<span/>").addClass("selection").appendTo(label);
             label.appendTo(tooltipPrefGrid)
         });
+        var leaveSite = $("<div/>").attr({
+            id: "settings_leaveSite"
+        }).addClass("setting-container").appendTo(settingsContainer);
+        var leaveSite_details = {
+            title: "End Session Confirmation",
+            description: "Will prompt you with a confirmation before closing the window or tab. Changes will take affect on next session."
+        };
+        settingsBoilerplate(leaveSite_details).appendTo(leaveSite);
+        var leaveSiteGrid = $("<div/>").addClass("selections-grid").appendTo(leaveSite);
+        var leaveSiteOptions = [0, 1];
+        leaveSiteOptions.forEach(function (option, i) {
+            var label = $("<label/>").addClass("selection-container leaveSiteSelection").html(option === 1 ? "Enabled" : "Disabled");
+            $("<input/>").attr({
+                type: "radio",
+                name: "leaveSite",
+                value: option,
+                checked: settings.leavesite === option ? "checked" : null
+            }).appendTo(label);
+            $("<span/>").addClass("selection").appendTo(label);
+            label.appendTo(leaveSiteGrid)
+        });
         var clearSettings = $("<div/>").attr({
             id: "settings_clearSettings"
         }).addClass("setting-container").appendTo(settingsContainer);
@@ -15472,7 +15285,8 @@ function renderDialogActions(id) {
     if (id === "offline_stats") {
         var timeSince = $("<div/>").addClass("offlineStatContainer").appendTo(dialogActions);
         $("<div/>").html(displayText("offline_dialog_time_since_header")).addClass("offlineStatHeader").appendTo(timeSince);
-        $("<div/>").html(offlineStat.time).addClass("offlineStatBox").appendTo(timeSince);
+        var timeDiv = $("<div/>").html(offlineStat.time).addClass("offlineStatBox").appendTo(timeSince);
+        if (offlineStat.time === "3 days, 0 hours, 0 minutes, 0 seconds") timeDiv.html(offlineStat.time + " (max)");
         var goldEarned = $("<div/>").addClass("offlineStatContainer").appendTo(dialogActions);
         $("<div/>").html(displayText("offline_dialog_gold_earned_header")).addClass("offlineStatHeader").appendTo(goldEarned);
         $("<div/>").html(formatToUnits(offlineStat.gold, 2)).addClass("offlineStatBox").appendTo(goldEarned);
@@ -15900,7 +15714,7 @@ SkillManager.skillEffects["S1032"] = function (combatParams) {
     var damage = Math.floor(combatParams.power * combatParams.attack.mod1);
     lifeDrainAllies.forEach(function (target) {
         if (target.race === "undead") return;
-        BuffManager.generateBuff("B1030", target, combatParams.power)
+        BuffManager.generateBuff("B1030", target, damage)
     });
     lifeDrainEnemies.forEach(function (target) {
         BuffManager.generateBuff("B1030", target, damage)

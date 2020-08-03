@@ -224,6 +224,20 @@
     "type": "static"
   },
   {
+    "id": "fusion_active_remove",
+    "title": "Cancel Active Fusion",
+    "description": "This will cancel the currently active fusion and items will not be returned. ",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "fortune_slots_available",
+    "title": "Available Fortune Slots",
+    "description": "The number of fortune slots you have available for offerings.",
+    "icon": null,
+    "type": "static"
+  },
+  {
     "id": "offering_remove",
     "title": "Remove Slotted Offering",
     "description": "This will remove the currently slotted offering and return the item to your inventory. ",

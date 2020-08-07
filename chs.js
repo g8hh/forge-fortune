@@ -751,6 +751,7 @@ var cnRegReplace = new Map([
     [/^(\d+) days, (\d+) hours, (\d+) minutes, (\d+) second$/, '$1 天, $2 小时, $3 分钟, $4 秒'],
     [/^(\d+) days, (\d+) hours, (\d+) minute, (\d+) second$/, '$1 天, $2 小时, $3 分钟, $4 秒'],
     [/^(\d+) days, (\d+) hours, (\d+) minutes, (\d+) seconds$/, '$1 天, $2 小时, $3 分钟, $4 秒'],
+    [/^(\d+) days, (\d+) hours, (\d+) minutes, (\d+) seconds \(max$/, '$1 天, $2 小时, $3 分钟, $4 秒 \(最大'],
     [/^(\d+) days, (\d+) hour, (\d+) minutes, (\d+) seconds$/, '$1 天, $2 小时, $3 分钟, $4 秒'],
     [/^(\d+) days, (\d+) hour, (\d+) minutes, (\d+) second$/, '$1 天, $2 小时, $3 分钟, $4 秒'],
     [/^(\d+) days, (\d+) hours, (\d+) minute, (\d+) seconds$/, '$1 天, $2 小时, $3 分钟, $4 秒'],

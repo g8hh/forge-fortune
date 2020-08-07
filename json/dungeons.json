@@ -1,7 +1,7 @@
 [
   {
     "id": "D101",
-    "name": "Groovy Grove",
+    "name": "Groovy Grove I",
     "area": "A01",
     "mob1": "B100",
     "mob2": null,
@@ -171,7 +171,7 @@
   },
   {
     "id": "D201",
-    "name": "Spooky Spot",
+    "name": "Spooky Spot I",
     "area": "A02",
     "mob1": "B200",
     "mob2": null,
@@ -341,7 +341,7 @@
   },
   {
     "id": "D301",
-    "name": "Creepy Crag",
+    "name": "Creepy Crag I",
     "area": "A03",
     "mob1": "B300",
     "mob2": null,
@@ -647,12 +647,12 @@
   },
   {
     "id": "D409",
-    "name": "Work In Progress",
+    "name": "Goblin King",
     "area": "A04",
-    "mob1": "B909",
-    "mob2": null,
-    "mob3": null,
-    "mob4": null,
+    "mob1": "B909A",
+    "mob2": "B909B",
+    "mob3": "B909C",
+    "mob4": "B909",
     "mat": null,
     "pow": null,
     "hp": null,
@@ -660,7 +660,7 @@
     "hpGain": null,
     "partySize": 4,
     "type": "boss",
-    "unlockedBy": "D408"
+    "unlockedBy": "locked"
   },
   {
     "id": "D410",
@@ -677,6 +677,6 @@
     "hpGain": null,
     "partySize": 4,
     "type": "boss",
-    "unlockedBy": "D409"
+    "unlockedBy": "locked"
   }
 ]

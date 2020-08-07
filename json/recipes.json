@@ -13,7 +13,7 @@
     "mcost": {
       "M101": 1
     },
-    "smithCost": "M101",
+    "smithCost": "M301",
     "pts": 7,
     "pow": 3,
     "hp": 0,
@@ -1205,7 +1205,7 @@
     "mcost": {
       "M201": 1
     },
-    "smithCost": "M101",
+    "smithCost": "M201",
     "pts": 6,
     "pow": 0,
     "hp": 3,
@@ -1500,7 +1500,7 @@
     "mcost": {
       "M101": 1
     },
-    "smithCost": "M201",
+    "smithCost": "M101",
     "pts": 6,
     "pow": 0,
     "hp": 3,

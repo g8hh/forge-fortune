@@ -301,8 +301,17 @@
     "customClass": "success",
     "icon": "<i class=\"fas fa-check\"></i>",
     "title": "Fortune Slot Available",
-    "description": "You have succesfully crafted your {0} rarity {1} fortune!",
+    "description": "You have successfully crafted your {0} rarity {1} fortune!",
     "type": "fortune",
     "actionText": "Go to Fortune Teller"
+  },
+  {
+    "id": "fusion_completed",
+    "customClass": "success",
+    "icon": "<i class=\"fas fa-check\"></i>",
+    "title": "Fusion Completed!",
+    "description": "Your {0} {1} fusion has completed.",
+    "type": "fusion",
+    "actionText": "Go to Fusion Cabin"
   }
 ]

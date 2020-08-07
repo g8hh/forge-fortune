@@ -353,7 +353,7 @@
   {
     "id": "SM102",
     "name": "Wilt",
-    "description": "Minimush applies Wilt to frontmost enemy.  Wilt reduces healing received by 50%.",
+    "description": "Minimush deals 100% #POWICON# and applies Wilt to frontmost enemy.  Wilt reduces healing received by 50%.",
     "icon": "<img src=\"assets/svg/mushrooms-cluster.svg\">",
     "powMod": 1,
     "mod1": null,
@@ -650,7 +650,7 @@
   {
     "id": "SMP909A",
     "name": "Red Taunt",
-    "description": "Red Taunt and gives buff to Goblin King on death",
+    "description": "Red Taunt and gives buff to Goblin King on death (replacing other goblin buffs he has)",
     "icon": "<img src=\"assets/svg/wood-beam.svg\">",
     "powMod": 1,
     "mod1": null,
@@ -659,7 +659,7 @@
   {
     "id": "SMP909B",
     "name": "Blue Taunt",
-    "description": "Blue Taunt and gives buff to Goblin King on death",
+    "description": "Blue Taunt and gives buff to Goblin King on death (replacing other goblin buffs he has)",
     "icon": "<img src=\"assets/svg/wood-beam.svg\">",
     "powMod": 1,
     "mod1": null,
@@ -668,7 +668,7 @@
   {
     "id": "SMP909C",
     "name": "Green Taunt",
-    "description": "Green Taunt and gives buff to Goblin King on death",
+    "description": "Green Taunt and gives buff to Goblin King on death (replacing other goblin buffs he has)",
     "icon": "<img src=\"assets/svg/wood-beam.svg\">",
     "powMod": 1,
     "mod1": null,
@@ -684,7 +684,7 @@
     "mod2": null
   },
   {
-    "id": "SM909B2",
+    "id": "SM909A2",
     "name": "Cleave",
     "description": "Cleave",
     "icon": "<img src=\"assets/svg/wood-beam.svg\">",
@@ -694,7 +694,7 @@
   },
   {
     "id": "SM909B1",
-    "name": "AoE",
+    "name": "Mighty AoE",
     "description": "Attacks every unit, deals double damage against Might heroes",
     "icon": "<img src=\"assets/svg/wood-beam.svg\">",
     "powMod": 2,
@@ -724,8 +724,8 @@
     "name": "Amplify",
     "description": "Applies debuff to all enemies, take 1.5x damage on next attack",
     "icon": "<img src=\"assets/svg/wood-beam.svg\">",
-    "powMod": 2,
-    "mod1": null,
+    "powMod": 1,
+    "mod1": 1.5,
     "mod2": null
   },
   {
@@ -875,7 +875,7 @@
   {
     "id": "SMP907",
     "name": "Snack Break",
-    "description": "Monkey occasionally becomes hungry, and will hunt for food.",
+    "description": "Monkey occasionally becomes hungry, and will hunt for food.  All negative status effects will be removed.",
     "icon": "<img src=\"assets/svg/beech.svg\">",
     "powMod": 0,
     "mod1": null,
@@ -911,27 +911,27 @@
   {
     "id": "SMP909",
     "name": "Kingpin",
-    "description": "Goblin King takes 25% reduced damage for each other goblin alive",
+    "description": "Goblin King gains a stack of the buff Kingpin everytime another goblin dies.",
     "icon": "<i class=\"fas fa-fish\"></i>",
     "powMod": 0,
     "mod1": 0.25,
     "mod2": null
   },
   {
-    "id": "SMP909A",
+    "id": "SM909B",
     "name": "Hit Once a Lot",
-    "description": "Goblin King attacks the frontmost unit and repeats for each missing stack of Kingpin.",
-    "icon": null,
-    "powMod": null,
+    "description": "Goblin King attacks the frontmost unit and repeats for each additional stack of Kingpin.",
+    "icon": "<i class=\"fas fa-fish\"></i>",
+    "powMod": 2,
     "mod1": null,
     "mod2": null
   },
   {
-    "id": "SMP909B",
+    "id": "SM909C",
     "name": "Hit a Lot Once",
     "description": "Goblin King attacks the frontmost unit and attacks an additional unit for each missing stack of Kingpin.",
-    "icon": null,
-    "powMod": null,
+    "icon": "<i class=\"fas fa-fish\"></i>",
+    "powMod": 2,
     "mod1": null,
     "mod2": null
   }

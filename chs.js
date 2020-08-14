@@ -133,7 +133,7 @@ var cnItems = {
     'Tawny': '茶色',
     'Purchase': '购买',
     'Patience': '耐力',
-    'Plate': '板',
+    'Plate': '板甲',
     'Kite': '风筝',
     'Renae': '雷那',
     'Recipe': '配方',

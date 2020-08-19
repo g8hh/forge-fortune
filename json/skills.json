@@ -20,7 +20,7 @@
   {
     "id": "S0011",
     "name": "Riposte",
-    "description": "Beorn gains Riposte.  Riposte negates the next incoming attack.  When consumed, Beorn will counterattack for 2x #POWICON#.",
+    "description": "Beorn gains Riposte.  Riposte negates the next incoming attack.  When consumed, Beorn will counterattack for 200% #POWICON#.",
     "icon": "<img src=\"assets/svg/bouncing-sword.svg\">",
     "powMod": 2,
     "mod1": null,
@@ -29,7 +29,7 @@
   {
     "id": "S0012",
     "name": "Phalanx",
-    "description": "Beorn applies Phalanx to his allies. While Phalanx is active on an ally, it will transfer 25% of the next loss of health to Beorn.",
+    "description": "Beorn applies Phalanx to allies behind him. While Phalanx is active on an ally, it will transfer 25% of the next loss of health to Beorn.",
     "icon": "<img src=\"assets/svg/shield-echoes.svg\">",
     "powMod": 0,
     "mod1": 0.25,
@@ -649,27 +649,27 @@
   },
   {
     "id": "SMP909A",
-    "name": "Red Taunt",
-    "description": "Red Taunt and gives buff to Goblin King on death (replacing other goblin buffs he has)",
-    "icon": "<img src=\"assets/svg/wood-beam.svg\">",
+    "name": "Provoke The Mighty",
+    "description": "Might Hero attacks will be focused on Czerwony.  Czerwony will not be attacked by other hero types.  Upon his death, Czerwony will grant \"Take My Shield!\" to the Goblin King.  Take My Shield reduces damage taken from every third attack by 100%, and deals double damage to Might heroes.",
+    "icon": "<img src=\"assets/svg/visored-helm.svg\">",
     "powMod": 1,
     "mod1": null,
     "mod2": null
   },
   {
     "id": "SMP909B",
-    "name": "Blue Taunt",
-    "description": "Blue Taunt and gives buff to Goblin King on death (replacing other goblin buffs he has)",
-    "icon": "<img src=\"assets/svg/wood-beam.svg\">",
+    "name": "Provoke The Mind",
+    "description": "Mind Hero attacks will be focused on Niebieski.  Niebieski will not be attacked by other hero types.  Upon her death, Niebieski will grant \"Take My Staff!\" to the Goblin King.  Take My Staff heals the Goblin King on his turn, and deals double damage to Mind heroes.",
+    "icon": "<img src=\"assets/svg/robe.svg\">",
     "powMod": 1,
-    "mod1": null,
+    "mod1": 0.1,
     "mod2": null
   },
   {
     "id": "SMP909C",
-    "name": "Green Taunt",
-    "description": "Green Taunt and gives buff to Goblin King on death (replacing other goblin buffs he has)",
-    "icon": "<img src=\"assets/svg/wood-beam.svg\">",
+    "name": "Provoke The Moxie",
+    "description": "Moxie Hero attacks will be focused on Zielony.  Zielony will not be attacked by other hero types.  Upon their death, Zielony will grant \"Take My Knife!\" to the Goblin King.  Take My Knife causes the Goblin King's regular attacks to damage the lowest HP enemy, and deal double damage to Moxie heroes.",
+    "icon": "<img src=\"assets/svg/martini.svg\">",
     "powMod": 1,
     "mod1": null,
     "mod2": null
@@ -677,35 +677,35 @@
   {
     "id": "SM909A1",
     "name": "Moxie Smash",
-    "description": "Attacks the moxie hero closest to front for double damage, if none in party attacks first hero",
-    "icon": "<img src=\"assets/svg/wood-beam.svg\">",
+    "description": "Czerwony attacks the nearest Moxie Hero for 800% #POWICON#.  If no Moxie Heroes are available, Czerwony deals 200% #POWICON# instead.",
+    "icon": "<img src=\"assets/svg/hammer-drop.svg\">",
     "powMod": 2,
-    "mod1": 2,
+    "mod1": 4,
     "mod2": null
   },
   {
     "id": "SM909A2",
-    "name": "Cleave",
-    "description": "Cleave",
-    "icon": "<img src=\"assets/svg/wood-beam.svg\">",
+    "name": "Goblin Swipe",
+    "description": "Czerwony deals 200% #POWICON# to the two frontmost enemies.",
+    "icon": "<img src=\"assets/svg/lightning-slashes.svg\">",
     "powMod": 2,
     "mod1": null,
     "mod2": null
   },
   {
     "id": "SM909B1",
-    "name": "Mighty AoE",
-    "description": "Attacks every unit, deals double damage against Might heroes",
-    "icon": "<img src=\"assets/svg/wood-beam.svg\">",
+    "name": "Mighty Blast",
+    "description": "Niebieski deals 200% #POWICON# to all enemies.  Might Heroes take an additional 200% #POWICON#.",
+    "icon": "<img src=\"assets/svg/sinusoidal-beam.svg\">",
     "powMod": 2,
     "mod1": 2,
     "mod2": null
   },
   {
     "id": "SM909B2",
-    "name": "Heal",
-    "description": "Heals all allies",
-    "icon": "<img src=\"assets/svg/wood-beam.svg\">",
+    "name": "Healing Aura",
+    "description": "Niebieski heals all allies for 200% #POWICON#.",
+    "icon": "<img src=\"assets/svg/aura.svg\">",
     "powMod": 2,
     "mod1": null,
     "mod2": null
@@ -713,17 +713,17 @@
   {
     "id": "SM909C1",
     "name": "Mind Sniper",
-    "description": "Hits lowest HP unit, deals double damage if Mind",
-    "icon": "<img src=\"assets/svg/wood-beam.svg\">",
+    "description": "Zielony deals 200% #POWICON# to the lowest HP enemy.  If that enemy is a Mind Hero, Zielony deals an addtional 200% #POWICON#.",
+    "icon": "<img src=\"assets/svg/chemical-arrow.svg\">",
     "powMod": 2,
     "mod1": 2,
     "mod2": null
   },
   {
     "id": "SM909C2",
-    "name": "Amplify",
-    "description": "Applies debuff to all enemies, take 1.5x damage on next attack",
-    "icon": "<img src=\"assets/svg/wood-beam.svg\">",
+    "name": "Weaken Foes",
+    "description": "Zielony applies Weaken Foes to all enemies.  Weaken Foes increases damage taken by 1.5x for the next attack received.",
+    "icon": "<img src=\"assets/svg/arrowed.svg\">",
     "powMod": 1,
     "mod1": 1.5,
     "mod2": null
@@ -911,27 +911,108 @@
   {
     "id": "SMP909",
     "name": "Kingpin",
-    "description": "Goblin King gains a stack of the buff Kingpin everytime another goblin dies.",
-    "icon": "<i class=\"fas fa-fish\"></i>",
+    "description": "Goblin King gains a stack of Kingpin and gains a special buff every time another goblin dies.  Only one special buff can be active at a time.",
+    "icon": "<img src=\"assets/svg/bowling-pin.svg\">",
     "powMod": 0,
-    "mod1": 0.25,
-    "mod2": null
-  },
-  {
-    "id": "SM909B",
-    "name": "Hit Once a Lot",
-    "description": "Goblin King attacks the frontmost unit and repeats for each additional stack of Kingpin.",
-    "icon": "<i class=\"fas fa-fish\"></i>",
-    "powMod": 2,
     "mod1": null,
     "mod2": null
   },
   {
-    "id": "SM909C",
-    "name": "Hit a Lot Once",
-    "description": "Goblin King attacks the frontmost unit and attacks an additional unit for each missing stack of Kingpin.",
-    "icon": "<i class=\"fas fa-fish\"></i>",
+    "id": "SM909A",
+    "name": "Rapid Strikes",
+    "description": "Goblin King attacks the frontmost enemy for 100% #POWICON#.  Goblin King will attack that enemy again for each stack of Kingpin.",
+    "icon": "<img src=\"assets/svg/bowling-strike.svg\">",
+    "powMod": 1,
+    "mod1": 2,
+    "mod2": null
+  },
+  {
+    "id": "SM909B",
+    "name": "Gutter Punch",
+    "description": "Goblin King attacks the frontmost enemy unit for 200% #POWICON#.  Goblin King will attack an additional unit for each stack of Kingpin.",
+    "icon": "<img src=\"assets/svg/bowling-propulsion.svg\">",
     "powMod": 2,
+    "mod1": 2,
+    "mod2": null
+  },
+  {
+    "id": "SM909C",
+    "name": "Attack",
+    "description": "Deal 100% #POWICON# to frontmost enemy. If Goblin King has \"Take My Knife!\" buff, this attack deals damage to the lowest HP enemy instead.",
+    "icon": "<img src=\"assets/svg/sword-brandish.svg\">",
+    "powMod": 1,
+    "mod1": 2,
+    "mod2": null
+  },
+  {
+    "id": "SMP910",
+    "name": "Many Eyes",
+    "description": "Beclutcher chooses four skills randomly from 9 possible attacks. The last attack is always Disintegration Ray. Beclutcher chooses its targets intelligently.",
+    "icon": "<img src=\"assets/svg/sword-brandish.svg\">",
+    "powMod": null,
+    "mod1": null,
+    "mod2": null
+  },
+  {
+    "id": "SM910A",
+    "name": "Stone Ray",
+    "description": "Turns a randomly enemy to stone. Stoned enemies can't attack. Healing or using a non-standard attack removes stoned condition.",
+    "icon": "<img src=\"assets/svg/sword-brandish.svg\">",
+    "powMod": 1,
+    "mod1": null,
+    "mod2": null
+  },
+  {
+    "id": "SM910B",
+    "name": "Disintegration Ray",
+    "description": "Attacks the fourth hero and applies \"Heating Up\". If hero already has \"Heating Up\" then this attack vaporizes them, killing them instantly.",
+    "icon": "<img src=\"assets/svg/sword-brandish.svg\">",
+    "powMod": 1,
+    "mod1": null,
+    "mod2": null
+  },
+  {
+    "id": "SM910C",
+    "name": "Stun Ray",
+    "description": "Applies \"Stun\" to a random enemy. Stunned enemies next attack has no effect.",
+    "icon": "<img src=\"assets/svg/sword-brandish.svg\">",
+    "powMod": 1,
+    "mod1": null,
+    "mod2": null
+  },
+  {
+    "id": "SM910D",
+    "name": "Speed Ray",
+    "description": "Bump enemy's playbook forward one turn.",
+    "icon": "<img src=\"assets/svg/sword-brandish.svg\">",
+    "powMod": 1,
+    "mod1": null,
+    "mod2": null
+  },
+  {
+    "id": "SM910E",
+    "name": "Slowing Ray",
+    "description": "Applies \"Slow\" to a random enemy. Slowed enemies skip their turn.",
+    "icon": "<img src=\"assets/svg/sword-brandish.svg\">",
+    "powMod": 1,
+    "mod1": null,
+    "mod2": null
+  },
+  {
+    "id": "SM910F",
+    "name": "Feeble Ray",
+    "description": "Applies \"Feeble\" to a random enemy. Feeble reduces damage dealt by half.",
+    "icon": null,
+    "powMod": null,
+    "mod1": null,
+    "mod2": null
+  },
+  {
+    "id": "SM910G",
+    "name": "Fear Ray",
+    "description": "Enemy is feared. Feared enemies can't target Beclutcher until they are healed. Healing or using a non-standard attack removes stoned condition.",
+    "icon": null,
+    "powMod": null,
     "mod1": null,
     "mod2": null
   }

@@ -3507,20 +3507,8 @@ function loadTooltips() {
             var tooltip = new Tooltip(props);
             TooltipManager.addTooltip(tooltip)
         });
-        loadMuseum();
+        loadQuest();
         preloader.setMessage("Informing the uninformed...")
-    })
-}
-
-function loadMuseum() {
-    $.ajax({
-        url: "json/museum.json"
-    }).done(function (data) {
-        $.each(data, function (i, props) {
-            var reward = new MuseumReward(props);
-            Museum.addReward(reward)
-        });
-        loadQuest()
     })
 }
 
@@ -3559,7 +3547,8 @@ var settings = {
     db: 0,
     tpref: 1,
     opnotif: 0,
-    leavesite: 0
+    leavesite: 0,
+    animations: 1
 };
 
 function saveSettings() {
@@ -3844,7 +3833,8 @@ var miscIcons = Object.freeze({
     toggleOn: '<i class="fas fa-toggle-on"></i>',
     toggleOff: '<i class="fas fa-toggle-off"></i>',
     quest: '<i class="fas fa-map-signs"></i>',
-    locked: '<i class="fas fa-lock-alt"></i>'
+    locked: '<i class="fas fa-lock-alt"></i>',
+    enhancement: '<i class="fas fa-plus-circle"></i>'
 });
 var heroStat = Object.freeze({
     hp: "hp",
@@ -4390,7 +4380,7 @@ var Item = function () {
     }, {
         key: "reducedCraft",
         value: function reducedCraft() {
-            return this.craftTime * Museum.craftTime()
+            return Math.floor(this.craftTime * Museum.craftTime(this.id))
         }
     }, {
         key: "masteryCost",
@@ -4430,7 +4420,7 @@ var recipeList = {
         var _this2 = this;
         var cleanString = this.recipeFilterString.toLowerCase();
         if (this.recipeFilterType === "default") return this.recipes.filter(function (r) {
-            return r.owned && r.name.toLowerCase().includes(cleanString)
+            return r.owned && r.name.toLowerCase().includes(cleanString) && r.type !== "Trinkets"
         });
         if (this.masteryFilter === MasteryFilter.BOTH && this.recipeFilterScope === "level") return this.recipes.filter(function (r) {
             return r.owned && r.recipeType === "normal" && r.lvl === _this2.recipeFilterType && r.type !== "Trinkets"
@@ -4762,7 +4752,7 @@ $(document).on("click", ".recipeScopeName", function (e) {
 });
 $(document).on("click", ".recipeMasterySort", function (e) {
     e.preventDefault();
-    var currentType = $(e.currentTarget).attr("data-sorttype");
+        var currentType = $(e.currentTarget).attr("data-sorttype");
     if (currentType === "All Recipes") {
         $(e.currentTarget).html("Unmastered Only");
             $(e.currentTarget).attr("data-sorttype","Unmastered Only");
@@ -5111,7 +5101,8 @@ var TargetType = Object.freeze({
     RANDOM: 15,
     ENEMIES: 16,
     TWOLEASTMAX: 17,
-    SWIPE: 18
+    SWIPE: 18,
+    FIRSTMOXIE: 19
 });
 var SideType = Object.freeze({
     ALLIES: 0,
@@ -5149,7 +5140,7 @@ var combatRoundParams = function () {
             var _this = this;
             var isNormal = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
             var aliveEnemys = this.enemies.filter(function (h) {
-                return h.alive()
+                return h.alive() && !h.phase(_this.attacker.type)
             });
             var enemies = aliveEnemys.some(function (h) {
                 return h.mark(_this.attacker.type)
@@ -5248,13 +5239,13 @@ var combatRoundParams = function () {
                 })];
                 if (this.attacker.confusion()) return [this.attacker];
                 if (this.enemies.length <= _indx5) _indx5 = enemies.length - 1;
-                if (this.enemies[_indx5].alive()) return [this.enemies[_indx5]];
-                if (_indx5 > 0 && this.enemies[_indx5 - 1].alive()) return [this.enemies[_indx5 - 1]];
-                if (_indx5 < this.enemies.length - 1 && this.enemies[_indx5 + 1].alive()) return [this.enemies[_indx5 + 1]];
-                if (_indx5 - 1 > 0 && this.enemies[_indx5 - 2].alive()) return [this.enemies[_indx5 - 2]];
-                if (_indx5 < this.enemies.length - 2 && this.enemies[_indx5 + 2].alive()) return [this.enemies[_indx5 + 2]];
-                if (_indx5 - 2 > 0 && this.enemies[_indx5 - 3].alive()) return [this.enemies[_indx5 - 3]];
-                if (_indx5 < this.enemies.length - 3 && this.enemies[_indx5 + 3].alive()) return [this.enemies[_indx5 + 3]]
+                if (this.enemies[_indx5].alive() && !this.enemies[_indx5].phase(this.attacker.type)) return [this.enemies[_indx5]];
+                if (_indx5 > 0 && this.enemies[_indx5 - 1].alive() && !this.enemies[_indx5].phase(this.attacker.type)) return [this.enemies[_indx5 - 1]];
+                if (_indx5 < this.enemies.length - 1 && this.enemies[_indx5 + 1].alive() && !this.enemies[_indx5].phase(this.attacker.type)) return [this.enemies[_indx5 + 1]];
+                if (_indx5 - 1 > 0 && this.enemies[_indx5 - 2].alive() && !this.enemies[_indx5].phase(this.attacker.type)) return [this.enemies[_indx5 - 2]];
+                if (_indx5 < this.enemies.length - 2 && this.enemies[_indx5 + 2].alive() && !this.enemies[_indx5].phase(this.attacker.type)) return [this.enemies[_indx5 + 2]];
+                if (_indx5 - 2 > 0 && this.enemies[_indx5 - 3].alive() && !this.enemies[_indx5].phase(this.attacker.type)) return [this.enemies[_indx5 - 3]];
+                if (_indx5 < this.enemies.length - 3 && this.enemies[_indx5 + 3].alive() && !this.enemies[_indx5].phase(this.attacker.type)) return [this.enemies[_indx5 + 3]]
             }
             if (target === TargetType.RANDOM) {
                 var seed = aliveEnemys.map(function (e) {
@@ -5275,6 +5266,13 @@ var combatRoundParams = function () {
                 return living.sort(function (a, b) {
                     return a.maxHP() - b.maxHP()
                 }).slice(0, 2)
+            }
+            if (target === TargetType.FIRSTMOXIE) {
+                var firstMox = living.find(function (h) {
+                    return h.type === "Moxie"
+                });
+                if (firstMox === undefined) return undefined;
+                return [firstMox]
             }
         }
     }]);
@@ -5331,8 +5329,8 @@ var Combatant = function () {
             var reducedDmg = Math.floor(dmg * mod);
             this.hp = Math.max(this.hp - reducedDmg, 0);
             if (this.hp === 0) {
-                this.passiveCheck("dead");
                 BuffManager.clearBuffs(this);
+                this.passiveCheck("dead");
                 refreshDungeonDead(this.uniqueid)
             }
             if (!CombatManager.refreshLater) refreshHPBar(this)
@@ -5343,8 +5341,8 @@ var Combatant = function () {
             this.hp -= Math.floor(this.maxHP() * hpPercent / 100);
             this.hp = Math.max(0, this.hp);
             if (this.hp === 0) {
-                this.passiveCheck("dead");
                 BuffManager.clearBuffs(this);
+                this.passiveCheck("dead");
                 refreshDungeonDead(this.uniqueid)
             }
             if (!CombatManager.refreshLater) refreshHPBar(this)
@@ -5447,7 +5445,7 @@ var Combatant = function () {
         key: "healPercent",
         value: function healPercent(hpPercent) {
             if (this.hp === 0) return;
-            if (this.isWilt()) hp = Math.floor(hp / 2);
+            if (this.isWilt()) hpPercent = hpPercent / 2;
             this.hp += Math.floor(this.maxHP() * hpPercent / 100);
             this.hp = Math.min(this.maxHP(), this.hp);
             if (!CombatManager.refreshLater) refreshHPBar(this)
@@ -5485,10 +5483,22 @@ var Combatant = function () {
             return this.playbook.getSkillIDs()
         }
     }, {
+        key: "advancePlaybook",
+        value: function advancePlaybook() {
+            this.playbook.nextSkill()
+        }
+    }, {
         key: "mark",
-        value: function mark() {
+        value: function mark(type) {
             return this.buffs.some(function (b) {
-                return b.mark()
+                return b.mark(type)
+            })
+        }
+    }, {
+        key: "phase",
+        value: function phase(type) {
+            return this.buffs.some(function (b) {
+                return b.phase(type)
             })
         }
     }, {
@@ -5856,6 +5866,11 @@ var Buff = function () {
     }, {
         key: "mark",
         value: function mark() {
+            return false
+        }
+    }, {
+        key: "phase",
+        value: function phase() {
             return false
         }
     }, {
@@ -6627,6 +6642,147 @@ var BM908B = function (_Buff41) {
     }]);
     return BM908B
 }(Buff);
+var BM909 = function (_Buff42) {
+    _inherits(BM909, _Buff42);
+
+    function BM909(buffTemplate, target, power) {
+        _classCallCheck(this, BM909);
+        return _possibleConstructorReturn(this, _getPrototypeOf(BM909).call(this, buffTemplate, target, power))
+    }
+    return BM909
+}(Buff);
+var BM909A1 = function (_Buff43) {
+    _inherits(BM909A1, _Buff43);
+
+    function BM909A1(buffTemplate, target, power) {
+        _classCallCheck(this, BM909A1);
+        return _possibleConstructorReturn(this, _getPrototypeOf(BM909A1).call(this, buffTemplate, target, power))
+    }
+    _createClass(BM909A1, [{
+        key: "parry",
+        value: function parry() {
+            if (this.stacks === 1) {
+                return this.power
+            }
+            return 0
+        }
+    }, {
+        key: "getProtection",
+        value: function getProtection() {
+            if (this.stacks === 1) {
+                return 1
+            }
+            return 0
+        }
+    }, {
+        key: "onHit",
+        value: function onHit() {
+            if (this.stacks === 1) {
+                BuffManager.generateBuff("BM909A1", this.target, 1)
+            }
+        }
+    }]);
+    return BM909A1
+}(Buff);
+var BM909B1 = function (_Buff44) {
+    _inherits(BM909B1, _Buff44);
+
+    function BM909B1(buffTemplate, target, power, power2) {
+        _classCallCheck(this, BM909B1);
+        return _possibleConstructorReturn(this, _getPrototypeOf(BM909B1).call(this, buffTemplate, target, power, power2))
+    }
+    _createClass(BM909B1, [{
+        key: "onTick",
+        value: function onTick() {
+            this.target.healPercent(this.power2)
+        }
+    }]);
+    return BM909B1
+}(Buff);
+var BM909C1 = function (_Buff45) {
+    _inherits(BM909C1, _Buff45);
+
+    function BM909C1(buffTemplate, target, power) {
+        _classCallCheck(this, BM909C1);
+        return _possibleConstructorReturn(this, _getPrototypeOf(BM909C1).call(this, buffTemplate, target, power))
+    }
+    return BM909C1
+}(Buff);
+var BM909A2 = function (_Buff46) {
+    _inherits(BM909A2, _Buff46);
+
+    function BM909A2(buffTemplate, target, power) {
+        _classCallCheck(this, BM909A2);
+        return _possibleConstructorReturn(this, _getPrototypeOf(BM909A2).call(this, buffTemplate, target, power))
+    }
+    _createClass(BM909A2, [{
+        key: "mark",
+        value: function mark(type) {
+            return type === "Might"
+        }
+    }, {
+        key: "phase",
+        value: function phase(type) {
+            return type !== "Might"
+        }
+    }]);
+    return BM909A2
+}(Buff);
+var BM909B2 = function (_Buff47) {
+    _inherits(BM909B2, _Buff47);
+
+    function BM909B2(buffTemplate, target, power) {
+        _classCallCheck(this, BM909B2);
+        return _possibleConstructorReturn(this, _getPrototypeOf(BM909B2).call(this, buffTemplate, target, power))
+    }
+    _createClass(BM909B2, [{
+        key: "mark",
+        value: function mark(type) {
+            return type === "Mind"
+        }
+    }, {
+        key: "phase",
+        value: function phase(type) {
+            return type !== "Mind"
+        }
+    }]);
+    return BM909B2
+}(Buff);
+var BM909C2 = function (_Buff48) {
+    _inherits(BM909C2, _Buff48);
+
+    function BM909C2(buffTemplate, target, power) {
+        _classCallCheck(this, BM909C2);
+        return _possibleConstructorReturn(this, _getPrototypeOf(BM909C2).call(this, buffTemplate, target, power))
+    }
+    _createClass(BM909C2, [{
+        key: "mark",
+        value: function mark(type) {
+            return type === "Moxie"
+        }
+    }, {
+        key: "phase",
+        value: function phase(type) {
+            return type !== "Moxie"
+        }
+    }]);
+    return BM909C2
+}(Buff);
+var BM909C3 = function (_Buff49) {
+    _inherits(BM909C3, _Buff49);
+
+    function BM909C3(buffTemplate, target, power) {
+        _classCallCheck(this, BM909C3);
+        return _possibleConstructorReturn(this, _getPrototypeOf(BM909C3).call(this, buffTemplate, target, power))
+    }
+    _createClass(BM909C3, [{
+        key: "getVulnerability",
+        value: function getVulnerability() {
+            return 1
+        }
+    }]);
+    return BM909C3
+}(Buff);
 var BuffLookup = {
     B0010: B0010,
     B0011: B0011,
@@ -6668,7 +6824,15 @@ var BuffLookup = {
     BM907B: BM907B,
     BM907C: BM907C,
     BM908A: BM908A,
-    BM908B: BM908B
+    BM908B: BM908B,
+    BM909: BM909,
+    BM909A1: BM909A1,
+    BM909B1: BM909B1,
+    BM909C1: BM909C1,
+    BM909A2: BM909A2,
+    BM909B2: BM909B2,
+    BM909C2: BM909C2,
+    BM909C3: BM909C3
 };
 "use strict";
 
@@ -7333,7 +7497,7 @@ function showHeroDetails() {
     $heroExamineName.html(hero.name);
     $heroExamineImage.html(hero.image);
     $heroExamineDescription.html(hero.description);
-    $heroClassText.addClass("class".concat(hero.type)).html(hero.type);
+    $heroClassText.removeClass().addClass("class".concat(hero.type)).html(hero.type);
     $heroExaminePlaybooks.empty();
     generateHeroPlaybooks(hero).appendTo($heroExaminePlaybooks)
 }
@@ -7465,7 +7629,7 @@ function heroCurrentGearEquip(hero, gearSlot) {
         $("<div/>").addClass("empty_integer statValue").appendTo(ed);
         return d
     }
-    var d1 = $("<div/>").addClass("heroExamineEquipmentEquip").addClass("R" + gear.rarity).appendTo(d);
+    var d1 = $("<div/>").addClass("heroExamineEquipmentEquip").addClass("R" + gear.rarity).addClass("ctrlClickItem").data("rid", gear.id).appendTo(d);
     $("<div/>").addClass("itemName").html(gear.picName()).appendTo(d1);
     var d2 = $("<div/>").addClass("itemLevel").appendTo(d1);
     $("<div/>").addClass("level_text").html("LVL").appendTo(d2);
@@ -7650,7 +7814,7 @@ $(document).on("click", ".heroTab", function (e) {
     if ($(e.currentTarget).hasClass("heroTabLocked")) return;
     $(".heroTab").removeClass("selected");
     $(e.currentTarget).addClass("selected");
-        var tabType = $(e.currentTarget).attr("data-herotabid");
+            var tabType = $(e.currentTarget).attr("data-herotabid");
     if (HeroManager.tabSelected === tabType) return;
     HeroManager.tabSelected = tabType;
     showTab(tabType)
@@ -8001,7 +8165,8 @@ var PartyCreator = {
         this.heroes[indx] = heroID
     },
     clearMembers: function clearMembers() {
-        this.heroes = [null, null, null, null]
+        var dungeon = DungeonManager.dungeonByID(this.dungeonSelect);
+        this.heroes = new Array(dungeon.partySize).fill(null)
     },
     validTeam: function validTeam() {
         if (this.heroes.filter(function (h) {
@@ -9598,7 +9763,9 @@ function _createClass(Constructor, protoProps, staticProps) {
 $("#inventory").on("click", ".inventorySell", function (e) {
     e.preventDefault();
     var id = $(e.target).attr("id");
-    Inventory.sellInventoryIndex(id)
+    Inventory.sellInventoryIndex(id);
+    console.log("fire");
+    if (e.shiftKey) Inventory.sortInventory()
 });
 $(document).on("click", "#sortInventory", function (e) {
     e.preventDefault();
@@ -9674,14 +9841,14 @@ var itemContainer = function () {
     }, {
         key: "picName",
         value: function picName() {
-            var sharp = this.sharp > 0 ? "+".concat(this.sharp) : null;
+            var sharp = this.sharp > 0 ? "".concat(miscIcons.enhancement).concat(this.sharp) : null;
             if (!sharp) return "".concat(this.item.itemPic(), '<div class="item-prefix-name">').concat(this.prefix()).concat(this.item.name, "</div>");
             return "".concat(this.item.itemPic(), '<div class="item-prefix-name"><span class="item-prefix tooltip" data-tooltip="forge_level">').concat(sharp, "</span>").concat(this.prefix()).concat(this.item.name, "</div>")
         }
     }, {
         key: "picNamePlus",
         value: function picNamePlus() {
-            var sharp = '<span class="item-prefix">+'.concat(this.sharp + 1, "</span>");
+            var sharp = '<span class="item-prefix">'.concat(miscIcons.enhancement).concat(this.sharp + 1, "</span>");
             return "".concat(this.item.itemPic(), '<div class="item-prefix-name">').concat(sharp).concat(this.prefix()).concat(this.item.name, "</div>")
         }
     }, {
@@ -9846,7 +10013,7 @@ var Inventory = {
         if (!skipAnimation) {
             refreshCraftedCount(item)
         }
-        var roll = Math.floor(Math.random() * 1e3);
+        var roll = Math.floor(Math.random() * 1e4);
         var sellToggleChart = {
             None: 0,
             Common: 1,
@@ -9863,38 +10030,38 @@ var Inventory = {
                 this.addToInventory(epicItem, skipAnimation);
                 if (!skipAnimation && !isTrinket) ToastManager.renderToast("craft_epic", item.name)
             } else this.sellContainer(epicItem, skipAnimation);
-            if (!isTrinket) achievementStats.craftedItem("Epic");
-            FortuneManager.purgeDone(item.id, 3)
+            if (!isTrinket) achievementStats.craftedItem("Epic", skipAnimation);
+            FortuneManager.purgeDone(item.id, 3, skipAnimation)
         } else if (roll < procRate.epic + procRate.great) {
             var greatItem = new itemContainer(id, 2);
             if (sellToggle < 3) {
                 this.addToInventory(greatItem, skipAnimation);
                 if (!skipAnimation) ToastManager.renderToast("craft_great", item.name)
             } else this.sellContainer(greatItem, skipAnimation);
-            achievementStats.craftedItem("Great");
-            FortuneManager.purgeDone(item.id, 2)
+            achievementStats.craftedItem("Great", skipAnimation);
+            FortuneManager.purgeDone(item.id, 2, skipAnimation)
         } else if (roll < procRate.epic + procRate.great + procRate.good) {
             var goodItem = new itemContainer(id, 1);
             if (sellToggle < 2) {
                 this.addToInventory(goodItem, skipAnimation);
                 if (!skipAnimation) ToastManager.renderToast("craft_good", item.name)
             } else this.sellContainer(goodItem, skipAnimation);
-            achievementStats.craftedItem("Good");
-            FortuneManager.purgeDone(item.id, 1)
+            achievementStats.craftedItem("Good", skipAnimation);
+            FortuneManager.purgeDone(item.id, 1, skipAnimation)
         } else {
             var commonItem = new itemContainer(id, 0);
             if (sellToggle < 1) this.addToInventory(commonItem, skipAnimation);
             else this.sellContainer(commonItem, skipAnimation);
-            achievementStats.craftedItem("Common")
+            achievementStats.craftedItem("Common", skipAnimation)
         }
     },
     craftChance: function craftChance(item) {
         var masterMod = item.isMastered() ? 2 : 1;
         var fortuneMod = FortuneManager.getProcModifier(item.type, item.lvl);
         var mods = {};
-        mods.good = (miscLoadedValues.qualityCheck[1] + Museum.goodChance()) * masterMod * fortuneMod[0];
-        mods.great = (miscLoadedValues.qualityCheck[2] + Museum.greatChance()) * masterMod * fortuneMod[1];
-        mods.epic = (miscLoadedValues.qualityCheck[3] + Museum.epicChance()) * masterMod * fortuneMod[2];
+        mods.good = miscLoadedValues.qualityCheck[1] * Museum.goodChance(item.id) * masterMod * fortuneMod[0];
+        mods.great = miscLoadedValues.qualityCheck[2] * Museum.greatChance(item.id) * masterMod * fortuneMod[1];
+        mods.epic = miscLoadedValues.qualityCheck[3] * Museum.epicChance(item.id) * masterMod * fortuneMod[2];
         return mods
     },
     removeFromInventoryUID: function removeFromInventoryUID(uniqueID, skipAnimation) {
@@ -9928,7 +10095,7 @@ var Inventory = {
             $marketTabSpan.addClass("hasEvent");
             $marketTabLink.show()
         }
-        achievementStats.gold(gold);
+        achievementStats.gold(gold, skipAnimation);
         ResourceManager.addMaterial("M001", gold, skipAnimation)
     },
     listbyType: function listbyType(type) {
@@ -10096,7 +10263,7 @@ function refreshInventory() {
             $inventory.append(itemdiv);
             return
         }
-        itemdiv.addClass("R" + item.rarity);
+        itemdiv.addClass("R" + item.rarity).addClass("ctrlClickItem").data("rid", item.id);
         itemName.addClass("itemName").attr({
             id: item.id,
             r: item.rarity
@@ -10202,7 +10369,7 @@ function gearEquipFromInventory(invID) {
     equipContainerTarget = Inventory.inv[invID];
     var item = equipContainerTarget.item;
     var itemdiv = $("<div/>").addClass("equipItem");
-    itemdiv.addClass("R" + equipContainerTarget.rarity);
+    itemdiv.addClass("R" + equipContainerTarget.rarity).addClass("ctrlClickItem").data("rid", item.id);
     var itemName = $("<div/>").addClass("itemName").attr("id", item.id).attr("r", equipContainerTarget.rarity).html(equipContainerTarget.picName());
     var itemRarity = $("<div/>").addClass("itemRarity RT".concat(equipContainerTarget.rarity, " tooltip")).attr({
         "data-tooltip": "rarity_".concat(rarities[equipContainerTarget.rarity].toLowerCase())
@@ -10276,6 +10443,13 @@ function refreshInventoryPlaces() {
     if (Inventory.inventoryCount() === 20) $sideInventory.addClass("inventoryFullSide");
     else $sideInventory.removeClass("inventoryFullSide")
 }
+$(document).on("click", ".ctrlClickItem", function (e) {
+    e.preventDefault();
+    if (!e.ctrlKey) return;
+    var recipeID = $(e.currentTarget).data("rid");
+    actionSlotManager.addSlot(recipeID);
+    e.stopPropagation()
+});
 "use strict";
 
 function _toConsumableArray(arr) {
@@ -10432,12 +10606,12 @@ var actionSlot = function () {
                 this.status = slotState.NEEDMATERIAL;
                 this.attemptStart(skipAnimation)
             }
-            this.progress = (this.craftTime / this.maxCraft()).toFixed(3) * 100 + "%"
+            if (!skipAnimation) this.progress = (this.craftTime / this.maxCraft()).toFixed(3) * 100 + "%"
         }
     }, {
         key: "maxCraft",
         value: function maxCraft() {
-            return Math.floor(this.item.craftTime * Museum.craftTime())
+            return Math.floor(this.item.craftTime * Museum.craftTime(this.item.id))
         }
     }, {
         key: "timeRemaining",
@@ -10602,14 +10776,12 @@ var actionSlotManager = {
             return
         }
         var timeRemaining = t;
-        var count = 0;
         var _loop = function _loop() {
             var timeChunk = Math.min(timeRemaining, _this2.minTime);
             _this2.slots.forEach(function (slot) {
                 slot.addTime(timeChunk, true)
             });
-            timeRemaining -= timeChunk;
-            count += 1
+            timeRemaining -= timeChunk
         };
         while (timeRemaining > 0) {
             _loop()
@@ -10855,7 +11027,7 @@ var fuse = function () {
     }, {
         key: "getMaxFuse",
         value: function getMaxFuse() {
-            return this.recipe.craftTime * this.rarity
+            return Math.floor(this.recipe.craftTime * this.rarity * Museum.craftTime(this.recipe.id))
         }
     }, {
         key: "timeRemaining",
@@ -10926,7 +11098,8 @@ var FusionManager = {
         this.fuseNum += 1;
         this.slots.push(newFuse);
         refreshFuseSlots();
-        refreshPossibleFuse()
+        refreshPossibleFuse();
+        return newFuse.fuseID
     },
     fuseByID: function fuseByID(fuseID) {
         return this.slots.find(function (f) {
@@ -10999,7 +11172,7 @@ var FusionManager = {
     },
     getMaxFuse: function getMaxFuse(uniqueIDProperties) {
         var recipe = recipeList.idToItem(uniqueIDProperties.id);
-        return recipe.craftTime * uniqueIDProperties.rarity
+        return recipe.craftTime * uniqueIDProperties.rarity * Museum.craftTime(recipe.id)
     }
 };
 
@@ -11052,7 +11225,7 @@ function refreshFuseSlots() {
         slot.fsc = undefined;
         slot.fb = undefined;
         slot.ff = undefined;
-        var d1 = $("<div/>").addClass("fuseSlot").addClass("R" + slot.rarity);
+        var d1 = $("<div/>").addClass("fuseSlot").addClass("R" + slot.rarity).addClass("ctrlClickItem").data("rid", slot.id);
         var d2 = $("<div/>").addClass("fuseSlotName itemName").html(slot.name);
         var d3 = $("<div/>").addClass("itemLevel").html(recipeList.idToItem(slot.id).itemLevel());
         var d4 = createFuseBar(slot);
@@ -11121,7 +11294,7 @@ function refreshPossibleFuse() {
             var d3 = $("<div/>").addClass("possibleFusegroup");
             var fuseRarity = displayText("fusion_possible_fuse_rarity").replace("{0}", displayText("".concat(rarities[f.rarity])));
             var d4 = $("<div/>").addClass("possibleFusegroupHeader").addClass("possibleFuseRarity" + f.rarity).html(fuseRarity).appendTo(d3);
-            var fuseSelect = $("<div/>").addClass("fuseSelect R".concat(f.rarity - 1)).appendTo(d3);
+            var fuseSelect = $("<div/>").addClass("fuseSelect R".concat(f.rarity - 1)).addClass("ctrlClickItem").data("rid", f.id).appendTo(d3);
             var d5 = $("<div/>").addClass("possibleFuse itemName").html(recipeList.idToItem(f.id).itemPicName());
             var d6 = $("<div/>").addClass("possibleFuse itemLevel").html(recipeList.idToItem(f.id).itemLevel());
             var d6a = $("<div/>").addClass("possibleFuse itemRarity").addClass("RT".concat(f.rarity - 1, " tooltip")).attr({
@@ -11160,7 +11333,8 @@ $(document).on("click", ".fuseStart", function (e) {
     e.preventDefault();
     destroyTooltip();
     var uniqueid = $(e.currentTarget).attr("uniqueid");
-    FusionManager.addFuse(uniqueid)
+    var fuseid = FusionManager.addFuse(uniqueid);
+    if (e.shiftKey) FusionManager.startFuse(fuseid)
 });
 $(document).on("click", ".fuseClose", function (e) {
     e.preventDefault();
@@ -11365,7 +11539,7 @@ function refreshBankBank() {
 }
 
 function itemCard(item, inBank) {
-    var itemdiv = $("<div/>").addClass("bankItem").addClass("R" + item.rarity);
+    var itemdiv = $("<div/>").addClass("bankItem").addClass("R" + item.rarity).addClass("ctrlClickItem").data("rid", item.id);
     var itemName = $("<div/>").addClass("itemName").html(item.picName());
     var itemLevel = $("<div/>").addClass("itemLevel").html(item.itemLevel());
     var itemRarity = $("<div/>").addClass("itemRarity").addClass("RT".concat(item.rarity, " tooltip")).attr({
@@ -11710,7 +11884,7 @@ function itemCardSmith(item, location) {
         $("<div/>").addClass("gearStat").html("<span/>").appendTo(_itemdiv);
         return _itemdiv
     }
-    var itemdiv = $("<div/>").addClass("smithItem").addClass("R" + item.rarity);
+    var itemdiv = $("<div/>").addClass("smithItem").addClass("R" + item.rarity).addClass("ctrlClickItem").data("rid", item.id);
     $("<div/>").addClass("itemName").html(item.picName()).appendTo(itemdiv);
     $("<div/>").addClass("itemLevel").html(item.itemLevel()).appendTo(itemdiv);
     $("<div/>").addClass("itemRarity RT".concat(item.rarity, " tooltip")).attr({
@@ -11739,7 +11913,7 @@ function itemCardSmith(item, location) {
 
 function itemStageCardSmith(slot, upgrade) {
     if (slot === null) return;
-    var itemdiv = $("<div/>").addClass("smithItem").addClass("R" + slot.rarity);
+    var itemdiv = $("<div/>").addClass("smithItem").addClass("R" + slot.rarity).addClass("ctrlClickItem").data("rid", slot.id);
     var itemName = $("<div/>").addClass("itemName");
     if (upgrade) itemName.html(slot.picNamePlus());
     else itemName.html(slot.picName());
@@ -11774,6 +11948,11 @@ $(document).on("click", ".smithStage", function (e) {
     var containerID = parseInt($(e.target).attr("containerID"));
     var location = $(e.target).data("location");
     bloopSmith.addSmith(containerID, location);
+    if (e.shiftKey) {
+        bloopSmith.smith();
+        bloopSmith.removeSmith();
+        refreshSmithInventory()
+    }
     refreshSmithStage()
 });
 $(document).on("click", "#smithConfirm", function (e) {
@@ -11927,6 +12106,9 @@ var FortuneManager = {
     lockFortune: function lockFortune() {
         if (FortuneManager.stage === null) return;
         var container = Inventory.containerToItem(FortuneManager.stage);
+        var cost = FortuneManager.getMaterialCost(container);
+        if (!ResourceManager.available(cost.id, cost.amt)) return ToastManager.renderToast("fortune_cant_afford");
+        ResourceManager.addMaterial(cost.id, -cost.amt);
         Inventory.removeContainerFromInventory(FortuneManager.stage);
         var newfortuneSlot = new fortuneSlot(container);
         this.slots.push(newfortuneSlot);
@@ -11959,14 +12141,14 @@ var FortuneManager = {
     maxSlot: function maxSlot() {
         return this.lvl
     },
-    purgeDone: function purgeDone(id, rarity) {
-        if (this.slots.some(function (f) {
+    purgeDone: function purgeDone(id, rarity, skipAnimation) {
+        if (!skipAnimation && this.slots.some(function (f) {
                 return f.container.id === id && f.rarity === rarity
             })) ToastManager.renderToast("fortune_expired", rarities[rarity].toLowerCase(), recipeList.idToItem(id).name);
         this.slots = this.slots.filter(function (f) {
             return f.container.id !== id || f.rarity !== rarity
         });
-        refreshFortuneSlots()
+        if (!skipAnimation) refreshFortuneSlots()
     },
     addLevel: function addLevel() {
         this.lvl += 1;
@@ -12036,7 +12218,7 @@ function refreshFortuneGear() {
 }
 
 function createFortuneInv(item) {
-    var itemdiv = $("<div/>").addClass("fortuneItem").addClass("R" + item.rarity);
+    var itemdiv = $("<div/>").addClass("fortuneItem").addClass("R" + item.rarity).addClass("ctrlClickItem").data("rid", item.id);
     var itemName = $("<div/>").addClass("itemName").html(item.picName());
     var itemLevel = $("<div/>").addClass("itemLevel").html(item.itemLevel());
     var itemRarity = $("<div/>").addClass("itemRarity RT".concat(item.rarity, " tooltip")).attr({
@@ -12049,7 +12231,7 @@ function createFortuneInv(item) {
 function createFortuneCard(containerID) {
     var container = Inventory.containerToItem(containerID);
     var rarity = ["Common", "Good", "Great", "Epic"];
-    var itemdiv = $("<div/>").addClass("fortuneSlot").addClass("R" + (container.rarity + 1));
+    var itemdiv = $("<div/>").addClass("fortuneSlot").addClass("R" + (container.rarity + 1)).addClass("ctrlClickItem").data("rid", container.id);
     $("<div/>").addClass("itemName").html(container.picName()).appendTo(itemdiv);
     $("<div/>").addClass("itemLevel").html(container.itemLevel()).appendTo(itemdiv);
     $("<div/>").addClass("itemRarity RT".concat(container.rarity + 1, " tooltip")).attr({
@@ -12103,6 +12285,7 @@ $(document).on("click", ".fortuneStage", function (e) {
     e.preventDefault();
     var containerID = parseInt($(e.currentTarget).attr("containerID"));
     FortuneManager.stageItem(containerID);
+    if (e.shiftKey) FortuneManager.lockFortune();
     refreshFortuneSlots()
 });
 $(document).on("click", ".fortuneItemSac", function (e) {
@@ -12357,6 +12540,10 @@ $(document).on("click", ".synthButton", function (e) {
     e.preventDefault();
     var id = parseInt($(e.currentTarget).data("containerID"));
     SynthManager.addSynth(id);
+    if (e.shiftKey) {
+        SynthManager.stageButton(id);
+        SynthManager.removeSynth()
+    }
     refreshSynthInventory()
 });
 $(document).on("click", "#synthRemove", function (e) {
@@ -12382,7 +12569,7 @@ $(document).on("click", "#synthPowerResynthesis", function (e) {
 });
 
 function createSynthCard(container) {
-    var itemdiv = $("<div/>").addClass("synthItem").addClass("R" + container.rarity);
+    var itemdiv = $("<div/>").addClass("synthItem").addClass("R" + container.rarity).addClass("ctrlClickItem").data("rid", container.id);
     var itemName = $("<div/>").addClass("itemName").attr({
         id: container.id,
         r: container.rarity
@@ -12411,7 +12598,7 @@ function createSynthCard(container) {
 }
 
 function createSynthStageCard(container) {
-    var itemdiv = $("<div/>").addClass("synthItem").addClass("R" + container.rarity);
+    var itemdiv = $("<div/>").addClass("synthItem").addClass("R" + container.rarity).addClass("ctrlClickItem").data("rid", container.id);
     var itemName = $("<div/>").addClass("itemName").attr({
         id: container.id,
         r: container.rarity
@@ -12511,28 +12698,35 @@ var tinkerCommand = function () {
         key: "addTime",
         value: function addTime(ms) {
             if (!this.enabled) return;
-            this.paidGold = this.attemptStart();
-            if (!this.paidGold) {
-                this.time = 0;
-                this.enabled = false;
-                refreshCommandToggle(this);
-                ToastManager.renderToast("tinker_disable");
-                return
-            }
             this.time += ms;
-            if (this.time >= this.getTime()) {
+            var needRefresh = false;
+            while (this.enabled && this.time >= this.getTime()) {
+                this.attemptStart();
+                if (!this.paidGold) {
+                    this.time = 0;
+                    this.enabled = false;
+                    refreshCommandToggle(this);
+                    ToastManager.renderToast("tinker_disable");
+                    return
+                }
                 this.time -= this.getTime();
-                this.act()
+                this.act();
+                needRefresh = true
             }
-            refreshTinkerProgressBar(this)
+            refreshTinkerProgressBar(this);
+            if (needRefresh) {
+                refreshTinkerLvLBar(this);
+                refreshTrinketCompleteCost(this);
+                refreshTrinketResearchCost(this)
+            }
         }
     }, {
         key: "attemptStart",
         value: function attemptStart() {
-            if (this.paidGold) return true;
-            if (!ResourceManager.available("M001", this.paidGoldAmt())) return false;
+            if (this.paidGold) return;
+            if (!ResourceManager.available("M001", this.paidGoldAmt())) return;
             ResourceManager.addMaterial("M001", -this.paidGoldAmt());
-            return true
+            this.paidGold = true
         }
     }, {
         key: "act",
@@ -12546,10 +12740,6 @@ var tinkerCommand = function () {
                 this.progress = 0;
                 refreshTinkerRecipes()
             }
-            refreshTinkerProgressBar(this);
-            refreshTinkerLvLBar(this);
-            refreshTrinketCompleteCost(this);
-            refreshTrinketResearchCost(this)
         }
     }, {
         key: "toggle",
@@ -12564,6 +12754,7 @@ var tinkerCommand = function () {
     }, {
         key: "paidGoldAmt",
         value: function paidGoldAmt() {
+            if (this.lvl === 10) return 0;
             return this.goldCost[this.lvl]
         }
     }, {
@@ -12801,7 +12992,7 @@ function refreshTinkerRecipes() {
     trinkets.forEach(function (trinket) {
         var recipeCardInfo = $("<div/>").addClass("recipeCardInfo").append(recipeCardFront(trinket, true));
         var recipeCardContainer = $("<div/>").addClass("recipeCardContainer").data("recipeID", trinket.id).attr("id", "rr" + trinket.id).append(recipeCardInfo);
-        $tinkerScreenRecipes.append(recipeCardContainer)
+        $tinkerScreenRecipes.prepend(recipeCardContainer)
     })
 }
 "use strict";
@@ -13404,7 +13595,7 @@ var guildOrderItem = function () {
     }, {
         key: "generateName",
         value: function generateName() {
-            if (this.sharp > 0) return '<span><span class="item-prefix tooltip" data-tooltip="forge_level">+'.concat(this.sharp, "</span>").concat(this.item.name, "</span>");
+            if (this.sharp > 0) return '<span><span class="item-prefix tooltip" data-tooltip="forge_level">'.concat(miscIcons.enhancement).concat(this.sharp, "</span>").concat(this.item.name, "</span>");
             return "".concat(this.item.name)
         }
     }, {
@@ -13692,7 +13883,7 @@ function refreshRecipeMastery(guild) {
 }
 
 function createRecipeMasteryCard(recipe) {
-    var d1 = $("<div/>").addClass("recipeMasteryGuildCard");
+    var d1 = $("<div/>").addClass("recipeMasteryGuildCard").addClass("ctrlClickItem").data("rid", recipe.id);
     $("<div/>").addClass("itemName").html(recipe.itemPicName()).appendTo(d1);
     $("<div/>").addClass("itemLevel").html(recipe.itemLevel()).appendTo(d1);
     $("<div/>").addClass("recipeMasteryViewButton actionButton tooltip").attr({
@@ -14055,71 +14246,29 @@ function _iterableToArrayLimit(arr, i) {
 function _arrayWithHoles(arr) {
     if (Array.isArray(arr)) return arr
 }
-
-function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-        throw new TypeError("Cannot call a class as a function")
-    }
-}
-
-function _defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-        var descriptor = props[i];
-        descriptor.enumerable = descriptor.enumerable || false;
-        descriptor.configurable = true;
-        if ("value" in descriptor) descriptor.writable = true;
-        Object.defineProperty(target, descriptor.key, descriptor)
-    }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties(Constructor, staticProps);
-    return Constructor
-}
 var $museumBuilding = $("#museumBuilding");
-var $museumNavigation = $("#museumNavigation");
 var $museumRecipeTypes = $("#museumRecipeTypes");
 var $museumRecipeContributions = $("#museumRecipeContributions");
 var $museumRewards = $("#museumRewards");
 var $museumInv = $("#museumInv");
 var $museumTop = $(".museumTop");
 var Museum = {
-    rewards: [],
-    view: "main",
-    addReward: function addReward(reward) {
-        this.rewards.push(reward)
-    },
+    lvl: 1,
     createSave: function createSave() {
         var save = {};
-        save.rewards = [];
-        this.rewards.forEach(function (reward) {
-            save.rewards.push(reward.createSave())
-        });
         return save
     },
-    loadSave: function loadSave(save) {
-        var _this = this;
-        save.rewards.forEach(function (rewardSave) {
-            var reward = _this.idToReward(rewardSave.id);
-            reward.loadSave(rewardSave)
-        })
-    },
-    idToReward: function idToReward(id) {
-        return this.rewards.find(function (r) {
-            return r.id === id
-        })
-    },
+    loadSave: function loadSave(save) {},
     checkSubmit: function checkSubmit(container) {
         var item = recipeList.idToItem(container.id);
         return item.museum[container.rarity][container.sharp]
     },
     possibleInventoryDonations: function possibleInventoryDonations() {
-        var _this2 = this;
+        var _this = this;
         return Inventory.nonblank().filter(function (i) {
             return i.item.type !== "Trinkets"
         }).filter(function (i) {
-            return !_this2.checkSubmit(i)
+            return !_this.checkSubmit(i)
         })
     },
     completeByType: function completeByType(type) {
@@ -14149,111 +14298,62 @@ var Museum = {
         Inventory.removeContainerFromInventory(containerID);
         recipeList.idToItem(container.id).museum[container.rarity][container.sharp] = true
     },
-    earnedPoints: function earnedPoints() {
-        return recipeList.recipes.map(function (r) {
-            return r.museum.flat()
-        }).flat().filter(Boolean).length
+    commonCount: function commonCount(recipeID) {
+        var type = ItemType.includes(recipeID) ? recipeID : recipeList.idToItem(recipeID).type;
+        var items = recipeList.filterByType(type);
+        return flattenArray(items.map(function (i) {
+            return i.museum[0]
+        })).filter(function (i) {
+            return i
+        }).length
     },
-    remainingPoints: function remainingPoints() {
-        return this.earnedPoints() - this.rewards.map(function (r) {
-            return r.spent()
-        }).reduce(function (a, b) {
-            return a + b
-        })
+    goodCount: function goodCount(recipeID) {
+        var type = ItemType.includes(recipeID) ? recipeID : recipeList.idToItem(recipeID).type;
+        var items = recipeList.filterByType(type);
+        return flattenArray(items.map(function (i) {
+            return i.museum[1]
+        })).filter(function (i) {
+            return i
+        }).length
     },
-    purchaseReward: function purchaseReward(rewardID) {
-        var reward = this.idToReward(rewardID);
-        if (this.remainingPoints() < reward.purchaseCost()) {
-            ToastManager.renderToast("cant_afford_museum_reward");
-            return
-        }
-        reward.purchase()
+    greatCount: function greatCount(recipeID) {
+        var type = ItemType.includes(recipeID) ? recipeID : recipeList.idToItem(recipeID).type;
+        var items = recipeList.filterByType(type);
+        return flattenArray(items.map(function (i) {
+            return i.museum[2]
+        })).filter(function (i) {
+            return i
+        }).length
     },
-    craftTime: function craftTime() {
-        var reward = this.idToReward("MU001").lvl;
-        return 1 - reward * .02
+    epicCount: function epicCount(recipeID) {
+        var type = ItemType.includes(recipeID) ? recipeID : recipeList.idToItem(recipeID).type;
+        var items = recipeList.filterByType(type);
+        return flattenArray(items.map(function (i) {
+            return i.museum[3]
+        })).filter(function (i) {
+            return i
+        }).length
     },
-    goodChance: function goodChance() {
-        var reward = this.idToReward("MU002").lvl;
-        return reward * 5
+    craftTime: function craftTime(recipeID) {
+        var completes = Math.floor(this.commonCount(recipeID) / 11);
+        return 1 - .04 * completes
     },
-    greatChance: function greatChance() {
-        var reward = this.idToReward("MU003").lvl;
-        return Math.floor(reward * 2.5)
+    goodChance: function goodChance(recipeID) {
+        var completes = Math.floor(this.goodCount(recipeID) / 11);
+        return 1 + .2 * completes
     },
-    epicChance: function epicChance() {
-        var reward = this.idToReward("MU004").lvl;
-        return reward
+    greatChance: function greatChance(recipeID) {
+        var completes = Math.floor(this.greatCount(recipeID) / 11);
+        return 1 + .2 * completes
+    },
+    epicChance: function epicChance(recipeID) {
+        var completes = Math.floor(this.epicCount(recipeID) / 11);
+        return 1 + .2 * completes
     }
 };
-var MuseumReward = function () {
-    function MuseumReward(props) {
-        _classCallCheck(this, MuseumReward);
-        Object.assign(this, props);
-        this.lvl = 0
-    }
-    _createClass(MuseumReward, [{
-        key: "createSave",
-        value: function createSave() {
-            var save = {};
-            save.id = this.id;
-            save.lvl = this.lvl;
-            return save
-        }
-    }, {
-        key: "loadSave",
-        value: function loadSave(save) {
-            this.lvl = save.lvl
-        }
-    }, {
-        key: "purchaseCost",
-        value: function purchaseCost() {
-            return this.cost[this.lvl]
-        }
-    }, {
-        key: "spent",
-        value: function spent() {
-            if (this.lvl === 0) return 0;
-            return this.cost.slice(0, this.lvl).reduce(function (a, b) {
-                return a + b
-            })
-        }
-    }, {
-        key: "purchase",
-        value: function purchase() {
-            if (Museum.remainingPoints() < this.purchaseCost()) return;
-            this.lvl += 1
-        }
-    }, {
-        key: "currentReward",
-        value: function currentReward() {
-            return this.rewardText[this.lvl]
-        }
-    }, {
-        key: "nextReward",
-        value: function nextReward() {
-            return this.rewardText[this.lvl + 1]
-        }
-    }, {
-        key: "maxLvl",
-        value: function maxLvl() {
-            return this.lvl === 20
-        }
-    }]);
-    return MuseumReward
-}();
 
 function initiateMuseumBldg() {
     $museumBuilding.show();
-    $museumNavigation.empty();
-    $("<div/>").addClass("museumTabNavigation").attr({
-        id: "museumNavCollection"
-    }).html(displayText("museum_nav_collections")).appendTo($museumNavigation);
-    $("<div/>").addClass("museumTabNavigation").attr({
-        id: "museumNavReward"
-    }).html(displayText("museum_nav_rewards")).appendTo($museumNavigation);
-    $("#museumNavReward").removeClass("selected");
-    $("#museumNavCollection").addClass("selected");
     refreshMuseumTop();
     refreshMuseumInv()
 }
@@ -14287,25 +14387,56 @@ function showMuseumType(type, skipAnimation) {
     $("<div/>").addClass("museumTypeCycle museumTypeCycleLeft").html('<i class="fas fa-arrow-left"></i>').appendTo(museumTypeCycle);
     $("<div/>").addClass("museumTypeCycleName").html(type).appendTo(museumTypeCycle);
     $("<div/>").addClass("museumTypeCycle museumTypeCycleRight").data("cycle", true).html('<i class="fas fa-arrow-right"></i>').appendTo(museumTypeCycle);
-    if (skipAnimation) {
-        backButton.css("animation", "none");
-        museumTypeCycle.css("animation", "none")
-    }
+    var museumRewardsHeader = $("<div/>").addClass("contentHeader").appendTo($museumRecipeContributions);
+    var museumRewardsHeadingDetails = $("<div/>").addClass("headingDetails").appendTo(museumRewardsHeader);
+    $("<div/>").addClass("headingTitle").html(displayText("museum_reward_header").replace("{0}", type)).appendTo(museumRewardsHeadingDetails);
+    $("<div/>").addClass("headingDescription").html(displayText("museum_reward_description").replace("{0}", type)).appendTo(museumRewardsHeadingDetails);
+    var e = $("<div/>").addClass("museumRewards").appendTo($museumRecipeContributions);
+    var e1 = $("<div/>").addClass("museumRewardDiv").appendTo(e);
+    $("<div/>").addClass("museumRewardName").html(displayText("museum_reward_craft_time_redux_title")).appendTo(e1);
+    $("<div/>").addClass("museumRewardDesc").html("".concat(Museum.craftTime(type) * 100, "%")).appendTo(e1);
+    $("<div/>").addClass("museumRewardNext").html(displayText("museum_reward_next").replace("{0}", "".concat(11 - Museum.commonCount(type) % 11))).appendTo(e1);
+    var e2 = $("<div/>").addClass("museumRewardDiv").appendTo(e);
+    $("<div/>").addClass("museumRewardName").html(displayText("museum_reward_craft_good_rate_title")).appendTo(e2);
+    $("<div/>").addClass("museumRewardDesc").html("".concat(Museum.goodChance(type) * 100, "%")).appendTo(e2);
+    $("<div/>").addClass("museumRewardNext").html(displayText("museum_reward_next").replace("{0}", "".concat(11 - Museum.goodCount(type) % 11))).appendTo(e2);
+    var e3 = $("<div/>").addClass("museumRewardDiv").appendTo(e);
+    $("<div/>").addClass("museumRewardName").html(displayText("museum_reward_craft_great_rate_title")).appendTo(e3);
+    $("<div/>").addClass("museumRewardDesc").html("".concat(Museum.greatChance(type) * 100, "%")).appendTo(e3);
+    $("<div/>").addClass("museumRewardNext").html(displayText("museum_reward_next").replace("{0}", "".concat(11 - Museum.greatCount(type) % 11))).appendTo(e3);
+    var e4 = $("<div/>").addClass("museumRewardDiv").appendTo(e);
+    $("<div/>").addClass("museumRewardName").html(displayText("museum_reward_craft_epic_rate_title")).appendTo(e4);
+    $("<div/>").addClass("museumRewardDesc").html("".concat(Museum.epicChance(type) * 100, "%")).appendTo(e4);
+    $("<div/>").addClass("museumRewardNext").html(displayText("museum_reward_next").replace("{0}", "".concat(11 - Museum.epicCount(type) % 11))).appendTo(e4);
+    var museumContributionsHeader = $("<div/>").addClass("contentHeader").appendTo($museumRecipeContributions);
+    var museumContributionsHeadingDetails = $("<div/>").addClass("headingDetails").appendTo(museumContributionsHeader);
+    $("<div/>").addClass("headingTitle").html(displayText("header_museum_contributions_title")).appendTo(museumContributionsHeadingDetails);
+    $("<div/>").addClass("headingDescription").html(displayText("header_museum_contributions_desc")).appendTo(museumContributionsHeadingDetails);
     var museumContributionsList = $("<div/>").addClass("museumContributionsList").appendTo($museumRecipeContributions);
     recipeList.filterByType(type).forEach(function (recipe) {
-        var d = $("<div/>").addClass("museumRecipeDiv").prependTo(museumContributionsList);
+        var d = $("<div/>").addClass("museumRecipeDiv").prependTo(museumContributionsList).addClass("ctrlClickItem").data("rid", recipe.id);
         if (skipAnimation) d.css("animation", "none");
         $("<div/>").addClass("museumRecipeImage").html(recipe.itemPicName()).appendTo(d);
         var d1 = $("<div/>").addClass("museumRecipeCon").appendTo(d);
         recipe.museum.forEach(function (rarity, j) {
             var d1a = $("<div/>").addClass("museumRecipeConItem").appendTo(d1);
+            $("<div/>").addClass("museumRecipeRarity RT".concat(j, " tooltip")).attr({
+                "data-tooltip": "museum_rarity_".concat(rarities[j].toLowerCase())
+            }).html(miscIcons.rarity).appendTo(d1a);
             rarity.forEach(function (sharp, i) {
                 var d2 = $("<div/>").addClass("museumRecipe R".concat(j)).appendTo(d1a);
                 if (sharp) d2.addClass("museumRecipeEntryComplete").html(miscIcons.checkmark);
-                else d2.html("+".concat(i))
+                else d2.html("<span>".concat(miscIcons.enhancement, "</span> ").concat(i))
             })
         })
-    })
+    });
+    if (skipAnimation) {
+        backButton.css("animation", "none");
+        museumTypeCycle.css("animation", "none");
+        museumRewardsHeader.css("animation", "none");
+        $(".museumRewardDiv").css("animation", "none");
+        museumContributionsHeader.css("animation", "none")
+    }
 }
 
 function museumTypeCycleLeft() {
@@ -14340,33 +14471,6 @@ $(document).on("click", ".museumTypeCycleRight", function (e) {
     museumTypeCycleRight();
     showMuseumType(Museum.view, true)
 });
-
-function showMuseumRewards() {
-    $museumTop.hide();
-    $museumRewards.empty().show();
-    Museum.view = "rewards";
-    var museumRewardsHeader = $("<div/>").addClass("contentHeader").appendTo($museumRewards);
-    var headingDetails = $("<div/>").addClass("headingDetails").appendTo(museumRewardsHeader);
-    $("<div/>").addClass("headingTitle").html(displayText("header_museum_reward_points_title")).appendTo(headingDetails);
-    $("<div/>").addClass("headingDescription").html(displayText("header_museum_reward_points_desc")).appendTo(headingDetails);
-    var d1 = $("<div/>").addClass("museumRewardPointContainer").appendTo($museumRewards);
-    var pointsLeft = Museum.remainingPoints() !== 1 ? "museum_reward_points_balance_plural" : "museum_reward_points_balance";
-    $("<div/>").addClass("museumRewardPoint").html(displayText(pointsLeft).replace("{0}", Museum.remainingPoints())).appendTo(d1);
-    var museumRewardCardsContainer = $("<div/>").addClass("museumRewardCardsContainer").appendTo($museumRewards);
-    Museum.rewards.forEach(function (reward) {
-        var d = $("<div/>").addClass("museumRewardDiv").appendTo(museumRewardCardsContainer);
-        $("<div/>").addClass("museumRewardTitle").html(displayText("museum_reward_".concat(reward.name, "_title"))).appendTo(d);
-        $("<div/>").addClass("museumRewardLvl").html(displayText("museum_reward_level").replace("{0}", reward.lvl)).appendTo(d);
-        $("<div/>").addClass("museumRewardHeading").html(displayText("museum_reward_current")).appendTo(d);
-        $("<div/>").addClass("museumRewardText museumRewardCurrent").html(displayText("museum_reward_".concat(reward.name, "_desc")).replace("{0}", reward.currentReward())).appendTo(d);
-        if (!reward.maxLvl()) {
-            $("<div/>").addClass("museumRewardHeading").html(displayText("museum_reward_next")).appendTo(d);
-            $("<div/>").addClass("museumRewardText museumRewardNext").html(displayText("museum_reward_".concat(reward.name, "_desc")).replace("{0}", reward.nextReward())).appendTo(d);
-            var purchaseCost = reward.purchaseCost() !== 1 ? "museum_reward_purchase_plural" : "museum_reward_purchase";
-            $("<div/>").addClass("actionButtonCard museumRewardComplete").data("rid", reward.id).html(displayText(purchaseCost).replace("{0}", reward.purchaseCost())).appendTo(d)
-        }
-    })
-}
 
 function refreshMuseumInv() {
     $museumInv.empty();
@@ -14420,23 +14524,6 @@ $(document).on("click", ".museumDonate", function (e) {
     else if (Museum.view === "rewards") showMuseumRewards();
     else showMuseumType(Museum.view);
     refreshMuseumInv()
-});
-$(document).on("click", ".museumRewardComplete", function (e) {
-    var rewardID = $(e.target).data("rid");
-    Museum.purchaseReward(rewardID);
-    showMuseumRewards()
-});
-$(document).on("click", "#museumNavReward", function (e) {
-    e.preventDefault();
-    $("#museumNavCollection").removeClass("selected");
-    $("#museumNavReward").addClass("selected");
-    showMuseumRewards()
-});
-$(document).on("click", "#museumNavCollection", function (e) {
-    e.preventDefault();
-    $("#museumNavReward").removeClass("selected");
-    $("#museumNavCollection").addClass("selected");
-    refreshMuseumTop()
 });
 "use strict";
 
@@ -15338,6 +15425,27 @@ function renderDialogActions(id) {
             $("<span/>").addClass("selection").appendTo(label);
             label.appendTo(leaveSiteGrid)
         });
+        var animPref = $("<div/>").attr({
+            id: "settings_animPref"
+        }).addClass("setting-container").appendTo(tabGeneral);
+        var animPref_details = {
+            title: "Animations",
+            description: "Choose whether animations are played when navigating through content."
+        };
+        settingsBoilerplate(animPref_details, true).appendTo(animPref);
+        var animPrefGrid = $("<div/>").addClass("selections-grid").appendTo(animPref);
+        var anims = [0, 1];
+        anims.forEach(function (anim, i) {
+            var label = $("<label/>").addClass("selection-container animPrefSelection").html(anim === 1 ? "Enabled" : "Disabled");
+            $("<input/>").attr({
+                type: "radio",
+                name: "animPref",
+                value: anim,
+                checked: settings.animations === anim ? "checked" : null
+            }).appendTo(label);
+            $("<span/>").addClass("selection").appendTo(label);
+            label.appendTo(animPrefGrid)
+        });
         var clearSettings = $("<div/>").attr({
             id: "settings_clearSettings"
         }).addClass("setting-container").appendTo(tabGeneral);
@@ -15379,9 +15487,12 @@ function renderDialogActions(id) {
     }
 }
 
-function settingsBoilerplate(settingDetails) {
+function settingsBoilerplate(settingDetails, isBeta) {
     var detailsContainer = $("<div/>").addClass("settings-details");
-    $("<div/>").addClass("settings-title").html(settingDetails.title).appendTo(detailsContainer);
+    var title = $("<div/>").addClass("settings-title").html(settingDetails.title).appendTo(detailsContainer);
+    if (isBeta) $("<span/>").addClass("beta-tag tooltip").attr({
+        "data-tooltip": "beta_feature"
+    }).html("Beta").appendTo(title);
     $("<div/>").addClass("settings-description").html(settingDetails.description).appendTo(detailsContainer);
     return detailsContainer
 }
@@ -15445,10 +15556,6 @@ $(document).on("click", "#settingTabGeneral", function (e) {
     $("#settingContentGeneral").addClass("selected")
 });
 "use strict";
-
-function _readOnlyError(name) {
-    throw new Error('"' + name + '" is read-only')
-}
 
 function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -16171,12 +16278,8 @@ SkillManager.skillEffects["SM901"] = function (combatParams) {
     })
 };
 SkillManager.skillEffects["SM902"] = function (combatParams) {
-    var target1 = combatParams.getTarget(TargetType.FIRST, SideType.ENEMIES);
-    target1.forEach(function (target) {
-        target.takeAttack(combatParams)
-    });
-    var target2 = combatParams.getTarget(TargetType.SECOND, SideType.ENEMIES);
-    target2.forEach(function (target) {
+    var targets = combatParams.getTarget(TargetType.CLEAVE, SideType.ENEMIES);
+    targets.forEach(function (target) {
         target.takeAttack(combatParams)
     })
 };
@@ -16225,9 +16328,9 @@ SkillManager.skillEffects["SM904C"] = function (combatParams) {};
 SkillManager.skillEffects["SM905A"] = function (combatParams) {
     var targets = combatParams.getTarget(TargetType.ENEMIES, SideType.ENEMIES);
     var thisMob = combatParams.getTarget(TargetType.SELF, SideType.ALLIES)[0];
-    if (this.state === undefined || this.state === targets.length - 1) this.state = 0;
-    else this.state += 1;
-    var target = targets[this.state];
+    if (thisMob.state === undefined || thisMob.state === targets.length - 1) thisMob.state = 0;
+    else thisMob.state += 1;
+    var target = targets[thisMob.state];
     target.takeAttack(combatParams);
     if (target.type === "Might") {
         BuffManager.generateBuff("BM905A", thisMob, combatParams.power);
@@ -16330,29 +16433,165 @@ SkillManager.skillEffects["SM908B"] = function (combatParams) {
         BuffManager.generateBuff("BM908B", target, combatParams.attack.mod1)
     })
 };
-SkillManager.skillEffects["SM909"] = function (combatParams) {
+SkillManager.skillEffects["SM909A"] = function (combatParams) {
     var targets = combatParams.getTarget(TargetType.FIRST, SideType.ENEMIES);
     var self = combatParams.getTarget(TargetType.SELF, SideType.ALLIES)[0];
-    var stacks = self.getBuffStacks("SMP909");
+    var stacks = self.getBuffStacks("BM909");
     targets.forEach(function (target) {
-        for (var i = 0; i < stacks; i++) {
+        var oldPower = combatParams.power;
+        if (self.hasBuff("BM909A1") && target.type === "Might") combatParams.power = combatParams.power * combatParams.attack.mod1;
+        else if (self.hasBuff("BM909B1") && target.type === "Mind") combatParams.power = combatParams.power * combatParams.attack.mod1;
+        else if (self.hasBuff("BM909C1") && target.type === "Moxie") combatParams.power = combatParams.power * combatParams.attack.mod1;
+        for (var i = 0; i <= stacks; i++) {
             target.takeAttack(combatParams)
+        }
+        combatParams.power = oldPower
+    })
+};
+SkillManager.skillEffects["SM909B"] = function (combatParams) {
+    var self = combatParams.getTarget(TargetType.SELF, SideType.ALLIES)[0];
+    var stacks = self.getBuffStacks("BM909");
+    var targets = combatParams.getTarget(TargetType.FIRST, SideType.ENEMIES);
+    if (stacks === 1) {
+        targets = combatParams.getTarget(TargetType.CLEAVE, SideType.ENEMIES)
+    } else if (stacks === 2) {
+        targets = combatParams.getTarget(TargetType.SWIPE, SideType.ENEMIES)
+    } else if (stacks === 3) {
+        targets = combatParams.getTarget(TargetType.ALL, SideType.ENEMIES)
+    }
+    targets.forEach(function (target) {
+        var oldPower = combatParams.power;
+        if (self.hasBuff("BM909A1") && target.type === "Might") combatParams.power = combatParams.power * combatParams.attack.mod1;
+        else if (self.hasBuff("BM909B1") && target.type === "Mind") combatParams.power = combatParams.power * combatParams.attack.mod1;
+        else if (self.hasBuff("BM909C1") && target.type === "Moxie") combatParams.power = combatParams.power * combatParams.attack.mod1;
+        target.takeAttack(combatParams);
+        combatParams.power = oldPower
+    })
+};
+SkillManager.skillEffects["SM909C"] = function (combatParams) {
+    var targets = combatParams.getTarget(TargetType.FIRST, SideType.ENEMIES);
+    var targets2 = combatParams.getTarget(TargetType.LOWESTHP, SideType.ENEMIES);
+    var selfTarget = combatParams.getTarget(TargetType.SELF, SideType.ALLIES)[0];
+    if (selfTarget.hasBuff("BM909C1")) {
+        targets2.forEach(function (target) {
+            var oldPower = combatParams.power;
+            if (selfTarget.hasBuff("BM909A1") && target.type === "Might") combatParams.power = combatParams.power * combatParams.attack.mod1;
+            else if (selfTarget.hasBuff("BM909B1") && target.type === "Mind") combatParams.power = combatParams.power * combatParams.attack.mod1;
+            else if (selfTarget.hasBuff("BM909C1") && target.type === "Moxie") combatParams.power = combatParams.power * combatParams.attack.mod1;
+            target.takeAttack(combatParams);
+            combatParams.power = oldPower
+        })
+    } else {
+        targets.forEach(function (target) {
+            var oldPower = combatParams.power;
+            if (selfTarget.hasBuff("BM909A1") && target.type === "Might") combatParams.power = combatParams.power * combatParams.attack.mod1;
+            else if (selfTarget.hasBuff("BM909B1") && target.type === "Mind") combatParams.power = combatParams.power * combatParams.attack.mod1;
+            else if (selfTarget.hasBuff("BM909C1") && target.type === "Moxie") combatParams.power = combatParams.power * combatParams.attack.mod1;
+            target.takeAttack(combatParams);
+            combatParams.power = oldPower
+        })
+    }
+};
+SkillManager.skillEffects["SM909A1"] = function (combatParams) {
+    var targetAttempt1 = combatParams.getTarget(TargetType.FIRSTMOXIE, SideType.ENEMIES);
+    var targetAttempt2 = combatParams.getTarget(TargetType.FIRST, SideType.ENEMIES);
+    if (targetAttempt1 !== undefined) {
+        combatParams.power = combatParams.power * combatParams.attack.mod1;
+        targetAttempt1.forEach(function (target) {
+            target.takeAttack(combatParams)
+        })
+    } else {
+        targetAttempt2.forEach(function (target) {
+            target.takeAttack(combatParams)
+        })
+    }
+};
+SkillManager.skillEffects["SM909A2"] = function (combatParams) {
+    var targets = combatParams.getTarget(TargetType.CLEAVE, SideType.ENEMIES);
+    targets.forEach(function (target) {
+        target.takeAttack(combatParams)
+    })
+};
+SkillManager.skillEffects["SM909B1"] = function (combatParams) {
+    var targets = combatParams.getTarget(TargetType.ALL, SideType.ENEMIES);
+    var originalPower = combatParams.power;
+    targets.forEach(function (target) {
+        if (target.type === "Might") combatParams.power = combatParams.power * combatParams.attack.mod1;
+        target.takeAttack(combatParams);
+        combatParams.power = originalPower
+    })
+};
+SkillManager.skillEffects["SM909B2"] = function (combatParams) {
+    var targets = combatParams.getTarget(TargetType.ALL, SideType.ALLIES);
+    targets.forEach(function (target) {
+        target.heal(combatParams.power)
+    })
+};
+SkillManager.skillEffects["SM909C1"] = function (combatParams) {
+    var targets = combatParams.getTarget(TargetType.LOWESTHP, SideType.ENEMIES);
+    var originalPower = combatParams.power;
+    targets.forEach(function (target) {
+        if (target.type === "Mind") combatParams.power = combatParams.power * combatParams.attack.mod1;
+        target.takeAttack(combatParams);
+        combatParams.power = originalPower
+    })
+};
+SkillManager.skillEffects["SM909C2"] = function (combatParams) {
+    var targets = combatParams.getTarget(TargetType.ALL, SideType.ENEMIES);
+    targets.forEach(function (target) {
+        BuffManager.generateBuff("BM909C3", target, combatParams.power)
+    })
+};
+SkillManager.skillEffects["SM909C2"] = function (combatParams) {
+    var targets = combatParams.getTarget(TargetType.ALL, SideType.ENEMIES);
+    targets.forEach(function (target) {
+        BuffManager.generateBuff("BM909C3", target, combatParams.power)
+    })
+};
+SkillManager.skillEffects["SM910A"] = function (combatParams) {
+    var targets = combatParams.getTarget(TargetType.ALL, SideType.ENEMIES);
+    targets.forEach(function (target) {
+        BuffManager.generateBuff("BM910A", target, combatParams.power)
+    })
+};
+SkillManager.skillEffects["SM910B"] = function (combatParams) {
+    var targets = combatParams.getTarget(TargetType.FIRST, SideType.ENEMIES);
+    targets.forEach(function (target) {
+        if (target.hasBuff("BM910B")) {
+            target.hp = 0
+        } else {
+            BuffManager.generateBuff("BM910B", target, combatParams.power)
         }
     })
 };
-SkillManager.skillEffects["SM909"] = function (combatParams) {
-    var self = combatParams.getTarget(TargetType.SELF, SideType.ALLIES)[0];
-    var stacks = self.getBuffStacks("SMP909");
-    var targets = combatParams.getTarget(TargetType.FIRST, SideType.ENEMIES);
-    if (stacks === 2) {
-        targets = (_readOnlyError("targets"), combatParams.getTarget(TargetType.CLEAVE, SideType.ENEMIES))
-    } else if (stacks === 1) {
-        targets = (_readOnlyError("targets"), combatParams.getTarget(TargetType.SWIPE, SideType.ENEMIES))
-    } else if (stacks === 0) {
-        targets = (_readOnlyError("targets"), combatParams.getTarget(TargetType.ALL, SideType.ENEMIES))
-    }
+SkillManager.skillEffects["SM910C"] = function (combatParams) {
+    var targets = combatParams.getTarget(TargetType.ALL, SideType.ENEMIES);
     targets.forEach(function (target) {
-        target.takeAttack(combatParams)
+        BuffManager.generateBuff("BM910C", target, combatParams.power)
+    })
+};
+SkillManager.skillEffects["SM910D"] = function (combatParams) {
+    var targets = combatParams.getTarget(TargetType.ALL, SideType.ENEMIES);
+    targets.forEach(function (target) {
+        target.advancePlaybook()
+    })
+};
+SkillManager.skillEffects["SM910E"] = function (combatParams) {
+    var targets = combatParams.getTarget(TargetType.ALL, SideType.ENEMIES);
+    targets.forEach(function (target) {
+        BuffManager.generateBuff("BM910E", target, combatParams.power)
+    })
+};
+SkillManager.skillEffects["SM910F"] = function (combatParams) {
+    var targets = combatParams.getTarget(TargetType.ALL, SideType.ENEMIES);
+    targets.forEach(function (target) {
+        BuffManager.generateBuff("BM910F", target, combatParams.power)
+    })
+};
+SkillManager.skillEffects["SM910G"] = function (combatParams) {
+    var targets = combatParams.getTarget(TargetType.ALL, SideType.ENEMIES);
+    targets.forEach(function (target) {
+        BuffManager.generateBuff("BM910G", target, combatParams.power)
     })
 };
 SkillManager.skillEffects["SMP902"] = function (type, target, attack, skillParams) {
@@ -16424,6 +16663,50 @@ SkillManager.skillEffects["SMP907A"] = function (type, target, attack, skillPara
     BuffManager.generateBuff("BM907A", target, skillParams.powMod * target.pow);
     target.hp = target.hpMod;
     target.hpmax = target.hpMod
+};
+SkillManager.skillEffects["SMP909A"] = function (type, target, attack, skillParams) {
+    if (type === "initial") BuffManager.generateBuff("BM909A2", target, 1);
+    if (type !== "dead") return;
+    var goblinKing = DungeonManager.dungeonByID("D409").mobs.find(function (m) {
+        return m.id === "B909"
+    });
+    BuffManager.generateBuff("BM909A1", goblinKing, skillParams.mod1 * 100);
+    BuffManager.removeBuff("BM909B1", goblinKing);
+    BuffManager.removeBuff("BM909C1", goblinKing);
+    BuffManager.generateBuff("BM909", goblinKing, 1)
+};
+SkillManager.skillEffects["SMP909B"] = function (type, target, attack, skillParams) {
+    if (type === "initial") BuffManager.generateBuff("BM909B2", target, 1);
+    if (type !== "dead") return;
+    var goblinKing = DungeonManager.dungeonByID("D409").mobs.find(function (m) {
+        return m.id === "B909"
+    });
+    BuffManager.removeBuff("BM909A1", goblinKing);
+    BuffManager.generateBuff("BM909B1", goblinKing, skillParams.mod1 * 100, skillParams.mod2 * 100);
+    BuffManager.removeBuff("BM909C1", goblinKing);
+    BuffManager.generateBuff("BM909", goblinKing, 1)
+};
+SkillManager.skillEffects["SMP909C"] = function (type, target, attack, skillParams) {
+    if (type === "initial") BuffManager.generateBuff("BM909C2", target, 1);
+    if (type !== "dead") return;
+    var goblinKing = DungeonManager.dungeonByID("D409").mobs.find(function (m) {
+        return m.id === "B909"
+    });
+    BuffManager.removeBuff("BM909A1", goblinKing);
+    BuffManager.removeBuff("BM909B1", goblinKing);
+    BuffManager.generateBuff("BM909C1", goblinKing, skillParams.mod1 * 100);
+    BuffManager.generateBuff("BM909", goblinKing, 1)
+};
+SkillManager.skillEffects["SMP909"] = function (type, target, attack, skillParams) {
+    if (type !== "dead") return;
+    var goblinMobs = DungeonManager.dungeonByID("D409").mobs.filter(function (m) {
+        return m.alive()
+    });
+    goblinMobs.forEach(function (mob) {
+        BuffManager.removeBuff("BM909A2", mob);
+        BuffManager.removeBuff("BM909B2", mob);
+        BuffManager.removeBuff("BM909C2", mob)
+    })
 };
 "use strict";
 var Tutorial = {

@@ -660,7 +660,7 @@
     "hpGain": null,
     "partySize": 4,
     "type": "boss",
-    "unlockedBy": "locked"
+    "unlockedBy": "D408"
   },
   {
     "id": "D410",

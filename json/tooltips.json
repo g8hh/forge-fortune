@@ -266,6 +266,34 @@
     "type": "static"
   },
   {
+    "id": "museum_rarity_common",
+    "title": "Contribution Rarity: Common",
+    "description": "This section requires items of <span class=\"tooltip-item_common\">Common</span> rarity.",
+    "icon": "<i class=\"fad fa-diamond\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "museum_rarity_good",
+    "title": "Contribution Rarity: Good",
+    "description": "This section requires items of <span class=\"tooltip-item_good\">Good</span> rarity.",
+    "icon": "<i class=\"fad fa-diamond\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "museum_rarity_great",
+    "title": "Contribution Rarity: Great",
+    "description": "This section requires items of <span class=\"tooltip-item_great\">Great</span> rarity.",
+    "icon": "<i class=\"fad fa-diamond\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "museum_rarity_epic",
+    "title": "Contribution Rarity: Epic",
+    "description": "This section requires items of <span class=\"tooltip-item_epic\">Epic</span> rarity.",
+    "icon": "<i class=\"fad fa-diamond\"></i>",
+    "type": "static"
+  },
+  {
     "id": "skill_desc",
     "title": "#name#",
     "description": "#description#",
@@ -444,6 +472,13 @@
     "id": "debug",
     "title": "Development Options",
     "description": "Development and debugging options for testing various mechanics and features.",
+    "icon": "<i class=\"fas fa-bug\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "beta_feature",
+    "title": "Experimental Beta Feature",
+    "description": "This feature is experimental and may cause issues that adversely affect your gameplay experience. Please be wary of this when changing from its default value.",
     "icon": "<i class=\"fas fa-bug\"></i>",
     "type": "static"
   },

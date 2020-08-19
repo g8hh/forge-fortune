@@ -313,5 +313,14 @@
     "description": "Your {0} {1} fusion has completed.",
     "type": "fusion",
     "actionText": "Go to Fusion Cabin"
+  },
+  {
+    "id": "fortune_cant_afford",
+    "customClass": "warning",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "title": "Cannot Start Fortune",
+    "description": "You do not have enough materials.",
+    "type": null,
+    "actionText": null
   }
 ]

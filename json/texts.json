@@ -596,14 +596,6 @@
     "en": "Your available Trinket recipes. They are always crafted at Epic rarity!"
   },
   {
-    "tid": "museum_nav_collections",
-    "en": "Collection"
-  },
-  {
-    "tid": "museum_nav_rewards",
-    "en": "Rewards"
-  },
-  {
     "tid": "header_museum_item_types_title",
     "en": "Recipe Lines"
   },
@@ -617,7 +609,7 @@
   },
   {
     "tid": "header_museum_donations_desc",
-    "en": "Donate your items to earn points to spend on museum rewards."
+    "en": "Donate your items to earn crafting rewards."
   },
   {
     "tid": "museum_no_donations_message",
@@ -632,72 +624,40 @@
     "en": "Back to Recipe Types"
   },
   {
-    "tid": "header_museum_reward_points_title",
-    "en": "Museum Rewards"
+    "tid": "museum_reward_header",
+    "en": "Rewards for {0} Contributions"
   },
   {
-    "tid": "header_museum_reward_points_desc",
-    "en": "Earn more points by donating unique items to the museum."
-  },
-  {
-    "tid": "museum_reward_points_balance",
-    "en": "You have <span>{0} point</span> left to spend."
-  },
-  {
-    "tid": "museum_reward_points_balance_plural",
-    "en": "You have <span>{0} points</span> left to spend."
+    "tid": "museum_reward_description",
+    "en": "Turn in 11 common, good, great, or epic items for bonuses to all {0} crafts"
   },
   {
     "tid": "museum_reward_craft_time_redux_title",
-    "en": "Craft Time Reduction"
+    "en": "Base Time Rate"
   },
   {
     "tid": "museum_reward_craft_good_rate_title",
-    "en": "Good Rarity Rate"
+    "en": "Base Good Rate"
   },
   {
     "tid": "museum_reward_craft_great_rate_title",
-    "en": "Great Rarity Rate"
+    "en": "Base Great Rate"
   },
   {
     "tid": "museum_reward_craft_epic_rate_title",
-    "en": "Epic Rarity Rate"
+    "en": "Base Epic Rate"
   },
   {
-    "tid": "museum_reward_craft_time_redux_desc",
-    "en": "{0} Base Crafting Time"
+    "tid": "header_museum_contributions_title",
+    "en": "Museum Contributions"
   },
   {
-    "tid": "museum_reward_craft_good_rate_desc",
-    "en": "{0} Base Good Rarity Chance"
-  },
-  {
-    "tid": "museum_reward_craft_great_rate_desc",
-    "en": "{0} Base Great Rarity Chance"
-  },
-  {
-    "tid": "museum_reward_craft_epic_rate_desc",
-    "en": "{0} Base Epic Rarity Chance"
-  },
-  {
-    "tid": "museum_reward_level",
-    "en": "Level {0}"
-  },
-  {
-    "tid": "museum_reward_current",
-    "en": "Current Reward"
+    "tid": "header_museum_contributions_desc",
+    "en": "Donate items of the appropriate rarity and forge enhancement to contribute to the museum."
   },
   {
     "tid": "museum_reward_next",
-    "en": "Next Reward"
-  },
-  {
-    "tid": "museum_reward_purchase",
-    "en": "Purchase ({0} Point)"
-  },
-  {
-    "tid": "museum_reward_purchase_plural",
-    "en": "Purchase ({0} Points)"
+    "en": "{0} until next boost"
   },
   {
     "tid": "header_market_perks_available_title",

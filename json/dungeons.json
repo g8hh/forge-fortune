@@ -664,7 +664,7 @@
   },
   {
     "id": "D410",
-    "name": "Work In Progress",
+    "name": "Beclutcher",
     "area": "A04",
     "mob1": "B910",
     "mob2": null,
@@ -677,6 +677,6 @@
     "hpGain": null,
     "partySize": 4,
     "type": "boss",
-    "unlockedBy": "locked"
+    "unlockedBy": "D409"
   }
 ]

@@ -64,8 +64,8 @@
   },
   {
     "id": "S0030",
-    "name": "Blood Thrust ",
-    "description": "Grim deals 350% #POWICON# to the frontmost enemy and Grim loses HP equal to 15% of his max HP. ",
+    "name": "Blood Thrust",
+    "description": "Grim deals 350% #POWICON# to the frontmost enemy and Grim loses HP equal to 15% of his max HP.",
     "icon": "<img src=\"assets/svg/battered-axe.svg\">",
     "powMod": 3.5,
     "mod1": 0.15,
@@ -83,7 +83,7 @@
   {
     "id": "S0032",
     "name": "Blood Cleave",
-    "description": "Grim deals 300% #POWICON# to the two frontmost enemies and Grim loses HP equal to 15% of his max HP. ",
+    "description": "Grim deals 300% #POWICON# to the two frontmost enemies and Grim loses HP equal to 15% of his max HP.",
     "icon": "<img src=\"assets/svg/hatchets.svg\">",
     "powMod": 3,
     "mod1": 0.15,
@@ -945,74 +945,11 @@
     "mod2": null
   },
   {
-    "id": "SMP910",
-    "name": "Many Eyes",
-    "description": "Beclutcher chooses four skills randomly from 9 possible attacks. The last attack is always Disintegration Ray. Beclutcher chooses its targets intelligently.",
-    "icon": "<img src=\"assets/svg/sword-brandish.svg\">",
-    "powMod": null,
-    "mod1": null,
-    "mod2": null
-  },
-  {
-    "id": "SM910A",
-    "name": "Stone Ray",
-    "description": "Turns a randomly enemy to stone. Stoned enemies can't attack. Healing or using a non-standard attack removes stoned condition.",
-    "icon": "<img src=\"assets/svg/sword-brandish.svg\">",
+    "id": "SM910",
+    "name": "Confuse Ray",
+    "description": "Beclutcher gains a stack of Watchful Eye and performs one of four actions on an intelligently picked target:<br>- Deals 100% #POWICON# to target enemy, and advances their playbook forward one skill;<br>- Deals 100% #POWICON# to target enemy, and set their playbook back one skill;<br>- Deals 100% #POWICON# to target enemy, and add/remove a buff that reverses the order their playbook advances, or;<br>- If Beclutcher has 7 stacks of Watchful Eye, Beclutcher will instantly kill their target.",
+    "icon": "<img src=\"assets/svg/falling-eye.svg\">",
     "powMod": 1,
-    "mod1": null,
-    "mod2": null
-  },
-  {
-    "id": "SM910B",
-    "name": "Disintegration Ray",
-    "description": "Attacks the fourth hero and applies \"Heating Up\". If hero already has \"Heating Up\" then this attack vaporizes them, killing them instantly.",
-    "icon": "<img src=\"assets/svg/sword-brandish.svg\">",
-    "powMod": 1,
-    "mod1": null,
-    "mod2": null
-  },
-  {
-    "id": "SM910C",
-    "name": "Stun Ray",
-    "description": "Applies \"Stun\" to a random enemy. Stunned enemies next attack has no effect.",
-    "icon": "<img src=\"assets/svg/sword-brandish.svg\">",
-    "powMod": 1,
-    "mod1": null,
-    "mod2": null
-  },
-  {
-    "id": "SM910D",
-    "name": "Speed Ray",
-    "description": "Bump enemy's playbook forward one turn.",
-    "icon": "<img src=\"assets/svg/sword-brandish.svg\">",
-    "powMod": 1,
-    "mod1": null,
-    "mod2": null
-  },
-  {
-    "id": "SM910E",
-    "name": "Slowing Ray",
-    "description": "Applies \"Slow\" to a random enemy. Slowed enemies skip their turn.",
-    "icon": "<img src=\"assets/svg/sword-brandish.svg\">",
-    "powMod": 1,
-    "mod1": null,
-    "mod2": null
-  },
-  {
-    "id": "SM910F",
-    "name": "Feeble Ray",
-    "description": "Applies \"Feeble\" to a random enemy. Feeble reduces damage dealt by half.",
-    "icon": null,
-    "powMod": null,
-    "mod1": null,
-    "mod2": null
-  },
-  {
-    "id": "SM910G",
-    "name": "Fear Ray",
-    "description": "Enemy is feared. Feared enemies can't target Beclutcher until they are healed. Healing or using a non-standard attack removes stoned condition.",
-    "icon": null,
-    "powMod": null,
     "mod1": null,
     "mod2": null
   }

@@ -40,5 +40,11 @@
     "icon": "<i class=\"fas fa-tasks\"></i>",
     "title": "Offline Progression",
     "description": "Here's what happened while you were offline."
+  },
+  {
+    "id": "end_commendation",
+    "icon": "<i class=\"fas fa-heart\"></i>",
+    "title": "Thanks for playing!",
+    "description": "Thank you for playing our beta version of Forge & Fortune!<br><br> You've slain the Big Bad Evil Guy, and have more or less reached the end of the current F&F journey. Don't fret, however -- we've got a very long list of things we plan on adding to the game, and have many quality of experience improvements in the works.<br><br> Want to be notified about updates? Have vital feedback for our team? Join us on Discord! Our Patreon Supporters get early access to our new content, so if that interests you, check us out."
   }
 ]

@@ -352,5 +352,11 @@
     "version": "v0.5.0.12",
     "date": "August 17th, 2020",
     "body": "<p><strong>Balancing / Gameplay Changes</strong></p><ul><li>Thanks to your feedback, Museum rewards will be awarded every 11 turn-ins rather than requiring the full eleven forged versions of an item to get a reward.</li></ul><p><strong>Improvements</strong></p><ul><li>Standardized forge enhancement appearance in all relevant areas.</li><li>Fusion Cabin main content area (the fuse slots) will now follow you as you scroll.</li><li>Fortune Teller main content area (the fortune slots) will now follow you as you scroll.</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Fixed a bug where epic museum increases were counting good turn-ins.</li><li>Fixed a bug with Titus's combat, causing offline gains to disappear.</li></ul>"
+  },
+  {
+    "patchCount": 60,
+    "version": "v0.5.0.13",
+    "date": "September 16th, 2020",
+    "body": "<p><strong>Balancing / Gameplay Changes</strong></p><ul><li>Boss 10 has been added!</li></ul><p><strong>Improvements</strong></p><ul><li>Materials list will now display three materials per row instead of two.</li><li>\"View Bank\" button will now open \"Bank Storage\" tab immediately instead of \"Your Inventory\".</li><li>Material amount will now be displayed along with material icon in Adventures' dungeon selection screen.</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Fixed a rounding error for Museum rewards</li><li>Fixed tier 1 fortune materials on a few crafts</li></ul>"
   }
 ]

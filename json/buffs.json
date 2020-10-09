@@ -539,69 +539,25 @@
     "type": "buff"
   },
   {
-    "id": "BM910A",
-    "name": "Stone Ray",
-    "description": "Cannot perform actions. Removed by healing or performing a special action. Can only be affected by one ray.",
-    "icon": null,
-    "maxStack": 1,
-    "stackCast": null,
-    "onCast": "refresh",
-    "decrease": "onSpecial",
-    "type": "debuff"
+    "id": "BM910",
+    "name": "Watchful Eye",
+    "description": "Once Beclutcher reaches 7 stacks of Watchful Eye, Beclutcher will instantly kill their target.",
+    "icon": "<img src=\"assets/svg/eyestalk.svg\">",
+    "maxStack": 7,
+    "stackCast": 1,
+    "onCast": "stack",
+    "decrease": "never",
+    "type": "buff"
   },
   {
-    "id": "BM910B",
-    "name": "Heating Up",
-    "description": "The next time Heating Up is applied, this unit dies.",
-    "icon": null,
+    "id": "BM910A",
+    "name": "Hindsight",
+    "description": "Playbook turn order is going in reverse.",
+    "icon": "<img src=\"assets/svg/surrounded-eye.svg\">",
     "maxStack": 1,
     "stackCast": 1,
     "onCast": "refresh",
     "decrease": "never",
-    "type": "debuff"
-  },
-  {
-    "id": "BM910C",
-    "name": "Stun Ray",
-    "description": "Skip next turn. Can only be affected by one ray.",
-    "icon": null,
-    "maxStack": 1,
-    "stackCast": 1,
-    "onCast": "refresh",
-    "decrease": "onMyTurn",
-    "type": "debuff"
-  },
-  {
-    "id": "BM910E",
-    "name": "Slowing Ray",
-    "description": "Repeat same attack. Can only be affected by one ray.",
-    "icon": null,
-    "maxStack": 1,
-    "stackCast": 1,
-    "onCast": "refresh",
-    "decrease": "onHitting",
-    "type": "debuff"
-  },
-  {
-    "id": "BM910F",
-    "name": "Feeble Ray",
-    "description": "Deal 50% less damage. Can only be affected by one ray.",
-    "icon": null,
-    "maxStack": 4,
-    "stackCast": 4,
-    "onCast": "refresh",
-    "decrease": "onHitting",
-    "type": "debuff"
-  },
-  {
-    "id": "BM910G",
-    "name": "Fear Ray",
-    "description": "Skip next attack. Can only be affected by one ray.",
-    "icon": null,
-    "maxStack": 1,
-    "stackCast": 1,
-    "onCast": "refresh",
-    "decrease": "onMyTurn",
     "type": "debuff"
   }
 ]

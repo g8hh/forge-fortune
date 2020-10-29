@@ -3286,6 +3286,18 @@ function loadGlobalTexts() {
         url: "json/texts.json"
     }).done(function (data) {
         globalTexts = Object.values(data);
+        loadHotKeys()
+    })
+}
+
+function loadHotKeys() {
+    $.ajax({
+        url: "json/hotkeys.json"
+    }).done(function (data) {
+        $.each(data, function (i, props) {
+            var key = new Hotkey(props);
+            HotKeys.addKey(key)
+        });
         loadPatchnotes()
     })
 }
@@ -3323,20 +3335,21 @@ function loadRecipes() {
             var item = new Item(props);
             recipeList.addItem(item)
         });
-        loadWorkers();
+        loadOrders();
         preloader.setMessage("Populating recipes...")
     })
 }
 
-function loadWorkers() {
+function loadOrders() {
     $.ajax({
-        url: "json/workers.json"
+        url: "json/orders.json"
     }).done(function (data) {
         $.each(data, function (i, props) {
-            var worker = new Worker(props);
-            WorkerManager.addWorker(worker)
+            var order = new Order(props);
+            Merchant.addOrderConfig(order)
         });
-        loadSkills()
+        loadSkills();
+        preloader.setMessage("Adding Orders...")
     })
 }
 
@@ -3348,7 +3361,8 @@ function loadSkills() {
             var skill = new Skill(props);
             SkillManager.addSkill(skill)
         });
-        loadPlaybooks()
+        loadPlaybooks();
+        preloader.setMessage("Scrapbooking...")
     })
 }
 
@@ -3384,21 +3398,8 @@ function loadHeroes() {
             var hero = new Hero(props);
             HeroManager.addHero(hero)
         });
-        loadGuilds();
-        preloader.setMessage("Gathering your heroes...")
-    })
-}
-
-function loadGuilds() {
-    $.ajax({
-        url: "json/guilds.json"
-    }).done(function (data) {
-        $.each(data, function (i, props) {
-            var guild = new Guild(props);
-            GuildManager.addGuild(guild)
-        });
         loadPerks();
-        preloader.setMessage("Assembling the guilds...")
+        preloader.setMessage("Gathering your heroes...")
     })
 }
 
@@ -3570,6 +3571,257 @@ function portSettings() {
     delete settings.battleLogLength;
     delete settings.expandedMaterials
 }
+"use strict";
+
+function _typeof(obj) {
+    if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+        _typeof = function _typeof(obj) {
+            return typeof obj
+        }
+    } else {
+        _typeof = function _typeof(obj) {
+            return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj
+        }
+    }
+    return _typeof(obj)
+}
+
+function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function")
+    }
+}
+
+function _defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor) descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor)
+    }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties(Constructor, staticProps);
+    return Constructor
+}
+var HotKeys = {
+    keys: [],
+    assigning: null,
+    enabled: 1,
+    createSave: function createSave() {
+        var save = {};
+        save.keys = [];
+        this.keys.forEach(function (key) {
+            save.keys.push(key.createSave())
+        });
+        save.enabled = this.enabled;
+        return save
+    },
+    loadSave: function loadSave(save) {
+        var _this = this;
+        save.keys.forEach(function (key) {
+            var keyid = _this.keys.find(function (k) {
+                return k.id === key.id
+            });
+            if (!keyid) return;
+            keyid.loadSave(key)
+        });
+        this.enabled = save.enabled
+    },
+    addKey: function addKey(key) {
+        this.keys.push(key)
+    },
+    setEnabled: function setEnabled() {
+        this.enabled = 1
+    },
+    setDisabled: function setDisabled() {
+        this.enabled = 0
+    },
+    allDefault: function allDefault() {
+        this.keys.forEach(function (key) {
+            return key.reset()
+        })
+    },
+    unassignKey: function unassignKey(kid) {
+        var akey = this.keys.find(function (k) {
+            return k.id === kid
+        });
+        akey.unassign()
+    },
+    defaultKey: function defaultKey(kid) {
+        var akey = this.keys.find(function (k) {
+            return k.id === kid
+        });
+        akey.reset()
+    },
+    assignKey: function assignKey(code) {
+        var _this2 = this;
+        this.keys.forEach(function (k) {
+            return k.unassignIf(code)
+        });
+        var akey = this.keys.find(function (k) {
+            return k.id === _this2.assigning
+        });
+        akey.assign(code);
+        this.assigning = null
+    },
+    startAssign: function startAssign(kid) {
+        this.assigning = kid
+    },
+    testKey: function testKey(keyCode) {
+        if (settings.dialogStatus === 1) return;
+        if (HotKeys.assigning !== null) {
+            this.assignKey(keyCode);
+            showHotkey();
+            return
+        }
+        if (!this.enabled) return;
+        var key = this.keys.find(function (k) {
+            return k.key === keyCode
+        });
+        if (!key || !key.canSee()) return;
+        $(".tablinks").removeClass("tab-selected");
+        $("#".concat(key.bigTab)).addClass("tab-selected");
+        if (key.type === "Inventory" && key.subtype === "Sort") Inventory.sortInventory();
+        if (lastTab !== key.tabName) openTab(key.tabName);
+        if (key.type === "Merchant") {
+            if (lastTab !== key.tabName) {
+                Merchant.lastTab = key.subtype;
+                return
+            }
+            if (key.subtype === "Order" && Merchant.lastTab !== "Order") clickOrder();
+            if (key.subtype === "Mastery" && Merchant.lastTab !== "Mastery") clickMastery()
+        }
+        if (key.type === "Recipes") openTab(key.tabName);
+        if (key.type === "Heroes") {
+            if (lastTab === key.tabName && key.subtype === "Overview" && HeroManager.heroView === null) return;
+            if (lastTab === key.tabName && key.subtype === HeroManager.heroView) return;
+            if (lastTab !== key.tabName) {
+                openTab(key.tabName)
+            }
+            if (key.subtype === "Overview") refreshHeroOverview();
+            else showHero(key.subtype)
+        }
+        if (key.type === "Adventure") {
+            if (lastTab !== key.tabName) openTab(key.tabName);
+            if (key.subtype === "Overview" && DungeonManager.areaView !== null) {
+                dungeonsTabClicked();
+                return
+            }
+            if (AreaManager.areaView !== key.subtype) {
+                AreaManager.areaView = key.subtype;
+                screenDirectDungeon(key.subtype)
+            }
+        }
+        if (key.type === "Town") {
+            $(".buildingName").removeClass("selected");
+            $("#".concat(key.subtype, "Bldg")).addClass("selected");
+            triggerBuilding(false, key.subtype)
+        }
+    }
+};
+var Hotkey = function () {
+    function Hotkey(props) {
+        _classCallCheck(this, Hotkey);
+        Object.assign(this, props);
+        this.ogkey = this.key
+    }
+    _createClass(Hotkey, [{
+        key: "createSave",
+        value: function createSave() {
+            var save = {};
+            save.id = this.id;
+            save.key = this.key;
+            return save
+        }
+    }, {
+        key: "loadSave",
+        value: function loadSave(save) {
+            this.key = save.key
+        }
+    }, {
+        key: "reset",
+        value: function reset() {
+            this.key = this.ogkey
+        }
+    }, {
+        key: "unassign",
+        value: function unassign() {
+            this.key = "Not Assigned"
+        }
+    }, {
+        key: "assign",
+        value: function assign(code) {
+            this.key = code
+        }
+    }, {
+        key: "unassignIf",
+        value: function unassignIf(code) {
+            if (this.key === code) this.unassign()
+        }
+    }, {
+        key: "canSee",
+        value: function canSee() {
+            if (this.openedBy === null) return true;
+            return Shop.alreadyPurchased(this.openedBy)
+        }
+    }]);
+    return Hotkey
+}();
+$(document).on("keypress", function (e) {
+    HotKeys.testKey(e.key)
+});
+
+function showHotkey(skipAnimation) {
+    $("#hotkeyAllDefault").empty().html(displayText("hotkey_all_default"));
+    $("#hotkeyList").empty();
+    HotKeys.keys.forEach(function (key) {
+        if (!key.canSee()) return;
+        var d = $("<div/>").addClass("hotkeyRow").appendTo($("#hotkeyList"));
+        $("<div/>").addClass("hotkeyDesc").html(key.desc).appendTo(d);
+        console.log(_typeof(key.key));
+        var keyText = typeof key.key === "string" ? key.key.toUpperCase() : key.key;
+        var d1 = $("<div/>").addClass("hotkeyKey").data("kid", key.id).html(keyText).appendTo(d);
+        if (HotKeys.assigning === key.id) d1.addClass("hotkeyKeyAssigning");
+        var buttonsContianer = $("<div/>").addClass("hotkeyButtonsContainer").appendTo(d);
+        var unassignBtn = $("<div/>").addClass("actionButton hotkeyUnassign").data("kid", key.id).html(displayText("hotkey_unassign")).appendTo(buttonsContianer);
+        var resetBtn = $("<div/>").addClass("actionButton hotkeyDefault").data("kid", key.id).html(displayText("hotkey_default")).appendTo(buttonsContianer);
+        if (skipAnimation) {
+            unassignBtn.addClass("actionButtonAnimDisabled");
+            resetBtn.addClass("actionButtonAnimDisabled")
+        }
+    })
+}
+$(document).on("change", ".hotkeyPrefSelection", function (e) {
+    $(e.target).attr("checked", "checked");
+    HotKeys.enabled = parseInt($(e.target).val())
+});
+$(document).on("click", "#hotkeyAllDefault", function (e) {
+    e.preventDefault();
+    HotKeys.allDefault();
+    showHotkey(true)
+});
+$(document).on("click", ".hotkeyUnassign", function (e) {
+    e.preventDefault();
+    var kid = $(e.currentTarget).data("kid");
+    HotKeys.unassignKey(kid);
+    showHotkey(true)
+});
+$(document).on("click", ".hotkeyDefault", function (e) {
+    e.preventDefault();
+    var kid = $(e.currentTarget).data("kid");
+    HotKeys.defaultKey(kid);
+    showHotkey(true)
+});
+$(document).on("click", ".hotkeyKey", function (e) {
+    e.preventDefault();
+    var kid = $(e.currentTarget).data("kid");
+    HotKeys.startAssign(kid);
+    showHotkey(true)
+});
 "use strict";
 
 function _classCallCheck(instance, Constructor) {
@@ -3823,7 +4075,14 @@ var miscIcons = Object.freeze({
     toggleOff: '<i class="fas fa-toggle-off"></i>',
     quest: '<i class="fas fa-map-signs"></i>',
     locked: '<i class="fas fa-lock-alt"></i>',
-    enhancement: '<i class="fas fa-plus-circle"></i>'
+    enhancement: '<i class="fas fa-plus-circle"></i>',
+    merchantOrder: '<i class="fas fa-scroll"></i>',
+    mastery: '<img src="assets/svg/stars-stack.svg">',
+    COG: '<i class="fas fa-cog"></i>',
+    JEWEL: '<i class="fas fa-gem"></i>',
+    ARMOR: '<img src="assets/svg/brutal-helm.svg">',
+    WEAPON: '<img src="assets/svg/broadsword.svg">',
+    manualSubmit: '<i class="fas fa-box"></i>'
 });
 var heroStat = Object.freeze({
     hp: "hp",
@@ -3937,21 +4196,52 @@ function displayText(id) {
     if (!string || !string[lang]) return "[".concat(id, "]");
     return string[lang]
 }
+
+function generateProgressBar(options) {
+    var prefix = options.prefix,
+        tooltip = options.tooltip,
+        text = options.text,
+        textID = options.textID,
+        icon = options.icon,
+        width = options.width,
+        fill = options.fill;
+    var progressBarContainer = $("<div/>").addClass("progressBarContainer ".concat(prefix, "BarContainer"));
+    if (tooltip) progressBarContainer.addClass("tooltip").attr({
+        "data-tooltip": tooltip
+    });
+    var progressBarText = $("<div/>").addClass("progressBarText");
+    if (text) progressBarText.html(text).appendTo(progressBarContainer);
+    if (textID) progressBarText.attr({
+        id: textID
+    });
+    var progressBarContent = $("<div/>").addClass("progressBarContent");
+    if (icon) $("<div/>").addClass("progressBarIcon").html(icon).appendTo(progressBarContent);
+    if (icon && text) progressBarText.addClass("containsIcon");
+    var progressBar = $("<div/>").addClass("progressBar").appendTo(progressBarContent);
+    var progressBarFill = $("<div/>").addClass("progressBarFill").css("width", width).appendTo(progressBar);
+    if (fill) progressBarFill.attr({
+        id: fill
+    });
+    progressBarContainer.append(progressBarContent);
+    return progressBarContainer
+}
 "use strict";
 var lastTab = null;
 
 function openTab(tabName) {
+    if (tabName === lastTab && tabName !== "dungeonsTab" && tabName !== "heroesTab") return;
+    if (lastTab === tabName && tabName === "dungeonsTab" && AreaManager.areaView === null) return;
+    if (lastTab === tabName && tabName === "heroesTab" && HeroManager.heroView === null) return;
     lastTab = tabName;
     DungeonManager.dungeonView = null;
-    if (tabName === "guildTab") {
-        refreshOrderInvCount()
+    if (tabName === "merchantTab") {
+        merchantTabClick()
     }
     if (tabName === "heroesTab") {
         refreshHeroOverview();
         $("#heroTab").removeClass("hasEvent")
     }
     if (tabName === "dungeonsTab") {
-        $dungeonSelect.show();
         dungeonsTabClicked()
     }
     if (tabName === "townsTab") {
@@ -3977,6 +4267,7 @@ function openTab(tabName) {
 }
 
 function tabClick(e, name) {
+    if (lastTab === name) return;
     openTab(name);
     if (name === "townsTab") name = "townTab";
     navTabHighlight(e, $("#" + name + "Link")[0])
@@ -4019,31 +4310,10 @@ $(document).on("click", "#goToBank", function (e) {
     showBldg("bank");
     showBankStorage()
 });
-$(document).on("keypress", function (e) {
-    if (settings.dialogStatus !== 0) return;
-    if (e.which < 49 || e.which > 56) return;
-    var choice = e.which - 49;
-    var tabs = generateTabVisibleTabList();
-    if (choice >= tabs.length) return;
-    tabClick(e, tabs[choice])
-});
-
-function generateTabVisibleTabList() {
-    var tabs = [];
-    if (recipeList.idToItem("R13001").craftCount > 0) tabs.push("inventoryTab");
-    if (Shop.alreadyPurchased("AL1000")) tabs.push("guildTab");
-    tabs.push("recipesTab");
-    if (HeroManager.heroOwned("H203")) tabs.push("heroesTab");
-    if (AreaManager.idToArea("A01").unlocked()) tabs.push("dungeonsTab");
-    if (QuestManager.unlocked()) tabs.push("questsTab");
-    if (TownManager.buildingsOwned()) tabs.push("townsTab");
-    if (achievementStats.totalGoldEarned > 0) tabs.push("marketTab");
-    return tabs
-}
+var $merchantTabLink = $("#merchantTabLink");
 var $heroesTabLink = $("#heroesTabLink");
 var $dungeonsTabLink = $("#dungeonsTabLink");
 var $progressTabLink = $("#progressTabLink");
-var $guildTabLink = $("#guildTabLink");
 var $questsTabLink = $("#questsTabLink");
 var $inventoryTabLink = $("#inventoryTabLink");
 var $inventoryTabSpan = $("#inventoryTabSpan");
@@ -4052,10 +4322,10 @@ var $marketTabSpan = $("#marketTabSpan");
 var $townTabLink = $("#townTabLink");
 
 function tabHide() {
+    if (Shop.alreadyPurchased("AL1000")) $merchantTabLink.show();
+    else $merchantTabLink.hide();
     if (recipeList.idToItem("R13001").craftCount > 0) $inventoryTabLink.show();
     else $inventoryTabLink.hide();
-    if (Shop.alreadyPurchased("AL1000")) $guildTabLink.show();
-    else $guildTabLink.hide();
     if (HeroManager.heroOwned("H203")) $heroesTabLink.show();
     else $heroesTabLink.hide();
     if (AreaManager.idToArea("A01").unlocked()) $dungeonsTabLink.show();
@@ -4072,59 +4342,7 @@ Math.seededRandom = function () {
     Math.seed = (Math.seed * 9301 + 49297) % 233280;
     return Math.seed / 233280
 };
-
-function seedCreateSave() {
-    return [wsSeed, hbSeed, wbSeed]
-}
-var GuildSeedManager = {
-    G001: 1,
-    G002: 2,
-    G003: 3,
-    G004: 4,
-    G005: 5,
-    createSave: function createSave() {
-        var save = {};
-        save.G001 = this.G001;
-        save.G002 = this.G002;
-        save.G003 = this.G003;
-        save.G004 = this.G004;
-        save.G005 = this.G005;
-        return save
-    },
-    loadSave: function loadSave(save) {
-        this.G001 = save.G001;
-        this.G002 = save.G002;
-        this.G003 = save.G003;
-        this.G004 = save.G004;
-        this.G005 = save.G005
-    },
-    fauxRand: function fauxRand(gid) {
-        this[gid] = (this[gid] * 9301 + 49297) % 233280;
-        return this[gid] / 233280
-    }
-};
 "use strict";
-
-function _toConsumableArray(arr) {
-    return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread()
-}
-
-function _nonIterableSpread() {
-    throw new TypeError("Invalid attempt to spread non-iterable instance")
-}
-
-function _iterableToArray(iter) {
-    if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter)
-}
-
-function _arrayWithoutHoles(arr) {
-    if (Array.isArray(arr)) {
-        for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
-            arr2[i] = arr[i]
-        }
-        return arr2
-    }
-}
 
 function _slicedToArray(arr, i) {
     return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest()
@@ -4268,12 +4486,10 @@ var Item = function () {
         key: "visualizeResAndMat",
         value: function visualizeResAndMat() {
             var d = $("<div/>").addClass("itemCost");
-            this.gcost.forEach(function (resource) {
-                var guild = GuildManager.idToGuild(resource);
+            this.gcost.forEach(function (type) {
                 d.append($("<div/>").addClass("indvCost resCost tooltip").attr({
-                    "data-tooltip": "guild_worker",
-                    "data-tooltip-value": guild.id
-                }).html(guild.icon))
+                    "data-tooltip": "".concat(type, "_worker")
+                }).html(miscIcons[type]))
             });
             if (this.mcost === null) return d;
             for (var _i = 0, _Object$entries = Object.entries(this.mcost); _i < _Object$entries.length; _i++) {
@@ -4328,8 +4544,7 @@ var Item = function () {
             refreshCraftedCount(this);
             destroyTooltip();
             refreshProgress();
-            GuildManager.repopulateUnmastered();
-            refreshAllRecipeMastery()
+            refreshRecipeMastery()
         }
     }, {
         key: "isMastered",
@@ -4354,9 +4569,9 @@ var Item = function () {
             this.canProduce = true;
             for (var _i2 = 0, _Object$entries2 = Object.entries(needBucket); _i2 < _Object$entries2.length; _i2++) {
                 var _Object$entries2$_i = _slicedToArray(_Object$entries2[_i2], 2),
-                    res = _Object$entries2$_i[0],
+                    type = _Object$entries2$_i[0],
                     amt = _Object$entries2$_i[1];
-                if (canProduceBucket[res] === undefined || canProduceBucket[res] < amt) {
+                if (canProduceBucket[type] < amt) {
                     this.canProduce = false
                 }
             }
@@ -4373,9 +4588,14 @@ var Item = function () {
             return Math.floor(this.craftTime * Museum.craftTime(this.id))
         }
     }, {
+        key: "canMaster",
+        value: function canMaster() {
+            return Math.max(0, this.minCraft - this.craftCount)
+        }
+    }, {
         key: "masteryCost",
         value: function masteryCost() {
-            var amt = Math.max(this.minMastery, this.maxMastery - this.reductionMastery * this.craftCount);
+            var amt = Math.max(0, this.masteryTotal - this.masteryAmt * (this.craftCount - this.minCraft));
             var material = this.mcost ? Object.keys(this.mcost)[0] : "M201";
             return new idAmt(material, amt)
         }
@@ -4443,8 +4663,7 @@ var recipeList = {
         refreshRecipeMastery(GuildManager.idToGuild(recipe.guildUnlock));
         recipeFilterList();
         refreshRecipeFilters();
-        checkCraftableStatus();
-        refreshAllSales()
+        checkCraftableStatus()
     },
     unlockTrinketRecipe: function unlockTrinketRecipe(recipeID) {
         var recipe = this.idToItem(recipeID);
@@ -4456,8 +4675,7 @@ var recipeList = {
         recipe.owned = true;
         recipeFilterList();
         refreshRecipeFilters();
-        checkCraftableStatus();
-        refreshAllSales()
+        checkCraftableStatus()
     },
     idToItem: function idToItem(id) {
         return this.recipes.find(function (recipe) {
@@ -4479,47 +4697,13 @@ var recipeList = {
             return r.recipeType === "normal" && r.type !== "Trinkets"
         }).length
     },
-    maxTier: function maxTier() {
-        var lvls = this.recipes.filter(function (r) {
-            return r.owned
-        }).map(function (r) {
-            return r.lvl
-        });
-        return Math.max.apply(Math, _toConsumableArray(lvls))
-    },
-    filterByGuild: function filterByGuild(guildID) {
-        return this.recipes.filter(function (r) {
-            return r.guildUnlock === guildID
-        })
-    },
     filterByType: function filterByType(type) {
         return this.recipes.filter(function (r) {
             return r.type === type
         })
     },
-    guildOrderItems: function guildOrderItems(lvl) {
-        var _this3 = this;
-        var items = [];
-        ItemType.forEach(function (type) {
-            var typeList = _this3.recipes.filter(function (r) {
-                return r.type === type
-            });
-            var guildWork = typeList.filter(function (r) {
-                return r.repReq <= lvl
-            });
-            var guildWorkRepReq = guildWork.map(function (r) {
-                return r.repReq
-            });
-            var chosenRepReq = Math.max.apply(Math, _toConsumableArray(guildWorkRepReq));
-            var item = guildWork.find(function (r) {
-                return r.repReq === chosenRepReq
-            });
-            if (item !== undefined) items.push(item)
-        });
-        return items
-    },
     canCraft: function canCraft() {
-        var canProduce = WorkerManager.getCurrentProduceAvailable();
+        var canProduce = WorkerManager.freeWorkers();
         this.recipes.forEach(function (recipe) {
             recipe.setCanCraft(canProduce)
         });
@@ -4528,12 +4712,21 @@ var recipeList = {
     attemptMastery: function attemptMastery(recipeID) {
         this.idToItem(recipeID).attemptMastery()
     },
-    unmasteredByGuild: function unmasteredByGuild(guild) {
+    needMastery: function needMastery() {
         return this.recipes.filter(function (r) {
-            return r.guildUnlock === guild && !r.mastered && r.owned
-        }).map(function (r) {
-            return r.id
+            return r.owned && !r.mastered
         })
+    },
+    availablePurchase: function availablePurchase() {
+        var maxTier = DungeonManager.bossCount() + 1;
+        return this.recipes.filter(function (r) {
+            return !r.owned && r.lvl <= maxTier && r.canBuy
+        })
+    },
+    ownedByLvl: function ownedByLvl(lvl) {
+        return this.recipes.filter(function (r) {
+            return r.owned && r.canBuy && r.lvl === lvl
+        }).length
     }
 };
 var $recipeActionButton = $(".recipeActionButton");
@@ -4577,6 +4770,7 @@ var sortOrder = {
 };
 
 function initializeRecipes() {
+    $("#recipeFilterScope").empty();
     $("<div/>").addClass("recipeScopeName selectedRecipeScope").attr("id", "rs-itemType").html("Type").data("recipeScope", "itemType").appendTo($recipeFilterScope);
     $("<div/>").addClass("recipeScopeName").attr("id", "rs-Level").html("Level").data("recipeScope", "level").appendTo($recipeFilterScope);
     recipeList.recipes.filter(function (r) {
@@ -4676,6 +4870,7 @@ function refreshCraftedCount(recipe) {
             "data-tooltip-value": material.id
         }).addClass("isMastered")
     }
+    if (lastTab === "Merchant" && Merchant.tabView === "Mastery") refreshRecipeMasteryAmt(recipe)
 }
 
 function recipeCanCraft() {
@@ -4863,6 +5058,7 @@ var ResourceManager = {
         var _this = this;
         save.forEach(function (m) {
             var mat = _this.idToMaterial(m.id);
+            if (mat === undefined) return;
             mat.loadSave(m)
         })
     },
@@ -4874,16 +5070,25 @@ var ResourceManager = {
             return mat.id === res
         });
         mat.amt += amt;
-        if (mat.id !== "M001" && !this.uncapMats) mat.amt = Math.min(mat.amt, 1e3);
+        if (mat.id !== "M001" && !this.uncapMats) mat.amt = Math.min(mat.amt, this.materialCap());
         mat.seen = true;
         if (skipAnimation) return;
         refreshMaterial(res)
     },
     capMats: function capMats() {
+        var _this2 = this;
         this.materials.forEach(function (mat) {
             if (mat.id === "M001") return;
-            mat.amt = Math.min(mat.amt, 1e3)
+            mat.amt = Math.min(mat.amt, _this2.materialCap())
         })
+    },
+    materialCap: function materialCap() {
+        var total = 1e3;
+        if (Shop.alreadyPurchased("AL1030")) total += 500;
+        if (Shop.alreadyPurchased("AL1031")) total += 500;
+        if (Shop.alreadyPurchased("AL1032")) total += 1e3;
+        if (Shop.alreadyPurchased("AL1033")) total += 1e3;
+        return total
     },
     canAffordMaterial: function canAffordMaterial(item) {
         if (item.mcost === null) return true;
@@ -4983,11 +5188,11 @@ var ResourceManager = {
         return [good, great, epic]
     },
     materialSeenDungeon: function materialSeenDungeon(dungeonID) {
-        var _this2 = this;
+        var _this3 = this;
         if (dungeonID === "D004") return [];
         var matids = MobManager.allMobDropsByDungeon(dungeonID);
         var materials = matids.map(function (m) {
-            return _this2.idToMaterial(m)
+            return _this3.idToMaterial(m)
         });
         return materials.filter(function (m) {
             return m.seen
@@ -7187,6 +7392,15 @@ var Hero = function (_Combatant) {
         value: function canLearnPlaybook(pbid) {
             return this.playbooks.includes(pbid)
         }
+    }, {
+        key: "fullyEquipped",
+        value: function fullyEquipped() {
+            return this.gearSlots.filter(function (g) {
+                return g.type !== "Trinkets"
+            }).every(function (gs) {
+                return !gs.empty()
+            })
+        }
     }]);
     return Hero
 }(Combatant);
@@ -7851,19 +8065,23 @@ $(document).on("click", ".emptyHeroSlotMarket", function (e) {
 $(document).on("click", ".heroInspect", function (e) {
     e.preventDefault();
     var ID = $(e.currentTarget).attr("data-value");
+    showHero(ID)
+});
+
+function showHero(ID) {
     HeroManager.heroView = ID;
     $(".heroOwnedCard[data-value=".concat(ID)).removeClass("hasEvent");
     $heroInspectBox.addClass("isOpened");
     inspectHeroPreview(HeroManager.idToHero(ID));
     clearExaminePossibleEquip();
     showTab(HeroManager.tabSelected)
-});
+}
 $(document).on("click", ".heroTab", function (e) {
     e.preventDefault();
     if ($(e.currentTarget).hasClass("heroTabLocked")) return;
     $(".heroTab").removeClass("selected");
     $(e.currentTarget).addClass("selected");
-            var tabType = $(e.currentTarget).attr("data-herotabid");
+        var tabType = $(e.currentTarget).attr("data-herotabid");
     if (HeroManager.tabSelected === tabType) return;
     HeroManager.tabSelected = tabType;
     showTab(tabType)
@@ -8015,8 +8233,8 @@ var MobManager = {
             var boss = new Mob(mobTemplate, 0, 0, dungeon.difficulty());
             boss.difficulty = dungeon.difficulty()
         }
-        var atk = dungeon.pow + dungeon.floor * dungeon.powGain;
-        var hp = dungeon.hp + dungeon.floor * dungeon.hpGain;
+        var atk = dungeon.pow + 10 * (dungeon.floor - 1) * dungeon.powGain;
+        var hp = dungeon.hp + 10 * (dungeon.floor - 1) * dungeon.hpGain;
         var mob = new Mob(mobTemplate, atk, hp, dungeon.difficulty());
         return mob
     }
@@ -8297,7 +8515,6 @@ function startPartyCreation(partyStarted) {
                 "data-tooltip": "boss_refight_count"
             }).html("".concat(miscIcons.skull, " ").concat(dungeon.maxFloor)).appendTo(button)
         } else {
-            $("<div/>").attr("id", "dungeonTeamButtonSkip").addClass("dungeonTeamButton actionButton").html(displayText("adventure_launch_floor_highest")).appendTo(partyLaunch);
             $("<div/>").attr("id", "dungeonTeamButton").addClass("dungeonTeamButton actionButton").html(displayText("adventure_launch_floor")).appendTo(partyLaunch)
         }
     }
@@ -8340,15 +8557,12 @@ function startPartyCreation(partyStarted) {
         if (!hero) a.addClass("noHeroDungeonSelect")
     });
     var $dungeonTeamButton = $("#dungeonTeamButton");
-    var $dungeonTeamButtonSkip = $("#dungeonTeamButtonSkip");
     var $dungeonTeamButtonBoss = $("#dungeonTeamButtonBoss");
     if (PartyCreator.heroes.length === 0) {
         $dungeonTeamButton.addClass("dungeonStartNotAvailable");
-        $dungeonTeamButtonSkip.addClass("dungeonStartNotAvailable");
         $dungeonTeamButtonBoss.addClass("dungeonStartNotAvailable")
     } else {
         $dungeonTeamButton.removeClass("dungeonStartNotAvailable");
-        $dungeonTeamButtonSkip.removeClass("dungeonStartNotAvailable");
         $dungeonTeamButtonBoss.removeClass("dungeonStartNotAvailable")
     }
     $dtsBottom.empty();
@@ -8396,7 +8610,7 @@ $(document).on("click", ".dtsDungeon", function (e) {
 });
 $(document).on("click", ".dtsBackButton", function (e) {
     e.preventDefault();
-    tabClick(e, "dungeonsTab")
+    dungeonsTabClicked()
 });
 $(document).on("click", "div.dungeonTeamCardClick", function (e) {
     e.preventDefault();
@@ -8431,17 +8645,6 @@ $(document).on("click", "#dungeonTeamButton", function (e) {
     }
 });
 $(document).on("click", "#dungeonTeamButtonBoss", function (e) {
-    e.preventDefault();
-    if (PartyCreator.validTeam()) {
-        DungeonManager.createDungeon(PartyCreator.dungeonSelect, true);
-        initializeSideBarDungeon();
-        $areaTeamSelect.hide();
-        $dungeonRun.show()
-    } else {
-        ToastManager.renderToast("no_party_selected")
-    }
-});
-$(document).on("click", "#dungeonTeamButtonSkip", function (e) {
     e.preventDefault();
     if (PartyCreator.validTeam()) {
         DungeonManager.createDungeon(PartyCreator.dungeonSelect, true);
@@ -8917,8 +9120,8 @@ var Dungeon = function () {
         key: "setRewardRate",
         value: function setRewardRate(floor) {
             this.floorClear = Math.max(floor, this.floorClear);
-            this.rewardAmt = Math.ceil(floor / 40);
-            var rewardRate = Math.floor((floor - 1) / 10) * .25 + 1;
+            this.rewardAmt = Math.ceil(floor / 4);
+            var rewardRate = Math.floor(floor - 1) * .25 + 1;
             this.rewardTimeRate = this.rewardAmt * 1e4 / rewardRate;
             this.rewardTimeRateRound = (this.rewardTimeRate / 1e3).toFixed(1)
         }
@@ -8969,9 +9172,7 @@ var Dungeon = function () {
                 this.maxFloor += 1;
                 if (this.id === "D410" && this.maxFloor === 1) setDialogOpen(DialogManager.findDialog("end_commendation"));
                 if (!refreshLater) {
-                    refreshAllSales();
-                    refreshAllOrders();
-                    refreshAllProgress()
+                    if (lastTab === "Merchant" && Merchant.tabView === "Order") refreshShopOrder()
                 }
                 this.status = DungeonStatus.SUCCESS;
                 if (DungeonManager.dungeonView === this.id) initiateDungeonFloor(this.id, refreshLater);
@@ -9226,6 +9427,7 @@ var $DungeonSideBarTeam = $("#DungeonSideBarTeam");
 function dungeonsTabClicked() {
     DungeonManager.dungeonView = null;
     AreaManager.areaView = null;
+    $dungeonSelect.show();
     $areaSelect.show();
     $areaTeamSelect.hide();
     $dungeonRun.hide();
@@ -9288,6 +9490,8 @@ $(document).on("click", "#dAbandonAll", function (e) {
 
 function screenDirectDungeon(areaID) {
     $areaSelect.hide();
+    $areaTeamSelect.hide();
+    $dungeonRun.hide();
     var area = AreaManager.idToArea(areaID);
     if (area.status() === DungeonStatus.EMPTY) {
         PartyCreator.areaSelect = area;
@@ -9515,7 +9719,7 @@ function createDungeonSidebarReward(dungeon) {
 }
 $(document).on("click", ".dungeonBackButton", function (e) {
     e.preventDefault();
-    tabClick(e, "dungeonsTab")
+    dungeonsTabClicked()
 });
 "use strict";
 
@@ -9556,98 +9760,29 @@ function _iterableToArrayLimit(arr, i) {
 function _arrayWithHoles(arr) {
     if (Array.isArray(arr)) return arr
 }
-
-function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-        throw new TypeError("Cannot call a class as a function")
-    }
-}
-
-function _defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-        var descriptor = props[i];
-        descriptor.enumerable = descriptor.enumerable || false;
-        descriptor.configurable = true;
-        if ("value" in descriptor) descriptor.writable = true;
-        Object.defineProperty(target, descriptor.key, descriptor)
-    }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties(Constructor, staticProps);
-    return Constructor
-}
-var Worker = function () {
-    function Worker(props) {
-        _classCallCheck(this, Worker);
-        Object.assign(this, props);
-        this.pic = '<img src="assets/images/workers/' + this.workerID + '.gif">';
-        this.prodpic = '<img src="assets/images/resources/' + this.production + '.png">'
-    }
-    _createClass(Worker, [{
-        key: "createSave",
-        value: function createSave() {
-            var save = {};
-            save.id = this.workerID;
-            return save
-        }
-    }, {
-        key: "loadSave",
-        value: function loadSave(save) {}
-    }, {
-        key: "productionText",
-        value: function productionText() {
-            return '<span class="production_type">'.concat(ResourceManager.materialIcon(this.production), '</span><span class="production_text">Worker</span>')
-        }
-    }, {
-        key: "owned",
-        value: function owned() {
-            if (!this.perkUnlock) return true;
-            return Shop.alreadyPurchased(this.perkUnlock)
-        }
-    }]);
-    return Worker
-}();
+var WorkerType = Object.freeze({
+    COG: "COG",
+    WEAPON: "WEAPON",
+    ARMOR: "ARMOR",
+    JEWEL: "JEWEL"
+});
 var WorkerManager = {
-    workers: [],
     canProduceBucket: {},
-    addWorker: function addWorker(worker) {
-        this.workers.push(worker)
+    workersUnlocked: function workersUnlocked(type) {
+        var extra = type === WorkerType.COG ? 1 : 0;
+        return Shop.boughtPerkSubtype(type).length + extra
     },
-    createSave: function createSave() {
-        var save = [];
-        this.workers.forEach(function (w) {
-            save.push(w.createSave())
-        });
-        return save
-    },
-    loadSave: function loadSave(save) {
-        var _this = this;
-        save.forEach(function (w) {
-            var worker = _this.workerByID(w.id);
-            if (!worker) return;
-            worker.loadSave(w)
-        })
-    },
-    workerByID: function workerByID(id) {
-        return this.workers.find(function (worker) {
-            return worker.workerID === id
-        })
+    workersFree: function workersFree(type) {
+        var usage = actionSlotManager.workersUsed(type);
+        return this.workersUnlocked(type) - usage
     },
     couldCraft: function couldCraft(item) {
-        var canProduce = this.workers.filter(function (w) {
-            return w.owned()
-        }).map(function (w) {
-            return w.production
-        });
-        var canProduceBucket = groupArray(canProduce);
         var needBucket = groupArray(item.gcost);
         for (var _i = 0, _Object$entries = Object.entries(needBucket); _i < _Object$entries.length; _i++) {
             var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
-                res = _Object$entries$_i[0],
+                type = _Object$entries$_i[0],
                 amt = _Object$entries$_i[1];
-            if (canProduceBucket[res] === undefined || canProduceBucket[res] < amt) return false
+            if (this.workersUnlocked(type) < amt) return false
         }
         return true
     },
@@ -9655,80 +9790,55 @@ var WorkerManager = {
         var needBucket = groupArray(item.gcost);
         for (var _i2 = 0, _Object$entries2 = Object.entries(needBucket); _i2 < _Object$entries2.length; _i2++) {
             var _Object$entries2$_i = _slicedToArray(_Object$entries2[_i2], 2),
-                res = _Object$entries2$_i[0],
+                type = _Object$entries2$_i[0],
                 amt = _Object$entries2$_i[1];
-            if (this.canProduceBucket[res] === undefined || this.canProduceBucket[res] < amt) return false
+            if (this.workersFree(type) < amt) return false
         }
         return true
     },
-    filterByGuild: function filterByGuild(guildID) {
-        return this.workers.filter(function (r) {
-            return r.guildUnlock === guildID
-        })
-    },
-    getNextGuildLevel: function getNextGuildLevel(id, lvl) {
-        var guilds = this.filterByGuild(id);
-        var left = guilds.filter(function (g) {
-            return g.repReqForBuy() > lvl
-        });
-        return left.sort(function (a, b) {
-            return a.repReqForBuy() - b.repReqForBuy()
-        })[0]
-    },
-    freeByGuild: function freeByGuild(gid) {
-        var usage = actionSlotManager.guildUsage();
-        if (usage[gid] === undefined) return this.ownedByGuild(gid);
-        return this.ownedByGuild(gid) - usage[gid]
-    },
-    ownedByGuild: function ownedByGuild(gid) {
-        return this.workers.filter(function (w) {
-            return w.production === gid && w.owned()
-        }).length
-    },
-    getCurrentProduceAvailable: function getCurrentProduceAvailable() {
-        var _this2 = this;
-        var gid = ["G001", "G002", "G003", "G004"];
-        var canProduceBucket = {};
-        gid.forEach(function (g) {
-            canProduceBucket[g] = _this2.freeByGuild(g)
-        });
-        return canProduceBucket
+    freeWorkers: function freeWorkers() {
+        return {
+            COG: this.workersFree(WorkerType.COG),
+            JEWEL: this.workersFree(WorkerType.JEWEL),
+            ARMOR: this.workersFree(WorkerType.ARMOR),
+            WEAPON: this.workersFree(WorkerType.WEAPON)
+        }
     }
 };
-var $G001WorkerFree = $("#G001WorkerFree");
-var $G002WorkerFree = $("#G002WorkerFree");
-var $G003WorkerFree = $("#G003WorkerFree");
-var $G004WorkerFree = $("#G004WorkerFree");
-var $G001WorkersSide = $("#G001WorkersSide");
-var $G002WorkersSide = $("#G002WorkersSide");
-var $G003WorkersSide = $("#G003WorkersSide");
-var $G004WorkersSide = $("#G004WorkersSide");
+var $CogWorkerFree = $("#CogWorkerFree");
+var $WeaponWorkerFree = $("#WeaponWorkerFree");
+var $ArmorWorkerFree = $("#ArmorWorkerFree");
+var $JewelWorkerFree = $("#JewelWorkerFree");
+var $CogWorkersSide = $("#CogWorkersSide");
+var $WeaponWorkersSide = $("#WeaponWorkersSide");
+var $ArmorWorkersSide = $("#ArmorWorkersSide");
+var $JewelWorkersSide = $("#JewelWorkersSide");
 
 function refreshSideWorkers() {
-    var g1free = WorkerManager.freeByGuild("G001");
-    var g2free = WorkerManager.freeByGuild("G002");
-    var g3free = WorkerManager.freeByGuild("G003");
-    var g4free = WorkerManager.freeByGuild("G004");
-    $G001WorkerFree.html(g1free);
-    $G002WorkerFree.html(g2free);
-    $G003WorkerFree.html(g3free);
-    $G004WorkerFree.html(g4free);
-    if (g1free > 0) $G001WorkersSide.removeClass("noWorkersAvailable");
-    else $G001WorkersSide.addClass("noWorkersAvailable");
-    if (g2free > 0) $G002WorkersSide.removeClass("noWorkersAvailable");
-    else $G002WorkersSide.addClass("noWorkersAvailable");
-    if (g3free > 0) $G003WorkersSide.removeClass("noWorkersAvailable");
-    else $G003WorkersSide.addClass("noWorkersAvailable");
-    if (g4free > 0) $G004WorkersSide.removeClass("noWorkersAvailable");
-    else $G004WorkersSide.addClass("noWorkersAvailable");
-    if (WorkerManager.ownedByGuild("G001") > 0) $G001WorkersSide.show();
-    else $G001WorkersSide.hide();
-    if (WorkerManager.ownedByGuild("G002") > 0) $G002WorkersSide.show();
-    else $G002WorkersSide.hide();
-    if (WorkerManager.ownedByGuild("G003") > 0) $G003WorkersSide.show();
-    else $G003WorkersSide.hide();
-    if (WorkerManager.ownedByGuild("G004") > 0) $G004WorkersSide.show();
-    else $G004WorkersSide.hide()
+    var cogFree = WorkerManager.workersFree(WorkerType.COG);
+    var weaponFree = WorkerManager.workersFree(WorkerType.WEAPON);
+    var armorFree = WorkerManager.workersFree(WorkerType.ARMOR);
+    var jewelFree = WorkerManager.workersFree(WorkerType.JEWEL);
+    $CogWorkerFree.html(cogFree);
+    $WeaponWorkerFree.html(weaponFree);
+    $ArmorWorkerFree.html(armorFree);
+    $JewelWorkerFree.html(jewelFree);
+    if (cogFree > 0) $CogWorkersSide.removeClass("noWorkersAvailable");
+    else $CogWorkersSide.addClass("noWorkersAvailable");
+    if (weaponFree > 0) $WeaponWorkersSide.removeClass("noWorkersAvailable");
+    else $WeaponWorkersSide.addClass("noWorkersAvailable");
+    if (armorFree > 0) $ArmorWorkersSide.removeClass("noWorkersAvailable");
+    else $ArmorWorkersSide.addClass("noWorkersAvailable");
+    if (jewelFree > 0) $JewelWorkersSide.removeClass("noWorkersAvailable");
+    else $JewelWorkersSide.addClass("noWorkersAvailable");
+    if (WorkerManager.workersUnlocked(WorkerType.COG) > 0) $CogWorkersSide.show();
+    else $CogWorkersSide.hide();
+    if (WorkerManager.workersUnlocked(WorkerType.WEAPON) > 0) $WeaponWorkersSide.show();
+    else $WeaponWorkersSide.hide();
+    if (WorkerManager.workersUnlocked(WorkerType.ARMOR) > 0) $ArmorWorkersSide.show();
+    else $ArmorWorkersSide.hide();
+    if (WorkerManager.workersUnlocked(WorkerType.JEWEL) > 0) $JewelWorkersSide.show();
+    else $JewelWorkersSide.hide()
 }
 "use strict";
 
@@ -10038,6 +10148,10 @@ var Inventory = {
         if (this.full()) return;
         var container = new itemContainer(fuse.id, fuse.rarity);
         container.sharp = fuse.sharp;
+        if (Merchant.canContribute(container)) {
+            Merchant.autoContribute(container);
+            return
+        }
         this.findempty(container, skipAnimation);
         var item = recipeList.idToItem(container.id);
         if (examineGearTypesCache.includes(item.type)) {
@@ -10045,6 +10159,10 @@ var Inventory = {
         }
     },
     addToInventory: function addToInventory(container, skipAnimation) {
+        if (Merchant.canContribute(container)) {
+            Merchant.autoContribute(container);
+            return
+        }
         if (this.full()) this.sellContainer(container, skipAnimation);
         else {
             this.findempty(container, skipAnimation);
@@ -10146,6 +10264,10 @@ var Inventory = {
         if (!noRefresh) refreshInventoryPlaces()
     },
     sellContainer: function sellContainer(container, skipAnimation) {
+        if (Merchant.canContribute(container)) {
+            Merchant.autoContribute(container);
+            return
+        }
         var gold = container.goldValue();
         if (achievementStats.totalGoldEarned === 0) {
             $marketTabSpan.addClass("hasEvent");
@@ -10279,6 +10401,27 @@ var Inventory = {
             items.push(item)
         });
         return items
+    },
+    hasItem: function hasItem(uniqueID) {
+        return this.nonblank().some(function (i) {
+            return i.uniqueID() === uniqueID
+        })
+    },
+    betterThan: function betterThan(uniqueID) {
+        var props = uniqueIDProperties(uniqueID);
+        return this.nonblank().filter(function (o) {
+            return o.id === props.id && o.rarity >= props.rarity && o.sharp >= props.sharp
+        })
+    },
+    cycleAC: function cycleAC(uniqueID) {
+        for (var i = 0; i < this.inv.length; i++) {
+            var container = this.inv[i];
+            if (container === null) continue;
+            if (container.uniqueID() !== uniqueID) continue;
+            if (!Merchant.canContribute(container)) continue;
+            Merchant.autoContribute(container);
+            this.inv[i] = null
+        }
     }
 };
 
@@ -10484,7 +10627,7 @@ function gearEquipFromInventory(invID) {
 
 function refreshInventoryPlaces() {
     if (lastTab === "inventoryTab") refreshInventory();
-    if (lastTab === "guildTab") refreshOrderInvCount();
+    if (lastTab === "merchantTab") refreshOrderInvCount();
     if (lastTab === "townsTab" && TownManager.lastBldg === "fusion") refreshPossibleFuse();
     if (lastTab === "townsTab" && TownManager.lastBldg === "bank") refreshBankPage();
     if (lastTab === "townsTab" && TownManager.lastBldg === "smith") {
@@ -10857,12 +11000,14 @@ var actionSlotManager = {
     toggleAuto: function toggleAuto(i) {
         return this.slots[i].autoSellToggle()
     },
-    guildUsage: function guildUsage() {
-        var mats = flattenArray.apply(void 0, [this.slots.map(function (s) {
+    workersUsed: function workersUsed(type) {
+        var workers = this.slots.map(function (s) {
             return s.item.gcost
-        })]);
-        var group = groupArray(mats);
-        return group
+        });
+        var workerFlat = flattenArray(workers);
+        return workerFlat.filter(function (w) {
+            return w === type
+        }).length
     },
     materialUsage: function materialUsage() {
         var mats = flattenArray.apply(void 0, [this.slots.map(function (s) {
@@ -10890,6 +11035,11 @@ var actionSlotManager = {
     showAutoSell: function showAutoSell() {
         this.slots.forEach(function (slot) {
             if (slot.item.recipeType === "normal") $("#asAuto".concat(slot.slotNum)).show()
+        })
+    },
+    anyAutoSell: function anyAutoSell() {
+        return this.slots.some(function (as) {
+            return as.autoSell() != "None"
         })
     }
 };
@@ -10930,11 +11080,10 @@ function newActionSlot(slot) {
     if (slot.isBuildingMaterial() || !Shop.alreadyPurchased("AL3000")) d4.hide();
     if (!slot.resList) return d;
     var d5 = $("<div/>").addClass("asRes").attr("id", "asRes" + slot.slotNum).appendTo(d);
-    slot.resList().forEach(function (g) {
+    slot.resList().forEach(function (type) {
         $("<div/>").addClass("asResIcon tooltip").attr({
-            "data-tooltip": "guild_worker",
-            "data-tooltip-value": g
-        }).html(GuildManager.idToGuild(g).icon).appendTo(d5)
+            "data-tooltip": "".concat(type, "_worker")
+        }).html(miscIcons[type]).appendTo(d5)
     });
     if (slot.item.recipeType === "normal") {
         slot.matList().forEach(function (m) {
@@ -11753,6 +11902,15 @@ var bloopSmith = {
         ResourceManager.addMaterial(params.resType, -params.resAmt);
         this.smithStage.sharp += 1;
         ToastManager.renderToast("smith_success", this.smithStage.name);
+        var currentCount = Inventory.nonblank().length;
+        Inventory.cycleAC(this.smithStage.uniqueID());
+        if (Inventory.nonblank().length < currentCount) {
+            ToastManager.renderToast("forge_autocontribute", this.smithStage.name);
+            this.removeSmith();
+            refreshInventoryPlaces();
+            refreshSmithStage();
+            return
+        }
         refreshInventoryPlaces();
         refreshSmithStage()
     },
@@ -12208,7 +12366,10 @@ var FortuneManager = {
         this.slots = this.slots.filter(function (f) {
             return f.container.id !== id || f.rarity !== rarity
         });
-        if (!skipAnimation) refreshFortuneSlots()
+        if (!skipAnimation) {
+            refreshFortuneSlots();
+            refreshFortuneGear()
+        }
     },
     addLevel: function addLevel() {
         this.lvl += 1;
@@ -13282,10 +13443,10 @@ $(document).on("click", ".buildingName", function (e) {
 
 function triggerBuilding(e, type) {
     if (TownManager.lastBldg === type) return;
+    $(".buildingName").removeClass("selected");
     TownManager.lastBldg = type;
     var building = TownManager.typeToBuilding(type);
     if (building.getStatus() === BuildingState.unseen) building.setStatus(BuildingState.seen);
-    $(".buildingName").removeClass("selected");
     if (!TownManager.unseenLeft()) $("#townTab").removeClass("hasEvent");
     if (e) {
         $(e.currentTarget).addClass("selected");
@@ -13312,12 +13473,6 @@ function buildScreen(type) {
 }
 "use strict";
 
-function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-        throw new TypeError("Cannot call a class as a function")
-    }
-}
-
 function _defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
         var descriptor = props[i];
@@ -13334,251 +13489,184 @@ function _createClass(Constructor, protoProps, staticProps) {
     return Constructor
 }
 
-function _toConsumableArray(arr) {
-    return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread()
-}
-
-function _nonIterableSpread() {
-    throw new TypeError("Invalid attempt to spread non-iterable instance")
-}
-
-function _iterableToArray(iter) {
-    if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter)
-}
-
-function _arrayWithoutHoles(arr) {
-    if (Array.isArray(arr)) {
-        for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
-            arr2[i] = arr[i]
-        }
-        return arr2
+function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function")
     }
 }
-var GuildManager = {
-    guilds: [],
-    lastClicked: "G003",
-    addGuild: function addGuild(guild) {
-        this.guilds.push(guild)
-    },
+var Merchant = {
+    tabView: "Order",
+    orders: [],
+    orderConfig: [],
     createSave: function createSave() {
         var save = {};
-        save.guilds = [];
-        this.guilds.forEach(function (guild) {
-            save.guilds.push(guild.createSave())
+        save.orders = [];
+        this.orders.forEach(function (order) {
+            save.orders.push(order.createSave())
         });
         return save
     },
     loadSave: function loadSave(save) {
-        var _this = this;
-        save.guilds.forEach(function (guildSave) {
-            var guild = _this.idToGuild(guildSave.id);
-            guild.loadSave(guildSave)
+        save.orders.forEach(function (order) {
+            var newOrder = new orderItem(order.id);
+            newOrder.loadSave(order);
+            Merchant.orders.push(newOrder)
+        });
+        return
+    },
+    addOrderConfig: function addOrderConfig(order) {
+        this.orderConfig.push(order)
+    },
+    maxOrders: function maxOrders() {
+        return Shop.slotsPurchased()
+    },
+    emptyOrders: function emptyOrders() {
+        return this.maxOrders() - this.orders.length
+    },
+    canBuyRecipe: function canBuyRecipe() {
+        return this.orders.length < this.maxOrders()
+    },
+    nextRecipes: function nextRecipes() {
+        var recipes = recipeList.availablePurchase();
+        if (!Shop.alreadyPurchased("AL1026")) return [recipes.sort(function (a, b) {
+            return a.unlockOrder - b.unlockOrder
+        })[0]];
+        var r1List = recipes.filter(function (r) {
+            return r.orderGroup === 1
+        }).sort(function (a, b) {
+            return a.unlockOrder - b.unlockOrder
+        });
+        var r2List = recipes.filter(function (r) {
+            return r.orderGroup === 2
+        }).sort(function (a, b) {
+            return a.unlockOrder - b.unlockOrder
+        });
+        var r3List = recipes.filter(function (r) {
+            return r.orderGroup === 3
+        }).sort(function (a, b) {
+            return a.unlockOrder - b.unlockOrder
+        });
+        return [r1List[0], r2List[0], r3List[0]]
+    },
+    gainRecipe: function gainRecipe(recipeID) {
+        var recipe = recipeList.idToItem(recipeID);
+        if (recipe.owned) return;
+        recipe.owned = true;
+        this.orders.push(new orderItem(recipeID))
+    },
+    submitItem: function submitItem(uniqueID) {
+        this.orders.forEach(function (order) {
+            order.submit(uniqueID)
+        });
+        if (this.orders.every(function (o) {
+                return !o.complete()
+            })) return;
+        this.orders.forEach(function (o) {
+            return o.increasePart()
+        });
+        this.orders = this.orders.filter(function (o) {
+            return o.part < o.totalParts()
+        });
+        refreshShopOrder()
+    },
+    orderByUid: function orderByUid(uid) {
+        return this.orders.find(function (o) {
+            return o.uniqueID() === uid
         })
     },
-    idToGuild: function idToGuild(id) {
-        return this.guilds.find(function (g) {
-            return g.id === id
+    orderProp: function orderProp(lvl) {
+        var count = recipeList.ownedByLvl(lvl);
+        return this.orderConfig.find(function (o) {
+            return o.lvl === lvl && o.order === count
         })
     },
-    submitOrder: function submitOrder(gid) {
-        var guild = this.idToGuild(gid);
-        guild.submitOrder()
+    canChooseRecipe: function canChooseRecipe() {
+        return Shop.alreadyPurchased("AL1026")
     },
-    maxGuildLevel: function maxGuildLevel() {
-        return Math.min(40, 4 * (DungeonManager.bossCount() + 1))
+    toggleAC: function toggleAC(uniqueID) {
+        var order = this.orderByUid(uniqueID);
+        var ac = order.toggleAC();
+        if (ac) Inventory.cycleAC(uniqueID);
+        return ac
     },
-    maxLvl: function maxLvl() {
-        return Math.max.apply(Math, _toConsumableArray(this.guilds.map(function (g) {
-            return g.lvl
-        })))
+    canContribute: function canContribute(container) {
+        var fit = this.orders.find(function (o) {
+            return o.uniqueID() === container.uniqueID() && o.autoContribute && !o.complete()
+        });
+        return fit !== undefined
     },
-    repopulateUnmastered: function repopulateUnmastered() {
-        this.guilds.forEach(function (g) {
-            return g.repopulateUnmastered()
-        })
+    autoContribute: function autoContribute(container) {
+        var fit = this.orders.find(function (o) {
+            return o.uniqueID() === container.uniqueID() && o.autoContribute && !o.complete()
+        });
+        if (fit === undefined) return;
+        fit.autoSubmit();
+        if (this.orders.some(function (o) {
+                return o.complete()
+            })) {
+            this.orders.forEach(function (o) {
+                return o.increasePart()
+            });
+            this.orders = this.orders.filter(function (o) {
+                return o.part < o.totalParts()
+            });
+            refreshShopOrder()
+        }
+        if (lastTab === "merchantTab" && this.tabView === "Order") refreshOrderRemaining(container.uniqueID())
+    },
+    manualSubmit: function manualSubmit(cid) {
+        var container = Inventory.containerToItem(cid);
+        var order = this.orders.find(function (o) {
+            return o.id === container.id
+        });
+        order.submitContainer(cid);
+        if (this.orders.every(function (o) {
+                return !o.complete()
+            })) return;
+        this.orders.forEach(function (o) {
+            return o.increasePart()
+        });
+        this.orders = this.orders.filter(function (o) {
+            return o.part < o.totalParts()
+        });
+        closeManualOrderTab()
+    },
+    actualUID: function actualUID(uid) {
+        var props = uniqueIDProperties(uid);
+        var order = this.orders.find(function (o) {
+            return o.id === props.id
+        });
+        return order.uniqueID()
     }
 };
-var Guild = function () {
-    function Guild(props) {
-        _classCallCheck(this, Guild);
-        Object.assign(this, props);
-        this.rep = 0;
-        this.lvl = 0;
-        this.order1 = this.generateNewOrder(1, false);
-        this.order2 = this.generateNewOrder(1, false);
-        this.order3 = this.generateNewOrder(1, false);
-        this.unmastered = []
-    }
-    _createClass(Guild, [{
-        key: "createSave",
-        value: function createSave() {
-            var save = {};
-            save.id = this.id;
-            save.lvl = this.lvl;
-            save.rep = this.rep;
-            save.order1 = this.order1.createSave();
-            save.order2 = this.order2.createSave();
-            save.order3 = this.order3.createSave();
-            save.unmastered = this.unmastered;
-            return save
-        }
-    }, {
-        key: "loadSave",
-        value: function loadSave(save) {
-            this.rep = save.rep;
-            this.lvl = save.lvl;
-            if (save.order1) {
-                this.order1 = new guildOrderItem(save.order1.gid, save.order1.id, save.order1.lvl);
-                this.order1.loadSave(save.order1)
-            }
-            if (save.order2) {
-                this.order2 = new guildOrderItem(save.order2.gid, save.order2.id, save.order2.lvl);
-                this.order2.loadSave(save.order2)
-            }
-            if (save.order3) {
-                this.order3 = new guildOrderItem(save.order3.gid, save.order3.id, save.order3.lvl);
-                this.order3.loadSave(save.order3)
-            }
-            if (save.unmastered !== undefined) this.unmastered = save.unmastered
-        }
-    }, {
-        key: "addRep",
-        value: function addRep(rep) {
-            if (this.maxLvlReached()) return;
-            this.rep += rep;
-            if (this.rep >= this.repLvl()) {
-                this.rep = 0;
-                this.lvl += 1;
-                refreshAllSales()
-            }
-            refreshguildprogress(this, true)
-        }
-    }, {
-        key: "repLvl",
-        value: function repLvl(givenlvl) {
-            givenlvl = givenlvl || this.lvl;
-            return miscLoadedValues["guildRepForLvls"][givenlvl]
-        }
-    }, {
-        key: "recipeToBuy",
-        value: function recipeToBuy() {
-            return recipeList.filterByGuild(this.id).filter(function (r) {
-                return !r.owned && r.repReq < GuildManager.maxGuildLevel()
-            }).sort(function (a, b) {
-                return a.repReq - b.repReq
-            })
-        }
-    }, {
-        key: "workers",
-        value: function workers() {
-            return WorkerManager.filterByGuild(this.id).filter(function (w) {
-                return w.owned()
-            })
-        }
-    }, {
-        key: "orderComplete",
-        value: function orderComplete() {
-            if (devtools.orderBypass) return true;
-            return this.order.every(function (o) {
-                return o.complete()
-            })
-        }
-    }, {
-        key: "generateNewOrder",
-        value: function generateNewOrder(orderNum) {
-            var _this2 = this;
-            var previous = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "ignore";
-            var possibleItems = recipeList.guildOrderItems(this.lvl);
-            if (orderNum === 1) {
-                var possibleGuildItems = possibleItems.filter(function (r) {
-                    return r.guildUnlock === _this2.id
-                });
-                if (possibleGuildItems.length > 1) possibleGuildItems = possibleGuildItems.filter(function (r) {
-                    return r.id !== previous
-                });
-                var chosenGuildItem = possibleGuildItems[Math.floor(GuildSeedManager.fauxRand(this.id) * possibleGuildItems.length)];
-                this.order1 = new guildOrderItem(this.id, chosenGuildItem.id, this.lvl);
-                return
-            }
-            if (possibleItems.length > 1) possibleItems = possibleItems.filter(function (r) {
-                return r.id !== previous
-            });
-            var chosenItem = possibleItems[Math.floor(GuildSeedManager.fauxRand(this.id) * possibleItems.length)];
-            if (orderNum === 2) this.order2 = new guildOrderItem(this.id, chosenItem.id, this.lvl);
-            if (orderNum === 3) this.order3 = new guildOrderItem(this.id, chosenItem.id, this.lvl)
-        }
-    }, {
-        key: "submitItem",
-        value: function submitItem(slot) {
-            var submitContainer = this.order1;
-            if (slot === 2) submitContainer = this.order2;
-            if (slot === 3) submitContainer = this.order3;
-            var itemString = submitContainer.uniqueID();
-            var itemMatch = Inventory.findCraftMatch(itemString);
-            if (itemMatch === undefined) return ToastManager.renderToast("cant_find_match");
-            Inventory.removeContainerFromInventory(itemMatch.containerID);
-            submitContainer.fufilled += 1;
-            this.addRep(submitContainer.rep);
-            achievementStats.gold(submitContainer.goldValue());
-            ResourceManager.addMaterial("M001", submitContainer.goldValue());
-            if (submitContainer.complete()) this.generateNewOrder(slot, submitContainer.id);
-            refreshAllOrders()
-        }
-    }, {
-        key: "goldValue",
-        value: function goldValue() {
-            var gold = this.order.map(function (o) {
-                return o.goldValue()
-            });
-            if (gold.length === 0) return 0;
-            return gold.reduce(function (a, b) {
-                return a + b
-            })
-        }
-    }, {
-        key: "maxLvlReached",
-        value: function maxLvlReached() {
-            return this.lvl >= GuildManager.maxGuildLevel()
-        }
-    }, {
-        key: "repopulateUnmastered",
-        value: function repopulateUnmastered() {
-            this.unmastered = recipeList.unmasteredByGuild(this.id)
-        }
-    }, {
-        key: "unlocked",
-        value: function unlocked() {
-            return this.workers().length > 0
-        }
-    }]);
-    return Guild
-}();
-var guildOrderItem = function () {
-    function guildOrderItem(gid, id, lvl) {
-        _classCallCheck(this, guildOrderItem);
-        this.gid = gid;
+var Order = function Order(props) {
+    _classCallCheck(this, Order);
+    Object.assign(this, props)
+};
+var orderItem = function () {
+    function orderItem(id) {
+        _classCallCheck(this, orderItem);
         this.id = id;
         this.item = recipeList.idToItem(id);
-        this.lvl = lvl;
-        this.rarity = this.generateRarity(lvl);
-        this.sharp = this.generateSharp(lvl);
-        this.amt = this.generateAmt(lvl);
-        this.rep = this.generateRep(lvl);
+        var props = Merchant.orderProp(this.item.lvl);
+        this.amt = props.amt;
+        this.rarity = props.rarity;
+        this.sharp = props.sharp;
         this.fufilled = 0;
-        this.displayName = this.generateName()
+        this.part = 0;
+        this.autoContribute = false
     }
-    _createClass(guildOrderItem, [{
+    _createClass(orderItem, [{
         key: "createSave",
         value: function createSave() {
             var save = {};
-            save.gid = this.gid;
             save.id = this.id;
-            save.lvl = this.lvl;
-            save.amt = this.amt;
             save.rarity = this.rarity;
             save.sharp = this.sharp;
+            save.amt = this.amt;
             save.fufilled = this.fufilled;
-            save.rep = this.rep;
+            save.part = this.part;
+            save.autoContribute = this.autoContribute;
             return save
         }
     }, {
@@ -13587,107 +13675,127 @@ var guildOrderItem = function () {
             this.amt = save.amt;
             this.rarity = save.rarity;
             this.sharp = save.sharp;
+            this.amt = save.amt;
             this.fufilled = save.fufilled;
-            this.rep = save.rep;
-            this.item = recipeList.idToItem(this.id);
-            this.displayName = this.generateName()
-        }
-    }, {
-        key: "goldValue",
-        value: function goldValue() {
-            var smithBonus = _toConsumableArray(miscLoadedValues["smithChance"]).splice(0, this.sharp);
-            var sharpAdd = smithBonus.length === 0 ? 0 : smithBonus.reduce(function (a, b) {
-                return a + b
-            });
-            return Math.round(this.item.value * (2 * (1 + this.rarity) + sharpAdd))
+            this.part = save.part;
+            this.autoContribute = save.autoContribute
         }
     }, {
         key: "complete",
         value: function complete() {
-            return this.fufilled >= this.amt
+            return this.fufilled >= this.getAmt()
+        }
+    }, {
+        key: "totalParts",
+        value: function totalParts() {
+            return this.amt.length
         }
     }, {
         key: "left",
         value: function left() {
-            return this.amt - this.fufilled
-        }
-    }, {
-        key: "generateAmt",
-        value: function generateAmt() {
-            var amt = 5;
-            if (this.rarity === 1) amt = 4;
-            if (this.rarity === 2) amt = 2;
-            if (this.rarity === 3) amt = 1;
-            if (this.sharp > 0) amt = Math.ceil(amt / 2);
-            return amt
-        }
-    }, {
-        key: "generateRep",
-        value: function generateRep() {
-            var amt = 1;
-            if (this.rarity === 1) amt = 2;
-            if (this.rarity === 2) amt = 5;
-            if (this.rarity === 3) amt = 10;
-            if (this.sharp > 0) amt += 1;
-            return amt
-        }
-    }, {
-        key: "generateRarity",
-        value: function generateRarity(lvl) {
-            var epicChance = miscLoadedValues["goEpic"][lvl];
-            var greatChance = miscLoadedValues["goGreat"][lvl] + epicChance;
-            var goodChance = miscLoadedValues["goGood"][lvl] + greatChance;
-            var rarityRoll = Math.floor(GuildSeedManager.fauxRand(this.gid) * 100);
-            if (epicChance > rarityRoll) return 3;
-            if (greatChance > rarityRoll) return 2;
-            if (goodChance > rarityRoll) return 1;
-            return 0
-        }
-    }, {
-        key: "generateSharp",
-        value: function generateSharp(lvl) {
-            var sharpChance = miscLoadedValues["goSharp"][lvl];
-            var sharpMin = miscLoadedValues["goSharpMin"][lvl];
-            var sharpMax = miscLoadedValues["goSharpMax"][lvl];
-            if (sharpChance < Math.floor(GuildSeedManager.fauxRand(this.gid) * 100)) return 0;
-            return bellCurveSeed(this.gid, sharpMin, sharpMax)
+            return this.getAmt() - this.fufilled
         }
     }, {
         key: "generateName",
         value: function generateName() {
-            if (this.sharp > 0) return '<span><span class="item-prefix tooltip" data-tooltip="forge_level">'.concat(miscIcons.enhancement).concat(this.sharp, "</span>").concat(this.item.name, "</span>");
+            if (this.getSharp() > 0) return '<span><span class="item-prefix tooltip" data-tooltip="forge_level">'.concat(miscIcons.enhancement).concat(this.getSharp(), "</span>").concat(this.item.name, "</span>");
             return "".concat(this.item.name)
         }
     }, {
         key: "uniqueID",
         value: function uniqueID() {
-            return this.id + "_" + this.rarity + "_" + this.sharp
+            return this.id + "_" + this.getRarity() + "_" + this.getSharp()
+        }
+    }, {
+        key: "submit",
+        value: function submit(uniqueID) {
+            if (!Inventory.hasItem(uniqueID)) return;
+            Inventory.removeFromInventoryUID(this.uniqueID());
+            ResourceManager.addMaterial("M001", this.goldValue());
+            this.fufilled += 1
+        }
+    }, {
+        key: "submitContainer",
+        value: function submitContainer(containerID) {
+            Inventory.removeContainerFromInventory(containerID);
+            ResourceManager.addMaterial("M001", this.goldValue());
+            this.fufilled += 1
+        }
+    }, {
+        key: "autoSubmit",
+        value: function autoSubmit() {
+            ResourceManager.addMaterial("M001", this.goldValue());
+            this.fufilled += 1
+        }
+    }, {
+        key: "goldValue",
+        value: function goldValue() {
+            return Math.round(2 * this.item.value * (this.getRarity() + 1) * (1 + this.getSharp() * .1))
+        }
+    }, {
+        key: "increasePart",
+        value: function increasePart() {
+            if (!this.complete()) return;
+            this.fufilled = 0;
+            this.part += 1
+        }
+    }, {
+        key: "getAmt",
+        value: function getAmt() {
+            return this.amt[this.part]
+        }
+    }, {
+        key: "getRarity",
+        value: function getRarity() {
+            return this.rarity[this.part]
+        }
+    }, {
+        key: "getSharp",
+        value: function getSharp() {
+            return this.sharp[this.part]
+        }
+    }, {
+        key: "getSynth",
+        value: function getSynth() {
+            return this.synth[this.part]
+        }
+    }, {
+        key: "toggleAC",
+        value: function toggleAC() {
+            this.autoContribute = !this.autoContribute;
+            return this.autoContribute
         }
     }]);
-    return guildOrderItem
+    return orderItem
 }();
-var $guildList = $("#guildList");
+var $merchantList = $("#merchantList");
 
-function initializeGuilds() {
-    $guildList.empty();
-    GuildManager.guilds.forEach(function (g) {
-        var d1 = $("<div/>").addClass("guildListButton").data("gid", g.id).html("".concat(g.icon, " ").concat(g.name));
-        if (GuildManager.lastClicked === g.id) d1.addClass("selected");
-        d1.appendTo($guildList);
-        $("#".concat(g.id, "Name")).html("".concat(g.name));
-        $("#".concat(g.id, "Desc")).html(g.description);
-        if (!g.unlocked()) d1.hide()
-    });
-    $(".guildContainer").hide();
-    $("#" + GuildManager.lastClicked).show();
-    GuildManager.guilds.forEach(function (guild) {
-        refreshguildprogress(guild);
-        refreshguildOrder(guild);
-        refreshSales(guild);
-        refreshRecipeMastery(guild);
-        refreshGuildWorkers(guild);
-        checkCraftableStatus()
-    })
+function initializeMerchantSidebar() {
+    $merchantList.empty();
+    var d = $("<div/>").addClass("merchantSideTab selected").attr("id", "merchantOrderTab").appendTo($merchantList);
+    $("<span/>").addClass("merchantSidebarIcon").html(miscIcons.merchantOrder).appendTo(d);
+    $("<span/>").addClass("merchantSidebarName").html("Shop Order").appendTo(d);
+    var e = $("<div/>").addClass("merchantSideTab").attr("id", "merchantMasteryTab").appendTo($merchantList);
+    $("<span/>").addClass("merchantSidebarIcon").html(miscIcons.mastery).appendTo(e);
+    $("<span/>").addClass("merchantSidebarName").html("Mastery").appendTo(e)
+}
+var $merchantOrderTabContent = $("#merchantOrderTabContent");
+var $merchantMasteryTabContent = $("#merchantMasteryTabContent");
+var $merchantOrders = $("#merchantOrders");
+var $merchantMastery = $("#merchantMastery");
+
+function merchantTabClick() {
+    if (Merchant.tabView === "Order") {
+        $merchantOrderTabContent.show();
+        $merchantMasteryTabContent.hide();
+        refreshShopOrder()
+    }
+    if (Merchant.tabView === "Mastery") {
+        $merchantOrderTabContent.hide();
+        $merchantMasteryTabContent.show();
+        refreshRecipeMastery()
+    }
+    checkCraftableStatus()
 }
 
 function checkCraftableStatus() {
@@ -13698,103 +13806,52 @@ function checkCraftableStatus() {
     })
 }
 
-function refreshguildprogress(guild, skipAnimation) {
-    var id = guild.id;
-    var $gp = $("#".concat(id, "Progress"));
-    $gp.empty();
-    var guildLevel = $("<div/>").addClass("guildLevel");
-    $("<div/>").addClass("guildLevelText").html("Level").appendTo(guildLevel);
-    $("<div/>").addClass("guildLevelValue").html(guild.lvl).appendTo(guildLevel);
-    var repBar = createGuildBar(guild);
-    if (skipAnimation) {
-        guildLevel.addClass("guildRepAnimDisabled");
-        repBar.addClass("guildRepAnimDisabled")
+function refreshShopOrder() {
+    if (lastTab !== "merchantTab") return;
+    $merchantOrders.empty();
+    var contentHeader = $("<div/>").addClass("contentHeader").appendTo($merchantOrders);
+    var headingDetails = $("<div/>").addClass("headingDetails").appendTo(contentHeader);
+    $("<div/>").addClass("headingTitle").html(displayText("merchant_recipe_orders_header_title")).appendTo(headingDetails);
+    $("<div/>").addClass("headingDescription").html(displayText("merchant_recipe_orders_header_desc")).appendTo(headingDetails);
+    var merchantOrderContainer = $("<div/>").addClass("merchantOrderContainer").appendTo($merchantOrders);
+    Merchant.orders.forEach(function (order) {
+        createOrderCard(order).appendTo(merchantOrderContainer)
+    });
+    for (var i = 0; i < Merchant.emptyOrders(); i++) {
+        createEmptyOrderCard().appendTo(merchantOrderContainer)
     }
-    $gp.append(guildLevel, repBar)
+    createRecipeBuy().appendTo($merchantOrders)
 }
 
-function generateProgressBar(options) {
-    var prefix = options.prefix,
-        tooltip = options.tooltip,
-        text = options.text,
-        textID = options.textID,
-        icon = options.icon,
-        width = options.width,
-        fill = options.fill;
-    var progressBarContainer = $("<div/>").addClass("progressBarContainer ".concat(prefix, "BarContainer"));
-    if (tooltip) progressBarContainer.addClass("tooltip").attr({
-        "data-tooltip": tooltip
-    });
-    var progressBarText = $("<div/>").addClass("progressBarText");
-    if (text) progressBarText.html(text).appendTo(progressBarContainer);
-    if (textID) progressBarText.attr({
-        id: textID
-    });
-    var progressBarContent = $("<div/>").addClass("progressBarContent");
-    if (icon) $("<div/>").addClass("progressBarIcon").html(icon).appendTo(progressBarContent);
-    if (icon && text) progressBarText.addClass("containsIcon");
-    var progressBar = $("<div/>").addClass("progressBar").appendTo(progressBarContent);
-    var progressBarFill = $("<div/>").addClass("progressBarFill").css("width", width).appendTo(progressBar);
-    if (fill) progressBarFill.attr({
-        id: fill
-    });
-    progressBarContainer.append(progressBarContent);
-    return progressBarContainer
-}
-
-function createGuildBar(guild) {
-    var repBarText = "Reputation: ".concat(guild.rep, "/").concat(guild.repLvl());
-    var repPercent = guild.rep / guild.repLvl();
-    var repWidth = (repPercent * 100).toFixed(1) + "%";
-    var options = {
-        prefix: "rep",
-        tooltip: "rep",
-        icon: miscIcons.guildRep,
-        text: repBarText,
-        width: repWidth
-    };
-    if (guild.maxLvlReached()) {
-        options.prefix = "repMax";
-        options.text = "Max Level!";
-        options.width = "100%"
-    }
-    return generateProgressBar(options)
-}
-
-function refreshAllOrders() {
-    GuildManager.guilds.forEach(function (g) {
-        return refreshguildOrder(g)
-    });
-    checkCraftableStatus()
-}
-
-function refreshguildOrder(guild) {
-    var id = guild.id;
-    var $go = $("#".concat(id, "Order"));
-    $go.empty();
-    if (guild.maxLvlReached()) {
-        $("<div/>").addClass("emptyContentMessage").html("You have reached the current maximum guild level.").appendTo($go);
+function refreshRecipeMastery() {
+    $merchantMastery.empty();
+    var recipes = recipeList.needMastery();
+    var contentHeader = $("<div/>").addClass("contentHeader").appendTo($merchantMastery);
+    var headingDetails = $("<div/>").addClass("headingDetails").appendTo(contentHeader);
+    $("<div/>").addClass("headingTitle").html(displayText("merchant_recipe_mastery_header_title")).appendTo(headingDetails);
+    $("<div/>").addClass("headingDescription").html(displayText("merchant_recipe_mastery_header_desc")).appendTo(headingDetails);
+    $("<div/>").addClass("headingMoreInfoButton tooltip").attr({
+        "data-tooltip": "more_info_mastery"
+    }).html("More Info").appendTo(contentHeader);
+    if (recipes.length === 0) {
+        $("<div/>").addClass("noMasteryRecipes").html(displayText("merchant_recipe_mastery_none")).appendTo($merchantMastery);
         return
     }
-    var guildOrderCardsContainer = $("<div/>").addClass("guildOrderCardsContainer").appendTo($go);
-    guildOrderCardsContainer.append(createOrderCard(guild.order1, id, 1));
-    if (guild.lvl < 4) return;
-    guildOrderCardsContainer.append(createOrderCard(guild.order2, id, 2));
-    if (guild.lvl < 8) return;
-    guildOrderCardsContainer.append(createOrderCard(guild.order3, id, 3))
+    var merchantOrderContainer = $("<div/>").addClass("merchantOrderContainer").appendTo($merchantMastery);
+    recipes.filter(function (r) {
+        return r.canBuy
+    }).forEach(function (recipe) {
+        createRecipeMasteryCard(recipe).appendTo(merchantOrderContainer)
+    })
 }
 
-function createOrderCard(item, id, index) {
-    var d1 = $("<div/>").addClass("orderCard R".concat(item.rarity)).data({
-        slot: index,
-        gid: id
-    });
-    if (item.complete()) d1.addClass("orderComplete");
+function createOrderCard(item, manual) {
+    var d1 = $("<div/>").addClass("orderCard R".concat(item.getRarity())).data("uid", item.uniqueID());
     $("<div/>").addClass("orderIcon").html(ResourceManager.materialIcon(item.id)).appendTo(d1);
-    $("<div/>").addClass("orderName itemName").html(item.displayName).appendTo(d1);
+    $("<div/>").addClass("orderName itemName").html(item.generateName()).appendTo(d1);
     $("<div/>").addClass("itemLevel").html(item.item.itemLevel()).appendTo(d1);
-    $("<div/>").addClass("itemRarity RT".concat(item.rarity, " tooltip")).attr({
-        "data-tooltip": "rarity_".concat(rarities[item.rarity].toLowerCase())
+    $("<div/>").addClass("itemRarity RT".concat(item.getRarity(), " tooltip")).attr({
+        "data-tooltip": "rarity_".concat(rarities[item.getRarity()].toLowerCase())
     }).html(miscIcons.rarity).appendTo(d1);
     $("<div/>").addClass("itemToSac tooltip").attr({
         "data-tooltip": "recipe_desc",
@@ -13802,10 +13859,9 @@ function createOrderCard(item, id, index) {
     }).appendTo(d1);
     var d2 = $("<div/>").addClass("orderMaterials").appendTo(d1);
     item.item.gcost.forEach(function (g) {
-        $("<div/>").addClass("orderGuildWorker tooltip").attr({
-            "data-tooltip": "guild_worker",
-            "data-tooltip-value": g
-        }).html(GuildManager.idToGuild(g).icon).appendTo(d2)
+        $("<div/>").addClass("orderWorker tooltip").attr({
+            "data-tooltip": "".concat(g, "_worker")
+        }).html(miscIcons[g]).appendTo(d2)
     });
     if (item.item.mcost) {
         Object.keys(item.item.mcost).forEach(function (mat, i) {
@@ -13818,7 +13874,7 @@ function createOrderCard(item, id, index) {
             if (item.item.isMastered()) matBox.addClass("isMastered")
         })
     }
-    $("<div/>").addClass("itemToSacReq").html("".concat(formatToUnits(item.left(), 2), " Left")).appendTo(d1);
+    $("<div/>").addClass("itemToSacReq").attr("id", "itsr" + item.uniqueID()).html("".concat(formatToUnits(item.left(), 2), " Left")).appendTo(d1);
     var d3 = $("<div/>").addClass("guildItemSubmit").appendTo(d1);
     $("<div/>").addClass("guildItemSubmitHeading").html("Rewards").appendTo(d3);
     var d3a = $("<div/>").addClass("guildOrderRewards").appendTo(d3);
@@ -13828,14 +13884,76 @@ function createOrderCard(item, id, index) {
     }).appendTo(d3a);
     $("<div/>").addClass("rewardIcon").html(miscIcons.gold).appendTo(goldReward);
     $("<div/>").addClass("rewardValue").html(formatToUnits(item.goldValue(), 2)).appendTo(goldReward);
-    var repReward = $("<div/>").addClass("guildOrderReward tooltip").attr("data-tooltip", "rep").appendTo(d3a);
-    $("<div/>").addClass("rewardIcon").html(miscIcons.guildRep).appendTo(repReward);
-    $("<div/>").addClass("rewardValue").html(item.rep).appendTo(repReward);
+    if (manual) return d1;
     var orderActions = $("<div/>").addClass("orderActions").appendTo(d1);
-    var invCount = $("<div/>").addClass("orderInv tooltip").attr("data-tooltip", "in_inventory").data("uid", item.uniqueID()).html('<i class="fas fa-cube"></i> '.concat(Inventory.itemCountSpecific(item.uniqueID()))).appendTo(orderActions);
-    if (Inventory.itemCountSpecific(item.uniqueID()) > 0) invCount.addClass("canContribute");
+    $("<div/>").addClass("orderManual tooltip").attr({
+        "data-tooltip": "manual_contribute"
+    }).data("uid", item.uniqueID()).html(miscIcons.manualSubmit).appendTo(orderActions);
     $("<div/>").attr("id", item.id).addClass("orderCraft").html('<i class="fas fa-hammer"></i> Craft').appendTo(orderActions);
+    var d4 = $("<div/>").addClass("orderAC orderACToggle tooltip").attr({
+        "data-tooltip": "auto_contribute"
+    }).data("uid", item.uniqueID()).appendTo(d1);
+    if (item.autoContribute) {
+        d4.addClass("acEnable");
+        $("<div/>").html(miscIcons.toggleOn).appendTo(d4)
+    } else $("<div/>").html(miscIcons.toggleOff).appendTo(d4);
+    $("<span/>").addClass("orderACtext").html(displayText("merchant_order_auto_contribute")).appendTo(d4);
+    var orderExtras = $("<div/>").addClass("orderExtras").appendTo(d1);
+    $("<div/>").addClass("orderPart tooltip").attr({
+        "data-tooltip": "order_part"
+    }).html("".concat(item.part + 1, "/").concat(item.totalParts())).appendTo(orderExtras);
+    var invCount = $("<div/>").addClass("orderInv tooltip").attr("data-tooltip", "in_inventory").data("uid", item.uniqueID()).html('<i class="fas fa-cube"></i> '.concat(Inventory.itemCountSpecific(item.uniqueID()))).appendTo(orderExtras);
+    if (Inventory.itemCountSpecific(item.uniqueID()) > 0) invCount.addClass("canContribute");
     return d1
+}
+
+function createEmptyOrderCard() {
+    var d1 = $("<div/>").addClass("orderCardEmpty");
+    $("<div/>").addClass("orderCardText").html(displayText("merchant_order_empty")).appendTo(d1);
+    return d1
+}
+
+function createRecipeBuy() {
+    var d = $("<div/>").addClass("orderRecipeBuy").appendTo($merchantMastery);
+    var contentHeader = $("<div/>").addClass("contentHeader").appendTo(d);
+    var headingDetails = $("<div/>").addClass("headingDetails").appendTo(contentHeader);
+    $("<div/>").addClass("headingTitle").html(displayText("merchant_recipe_buy_header_title")).appendTo(headingDetails);
+    $("<div/>").addClass("headingDescription").html(displayText("merchant_recipe_buy_header_desc")).appendTo(headingDetails);
+    $("<div/>").addClass("headingMoreInfoButton tooltip").attr({
+        "data-tooltip": "more_info_shop_recipes"
+    }).html("More Info").appendTo(contentHeader);
+    if (Merchant.emptyOrders() === 0) {
+        $("<div/>").addClass("orderRecipeNoBuy emptyContentMessage").html(displayText("merchant_recipe_no_buy")).appendTo(d);
+        return d
+    }
+    var rList = Merchant.nextRecipes();
+    var recipeBuyContainer = $("<div/>").addClass("orderRecipesBuyContainer").appendTo(d);
+    rList.forEach(function (recipe) {
+        if (recipe === undefined) {
+            $("<div/>").addClass("orderRecipeNone").html(displayText("merchant_recipe_orders_none")).appendTo(recipeBuyContainer);
+            return
+        }
+        var recipeBuy = $("<div/>").attr("id", "orderRecipeBuyChoice").addClass("orderRecipeBuyChoice").data("rid", recipe.id).appendTo(recipeBuyContainer);
+        $("<div/>").addClass("recipeDescription tooltip").attr({
+            "data-tooltip": "recipe_desc",
+            "data-tooltip-value": recipe.id
+        }).html("<i class='fas fa-info-circle'></i>").appendTo(recipeBuy);
+        $("<div/>").addClass("itemName").html(recipe.itemPicName()).appendTo(recipeBuy);
+        $("<div/>").addClass("itemLevel").html(recipe.itemLevel()).appendTo(recipeBuy);
+        var d1 = $("<div/>").addClass("itemMaterial").appendTo(recipeBuy);
+        $("<div/>").addClass("itemMaterialHeader").html("Material").appendTo(d1);
+        $("<div/>").addClass("itemMaterialType tooltip").attr({
+            "data-tooltip": "material_desc",
+            "data-tooltip-value": recipe.material()
+        }).html(ResourceManager.idToMaterial(recipe.material()).img).appendTo(d1);
+        var d2 = $("<div/>").addClass("itemType").appendTo(recipeBuy);
+        $("<div/>").addClass("recipeHeroTypeHeader").html("Hero Type").appendTo(d2);
+        var d2a = $("<div/>").addClass("itemTypeText").html(recipe.usedBy).appendTo(d2);
+        if (recipe.usedBy === "MIGHT") d2a.addClass("classMight");
+        if (recipe.usedBy === "MIND") d2a.addClass("classMind");
+        if (recipe.usedBy === "MOXIE") d2a.addClass("classMoxie")
+    });
+    return d
 }
 
 function refreshOrderInvCount() {
@@ -13848,100 +13966,6 @@ function refreshOrderInvCount() {
     })
 }
 
-function refreshAllSales() {
-    GuildManager.guilds.forEach(function (g) {
-        return refreshSales(g)
-    })
-}
-
-function refreshAllProgress() {
-    GuildManager.guilds.forEach(function (g) {
-        return refreshguildprogress(g)
-    })
-}
-
-function refreshSales(guild) {
-    var $gs = $("#".concat(guild.id, "Sales"));
-    $gs.empty();
-    if (guild.recipeToBuy().length === 0) {
-        $("<div/>").addClass("emptyContentMessage").html("There are no more recipes available to purchase.").appendTo($gs);
-        return
-    }
-    var guildSalesCardsContainer = $("<div/>").addClass("guildSalesCardsContainer").appendTo($gs);
-    guild.recipeToBuy().forEach(function (recipe) {
-        guildSalesCardsContainer.append(createRecipeBuyCard(recipe, guild.lvl))
-    })
-}
-
-function createRecipeBuyCard(recipe, guildLvl) {
-    var d1 = $("<div/>").addClass("recipeBuyCard");
-    $("<div/>").addClass("itemTypeHeader").html(recipe.type).appendTo(d1);
-    var guildRecipeBuyContent = $("<div/>").addClass("guildRecipeBuyContent").appendTo(d1);
-    $("<div/>").addClass("itemName").html(recipe.itemPicName()).appendTo(guildRecipeBuyContent);
-    $("<div/>").addClass("itemLevel").html(recipe.itemLevel()).appendTo(guildRecipeBuyContent);
-    if (recipe.repReq > guildLvl) {
-        $("<div/>").addClass("guildRecipeBuyReq").html("Guild Level ".concat(recipe.repReq, " Required")).appendTo(guildRecipeBuyContent);
-        return d1
-    }
-    var d5 = $("<div/>").addClass("recipeBuyCardBuy actionButtonCardCost").data("rid", recipe.id).appendTo(guildRecipeBuyContent);
-    $("<div/>").addClass("actionButtonCardText").html("Purchase").appendTo(d5);
-    $("<div/>").addClass("actionButtonCardValue tooltip").attr({
-        "data-tooltip": "gold_value",
-        "data-tooltip-value": formatWithCommas(recipe.goldCost)
-    }).html("".concat(miscIcons.gold, " ").concat(formatToUnits(recipe.goldCost, 2))).appendTo(d5);
-    return d1
-}
-
-function refreshAllGuildWorkers() {
-    GuildManager.guilds.forEach(function (g) {
-        return refreshGuildWorkers(g)
-    })
-}
-
-function refreshGuildWorkers(guild) {
-    var $gw = $("#".concat(guild.id, "Workers"));
-    $gw.empty();
-    guild.workers().forEach(function (worker) {
-        $gw.append(createWorkerBuyCard(worker))
-    })
-}
-
-function createWorkerBuyCard(worker) {
-    var d1 = $("<div/>").addClass("workerBuyCard");
-    var d2 = $("<div/>").addClass("workerBuyCardBodyImage").html(worker.pic);
-    var d3 = $("<div/>").addClass("workerBuyCardBodyName").html(worker.name);
-    var d4 = $("<div/>").addClass("workerBuyCardBodyProduction tooltip").attr({
-        "data-tooltip": "guild_worker",
-        "data-tooltip-value": worker.production
-    }).html(worker.productionText());
-    var d5 = $("<div/>").addClass("workerBuyCardDesc tooltip").attr({
-        "data-tooltip": "worker_desc",
-        "data-tooltip-value": worker.workerID
-    }).html("<i class='fas fa-info-circle'></i>");
-    return d1.append(d2, d3, d4, d5)
-}
-
-function refreshAllRecipeMastery() {
-    GuildManager.guilds.forEach(function (g) {
-        return refreshRecipeMastery(g)
-    })
-}
-
-function refreshRecipeMastery(guild) {
-    guild.repopulateUnmastered();
-    var $guildMastery = $("#".concat(guild.id, "Mastery"));
-    $guildMastery.empty();
-    if (guild.unmastered.length === 0) {
-        $("<div/>").addClass("emptyContentMessage").html("There are no recipes available to master.").appendTo($guildMastery);
-        return
-    }
-    var guildMasteryCardContainer = $("<div/>").addClass("guildMasteryCardContainer").appendTo($guildMastery);
-    guild.unmastered.forEach(function (rid) {
-        var recipe = recipeList.idToItem(rid);
-        guildMasteryCardContainer.append(createRecipeMasteryCard(recipe))
-    })
-}
-
 function createRecipeMasteryCard(recipe) {
     var d1 = $("<div/>").addClass("recipeMasteryGuildCard").addClass("ctrlClickItem").data("rid", recipe.id);
     $("<div/>").addClass("itemName").html(recipe.itemPicName()).appendTo(d1);
@@ -13949,17 +13973,111 @@ function createRecipeMasteryCard(recipe) {
     $("<div/>").addClass("recipeMasteryViewButton actionButton tooltip").attr({
         "data-tooltip": "guild_mastery_recipe"
     }).data("rid", recipe.id).html('<i class="fas fa-book"></i>').appendTo(d1);
+    var d2 = $("<div/>").addClass("recipeMasteryRemaining").attr("id", "rmr" + recipe.id).html(displayText("merchant_recipe_mastery_craft_remaining").replace("{0}", recipe.canMaster())).appendTo(d1);
+    if (recipe.canMaster() === 0) d2.hide();
     var masteryCost = recipe.masteryCost();
-    var masteryButton = $("<div/>").addClass("recipeMasteryGuildButton actionButtonCardCost").attr({
-        id: "rcm" + recipe.id
-    }).data("rid", recipe.id).appendTo(d1);
+    var masteryButton = $("<div/>").attr("id", "rmb" + recipe.id).addClass("recipeMasteryGuildButton actionButtonCardCost").data("rid", recipe.id).appendTo(d1);
     $("<div/>").addClass("actionButtonCardText").html("Master Recipe").appendTo(masteryButton);
     $("<div/>").addClass("actionButtonCardValue tooltip").attr({
+        id: "rmr2" + recipe.id,
         "data-tooltip": "material_desc",
         "data-tooltip-value": masteryCost.id
     }).html("".concat(ResourceManager.materialIcon(masteryCost.id), " ").concat(masteryCost.amt)).appendTo(masteryButton);
+    if (recipe.canMaster() > 0) masteryButton.hide();
     return d1
 }
+
+function refreshRecipeMasteryAmt(recipe) {
+    if (recipe.canMaster() === 0) {
+        var masteryCost = recipe.masteryCost();
+        $("#rmb" + recipe.id).show();
+        $("#rmr" + recipe.id).hide();
+        $("#rmr2" + recipe.id).html("".concat(ResourceManager.materialIcon(masteryCost.id), " ").concat(masteryCost.amt));
+        return
+    }
+    $("#rmb" + recipe.id).hide();
+    $("#rmr" + recipe.id).html(displayText("merchant_recipe_mastery_craft_remaining").replace("{0}", recipe.canMaster()))
+}
+var $moType = $("#moType");
+var $moOptions = $("#moOptions");
+var $manualOrderTab = $("#manualOrderTab");
+
+function manualOrder(uniqueID) {
+    var order = Merchant.orderByUid(uniqueID);
+    if (!order) return;
+    $moType.empty().html(createOrderCard(order, true));
+    $moOptions.empty();
+    Inventory.betterThan(uniqueID).forEach(function (item) {
+        createManualTurnin(item).appendTo($moOptions)
+    });
+    $(".tabcontent").hide();
+    $manualOrderTab.show()
+}
+
+function createManualTurnin(container) {
+    var d = $("<div/>").addClass("merchantManualItem").addClass("R" + container.rarity);
+    $("<div/>").addClass("itemName").html(container.picName()).appendTo(d);
+    $("<div/>").addClass("itemRarity RT".concat(container.rarity, " tooltip")).attr({
+        "data-tooltip": "rarity_".concat(rarities[container.rarity].toLowerCase())
+    }).html(miscIcons.rarity).appendTo(d);
+    $("<div/>").addClass("itemLevel").html(container.itemLevel()).appendTo(d);
+    var d1 = $("<div/>").addClass("manualOrderButtons").appendTo(d);
+    $("<div/>").addClass("manualOrderSubmit actionButtonCard").data("cid", container.containerID).html("Submit").appendTo(d1);
+    return d
+}
+$(document).on("click", "#closeShopOrder", function (e) {
+    e.preventDefault();
+    closeManualOrderTab()
+});
+
+function closeManualOrderTab() {
+    refreshShopOrder();
+    $(".tabcontent").hide();
+    $("#merchantTab").show()
+}
+$(document).on("click", ".orderManual", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var uid = $(e.currentTarget).data("uid");
+    manualOrder(uid)
+});
+$(document).on("click", ".manualOrderSubmit", function (e) {
+    e.preventDefault();
+    var cid = $(e.currentTarget).data("cid");
+    var uid = Inventory.containerToItem(cid).uniqueID();
+    var realuid = Merchant.actualUID(uid);
+    Merchant.manualSubmit(cid);
+    manualOrder(realuid)
+});
+$(document).on("click", "#merchantOrderTab", function (e) {
+    e.preventDefault();
+    clickOrder()
+});
+
+function clickOrder() {
+    Merchant.tabView = "Order";
+    $(".merchantSideTab").removeClass("selected");
+    $("#merchantOrderTab").addClass("selected");
+    merchantTabClick()
+}
+$(document).on("click", "#merchantMasteryTab", function (e) {
+    e.preventDefault();
+    clickMastery()
+});
+
+function clickMastery() {
+    Merchant.tabView = "Mastery";
+    $(".merchantSideTab").removeClass("selected");
+    $("#merchantMasteryTab").addClass("selected");
+    merchantTabClick()
+}
+$(document).on("click", ".orderRecipeBuyChoice", function (e) {
+    e.preventDefault();
+    var ID = $(e.currentTarget).data("rid");
+    Merchant.gainRecipe(ID);
+    refreshShopOrder();
+    refreshRecipeFilters()
+});
 $(document).on("click", ".recipeMasteryViewButton", function (e) {
     e.preventDefault();
     var ID = $(e.currentTarget).data("rid");
@@ -13970,58 +14088,41 @@ $(document).on("click", ".recipeMasteryViewButton", function (e) {
     tabClick(e, "recipesTab");
     invokeSearch(searchString)
 });
-
-function refreshRecipeMasteryAmt(recipe) {
-    var masteryCost = recipe.masteryCost();
-    var masteryButton = $("#rcm".concat(recipe.id));
-    masteryButton.empty();
-    $("<div/>").addClass("actionButtonCardText").html("Master Recipe").appendTo(masteryButton);
-    $("<div/>").addClass("actionButtonCardValue tooltip").attr({
-        "data-tooltip": "material_desc",
-        "data-tooltip-value": masteryCost.id
-    }).html("".concat(ResourceManager.materialIcon(masteryCost.id), " ").concat(masteryCost.amt)).appendTo(masteryButton)
-}
 $(document).on("click", ".recipeMasteryGuildButton", function (e) {
     e.preventDefault();
     var rid = $(e.currentTarget).data("rid");
-    recipeList.attemptMastery(rid);
-    refreshAllOrders()
-});
-$(document).on("click", ".guildOrderSubmit", function (e) {
-    e.preventDefault();
-    var gid = $(e.currentTarget).data("gid");
-    GuildManager.submitOrder(gid);
-    refreshInventoryPlaces()
-});
-$(document).on("click", ".guildListButton", function (e) {
-    e.preventDefault();
-    $(".guildListButton").removeClass("selected");
-    $(e.currentTarget).addClass("selected");
-    var gid = $(e.currentTarget).data("gid");
-    GuildManager.lastClicked = gid;
-    $(".guildContainer").hide();
-    $("#" + gid).show();
-    refreshOrderInvCount()
+    recipeList.attemptMastery(rid)
 });
 $(document).on("click", ".orderCard", function (e) {
     e.preventDefault();
     destroyTooltip();
-    var itemData = $(e.currentTarget).data();
-    GuildManager.idToGuild(itemData.gid).submitItem(itemData.slot);
-    refreshOrderInvCount()
+    var uid = $(e.currentTarget).data("uid");
+    Merchant.submitItem(uid);
+    refreshOrderRemaining(uid)
 });
-$(document).on("click", ".recipeBuyCardBuy", function (e) {
-    e.preventDefault();
-    destroyTooltip();
-    var recipeId = $(e.currentTarget).data("rid");
-    recipeList.buyRecipe(recipeId)
-});
+
+function refreshOrderRemaining(uid) {
+    var order = Merchant.orderByUid(uid);
+    if (order === undefined) return;
+    $("#itsr" + uid).html("".concat(formatToUnits(order.left(), 2), " Left"))
+}
 $(document).on("click", ".orderCraft", function (e) {
     e.preventDefault();
     e.stopPropagation();
     var itemID = $(e.currentTarget).attr("id");
     recipeList.idToItem(itemID).autoSell = "None";
     actionSlotManager.addSlot(itemID)
+});
+$(document).on("click", ".orderACToggle", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var uniqueID = $(e.currentTarget).data("uid");
+    var toggle = Merchant.toggleAC(uniqueID);
+    if (toggle) $(e.currentTarget).addClass("acEnable").html(miscIcons.toggleOn);
+    else $(e.currentTarget).removeClass("acEnable").html(miscIcons.toggleOff);
+    $("<span/>").addClass("orderACtext").html(displayText("merchant_order_auto_contribute")).appendTo($(e.currentTarget));
+    refreshOrderInvCount();
+    refreshInventoryPlaces()
 });
 "use strict";
 
@@ -14119,6 +14220,16 @@ var Shop = {
     alreadyPurchased: function alreadyPurchased(perkID) {
         var perk = this.idToPerk(perkID);
         return perk.alreadyPurchased()
+    },
+    boughtPerkSubtype: function boughtPerkSubtype(subtype) {
+        return this.perks.filter(function (p) {
+            return p.purchased && p.subtype === subtype
+        })
+    },
+    slotsPurchased: function slotsPurchased() {
+        return 1 + this.perks.filter(function (p) {
+            return p.purchased && p.type === "order"
+        }).length
     }
 };
 var Perk = function () {
@@ -14141,9 +14252,7 @@ var Perk = function () {
                 refreshSideWorkers();
                 refreshRecipeFilters();
                 recipeList.canCraft();
-                refreshProgress();
-                refreshAllGuildWorkers();
-                initializeGuilds()
+                refreshProgress()
             }
             if (this.type === "autosell") actionSlotManager.showAutoSell();
             if (this.type === "craft") actionSlotManager.upgradeSlot();
@@ -14314,6 +14423,7 @@ var $museumInv = $("#museumInv");
 var $museumTop = $(".museumTop");
 var Museum = {
     lvl: 1,
+    tabView: null,
     createSave: function createSave() {
         var save = {};
         return save
@@ -14351,6 +14461,13 @@ var Museum = {
     },
     museumData: function museumData(itemID) {
         return recipeList.idToItem(itemID).museum
+    },
+    isCompleted: function isCompleted(itemID) {
+        return Museum.museumData(itemID).every(function (rarity) {
+            return rarity.every(function (turnin) {
+                return turnin === true
+            })
+        })
     },
     donate: function donate(containerID) {
         if (!Inventory.hasContainer(containerID)) return;
@@ -14414,11 +14531,13 @@ var Museum = {
 
 function initiateMuseumBldg() {
     $museumBuilding.show();
-    refreshMuseumTop();
+    if (Museum.tabView === null) refreshMuseumTop();
+    else showMuseumType(Museum.tabView);
     refreshMuseumInv()
 }
 
 function refreshMuseumTop() {
+    Museum.tabView === null;
     $museumTop.hide();
     $museumRecipeTypes.empty().show();
     Museum.view = "main";
@@ -14437,6 +14556,7 @@ function refreshMuseumTop() {
 }
 
 function showMuseumType(type, skipAnimation) {
+    Museum.tabView = type;
     $museumTop.hide();
     $museumRecipeContributions.empty().show();
     Museum.view = type;
@@ -14453,20 +14573,24 @@ function showMuseumType(type, skipAnimation) {
     $("<div/>").addClass("headingDescription").html(displayText("museum_reward_description").replace("{0}", type)).appendTo(museumRewardsHeadingDetails);
     var e = $("<div/>").addClass("museumRewards").appendTo($museumRecipeContributions);
     var e1 = $("<div/>").addClass("museumRewardDiv").appendTo(e);
-    $("<div/>").addClass("museumRewardName").html(displayText("museum_reward_craft_time_redux_title")).appendTo(e1);
-    $("<div/>").addClass("museumRewardDesc").html("".concat(Math.floor(Museum.craftTime(type) * 100), "%")).appendTo(e1);
+    var e1a = $("<div/>").addClass("museumRewardDetails").appendTo(e1);
+    $("<div/>").addClass("museumRewardName").html(displayText("museum_reward_craft_time_redux_title")).appendTo(e1a);
+    $("<div/>").addClass("museumRewardDesc").html("".concat(Math.floor(Museum.craftTime(type) * 100), "%")).appendTo(e1a);
     $("<div/>").addClass("museumRewardNext").html(displayText("museum_reward_next").replace("{0}", "".concat(11 - Museum.commonCount(type) % 11))).appendTo(e1);
     var e2 = $("<div/>").addClass("museumRewardDiv").appendTo(e);
-    $("<div/>").addClass("museumRewardName").html(displayText("museum_reward_craft_good_rate_title")).appendTo(e2);
-    $("<div/>").addClass("museumRewardDesc").html("".concat(Math.floor(Museum.goodChance(type) * 100), "%")).appendTo(e2);
+    var e2a = $("<div/>").addClass("museumRewardDetails").appendTo(e2);
+    $("<div/>").addClass("museumRewardName").html(displayText("museum_reward_craft_good_rate_title")).appendTo(e2a);
+    $("<div/>").addClass("museumRewardDesc").html("".concat(Math.floor(Museum.goodChance(type) * 100), "%")).appendTo(e2a);
     $("<div/>").addClass("museumRewardNext").html(displayText("museum_reward_next").replace("{0}", "".concat(11 - Museum.goodCount(type) % 11))).appendTo(e2);
     var e3 = $("<div/>").addClass("museumRewardDiv").appendTo(e);
-    $("<div/>").addClass("museumRewardName").html(displayText("museum_reward_craft_great_rate_title")).appendTo(e3);
-    $("<div/>").addClass("museumRewardDesc").html("".concat(Math.floor(Museum.greatChance(type) * 100), "%")).appendTo(e3);
+    var e3a = $("<div/>").addClass("museumRewardDetails").appendTo(e3);
+    $("<div/>").addClass("museumRewardName").html(displayText("museum_reward_craft_great_rate_title")).appendTo(e3a);
+    $("<div/>").addClass("museumRewardDesc").html("".concat(Math.floor(Museum.greatChance(type) * 100), "%")).appendTo(e3a);
     $("<div/>").addClass("museumRewardNext").html(displayText("museum_reward_next").replace("{0}", "".concat(11 - Museum.greatCount(type) % 11))).appendTo(e3);
     var e4 = $("<div/>").addClass("museumRewardDiv").appendTo(e);
-    $("<div/>").addClass("museumRewardName").html(displayText("museum_reward_craft_epic_rate_title")).appendTo(e4);
-    $("<div/>").addClass("museumRewardDesc").html("".concat(Math.floor(Museum.epicChance(type) * 100), "%")).appendTo(e4);
+    var e4a = $("<div/>").addClass("museumRewardDetails").appendTo(e4);
+    $("<div/>").addClass("museumRewardName").html(displayText("museum_reward_craft_epic_rate_title")).appendTo(e4a);
+    $("<div/>").addClass("museumRewardDesc").html("".concat(Math.floor(Museum.epicChance(type) * 100), "%")).appendTo(e4a);
     $("<div/>").addClass("museumRewardNext").html(displayText("museum_reward_next").replace("{0}", "".concat(11 - Museum.epicCount(type) % 11))).appendTo(e4);
     var museumContributionsHeader = $("<div/>").addClass("contentHeader").appendTo($museumRecipeContributions);
     var museumContributionsHeadingDetails = $("<div/>").addClass("headingDetails").appendTo(museumContributionsHeader);
@@ -14477,6 +14601,13 @@ function showMuseumType(type, skipAnimation) {
         var d = $("<div/>").addClass("museumRecipeDiv").prependTo(museumContributionsList).addClass("ctrlClickItem").data("rid", recipe.id);
         if (skipAnimation) d.css("animation", "none");
         $("<div/>").addClass("museumRecipeImage").html(recipe.itemPicName()).appendTo(d);
+        if (Museum.isCompleted(recipe.id)) {
+            var completed = $("<div/>").addClass("museumRecipeDivCompleted").appendTo(d);
+            $("<div/>").addClass("museumRecipeDivCompletedIcon").html(miscIcons.checkmark).appendTo(completed);
+            $("<div/>").addClass("museumRecipeDivCompletedText").html(displayText("museum_contribution_completed_title")).appendTo(completed);
+            $("<div/>").addClass("museumRecipeDivCompletedDesc").html(displayText("museum_contribution_completed_desc")).appendTo(completed);
+            return
+        }
         var d1 = $("<div/>").addClass("museumRecipeCon").appendTo(d);
         recipe.museum.forEach(function (rarity, j) {
             var d1a = $("<div/>").addClass("museumRecipeConItem").appendTo(d1);
@@ -14575,6 +14706,7 @@ $(document).on("click", ".museumTypeDiv", function (e) {
 });
 $(document).on("click", ".museumBackButton", function (e) {
     e.preventDefault();
+    Museum.tabView = null;
     refreshMuseumTop()
 });
 $(document).on("click", ".museumDonate", function (e) {
@@ -15365,14 +15497,47 @@ function renderDialogActions(id) {
             id: "settingTabGeneral"
         }).html("General").appendTo(settingsTabsContainer);
         $("<div/>").addClass("settingsTab").attr({
-            id: "settingTabNotifcations"
+            id: "settingTabNotifications"
         }).html("Notifications").appendTo(settingsTabsContainer);
+        $("<div/>").addClass("settingsTab").attr({
+            id: "settingTabHotkeys"
+        }).html("Hotkeys").appendTo(settingsTabsContainer);
         var tabGeneral = $("<div/>").addClass("settingTabContent selected settings-grid").attr({
             id: "settingContentGeneral"
         }).appendTo(dialogActions);
         var tabNotifications = $("<div/>").addClass("settingTabContent settings-grid").attr({
             id: "settingContentNotifcations"
         }).appendTo(dialogActions);
+        var tabHotkeys = $("<div/>").addClass("settingTabContent settings-grid").attr({
+            id: "settingContentHotkeys"
+        }).appendTo(dialogActions);
+        var hotkeyPref = $("<div/>").attr({
+            id: "settings_hotkeyPref"
+        }).addClass("setting-container").appendTo(tabHotkeys);
+        var hotkeyPref_details = {
+            title: "Hotkeys",
+            description: "Choose whether hotkeys are triggered."
+        };
+        settingsBoilerplate(hotkeyPref_details, true).appendTo(hotkeyPref);
+        var hotkeyPrefGrid = $("<div/>").addClass("selections-grid").appendTo(hotkeyPref);
+        var hotkeyPrefOptions = [0, 1];
+        hotkeyPrefOptions.forEach(function (option, i) {
+            var label = $("<label/>").addClass("selection-container hotkeyPrefSelection").html(option === 1 ? "Enabled" : "Disabled");
+            $("<input/>").attr({
+                type: "radio",
+                name: "hotkeyPref",
+                value: option,
+                checked: HotKeys.enabled === option ? "checked" : null
+            }).appendTo(label);
+            $("<span/>").addClass("selection").appendTo(label);
+            label.appendTo(hotkeyPrefGrid)
+        });
+        $("<div/>").addClass("hotkeyAllDefault actionButton").attr({
+            id: "hotkeyAllDefault"
+        }).appendTo(tabHotkeys);
+        $("<div/>").addClass("hotkeyList").attr({
+            id: "hotkeyList"
+        }).appendTo(tabHotkeys);
         var notificationPref = $("<div/>").attr({
             id: "settings_notificationPref"
         }).addClass("setting-container").appendTo(tabNotifications);
@@ -15506,7 +15671,7 @@ function renderDialogActions(id) {
             title: "Animations",
             description: "Choose whether animations are played when navigating through content."
         };
-        settingsBoilerplate(animPref_details, true).appendTo(animPref);
+        settingsBoilerplate(animPref_details).appendTo(animPref);
         var animPrefGrid = $("<div/>").addClass("selections-grid").appendTo(animPref);
         var anims = [0, 1];
         anims.forEach(function (anim, i) {
@@ -15612,21 +15777,37 @@ $(document).on("click ", ".dialogClose", function (e) {
     setDialogClose()
 });
 $(document).on("keyup", function (e) {
-    if (e.keyCode === 27) setDialogClose()
+    if (e.keyCode === 27) {
+        setDialogClose();
+        HotKeys.assigning = null
+    }
 });
 $(document).on("click", ".dialogContainer", function (e) {
-    if (e.target === e.currentTarget) setDialogClose()
+    if (e.target === e.currentTarget) {
+        setDialogClose();
+        HotKeys.assigning = null
+    }
 });
-$(document).on("click", "#settingTabNotifcations", function (e) {
+$(document).on("click", "#settingTabNotifications", function (e) {
     $(".settingsTab").removeClass("selected");
     $(e.currentTarget).addClass("selected");
     $("#settingContentGeneral").removeClass("selected");
+    $("#settingContentHotkeys").removeClass("selected");
     $("#settingContentNotifcations").addClass("selected")
+});
+$(document).on("click", "#settingTabHotkeys", function (e) {
+    $(".settingsTab").removeClass("selected");
+    $(e.currentTarget).addClass("selected");
+    $("#settingContentGeneral").removeClass("selected");
+    $("#settingContentNotifcations").removeClass("selected");
+    $("#settingContentHotkeys").addClass("selected");
+    showHotkey()
 });
 $(document).on("click", "#settingTabGeneral", function (e) {
     $(".settingsTab").removeClass("selected");
     $(e.currentTarget).addClass("selected");
     $("#settingContentNotifcations").removeClass("selected");
+    $("#settingContentHotkeys").removeClass("selected");
     $("#settingContentGeneral").addClass("selected")
 });
 "use strict";
@@ -16840,7 +17021,7 @@ var Tutorial = {
         this.lvl = save.lvl
     },
     complete: function complete() {
-        return this.lvl >= 29
+        return this.lvl >= 33
     },
     monitor: function monitor() {
         if (this.complete()) return;
@@ -16868,23 +17049,23 @@ var Tutorial = {
             this.lvl = 6;
             refreshTutorial()
         }
-        if (this.lvl === 6 && DungeonManager.dungeonByID("D101").maxFloor >= 4) {
+        if (this.lvl === 6 && Shop.alreadyPurchased("AL1000")) {
             this.lvl = 7;
             refreshTutorial()
         }
-        if (this.lvl === 7 && Shop.alreadyPurchased("AL1000")) {
+        if (this.lvl === 7 && (Merchant.orders.length === 0 || recipeList.idToItem("R2301").owned)) {
             this.lvl = 8;
             refreshTutorial()
         }
-        if (this.lvl === 8 && GuildManager.idToGuild("G003").lvl >= 1) {
+        if (this.lvl === 8 && recipeList.idToItem("R2301").owned) {
             this.lvl = 9;
             refreshTutorial()
         }
-        if (this.lvl === 9 && recipeList.idToItem("R2201").owned) {
+        if (this.lvl === 9 && DungeonManager.dungeonByID("D101").maxFloor >= 2) {
             this.lvl = 10;
             refreshTutorial()
         }
-        if (this.lvl === 10 && GuildManager.idToGuild("G003").lvl >= 2) {
+        if (this.lvl === 10 && recipeList.idToItem("R4201").owned) {
             this.lvl = 11;
             refreshTutorial()
         }
@@ -16892,39 +17073,43 @@ var Tutorial = {
             this.lvl = 12;
             refreshTutorial()
         }
-        if (this.lvl === 12 && Shop.alreadyPurchased("AL1001")) {
+        if (this.lvl === 12 && recipeList.idToItem("R4201").craftCount > 0) {
             this.lvl = 13;
             refreshTutorial()
         }
-        if (this.lvl === 13 && GuildManager.idToGuild("G001").lvl >= 1) {
+        if (this.lvl === 13 && recipeList.idToItem("R12001").owned) {
             this.lvl = 14;
             refreshTutorial()
         }
-        if (this.lvl === 14 && DungeonManager.dungeonByID("D201").maxFloor >= 1) {
+        if (this.lvl === 14 && recipeList.idToItem("R12001").craftCount > 0) {
             this.lvl = 15;
             refreshTutorial()
         }
-        if (this.lvl === 15 && recipeList.idToItem("R11001").craftCount > 0) {
+        if (this.lvl === 15 && Shop.alreadyPurchased("AL2003")) {
             this.lvl = 16;
             refreshTutorial()
         }
-        if (this.lvl === 16 && GuildManager.idToGuild("G001").lvl >= 2) {
+        if (this.lvl === 16 && recipeList.idToItem("R11001").owned) {
             this.lvl = 17;
             refreshTutorial()
         }
-        if (this.lvl === 17 && Shop.alreadyPurchased("AL2003")) {
+        if (this.lvl === 17 && recipeList.idToItem("R11001").craftCount > 0) {
             this.lvl = 18;
             refreshTutorial()
         }
-        if (this.lvl === 18 && HeroManager.idToHero("H001").gearSlots[0].gear !== null) {
+        if (this.lvl === 18 && Shop.alreadyPurchased("AL2005")) {
             this.lvl = 19;
             refreshTutorial()
         }
-        if (this.lvl === 19 && HeroManager.idToHero("H001").state === HeroState.inDungeon) {
+        if (this.lvl === 19 && recipeList.idToItem("R4101").owned) {
             this.lvl = 20;
             refreshTutorial()
         }
-        if (this.lvl === 20 && GuildManager.idToGuild("G002").lvl >= 2) {
+        if (this.lvl === 19 && recipeList.idToItem("R4101").owned) {
+            this.lvl = 20;
+            refreshTutorial()
+        }
+        if (this.lvl === 20 && recipeList.idToItem("R4101").craftCount > 0) {
             this.lvl = 21;
             refreshTutorial()
         }
@@ -16932,32 +17117,48 @@ var Tutorial = {
             this.lvl = 22;
             refreshTutorial()
         }
-        if (this.lvl == 22 && HeroManager.idToHero("H102").state === HeroState.inDungeon) {
+        if (this.lvl === 22 && actionSlotManager.anyAutoSell()) {
             this.lvl = 23;
             refreshTutorial()
         }
-        if (this.lvl === 23 && Shop.alreadyPurchased("AL3000")) {
+        if (this.lvl === 23 && recipeList.masteryCount() > 0) {
             this.lvl = 24;
             refreshTutorial()
         }
-        if (this.lvl === 24 && recipeList.masteryCount() > 0) {
+        if (this.lvl === 24 && recipeList.idToItem("R5501").owned) {
             this.lvl = 25;
             refreshTutorial()
         }
-        if (this.lvl === 25 && GuildManager.idToGuild("G001").lvl >= 4 && GuildManager.idToGuild("G002").lvl >= 4 && GuildManager.idToGuild("G003").lvl >= 4 && GuildManager.idToGuild("G004").lvl >= 4) {
+        if (this.lvl === 25 && recipeList.idToItem("R5501").craftCount > 0) {
             this.lvl = 26;
             refreshTutorial()
         }
-        if (this.lvl === 26 && DungeonManager.bossCount() > 0) {
+        if (this.lvl === 26 && recipeList.idToItem("R6201").owned) {
             this.lvl = 27;
             refreshTutorial()
         }
-        if (this.lvl === 27 && Shop.alreadyPurchased("AL20081")) {
+        if (this.lvl === 27 && HeroManager.idToHero("H001").fullyEquipped() && HeroManager.idToHero("H102").fullyEquipped() && HeroManager.idToHero("H203").fullyEquipped()) {
             this.lvl = 28;
             refreshTutorial()
         }
-        if (DungeonManager.dungeonByID("D102").maxFloor > 0 || DungeonManager.dungeonByID("D202").maxFloor > 0 || DungeonManager.dungeonByID("D302").maxFloor > 0) {
+        if (this.lvl === 28 && DungeonManager.bossCount() > 0) {
             this.lvl = 29;
+            refreshTutorial()
+        }
+        if (this.lvl === 29 && Shop.alreadyPurchased("AL20081")) {
+            this.lvl = 30;
+            refreshTutorial()
+        }
+        if (this.lvl === 30 && DungeonManager.dungeonByID("D102").maxFloor > 0 || DungeonManager.dungeonByID("D202").maxFloor > 0 || DungeonManager.dungeonByID("D302").maxFloor > 0) {
+            this.lvl = 31;
+            refreshTutorial()
+        }
+        if (this.lvl === 31 && Shop.alreadyPurchased("AL1026")) {
+            this.lvl = 32;
+            refreshTutorial()
+        }
+        if (Merchant.orders.length >= 2 || DungeonManager.dungeonByID("D402").maxFloor >= 1) {
+            this.lvl = 33;
             refreshTutorial()
         }
     }
@@ -16968,6 +17169,10 @@ var $tutorialDesc = $("#tutorialDesc");
 
 function refreshTutorial() {
     if (Tutorial.complete()) return $tutorial.hide();
+    $tutorial.addClass("tutorialPulse");
     $tutorialHeader.html(displayText("tutorial_header"));
     $tutorialDesc.html(displayText("tutorial_desc_".concat(Tutorial.lvl)))
 }
+$(document).on("animationend", ".tutorial", function () {
+    $tutorial.removeClass("tutorialPulse")
+});

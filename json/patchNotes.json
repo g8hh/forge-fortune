@@ -358,5 +358,35 @@
     "version": "v0.5.0.13",
     "date": "September 16th, 2020",
     "body": "<p><strong>Balancing / Gameplay Changes</strong></p><ul><li>Boss 10 has been added!</li></ul><p><strong>Improvements</strong></p><ul><li>Materials list will now display three materials per row instead of two.</li><li>\"View Bank\" button will now open \"Bank Storage\" tab immediately instead of \"Your Inventory\".</li><li>Material amount will now be displayed along with material icon in Adventures' dungeon selection screen.</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Fixed a rounding error for Museum rewards</li><li>Fixed tier 1 fortune materials on a few crafts</li></ul>"
+  },
+  {
+    "patchCount": 61,
+    "version": "v0.6.0.0",
+    "date": "October 16th, 2020",
+    "body": "<p><strong>Balancing / Gameplay Changes</strong></p><ul><li>New feature: Shop Orders! These replace the guild feature with a more streamlined experience with the same &quot;submit items for a reward&quot; taste. There&#39;s no longer four screens of orders to sift through, and after completing an order you&#39;ll gain a recipe which will unlock a respective order for that item to complete (before repeating the process to get a new recipe). You&#39;ll also get to choose the recipe! This means much less crafting slot and screen shuffling and constantly working on items in the tier you&#39;re in.</li><li>Mastery changes. Items now have a minimum number to craft before mastery can be attempted, and mastery cost can always be reduced to 0. Mastery will also never cost more than the max material count (assuming you&#39;re buying the Perks).</li><li>Hotkeys! Now every major screen is accessible by a hotkey and configurable in Settings, including disabling them altogether. This is most notable for hero, specific dungeon, and town screens that exist in submenus.</li></ul><p><strong>Improvements</strong></p><ul><li>Material caps have been increased via new shop perks, up to a maximum of 4000.</li><li>The &quot;fluff floors&quot; of dungeons have been removed. Previously, You&#39;d have to get to floor 11 for your first increase in material gain rate - now it&#39;ll happen on floor 2. However, floors get harder 10 times as fast. Reaching your potential will be much quicker. Every floor clear counts! (We also removed the &quot;max dungeon floor&quot; button as we&#39;ll be introducing a feature in the next patch to make up for it).</li><li>Museum screen will not return to the &quot;overview&quot; section upon leaving and reentering the Museum</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Fixed some monster skill texts that didn&#39;t match their skill effect entirely</li><li>Reordered materials on side bar to follow dungeon order</li><li>Fixed the Fortune Teller not refreshing possible fortunes when one completes</li><li>Fixed instance in which recipe filter scopes (type, level) could duplicate.</li></ul>"
+  },
+  {
+    "patchCount": 62,
+    "version": "v0.6.0.1",
+    "date": "October 16th, 2020",
+    "body": "<p><strong>Bug Fixes</strong></p><ul><li>Fixed missing forge enhancement requirements on Shop Orders - this will correct why you looked like you couldn't submit orders you had items for.</li><li>Fixed uncollectable fuses</li><li>Fixed the workers on sidebar not turning red when at 0</li></ul>"
+  },
+  {
+    "patchCount": 63,
+    "version": "v0.6.0.2",
+    "date": "October 18th, 2020",
+    "body": "<p><strong>Improvements</strong></p><ul><li>Added a \"complete\" tag to lines that have been fully completed in the Museum. Further improvements to Museum UI will be coming in the future.</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Trinket Research now correctly working again. Note: you might have to \"complete research\" before it'll kick in (don't worry you'll get free money if this is the case!)</li></ul>"
+  },
+  {
+    "patchCount": 64,
+    "version": "v0.6.0.3",
+    "date": "October 21st, 2020",
+    "body": "<p><strong>Improvements</strong></p><ul><li>Added a \"Sort Inventory\" hotkey</li><li>Forged items are now auto-submitted</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Inventory count on sidebar now updates when toggling auto contribute</li><li>The \"museum overview\" screen will now be remembered as the last screen you were on if you navigate away from it</li><li>Hotkeys are now done based off actual key, and not key location -- this means alternative keyboard layouts should work properly. You'll have to re-do your custom hotkeys for this patch, sorry!</li></ul>"
+  },
+  {
+    "patchCount": 65,
+    "version": "v0.6.0.4",
+    "date": "October 24th, 2020",
+    "body": "<p><strong>Bug Fixes</strong></p><ul><li>Fixed a bug where guild orders weren't synching to gaining recipes, causing the last (or sometimes second last) recipe gained to not have a shop order</li><li>Fixed a bug where hotkeys were triggering when user input was involved (such as recipe search)</li><li>Fixed a bug where playbook progress would be erased. You might need to re-run the quests to regain access to other missing playbooks. Feel free to stop by discord and I'll manually fix anyone's save who wants to bypass re-questing.</li></ul>"
   }
 ]

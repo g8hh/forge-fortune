@@ -28,6 +28,13 @@
     "type": "static"
   },
   {
+    "id": "ad_reward",
+    "title": "Watch an Ad for a Reward",
+    "description": "Watch a short advertisement and receive a reward for your time.",
+    "icon": "<i class=\"fas fa-dollar-sign\"></i>",
+    "type": "static"
+  },
+  {
     "id": "recipe_desc",
     "title": "#name#",
     "description": "#description#",
@@ -161,11 +168,67 @@
     "type": "material"
   },
   {
-    "id": "guild_worker",
-    "title": "#name#",
-    "description": "Represents a worker for the guild.",
-    "icon": "#icon#",
-    "type": "guild"
+    "id": "manual_contribute",
+    "title": "Contribute Manually from Inventory",
+    "description": "Manually contributing from this menu will allow you to contribute higher rarity items.",
+    "icon": "<i class=\"fas fa-box\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "auto_contribute",
+    "title": "Auto-Contribute to Orders",
+    "description": "Enabling this feature will auto-contribute items to this order if they meet the requirements.",
+    "icon": null,
+    "type": "static"
+  },
+  {
+    "id": "order_part",
+    "title": "Order Parts",
+    "description": "Orders can be made up of multiple parts. Complete all parts to complete the order.",
+    "icon": null,
+    "type": "static"
+  },
+  {
+    "id": "more_info_shop_recipes",
+    "title": "Shop Recipes",
+    "description": "When a Shop Order is empty, you can select one of the available recipes below to permanently learn it allowing you to finish a new Shop Order. Choose wisely!",
+    "icon": "<i class=\"fas fa-scroll\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "more_info_mastery",
+    "title": "Mastery",
+    "description": "Mastering recipes removes their mastery cost permanently and doubles their exceptional craft chances for all rarities. There's a minimum amount to craft before a recipe can be mastered, and each additional craft beyond that reduces the material cost to master (down to 0).",
+    "icon": "<img src=\"assets/svg/stars-stack.svg\">",
+    "type": "static"
+  },
+  {
+    "id": "COG_worker",
+    "title": "Cogsmith Worker",
+    "description": "Specific workers are used in crafting and allocated automatically",
+    "icon": "<i class=\"fas fa-cog\"></i>",
+    "type": "worker"
+  },
+  {
+    "id": "JEWEL_worker",
+    "title": "Jeweler Worker",
+    "description": "Specific workers are used in crafting and allocated automatically",
+    "icon": "<i class=\"fas fa-gem\"></i>",
+    "type": "worker"
+  },
+  {
+    "id": "ARMOR_worker",
+    "title": "Armorer Worker",
+    "description": "Specific workers are used in crafting and allocated automatically",
+    "icon": "<img src=\"assets/svg/brutal-helm.svg\">",
+    "type": "worker"
+  },
+  {
+    "id": "WEAPON_worker",
+    "title": "Weaponmaker Worker",
+    "description": "Specific workers are used in crafting and allocated automatically",
+    "icon": "<img src=\"assets/svg/broadsword.svg\">",
+    "type": "worker"
   },
   {
     "id": "guild_mastery_recipe",
@@ -175,16 +238,9 @@
     "type": "static"
   },
   {
-    "id": "worker_desc",
-    "title": "#name#",
-    "description": "#description#",
-    "icon": null,
-    "type": "worker"
-  },
-  {
     "id": "equipment_remove",
     "title": "Remove Slotted Equipment",
-    "description": "This will remove the currently equipped item on this slot and return it to your inventory. ",
+    "description": "This will remove the currently equipped item on this slot and return it to your inventory.",
     "icon": "<i class=\"fas fa-times\"></i>",
     "type": "static"
   },
@@ -219,14 +275,14 @@
   {
     "id": "fusion_remove",
     "title": "Remove Slotted Fusion",
-    "description": "This will remove the currently slotted fusion and return the items to your inventory. ",
+    "description": "This will remove the currently slotted fusion and return the items to your inventory.",
     "icon": "<i class=\"fas fa-times\"></i>",
     "type": "static"
   },
   {
     "id": "fusion_active_remove",
     "title": "Cancel Active Fusion",
-    "description": "This will cancel the currently active fusion and items will not be returned. ",
+    "description": "This will cancel the currently active fusion and items will not be returned.",
     "icon": "<i class=\"fas fa-times\"></i>",
     "type": "static"
   },
@@ -240,7 +296,7 @@
   {
     "id": "offering_remove",
     "title": "Remove Slotted Offering",
-    "description": "This will remove the currently slotted offering and return the item to your inventory. ",
+    "description": "This will remove the currently slotted offering and return the item to your inventory.",
     "icon": "<i class=\"fas fa-times\"></i>",
     "type": "static"
   },

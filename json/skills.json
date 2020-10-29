@@ -596,7 +596,7 @@
   {
     "id": "SM309",
     "name": "Ten Tickles",
-    "description": "Obese Octopus deals 200% #POWICON# to all enemies.  If Obese Octopus is at full health, it deals 400% #POWICON# instead.",
+    "description": "Obese Octopus deals 200% #POWICON# to all enemies.  If Obese Octopus is not at full health, it deals 400% #POWICON# instead.",
     "icon": "<img src=\"assets/svg/tentacle-strike.svg\">",
     "powMod": 2,
     "mod1": 2,

@@ -44,6 +44,22 @@
     "en": "Visit Now (forgeandfortune.com)"
   },
   {
+    "tid": "hotkey_assign",
+    "en": "Assign"
+  },
+  {
+    "tid": "hotkey_unassign",
+    "en": "Unassign"
+  },
+  {
+    "tid": "hotkey_all_default",
+    "en": "Reset All Hotkeys"
+  },
+  {
+    "tid": "hotkey_default",
+    "en": "Reset Hotkey"
+  },
+  {
     "tid": "type_armor",
     "en": "Armor"
   },
@@ -168,6 +184,54 @@
     "en": "Mastered"
   },
   {
+    "tid": "merchant_recipe_buy_header_title",
+    "en": "Shop Recipes"
+  },
+  {
+    "tid": "merchant_recipe_buy_header_desc",
+    "en": "Select a recipe to unlock and learn permanently."
+  },
+  {
+    "tid": "merchant_recipe_orders_header_title",
+    "en": "Shop Orders"
+  },
+  {
+    "tid": "merchant_recipe_orders_header_desc",
+    "en": "Completing shop orders allows you to gain new crafting recipes."
+  },
+  {
+    "tid": "merchant_recipe_mastery_header_title",
+    "en": "Recipe Mastery"
+  },
+  {
+    "tid": "merchant_recipe_mastery_header_desc",
+    "en": "Mastering recipes provides you with bonuses such as no material cost and higher rarity chances."
+  },
+  {
+    "tid": "merchant_recipe_orders_none",
+    "en": "Defeat the next boss to unlock more recipes."
+  },
+  {
+    "tid": "merchant_recipe_mastery_craft_remaining",
+    "en": "{0} crafts remaining until mastery possible."
+  },
+  {
+    "tid": "merchant_recipe_mastery_none",
+    "en": "There are no recipes available to master currently."
+  },
+  {
+    "tid": "merchant_recipe_no_buy",
+    "en": "There are no recipes to unlock right now. Complete a shop order for the ability to unlock a new recipe"
+  },
+  {
+    "tid": "merchant_order_empty",
+    "en": "This shop order is empty. Select a recipe below to get a new order. You will need to defeat the next boss if no recipes are available."
+  },
+  {
+    "tid": "merchant_order_auto_contribute",
+    "en": "Auto-Contribute"
+  },
+  {
     "tid": "equipment_select_title",
     "en": "Select Your Hero Equipment"
   },
@@ -249,11 +313,7 @@
   },
   {
     "tid": "adventure_launch_floor",
-    "en": "Start At Floor 1"
-  },
-  {
-    "tid": "adventure_launch_floor_highest",
-    "en": "Start At Highest Floor Reached"
+    "en": "Start Dungeon"
   },
   {
     "tid": "adventure_launch_floor_boss",
@@ -561,7 +621,7 @@
   },
   {
     "tid": "header_tinker_research_desc",
-    "en": "Research new trinket recipes that can be crafted for gold. "
+    "en": "Research new trinket recipes that can be crafted for gold."
   },
   {
     "tid": "tinker_view_recipes_button",
@@ -660,6 +720,14 @@
     "en": "{0} until next boost"
   },
   {
+    "tid": "museum_contribution_completed_title",
+    "en": "Completed"
+  },
+  {
+    "tid": "museum_contribution_completed_desc",
+    "en": "You have successfully contributed all requested variations for this recipe."
+  },
+  {
     "tid": "header_market_perks_available_title",
     "en": "Available Perks"
   },
@@ -709,99 +777,115 @@
   },
   {
     "tid": "tutorial_desc_5",
-    "en": "Equip Revere with a Knife to make further dungeon progress."
+    "en": "Equip Revere with a Knife to make her stronger."
   },
   {
     "tid": "tutorial_desc_6",
-    "en": "Reach Floor 5 in the Groovy Grove dungeon.  Adventures will progress on their own.  If a floor is too difficult, heroes will drop down until they are on a floor they can complete."
+    "en": "Purchase the Merchant Tab from the Market"
   },
   {
     "tid": "tutorial_desc_7",
-    "en": "Unlock the guild The Cat's Meow in the Market."
+    "en": "Complete your first guild order by submitting 5 Knives."
   },
   {
     "tid": "tutorial_desc_8",
-    "en": "Advance the Cat's Meow to Level 1 by submitting 5 Knives."
+    "en": "Completed orders let you gain new recipes. Unlock the Bandit Mask recipe in Shop Orders."
   },
   {
     "tid": "tutorial_desc_9",
-    "en": "Purchase the Simple Hat recipe."
+    "en": "Equip Revere with a Knife and Bandit Mask so she can clear Floor 2 of Groovy Grove. Higher floors gain material faster."
   },
   {
     "tid": "tutorial_desc_10",
-    "en": "Grow the Cat's Meow to Level 2."
+    "en": "Continue completing orders until you unlock the Novice Cloak. If you need Bee Chunks, make sure Revere is adventuring."
   },
   {
     "tid": "tutorial_desc_11",
-    "en": "Unlock the adventure area Spooky Spot in the Market."
+    "en": "The Novice Cloak takes a new material. Unlock the adventure area Spooky Spot in the Market."
   },
   {
     "tid": "tutorial_desc_12",
-    "en": "Unlock the Aviation Association guild in the Market."
+    "en": "Send an adventurer to the Spooky Spot to start collecting material and craft a Novice Cloak."
   },
   {
     "tid": "tutorial_desc_13",
-    "en": "Advance the Aviation Association to Level 1."
+    "en": "Unlock Meager Sword."
   },
   {
     "tid": "tutorial_desc_14",
-    "en": "Earth Staff requires a new material; send Revere to adventure in the Spooky Spot."
+    "en": "Meager sword requires a Weaponmaker worker to craft. Purchase one from the market and craft a Meager Sword."
   },
   {
     "tid": "tutorial_desc_15",
-    "en": "Craft an Earth Staff."
+    "en": "Unlock Beorn to be able to adventure in two areas at once. Material not used in crafting can be used in mastering recipes."
   },
   {
     "tid": "tutorial_desc_16",
-    "en": "Grow the Aviation Association to Level 2."
+    "en": "Continue completing orders until you unlock the Earth Staff."
   },
   {
     "tid": "tutorial_desc_17",
-    "en": "Purchase the hero Beorn in the Market."
+    "en": "Earth Staff requires Earth Crystals from the Creepy Crag. Purchase Creepy Crag and start adventuring there and craft an Earth Staff."
   },
   {
     "tid": "tutorial_desc_18",
-    "en": "Equip Beorn with a Meager Sword."
+    "en": "Purchase Neve from the Market and run all three dungeons at once to collect materials."
   },
   {
     "tid": "tutorial_desc_19",
-    "en": "Send Beorn to the Groovy Grove to collect more materials."
+    "en": "Continue finishing shop orders until you unlock Metal Armor. Completing shop orders and equipping your heroes with better gear is one of the main progression goals."
   },
   {
     "tid": "tutorial_desc_20",
-    "en": "Purchase the Green Guard guild from the Market and grow it to Level 2."
+    "en": "Metal Armor requires the third type of worker to craft. Purchase an Armorer worker from the Market and craft a Metal Armor. If you're short on gold, continue selling your crafts you make and use the higher rarity ones to gear your heroes."
   },
   {
     "tid": "tutorial_desc_21",
-    "en": "Keep leveling your Guilds and purchase a second Crafting Slot from the Market."
+    "en": "Purchase a second Crafting Slot from the Market. You won't be able to craft two of the same item yet without two workers of the same type, but more items is more gold!"
   },
   {
     "tid": "tutorial_desc_22",
-    "en": "Unlock the Creepy Crag adventure area, hire Neve and send her out on an adventure."
+    "en": "Purchase Auto-Sell from the Market. This allows you to automatically sell crafts of a lower desired rarity. Hover over the crafting slot to see this option and autosell an item to proceed."
   },
   {
     "tid": "tutorial_desc_23",
-    "en": "Unlock Autosell, allowing you to automatically sell from the crafting slot."
+    "en": "Master your first recipe. This is available in the merchant tab. Mastering a recipe will increase exceptional craft chances, and completely removes material costs."
   },
   {
     "tid": "tutorial_desc_24",
-    "en": "Master your first recipe.  Mastering a recipe will increase exceptional craft chances, and completely removes material costs."
+    "en": "Continue completing orders until you unlock Spells Vol I."
   },
   {
     "tid": "tutorial_desc_25",
-    "en": "Advance all four crafting guilds to Level 4."
+    "en": "Spells Vol I requires the last worker type, a Jeweler Worker. Purchase one in the Market and craft a Spells Vol I."
   },
   {
     "tid": "tutorial_desc_26",
-    "en": "Unlock the Boss Realm and slay the foe!  If you struggle with the boss, consider giving your heroes stronger equipment."
+    "en": "Complete all the Level 1 Shop Orders and grab the last recipe, Lactuca."
   },
   {
     "tid": "tutorial_desc_27",
-    "en": "After defeating a boss, your max guild levels increase. New recipes require new materials. Buy the Dungeon Levels perk from the market."
+    "en": "You must defeat the boss to unlock more recipes. Time to gear up! Give all three of your heroes gear in all six slots."
   },
   {
     "tid": "tutorial_desc_28",
-    "en": "Send a team to Groovy Grove II to start collecting the next tier of material and end this tutorial. You may need to abandon Groovy Grove I if someone is adventuring there."
+    "en": "Unlock the Boss Realm and slay the foe!  If you struggle with the boss, try giving your heroes stronger equipment and pay attention to the boss's skills (there's a \"show enemy party\" button in the party creation screen)."
+  },
+  {
+    "tid": "tutorial_desc_29",
+    "en": "After defeating a boss, you'll unlock the next set of recipes. New recipes require new materials. Buy the Dungeon Levels perk from the market."
+  },
+  {
+    "tid": "tutorial_desc_30",
+    "en": "Send a team to Groovy Grove II to start collecting the next tier of material. You may need to abandon Groovy Grove I if someone is adventuring there."
+  },
+  {
+    "tid": "tutorial_desc_31",
+    "en": "Unlock the \"More Shop Orders\" perk from the Market. This allows you to have two shop orders at once, and it allows you to have some choice in which recipes to gain first."
+  },
+  {
+    "tid": "tutorial_desc_32",
+    "en": "Choose two level 2 recipes to fill your guild orders and end this tutorial. Pay attention to the materials for your choice! It's usually a good idea to have orders for a variety of materials. If you aren't collecting materials for the recipe you want to craft, change your adventuring parties to new dungeons!"
   },
   {
     "tid": "offline_dialog_time_since_header",

@@ -322,5 +322,14 @@
     "description": "You do not have enough materials.",
     "type": null,
     "actionText": null
+  },
+  {
+    "id": "forge_autocontribute",
+    "customClass": "success",
+    "icon": "<i class=\"fas fa-check\"></i>",
+    "title": "Forge Auto-Contributed",
+    "description": "The {0} you forged has been auto-contributed to a Merchant Order.",
+    "type": null,
+    "actionText": null
   }
 ]

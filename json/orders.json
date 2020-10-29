@@ -1,0 +1,3950 @@
+[
+  {
+    "lvl": 1,
+    "order": 1,
+    "amt": [
+      5
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 1,
+    "order": 2,
+    "amt": [
+      5
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 1,
+    "order": 3,
+    "amt": [
+      5
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 1,
+    "order": 4,
+    "amt": [
+      5
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 1,
+    "order": 5,
+    "amt": [
+      5
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 1,
+    "order": 6,
+    "amt": [
+      8
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 1,
+    "order": 7,
+    "amt": [
+      8
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 1,
+    "order": 8,
+    "amt": [
+      8
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 1,
+    "order": 9,
+    "amt": [
+      8
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 1,
+    "order": 10,
+    "amt": [
+      8
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 1,
+    "order": 11,
+    "amt": [
+      10
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 1,
+    "order": 12,
+    "amt": [
+      10
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 1,
+    "order": 13,
+    "amt": [
+      10
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 1,
+    "order": 14,
+    "amt": [
+      10
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 1,
+    "order": 15,
+    "amt": [
+      10
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 1,
+    "order": 16,
+    "amt": [
+      15
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 1,
+    "order": 17,
+    "amt": [
+      15
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 1,
+    "order": 18,
+    "amt": [
+      15
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 2,
+    "order": 1,
+    "amt": [
+      6
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 2,
+    "order": 2,
+    "amt": [
+      6
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 2,
+    "order": 3,
+    "amt": [
+      6
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 2,
+    "order": 4,
+    "amt": [
+      6
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 2,
+    "order": 5,
+    "amt": [
+      8
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 2,
+    "order": 6,
+    "amt": [
+      8
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 2,
+    "order": 7,
+    "amt": [
+      8
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 2,
+    "order": 8,
+    "amt": [
+      8
+    ],
+    "rarity": [
+      0
+    ],
+    "sharp": [
+      0
+    ],
+    "resynth": [
+      false
+    ]
+  },
+  {
+    "lvl": 2,
+    "order": 9,
+    "amt": [
+      4,
+      4
+    ],
+    "rarity": [
+      0,
+      0
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 2,
+    "order": 10,
+    "amt": [
+      4,
+      4
+    ],
+    "rarity": [
+      0,
+      0
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 2,
+    "order": 11,
+    "amt": [
+      4,
+      4
+    ],
+    "rarity": [
+      0,
+      0
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 2,
+    "order": 12,
+    "amt": [
+      5,
+      5
+    ],
+    "rarity": [
+      0,
+      0
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 2,
+    "order": 13,
+    "amt": [
+      5,
+      5
+    ],
+    "rarity": [
+      0,
+      0
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 2,
+    "order": 14,
+    "amt": [
+      5,
+      5
+    ],
+    "rarity": [
+      0,
+      0
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 2,
+    "order": 15,
+    "amt": [
+      6,
+      6
+    ],
+    "rarity": [
+      0,
+      0
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 2,
+    "order": 16,
+    "amt": [
+      6,
+      6
+    ],
+    "rarity": [
+      0,
+      0
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 2,
+    "order": 17,
+    "amt": [
+      8,
+      8
+    ],
+    "rarity": [
+      0,
+      0
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 2,
+    "order": 18,
+    "amt": [
+      8,
+      8
+    ],
+    "rarity": [
+      0,
+      0
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 3,
+    "order": 1,
+    "amt": [
+      6,
+      1
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 3,
+    "order": 2,
+    "amt": [
+      6,
+      1
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 3,
+    "order": 3,
+    "amt": [
+      6,
+      1
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 3,
+    "order": 4,
+    "amt": [
+      6,
+      1
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 3,
+    "order": 5,
+    "amt": [
+      6,
+      1
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 3,
+    "order": 6,
+    "amt": [
+      6,
+      1
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 3,
+    "order": 7,
+    "amt": [
+      6,
+      1
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 3,
+    "order": 8,
+    "amt": [
+      6,
+      1
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 3,
+    "order": 9,
+    "amt": [
+      6,
+      1
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 3,
+    "order": 10,
+    "amt": [
+      5,
+      2
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 3,
+    "order": 11,
+    "amt": [
+      5,
+      2
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 3,
+    "order": 12,
+    "amt": [
+      5,
+      2
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 3,
+    "order": 13,
+    "amt": [
+      5,
+      2
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 3,
+    "order": 14,
+    "amt": [
+      5,
+      2
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 3,
+    "order": 15,
+    "amt": [
+      5,
+      2
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 3,
+    "order": 16,
+    "amt": [
+      4,
+      3
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 3,
+    "order": 17,
+    "amt": [
+      4,
+      3
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 3,
+    "order": 18,
+    "amt": [
+      4,
+      3
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 4,
+    "order": 1,
+    "amt": [
+      6,
+      2
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 4,
+    "order": 2,
+    "amt": [
+      6,
+      2
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 4,
+    "order": 3,
+    "amt": [
+      6,
+      2
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 4,
+    "order": 4,
+    "amt": [
+      6,
+      2
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 4,
+    "order": 5,
+    "amt": [
+      6,
+      2
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 4,
+    "order": 6,
+    "amt": [
+      6,
+      2
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 4,
+    "order": 7,
+    "amt": [
+      6,
+      2
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 4,
+    "order": 8,
+    "amt": [
+      6,
+      2
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 4,
+    "order": 9,
+    "amt": [
+      6,
+      2
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 4,
+    "order": 10,
+    "amt": [
+      5,
+      3
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 4,
+    "order": 11,
+    "amt": [
+      5,
+      3
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 4,
+    "order": 12,
+    "amt": [
+      5,
+      3
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 4,
+    "order": 13,
+    "amt": [
+      5,
+      3
+    ],
+    "rarity": [
+      0,
+      1
+    ],
+    "sharp": [
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 4,
+    "order": 14,
+    "amt": [
+      5,
+      3,
+      1
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      0,
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 4,
+    "order": 15,
+    "amt": [
+      5,
+      3,
+      1
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      0,
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 4,
+    "order": 16,
+    "amt": [
+      4,
+      4,
+      1
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      0,
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 4,
+    "order": 17,
+    "amt": [
+      4,
+      4,
+      1
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      0,
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 4,
+    "order": 18,
+    "amt": [
+      4,
+      4,
+      1
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      0,
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 5,
+    "order": 1,
+    "amt": [
+      7,
+      2,
+      1
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 5,
+    "order": 2,
+    "amt": [
+      7,
+      2,
+      1
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 5,
+    "order": 3,
+    "amt": [
+      7,
+      2,
+      1
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 5,
+    "order": 4,
+    "amt": [
+      7,
+      2,
+      1
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 5,
+    "order": 5,
+    "amt": [
+      7,
+      2,
+      1
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 5,
+    "order": 6,
+    "amt": [
+      7,
+      2,
+      1
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 5,
+    "order": 7,
+    "amt": [
+      7,
+      2,
+      1
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 5,
+    "order": 8,
+    "amt": [
+      7,
+      2,
+      1
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 5,
+    "order": 9,
+    "amt": [
+      7,
+      2,
+      1
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 5,
+    "order": 10,
+    "amt": [
+      7,
+      3,
+      1
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 5,
+    "order": 11,
+    "amt": [
+      7,
+      3,
+      1
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 5,
+    "order": 12,
+    "amt": [
+      7,
+      3,
+      2
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 5,
+    "order": 13,
+    "amt": [
+      7,
+      3,
+      2
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 5,
+    "order": 14,
+    "amt": [
+      7,
+      3,
+      2
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 5,
+    "order": 15,
+    "amt": [
+      7,
+      3,
+      2
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 5,
+    "order": 16,
+    "amt": [
+      7,
+      4,
+      2
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 5,
+    "order": 17,
+    "amt": [
+      7,
+      4,
+      2
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 5,
+    "order": 18,
+    "amt": [
+      7,
+      4,
+      2
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 6,
+    "order": 1,
+    "amt": [
+      7,
+      2,
+      1
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 6,
+    "order": 2,
+    "amt": [
+      7,
+      2,
+      1
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 6,
+    "order": 3,
+    "amt": [
+      7,
+      2,
+      1
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 6,
+    "order": 4,
+    "amt": [
+      7,
+      2,
+      1
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 6,
+    "order": 5,
+    "amt": [
+      7,
+      2,
+      1
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 6,
+    "order": 6,
+    "amt": [
+      7,
+      2,
+      1
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 6,
+    "order": 7,
+    "amt": [
+      7,
+      2,
+      1
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      2,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 6,
+    "order": 8,
+    "amt": [
+      7,
+      2,
+      1
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      2,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 6,
+    "order": 9,
+    "amt": [
+      7,
+      2,
+      1
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      2,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 6,
+    "order": 10,
+    "amt": [
+      7,
+      3,
+      1
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      2,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 6,
+    "order": 11,
+    "amt": [
+      7,
+      3,
+      1
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      2,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 6,
+    "order": 12,
+    "amt": [
+      7,
+      3,
+      2
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      2,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 6,
+    "order": 13,
+    "amt": [
+      7,
+      3,
+      2
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      2,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 6,
+    "order": 14,
+    "amt": [
+      7,
+      3,
+      2
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      3,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 6,
+    "order": 15,
+    "amt": [
+      7,
+      3,
+      2
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      3,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 6,
+    "order": 16,
+    "amt": [
+      7,
+      4,
+      2
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      3,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 6,
+    "order": 17,
+    "amt": [
+      7,
+      4,
+      2
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      3,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 6,
+    "order": 18,
+    "amt": [
+      7,
+      4,
+      2
+    ],
+    "rarity": [
+      0,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      3,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 7,
+    "order": 1,
+    "amt": [
+      8,
+      4,
+      2
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      0,
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 7,
+    "order": 2,
+    "amt": [
+      8,
+      4,
+      2
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      0,
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 7,
+    "order": 3,
+    "amt": [
+      8,
+      4,
+      2
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      0,
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 7,
+    "order": 4,
+    "amt": [
+      8,
+      4,
+      2
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      0,
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 7,
+    "order": 5,
+    "amt": [
+      8,
+      4,
+      2
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      0,
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 7,
+    "order": 6,
+    "amt": [
+      8,
+      4,
+      2
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      0,
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 7,
+    "order": 7,
+    "amt": [
+      8,
+      4,
+      2
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      0,
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 7,
+    "order": 8,
+    "amt": [
+      8,
+      4,
+      2
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 7,
+    "order": 9,
+    "amt": [
+      8,
+      4,
+      2
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 7,
+    "order": 10,
+    "amt": [
+      8,
+      4,
+      2
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 7,
+    "order": 11,
+    "amt": [
+      8,
+      4,
+      2
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 7,
+    "order": 12,
+    "amt": [
+      8,
+      4,
+      2
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 7,
+    "order": 13,
+    "amt": [
+      8,
+      4,
+      2
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 7,
+    "order": 14,
+    "amt": [
+      8,
+      4,
+      2
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      1
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 7,
+    "order": 15,
+    "amt": [
+      8,
+      4,
+      2
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      1
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 7,
+    "order": 16,
+    "amt": [
+      8,
+      4,
+      2
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      1
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 7,
+    "order": 17,
+    "amt": [
+      8,
+      4,
+      2
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      1
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 7,
+    "order": 18,
+    "amt": [
+      8,
+      4,
+      2
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      1
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 8,
+    "order": 1,
+    "amt": [
+      3,
+      8,
+      3
+    ],
+    "rarity": [
+      1,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 8,
+    "order": 2,
+    "amt": [
+      3,
+      8,
+      3
+    ],
+    "rarity": [
+      1,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 8,
+    "order": 3,
+    "amt": [
+      3,
+      8,
+      3
+    ],
+    "rarity": [
+      1,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 8,
+    "order": 4,
+    "amt": [
+      3,
+      8,
+      3
+    ],
+    "rarity": [
+      1,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      2,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 8,
+    "order": 5,
+    "amt": [
+      3,
+      8,
+      3
+    ],
+    "rarity": [
+      1,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      2,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 8,
+    "order": 6,
+    "amt": [
+      3,
+      8,
+      3
+    ],
+    "rarity": [
+      1,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      2,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 8,
+    "order": 7,
+    "amt": [
+      3,
+      8,
+      3
+    ],
+    "rarity": [
+      1,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      2,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 8,
+    "order": 8,
+    "amt": [
+      3,
+      8,
+      3
+    ],
+    "rarity": [
+      1,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      2,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 8,
+    "order": 9,
+    "amt": [
+      3,
+      8,
+      3
+    ],
+    "rarity": [
+      1,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      2,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 8,
+    "order": 10,
+    "amt": [
+      3,
+      8,
+      3
+    ],
+    "rarity": [
+      1,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      2,
+      1
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 8,
+    "order": 11,
+    "amt": [
+      3,
+      8,
+      3
+    ],
+    "rarity": [
+      1,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      2,
+      1
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 8,
+    "order": 12,
+    "amt": [
+      3,
+      8,
+      3
+    ],
+    "rarity": [
+      1,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      2,
+      1
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 8,
+    "order": 13,
+    "amt": [
+      3,
+      8,
+      3
+    ],
+    "rarity": [
+      1,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      3,
+      1
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 8,
+    "order": 14,
+    "amt": [
+      3,
+      8,
+      3
+    ],
+    "rarity": [
+      1,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      3,
+      1
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 8,
+    "order": 15,
+    "amt": [
+      3,
+      8,
+      3
+    ],
+    "rarity": [
+      1,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      3,
+      1
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 8,
+    "order": 16,
+    "amt": [
+      3,
+      8,
+      3
+    ],
+    "rarity": [
+      1,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      3,
+      2
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 8,
+    "order": 17,
+    "amt": [
+      3,
+      8,
+      3
+    ],
+    "rarity": [
+      1,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      3,
+      2
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 8,
+    "order": 18,
+    "amt": [
+      3,
+      8,
+      3
+    ],
+    "rarity": [
+      1,
+      0,
+      2
+    ],
+    "sharp": [
+      0,
+      3,
+      2
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 9,
+    "order": 1,
+    "amt": [
+      9,
+      6,
+      3
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      1,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 9,
+    "order": 2,
+    "amt": [
+      9,
+      6,
+      3
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      1,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 9,
+    "order": 3,
+    "amt": [
+      9,
+      6,
+      3
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      1,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 9,
+    "order": 4,
+    "amt": [
+      9,
+      6,
+      3
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      1,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 9,
+    "order": 5,
+    "amt": [
+      9,
+      6,
+      3
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      1,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 9,
+    "order": 6,
+    "amt": [
+      9,
+      6,
+      3
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      2,
+      1,
+      1
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 9,
+    "order": 7,
+    "amt": [
+      9,
+      6,
+      3
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      2,
+      1,
+      1
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 9,
+    "order": 8,
+    "amt": [
+      9,
+      6,
+      3
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      2,
+      1,
+      1
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 9,
+    "order": 9,
+    "amt": [
+      9,
+      6,
+      3
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      2,
+      1,
+      1
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 9,
+    "order": 10,
+    "amt": [
+      9,
+      6,
+      3
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      3,
+      1,
+      1
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 9,
+    "order": 11,
+    "amt": [
+      9,
+      6,
+      3
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      3,
+      1,
+      1
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 9,
+    "order": 12,
+    "amt": [
+      9,
+      6,
+      3
+    ],
+    "rarity": [
+      0,
+      1,
+      2
+    ],
+    "sharp": [
+      3,
+      1,
+      1
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 9,
+    "order": 13,
+    "amt": [
+      7,
+      4,
+      1
+    ],
+    "rarity": [
+      1,
+      2,
+      3
+    ],
+    "sharp": [
+      2,
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 9,
+    "order": 14,
+    "amt": [
+      7,
+      4,
+      1
+    ],
+    "rarity": [
+      1,
+      2,
+      3
+    ],
+    "sharp": [
+      2,
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 9,
+    "order": 15,
+    "amt": [
+      7,
+      4,
+      1
+    ],
+    "rarity": [
+      1,
+      2,
+      3
+    ],
+    "sharp": [
+      2,
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 9,
+    "order": 16,
+    "amt": [
+      7,
+      4,
+      1
+    ],
+    "rarity": [
+      1,
+      2,
+      3
+    ],
+    "sharp": [
+      3,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 9,
+    "order": 17,
+    "amt": [
+      7,
+      4,
+      1
+    ],
+    "rarity": [
+      1,
+      2,
+      3
+    ],
+    "sharp": [
+      3,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 9,
+    "order": 18,
+    "amt": [
+      7,
+      4,
+      1
+    ],
+    "rarity": [
+      1,
+      2,
+      3
+    ],
+    "sharp": [
+      3,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 10,
+    "order": 1,
+    "amt": [
+      7,
+      5,
+      1
+    ],
+    "rarity": [
+      1,
+      2,
+      3
+    ],
+    "sharp": [
+      0,
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 10,
+    "order": 2,
+    "amt": [
+      7,
+      5,
+      1
+    ],
+    "rarity": [
+      1,
+      2,
+      3
+    ],
+    "sharp": [
+      0,
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 10,
+    "order": 3,
+    "amt": [
+      7,
+      5,
+      1
+    ],
+    "rarity": [
+      1,
+      2,
+      3
+    ],
+    "sharp": [
+      0,
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 10,
+    "order": 4,
+    "amt": [
+      7,
+      5,
+      2
+    ],
+    "rarity": [
+      1,
+      2,
+      3
+    ],
+    "sharp": [
+      1,
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 10,
+    "order": 5,
+    "amt": [
+      7,
+      5,
+      2
+    ],
+    "rarity": [
+      1,
+      2,
+      3
+    ],
+    "sharp": [
+      1,
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 10,
+    "order": 6,
+    "amt": [
+      7,
+      5,
+      2
+    ],
+    "rarity": [
+      1,
+      2,
+      3
+    ],
+    "sharp": [
+      1,
+      0,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 10,
+    "order": 7,
+    "amt": [
+      7,
+      5,
+      2
+    ],
+    "rarity": [
+      1,
+      2,
+      3
+    ],
+    "sharp": [
+      2,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 10,
+    "order": 8,
+    "amt": [
+      7,
+      5,
+      2
+    ],
+    "rarity": [
+      1,
+      2,
+      3
+    ],
+    "sharp": [
+      2,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 10,
+    "order": 9,
+    "amt": [
+      7,
+      5,
+      2
+    ],
+    "rarity": [
+      1,
+      2,
+      3
+    ],
+    "sharp": [
+      2,
+      1,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 10,
+    "order": 10,
+    "amt": [
+      7,
+      5,
+      2
+    ],
+    "rarity": [
+      1,
+      2,
+      3
+    ],
+    "sharp": [
+      3,
+      2,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 10,
+    "order": 11,
+    "amt": [
+      7,
+      5,
+      2
+    ],
+    "rarity": [
+      1,
+      2,
+      3
+    ],
+    "sharp": [
+      3,
+      2,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 10,
+    "order": 12,
+    "amt": [
+      7,
+      5,
+      2
+    ],
+    "rarity": [
+      1,
+      2,
+      3
+    ],
+    "sharp": [
+      3,
+      2,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 10,
+    "order": 13,
+    "amt": [
+      7,
+      5,
+      2
+    ],
+    "rarity": [
+      1,
+      2,
+      3
+    ],
+    "sharp": [
+      3,
+      2,
+      0
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 10,
+    "order": 14,
+    "amt": [
+      7,
+      5,
+      2
+    ],
+    "rarity": [
+      1,
+      2,
+      3
+    ],
+    "sharp": [
+      4,
+      3,
+      1
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 10,
+    "order": 15,
+    "amt": [
+      7,
+      5,
+      2
+    ],
+    "rarity": [
+      1,
+      2,
+      3
+    ],
+    "sharp": [
+      4,
+      3,
+      1
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 10,
+    "order": 16,
+    "amt": [
+      7,
+      5,
+      2
+    ],
+    "rarity": [
+      1,
+      2,
+      3
+    ],
+    "sharp": [
+      4,
+      3,
+      1
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 10,
+    "order": 17,
+    "amt": [
+      7,
+      5,
+      2
+    ],
+    "rarity": [
+      1,
+      2,
+      3
+    ],
+    "sharp": [
+      5,
+      4,
+      2
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  },
+  {
+    "lvl": 10,
+    "order": 18,
+    "amt": [
+      7,
+      5,
+      2
+    ],
+    "rarity": [
+      1,
+      2,
+      3
+    ],
+    "sharp": [
+      5,
+      4,
+      2
+    ],
+    "resynth": [
+      "FALSE",
+      "FALSE",
+      "FALSE"
+    ]
+  }
+]

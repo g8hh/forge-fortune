@@ -1,0 +1,332 @@
+[
+  {
+    "id": "hk001",
+    "desc": "Inventory Screen",
+    "type": "Inventory",
+    "subtype": null,
+    "key": "i",
+    "openedBy": null,
+    "bigTab": "inventoryTabLink",
+    "tabName": "inventoryTab"
+  },
+  {
+    "id": "hk002",
+    "desc": "Merchant Orders Screen",
+    "type": "Merchant",
+    "subtype": "Order",
+    "key": "o",
+    "openedBy": "AL1000",
+    "bigTab": "merchantTabLink",
+    "tabName": "merchantTab"
+  },
+  {
+    "id": "hk003",
+    "desc": "Merchant Mastery Screen",
+    "type": "Merchant",
+    "subtype": "Mastery",
+    "key": "d",
+    "openedBy": "AL1000",
+    "bigTab": "merchantTabLink",
+    "tabName": "merchantTab"
+  },
+  {
+    "id": "hk004",
+    "desc": "Recipe Screen",
+    "type": "Recipes",
+    "subtype": null,
+    "key": "r",
+    "openedBy": null,
+    "bigTab": "recipesTabLink",
+    "tabName": "recipesTab"
+  },
+  {
+    "id": "hk005",
+    "desc": "Hero Overview Screen",
+    "type": "Heroes",
+    "subtype": "Overview",
+    "key": "h",
+    "openedBy": "AL2000",
+    "bigTab": "heroesTabLink",
+    "tabName": "heroesTab"
+  },
+  {
+    "id": "hk006",
+    "desc": "Beorn Screen",
+    "type": "Heroes",
+    "subtype": "H001",
+    "key": 1,
+    "openedBy": "AL2003",
+    "bigTab": "heroesTabLink",
+    "tabName": "heroesTab"
+  },
+  {
+    "id": "hk007",
+    "desc": "Cedric Screen",
+    "type": "Heroes",
+    "subtype": "H002",
+    "key": 2,
+    "openedBy": "AL2010",
+    "bigTab": "heroesTabLink",
+    "tabName": "heroesTab"
+  },
+  {
+    "id": "hk008",
+    "desc": "Grim Screen",
+    "type": "Heroes",
+    "subtype": "H003",
+    "key": 3,
+    "openedBy": "AL2016",
+    "bigTab": "heroesTabLink",
+    "tabName": "heroesTab"
+  },
+  {
+    "id": "hk009",
+    "desc": "Lambug Screen",
+    "type": "Heroes",
+    "subtype": "H004",
+    "key": 4,
+    "openedBy": "AL2022",
+    "bigTab": "heroesTabLink",
+    "tabName": "heroesTab"
+  },
+  {
+    "id": "hk010",
+    "desc": "Zoe Screen",
+    "type": "Heroes",
+    "subtype": "H101",
+    "key": 5,
+    "openedBy": "AL2011",
+    "bigTab": "heroesTabLink",
+    "tabName": "heroesTab"
+  },
+  {
+    "id": "hk011",
+    "desc": "Neve Screen",
+    "type": "Heroes",
+    "subtype": "H102",
+    "key": 6,
+    "openedBy": "AL2005",
+    "bigTab": "heroesTabLink",
+    "tabName": "heroesTab"
+  },
+  {
+    "id": "hk012",
+    "desc": "Titus Screen",
+    "type": "Heroes",
+    "subtype": "H103",
+    "key": 7,
+    "openedBy": "AL2023",
+    "bigTab": "heroesTabLink",
+    "tabName": "heroesTab"
+  },
+  {
+    "id": "hk013",
+    "desc": "Troy Screen",
+    "type": "Heroes",
+    "subtype": "H104",
+    "key": 8,
+    "openedBy": "AL2017",
+    "bigTab": "heroesTabLink",
+    "tabName": "heroesTab"
+  },
+  {
+    "id": "hk014",
+    "desc": "Alok Screen",
+    "type": "Heroes",
+    "subtype": "H201",
+    "key": 9,
+    "openedBy": "AL2008",
+    "bigTab": "heroesTabLink",
+    "tabName": "heroesTab"
+  },
+  {
+    "id": "hk015",
+    "desc": "Grogmar Screen",
+    "type": "Heroes",
+    "subtype": "H202",
+    "key": 0,
+    "openedBy": "AL2014",
+    "bigTab": "heroesTabLink",
+    "tabName": "heroesTab"
+  },
+  {
+    "id": "hk016",
+    "desc": "Revere Screen",
+    "type": "Heroes",
+    "subtype": "H203",
+    "key": "-",
+    "openedBy": "AL2000",
+    "bigTab": "heroesTabLink",
+    "tabName": "heroesTab"
+  },
+  {
+    "id": "hk017",
+    "desc": "Caeda Screen",
+    "type": "Heroes",
+    "subtype": "H204",
+    "key": "=",
+    "openedBy": "AL2020",
+    "bigTab": "heroesTabLink",
+    "tabName": "heroesTab"
+  },
+  {
+    "id": "hk018",
+    "desc": "Adventure Overview Screen",
+    "type": "Adventure",
+    "subtype": "Overview",
+    "key": "a",
+    "openedBy": "AL2001",
+    "bigTab": "dungeonsTabLink",
+    "tabName": "dungeonsTab"
+  },
+  {
+    "id": "hk019",
+    "desc": "Groovy Grove Screen",
+    "type": "Adventure",
+    "subtype": "A01",
+    "key": "z",
+    "openedBy": "AL2001",
+    "bigTab": "dungeonsTabLink",
+    "tabName": "dungeonsTab"
+  },
+  {
+    "id": "hk020",
+    "desc": "Spooky Spot Screen",
+    "type": "Adventure",
+    "subtype": "A02",
+    "key": "x",
+    "openedBy": "AL2001",
+    "bigTab": "dungeonsTabLink",
+    "tabName": "dungeonsTab"
+  },
+  {
+    "id": "hk021",
+    "desc": "Creepy Crag Screen",
+    "type": "Adventure",
+    "subtype": "A03",
+    "key": "c",
+    "openedBy": "AL2004",
+    "bigTab": "dungeonsTabLink",
+    "tabName": "dungeonsTab"
+  },
+  {
+    "id": "hk022",
+    "desc": "Boss Realm Screen",
+    "type": "Adventure",
+    "subtype": "A04",
+    "key": "v",
+    "openedBy": "AL20051",
+    "bigTab": "dungeonsTabLink",
+    "tabName": "dungeonsTab"
+  },
+  {
+    "id": "hk023",
+    "desc": "Quests Tab",
+    "type": "Quests",
+    "subtype": null,
+    "key": "q",
+    "openedBy": "AL30061",
+    "bigTab": "questsTabLink",
+    "tabName": "questsTab"
+  },
+  {
+    "id": "hk024",
+    "desc": "Magical Synthesizer Screen",
+    "type": "Town",
+    "subtype": "synth",
+    "key": "s",
+    "openedBy": "AL3002",
+    "bigTab": "townTabLink",
+    "tabName": "townsTab"
+  },
+  {
+    "id": "hk025",
+    "desc": "Bank Screen",
+    "type": "Town",
+    "subtype": "bank",
+    "key": "b",
+    "openedBy": "AL3004",
+    "bigTab": "townTabLink",
+    "tabName": "townsTab"
+  },
+  {
+    "id": "hk026",
+    "desc": "Fusion Cabin Screen",
+    "type": "Town",
+    "subtype": "fusion",
+    "key": "u",
+    "openedBy": "AL3003",
+    "bigTab": "townTabLink",
+    "tabName": "townsTab"
+  },
+  {
+    "id": "hk027",
+    "desc": "Forge Screen",
+    "type": "Town",
+    "subtype": "forge",
+    "key": "f",
+    "openedBy": "AL3005",
+    "bigTab": "townTabLink",
+    "tabName": "townsTab"
+  },
+  {
+    "id": "hk028",
+    "desc": "Fortune Teller Screen",
+    "type": "Town",
+    "subtype": "fortune",
+    "key": "y",
+    "openedBy": "AL3011",
+    "bigTab": "townTabLink",
+    "tabName": "townsTab"
+  },
+  {
+    "id": "hk029",
+    "desc": "Tinker Hut Screen",
+    "type": "Town",
+    "subtype": "tinker",
+    "key": "t",
+    "openedBy": "AL3013",
+    "bigTab": "townTabLink",
+    "tabName": "townsTab"
+  },
+  {
+    "id": "hk030",
+    "desc": "Museum Screen",
+    "type": "Town",
+    "subtype": "museum",
+    "key": "m",
+    "openedBy": "AL3015",
+    "bigTab": "townTabLink",
+    "tabName": "townsTab"
+  },
+  {
+    "id": "hk031",
+    "desc": "Hall of Milestones Screen",
+    "type": "Town",
+    "subtype": "milestone",
+    "key": "p",
+    "openedBy": "AL3001",
+    "bigTab": "townTabLink",
+    "tabName": "townsTab"
+  },
+  {
+    "id": "hk032",
+    "desc": "Market Screen",
+    "type": "Market",
+    "subtype": null,
+    "key": "w",
+    "openedBy": null,
+    "bigTab": "marketTabLink",
+    "tabName": "marketTab"
+  },
+  {
+    "id": "hk033",
+    "desc": "Sort Inventory",
+    "type": "Inventory",
+    "subtype": "Sort",
+    "key": "`",
+    "openedBy": null,
+    "bigTab": "inventoryTabLink",
+    "tabName": "inventoryTab"
+  }
+]

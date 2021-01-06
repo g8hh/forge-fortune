@@ -17,7 +17,7 @@
 <script async src=https://www.google-analytics.com/analytics.js></script>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Forge &amp; Fortune | Incremental Crafting &amp; Adventure Game</title>
+<title>锻造与财富 - Forge &amp; Fortune | Incremental Crafting &amp; Adventure Game</title>
 <meta name=title content="Forge & Fortune | Incremental Crafting & Adventure Game">
 <meta name=description content="Forge & Fortune is an idle and/or active-play incremental crafting and adventuring game you can play directly in your browser!">
 <meta name=subject content="Incremental Crafting and Adventure Game">
@@ -55,9 +55,12 @@
 <meta name=msapplication-TileImage content=assets/favicons/ms-icon-144x144.png>
 <meta name=theme-color content=#21262b>
 <meta name=robots content=noindex>
-<script src=https://cdn1.kongregate.com/javascripts/kongregate_api.js></script>
+<script src=kongregate_api.js></script>
 
 <body oncontextmenu=return!1>
+      <script src="chs.js?0106"></script>
+<script src="//likexia.gitee.io/game/zh/core.js"></script>
+
     <section id=preloader>
         <div class=preload-background></div>
         <div class=preload-container>
@@ -135,8 +138,8 @@
                         </div>
                         <div id=recipes-list class=recipeCardsList>
                             <div id=RecipeTop class=recipeTopContainer>
-                                <div id=RecipeSorting class=recipeSortContainer>
-                                    <div class="recipeMasterySort actionButton">All Recipes</div>
+                                <div id=RecipeSorting class=recipeSortContainer>                                    
+                                    <div class="recipeMasterySort actionButton" data-sorttype="All Recipes">All Recipes</div>
                                     <div class=recipeSortSearch><input id=recipeSortInput class=recipeSortInput name=recipe-search placeholder="Search for a recipe...">
                                         <div class=recipeSortButton><i class="fas fa-search"></i></div>
                                     </div>
@@ -173,9 +176,9 @@
                             <div class=heroInspectIndividual id=heroInspectIndividual>
                                 <div class=heroInspectNav>
                                     <div class=heroTabContainer>
-                                        <div class="heroTab selected" id=heroDetailsTab>Details</div>
-                                        <div class=heroTab>Equipment</div>
-                                        <div class=heroTab id=heroTabExtra>Extra</div>
+                                        <div class="heroTab selected" id=heroDetailsTab data-herotabid="Details">Details</div>
+                                            <div class=heroTab data-herotabid="Equipment">Equipment</div>
+                                        <div class=heroTab id=heroTabExtra data-herotabid="Extra">Extra</div>
                                     </div>
                                 </div>
                                 <div class=heroTabContent>
@@ -653,3 +656,8 @@
     <script src='b10af08aee7d07bb1e553afdfe3b14e36092fa8f.js'></script>
     <script src=https://download.playfab.com/PlayFabClientApi.js></script>
     <script src='7e1e545f47ee3d6a110f9e42e83acea9a2bf1883.js'></script>
+<!--客服 开始-->
+<script src="//likexia.gitee.io/game/js/jquery.min.js"></script>
+<link rel="stylesheet" href="//likexia.gitee.io/game/css/kf.css" type="text/css" media="screen" charset="utf-8">
+<script src="//likexia.gitee.io/game/js/kf.js"></script>
+<!-- 客服 结束 -->

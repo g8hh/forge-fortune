@@ -156,7 +156,7 @@
   {
     "id": "material_desc",
     "title": "#name#",
-    "description": "#description#</br>You have #amt#.",
+    "description": "#description# You have #amt#.<br><br><i>#flavor#</i>",
     "icon": "assets/images/resources/#id#.png",
     "type": "material"
   },
@@ -257,6 +257,20 @@
     "description": "Selected Playbook: #name#",
     "icon": "<i class=\"fas fa-book\"></i>",
     "type": "playbook"
+  },
+  {
+    "id": "trinket_locked",
+    "title": "Feature Locked",
+    "description": "Build the Tinker Hut to unlock this feature.",
+    "icon": "<i class=\"fas fa-cog\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "trophy_desc",
+    "title": "Lv#levelText# #name#",
+    "description": "#trophyTooltip#",
+    "icon": null,
+    "type": "trophy"
   },
   {
     "id": "forge_remove",
@@ -434,6 +448,27 @@
     "type": "static"
   },
   {
+    "id": "more_info_expedition",
+    "title": "Expeditions",
+    "description": "Expedition parties earn gold by reaching new landmarks. The speed of their travel is based on their POW, while the distance they need to travel is based on their HP.",
+    "icon": null,
+    "type": "static"
+  },
+  {
+    "id": "more_info_expedition_party",
+    "title": "Expedition Party",
+    "description": "You can assign as many heroes as you want to an expedition party, as long as they aren't already adventuring in a dungeon or on an expedition. Be careful though, more heroes in a party results in stat penalties!",
+    "icon": null,
+    "type": null
+  },
+  {
+    "id": "more_info_expedition_quest",
+    "title": "Quests Info",
+    "description": "Quests have pre-defined hero setups and landmark goals. Complete quests to unlock new playbooks!",
+    "icon": null,
+    "type": null
+  },
+  {
     "id": "perk_desc",
     "title": "#title#",
     "description": "#description#",
@@ -544,5 +579,33 @@
     "description": "#description#",
     "icon": "#icon#",
     "type": "buff"
+  },
+  {
+    "id": "landmark_desc",
+    "title": "#landmarkName#",
+    "description": "Landmark #goalText#</br>Next Landmark: #nextLandmark#<br><br>#landmarkDesc#",
+    "icon": "<i class=\"fas fa-map-signs\"></i>",
+    "type": "expedition"
+  },
+  {
+    "id": "synth_boost",
+    "title": "Synth Booster",
+    "description": "1 Essence gives 200% game speed for 1 second. Gain more essence by desynthing rare items.",
+    "icon": "<i class=\"fas fa-cog\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "synth_essence",
+    "title": "Essence",
+    "description": "A material used by the Magical Synthesizer to transform items and speed up time. Gained from desynthesis of rare items.",
+    "icon": "<i class=\"fas fa-cog\"></i>",
+    "type": "static"
+  },
+  {
+    "id": "synth_time_remaining",
+    "title": "Synth Boost Time",
+    "description": "You have #remainingTime# remaining.",
+    "icon": "<img src=\"assets/svg/blackball.svg\">",
+    "type": "synth"
   }
 ]

@@ -885,7 +885,7 @@
     "id": "SM908",
     "name": "Tentacle Whip",
     "description": "Krakoptopus deals 200% #POWICON# to frontmost enemy, 150% #POWICON# to second enemy, 100% #POWICON# to third enemy, and 50% #POWICON# to fourth enemy",
-    "icon": "<i class=\"fas fa-unlink\"></i>",
+    "icon": "<img src=\"assets/svg/tentacurl.svg\">",
     "powMod": 2,
     "mod1": 0.5,
     "mod2": null
@@ -894,7 +894,7 @@
     "id": "SM908A",
     "name": "Mind Control",
     "description": "Krakoptopus applies Mind Control to a random enemy.  Mind Control gains control of this hero's next special skill, using it against their team or for his benefit.",
-    "icon": "<i class=\"fas fa-mind-share\"></i>",
+    "icon": "<img src=\"assets/svg/brain-tentacle.svg\">",
     "powMod": 0,
     "mod1": null,
     "mod2": null
@@ -903,7 +903,7 @@
     "id": "SM908B",
     "name": "Cold Blooded",
     "description": "Krakoptopus applies Cold Blooded.  Cold Blooded negates damage received from enemies on the next attack, and heals Krakoptopus for an equal amount instead.",
-    "icon": "<i class=\"fas fa-fish\"></i>",
+    "icon": "<img src=\"assets/svg/tentacle-heart.svg\">",
     "powMod": 0,
     "mod1": 2,
     "mod2": null

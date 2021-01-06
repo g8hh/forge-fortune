@@ -5,7 +5,8 @@
     "tier": 0,
     "fortuneLvl": 0,
     "type": "gold",
-    "description": "Standard currency used for purchases."
+    "description": "Standard currency used for purchases.",
+    "flavor": null
   },
   {
     "id": "M201",
@@ -13,7 +14,8 @@
     "tier": 31,
     "fortuneLvl": 1,
     "type": "dungeon",
-    "description": "Found in Groovy Grove I."
+    "description": "Found in Groovy Grove I.",
+    "flavor": "Suit up when dealing with these chunks."
   },
   {
     "id": "M202",
@@ -21,7 +23,8 @@
     "tier": 28,
     "fortuneLvl": 2,
     "type": "dungeon",
-    "description": "Found in Groovy Grove II."
+    "description": "Found in Groovy Grove II.",
+    "flavor": "Best to have health insurance before proceeding."
   },
   {
     "id": "M203",
@@ -29,7 +32,8 @@
     "tier": 25,
     "fortuneLvl": 3,
     "type": "dungeon",
-    "description": "Found in Groovy Grove III."
+    "description": "Found in Groovy Grove III.",
+    "flavor": "Sadly, these will not create more when cut in half."
   },
   {
     "id": "M204",
@@ -37,7 +41,8 @@
     "tier": 22,
     "fortuneLvl": 4,
     "type": "dungeon",
-    "description": "Found in Groovy Grove IV."
+    "description": "Found in Groovy Grove IV.",
+    "flavor": "Pieces of the fabled ratmouse."
   },
   {
     "id": "M205",
@@ -45,7 +50,8 @@
     "tier": 19,
     "fortuneLvl": 5,
     "type": "dungeon",
-    "description": "Found in Groovy Grove V."
+    "description": "Found in Groovy Grove V.",
+    "flavor": "They kinda look like Lobster Chunks."
   },
   {
     "id": "M206",
@@ -53,7 +59,8 @@
     "tier": 16,
     "fortuneLvl": 6,
     "type": "dungeon",
-    "description": "Found in Groovy Grove VI."
+    "description": "Found in Groovy Grove VI.",
+    "flavor": "They kinda look like Lobster Chunks."
   },
   {
     "id": "M207",
@@ -61,7 +68,8 @@
     "tier": 13,
     "fortuneLvl": 7,
     "type": "dungeon",
-    "description": "Found in Groovy Grove VII."
+    "description": "Found in Groovy Grove VII.",
+    "flavor": "Are they poisonous, or venomous?  I can never remember."
   },
   {
     "id": "M208",
@@ -69,7 +77,8 @@
     "tier": 10,
     "fortuneLvl": 8,
     "type": "dungeon",
-    "description": "Found in Groovy Grove VIII."
+    "description": "Found in Groovy Grove VIII.",
+    "flavor": "Just thinking about them makes my head itchy."
   },
   {
     "id": "M209",
@@ -77,7 +86,8 @@
     "tier": 7,
     "fortuneLvl": 9,
     "type": "dungeon",
-    "description": "Found in Groovy Grove IX."
+    "description": "Found in Groovy Grove IX.",
+    "flavor": "Burn them quickly.  They can smell your fear."
   },
   {
     "id": "M210",
@@ -85,7 +95,8 @@
     "tier": 4,
     "fortuneLvl": 10,
     "type": "dungeon",
-    "description": "Found in Groovy Grove X."
+    "description": "Found in Groovy Grove X.",
+    "flavor": "Only suitable for eating while visiting Micronesia."
   },
   {
     "id": "M101",
@@ -93,7 +104,8 @@
     "tier": 32,
     "fortuneLvl": 1,
     "type": "dungeon",
-    "description": "Found in Spooky Spot I."
+    "description": "Found in Spooky Spot I.",
+    "flavor": "Ingest this slime and you may hallucinate wildly."
   },
   {
     "id": "M102",
@@ -101,7 +113,8 @@
     "tier": 29,
     "fortuneLvl": 2,
     "type": "dungeon",
-    "description": "Found in Spooky Spot II."
+    "description": "Found in Spooky Spot II.",
+    "flavor": "Absolutely the worst kind of slime possible."
   },
   {
     "id": "M103",
@@ -109,7 +122,8 @@
     "tier": 26,
     "fortuneLvl": 3,
     "type": "dungeon",
-    "description": "Found in Spooky Spot III."
+    "description": "Found in Spooky Spot III.",
+    "flavor": "Whoever named this slime probably used a thesaurus."
   },
   {
     "id": "M104",
@@ -117,7 +131,8 @@
     "tier": 23,
     "fortuneLvl": 4,
     "type": "dungeon",
-    "description": "Found in Spooky Spot IV."
+    "description": "Found in Spooky Spot IV.",
+    "flavor": "A delicious spice in full support of energy drinks."
   },
   {
     "id": "M105",
@@ -125,7 +140,8 @@
     "tier": 20,
     "fortuneLvl": 5,
     "type": "dungeon",
-    "description": "Found in Spooky Spot V."
+    "description": "Found in Spooky Spot V.",
+    "flavor": "You've been warned: don't smell it."
   },
   {
     "id": "M106",
@@ -133,7 +149,8 @@
     "tier": 17,
     "fortuneLvl": 6,
     "type": "dungeon",
-    "description": "Found in Spooky Spot VI."
+    "description": "Found in Spooky Spot VI.",
+    "flavor": "Gives you incredible strength and makes you feel invisible."
   },
   {
     "id": "M107",
@@ -141,7 +158,8 @@
     "tier": 14,
     "fortuneLvl": 7,
     "type": "dungeon",
-    "description": "Found in Spooky Spot VII."
+    "description": "Found in Spooky Spot VII.",
+    "flavor": "An energy drink in full support of delicious spices."
   },
   {
     "id": "M108",
@@ -149,7 +167,8 @@
     "tier": 11,
     "fortuneLvl": 8,
     "type": "dungeon",
-    "description": "Found in Spooky Spot VIII."
+    "description": "Found in Spooky Spot VIII.",
+    "flavor": "There are green numbers on the inside."
   },
   {
     "id": "M109",
@@ -157,7 +176,8 @@
     "tier": 8,
     "fortuneLvl": 9,
     "type": "dungeon",
-    "description": "Found in Spooky Spot IX."
+    "description": "Found in Spooky Spot IX.",
+    "flavor": "Largely responsible for most of the heavy metal poisoning."
   },
   {
     "id": "M110",
@@ -165,7 +185,8 @@
     "tier": 5,
     "fortuneLvl": 10,
     "type": "dungeon",
-    "description": "Found in Spooky Spot X."
+    "description": "Found in Spooky Spot X.",
+    "flavor": "Probably just a three-color slime, but the name is marketable."
   },
   {
     "id": "M301",
@@ -173,7 +194,8 @@
     "tier": 33,
     "fortuneLvl": 1,
     "type": "dungeon",
-    "description": "Found in Creepy Crag I."
+    "description": "Found in Creepy Crag I.",
+    "flavor": "It might just be a piece of dirt."
   },
   {
     "id": "M302",
@@ -181,7 +203,8 @@
     "tier": 30,
     "fortuneLvl": 2,
     "type": "dungeon",
-    "description": "Found in Creepy Crag II."
+    "description": "Found in Creepy Crag II.",
+    "flavor": "It knows what you did last spring."
   },
   {
     "id": "M303",
@@ -189,7 +212,8 @@
     "tier": 27,
     "fortuneLvl": 3,
     "type": "dungeon",
-    "description": "Found in Creepy Crag III."
+    "description": "Found in Creepy Crag III.",
+    "flavor": "Celebrities sell these crystals, promising relief from ailments."
   },
   {
     "id": "M304",
@@ -197,7 +221,8 @@
     "tier": 24,
     "fortuneLvl": 4,
     "type": "dungeon",
-    "description": "Found in Creepy Crag IV."
+    "description": "Found in Creepy Crag IV.",
+    "flavor": "Turn the crank and see what happens."
   },
   {
     "id": "M305",
@@ -205,7 +230,8 @@
     "tier": 21,
     "fortuneLvl": 5,
     "type": "dungeon",
-    "description": "Found in Creepy Crag V."
+    "description": "Found in Creepy Crag V.",
+    "flavor": "A slightly worse version of the Storm Crystal."
   },
   {
     "id": "M306",
@@ -213,7 +239,8 @@
     "tier": 18,
     "fortuneLvl": 6,
     "type": "dungeon",
-    "description": "Found in Creepy Crag VI."
+    "description": "Found in Creepy Crag VI.",
+    "flavor": "Perfect for inspiring a tropical heat wave."
   },
   {
     "id": "M307",
@@ -221,7 +248,8 @@
     "tier": 15,
     "fortuneLvl": 7,
     "type": "dungeon",
-    "description": "Found in Creepy Crag VII."
+    "description": "Found in Creepy Crag VII.",
+    "flavor": "Soon it will be a water crystal."
   },
   {
     "id": "M308",
@@ -229,7 +257,8 @@
     "tier": 12,
     "fortuneLvl": 8,
     "type": "dungeon",
-    "description": "Found in Creepy Crag VIII."
+    "description": "Found in Creepy Crag VIII.",
+    "flavor": "Especially lethal if you stab someone with it."
   },
   {
     "id": "M309",
@@ -237,7 +266,8 @@
     "tier": 9,
     "fortuneLvl": 9,
     "type": "dungeon",
-    "description": "Found in Creepy Crag IX."
+    "description": "Found in Creepy Crag IX.",
+    "flavor": "A slightly upgraded version of the Lightning Crystal."
   },
   {
     "id": "M310",
@@ -245,30 +275,7 @@
     "tier": 6,
     "fortuneLvl": 10,
     "type": "dungeon",
-    "description": "Found in Creepy Crag X."
-  },
-  {
-    "id": "M700",
-    "name": "Green Essence",
-    "tier": 1,
-    "fortuneLvl": 0,
-    "type": "synth",
-    "description": "Obtained via Desynthesis."
-  },
-  {
-    "id": "M701",
-    "name": "Blue Essence",
-    "tier": 2,
-    "fortuneLvl": 0,
-    "type": "synth",
-    "description": "Obtained via Desynthesis."
-  },
-  {
-    "id": "M702",
-    "name": "Purple Essence",
-    "tier": 3,
-    "fortuneLvl": 0,
-    "type": "synth",
-    "description": "Obtained via Desynthesis."
+    "description": "Found in Creepy Crag X.",
+    "flavor": "All good things must come to an end."
   }
 ]

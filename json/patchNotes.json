@@ -388,5 +388,59 @@
     "version": "v0.6.0.4",
     "date": "October 24th, 2020",
     "body": "<p><strong>Bug Fixes</strong></p><ul><li>Fixed a bug where guild orders weren't synching to gaining recipes, causing the last (or sometimes second last) recipe gained to not have a shop order</li><li>Fixed a bug where hotkeys were triggering when user input was involved (such as recipe search)</li><li>Fixed a bug where playbook progress would be erased. You might need to re-run the quests to regain access to other missing playbooks. Feel free to stop by discord and I'll manually fix anyone's save who wants to bypass re-questing.</li></ul>"
+  },
+  {
+    "patchCount": 67,
+    "version": "v1.0.0",
+    "date": "December 11th, 2020",
+    "body": "<p>Hi Fortuneers! Two things - first, this is the v1.0.0 patch! What does that mean? We're happy with the core experience from starting play to beating the final boss. It's not perfect and we're missing a few small things I want to add in future updates, but it's time to call pencils down and start focusing on new content after this. A huge thanks for everyone who's stuck by since our v0.0.7 patch two and a half years ago! It's been a long and crazy journey full of learning and reworks and progress, Secondly, the patch note format is going to be a little different, as we're rolling out three features and they deserve a bit more explanation. With that said, here's what's in v1.0.0!</p><p><b>Expeditions</b></p><ul><li>Questing has been replaced with an expedition system (make sure you buy the perk in the Market!). It's now displayed in the town rather than on the top bar.</li><li>Expeditions have you sending out as many heroes as you want to try and tackle 25 landmark challenges for gold. Your party's power dictates the travel speed, and your party's HP dictates how far you need to travel. Be careful though -- the more heroes you add, the less efficient your teams get; sometimes it doesn't pay to send all 12 heroes to the same place!</li><li>Within expeditions, the playbook unlock system is now called quests. Send the specified parties and complete the target milestone to unlock a new playbook! (sound familiar?)</li></ul><p><b>Boss Trophies</b></p><ul><li>Boss trophies have received a facelift! They can be found on a new \"Extras\" tab on the hero screen, combined with the Trinket slot.<li>Complete with new sprites, trophies are no longer used to upgrade equipment slots. They are now their own equippable item.<li>Beating a boss for the first time unlocks their trophy which provides unique benefits, and beating the boss at higher difficulties levels the trophy up and makes it stronger. No longer do you have to worry about if you're committing upgrades properly!<li>There's 10 trophies total (one for each boss) and they can be swapped between heroes whenever, but they cannot be used by two heroes at once.</li></ul><p><b>Magical Synthesizer</b></p><ul><li>The three essences have been replaced with a single currency that lives just in the magical Synthesizer.</li><li>Essence can now be used to speed up the game to 200% speed while you have essence available at a rate of 1 essence per second for 200% game speed.</li><li>Old essence you had will be automatically converted to the new currency.</li><li>Resynthing costs have been increased at higher rarities to match the desynth costs.</li></ul>"
+  },
+  {
+    "patchCount": 68,
+    "version": "v1.0.1",
+    "date": "December 11th, 2020",
+    "body": "<p><strong>Bug Fixes</strong></p><ul><li>Fixed a bug where tutorial wouldn't recognize Revere is in an adventure</li></ul>"
+  },
+  {
+    "patchCount": 69,
+    "version": "v1.0.2",
+    "date": "December 12th, 2020",
+    "body": "<p><strong>Bug Fixes</strong></p><ul><li>Fixed a bug where buying the fusion cauldron upgrades wouldn't award you with additional slots</li><li>Attempt to fix a fusion duplication glitch</li></ul>"
+  },
+  {
+    "patchCount": 70,
+    "version": "v1.0.3",
+    "date": "December 14th, 2020",
+    "body": "<p><strong>Balancing / Gameplay Changes</strong></p><ul><li>Quests have been tuned to properly reflect the intended difficulty. Quests are now a 4-group member expedition, rather than 1 or 2.</li><li>Desynthesizer no longer de-slots your item when you downgrade it, unless you downgrade it to common rarity<li></ul><p><strong>Improvements</strong></p><ul><li>Expeditions and quests have received updated tooltips and descriptions to make it more clear which number landmark you're at, what the next landmark is, and what number landmark you need to get to for quests</li><li>The town building list now has snazzy icons!</li><li>An \"expedition complete\" red bubble has been added to the town list for when a group completes landmark 25 (the last landmark). It'll disappear after you collect the group</li><li>The \"start adventure\" button has been stylized to be a bit more noticable</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Hotkeys should function properly, be assigned in the hotkey menu, and expeditions have been added to the hotkey list</li><li>Fixed a fusion cauldron dupe bug, that also allowed you to get additional temporary inventory space</li><li>Fixed various bugs around the expedition naming (expedition_name_0 and expedition_name_26 bugs)</li></ul>"
+  },
+  {
+    "patchCount": 71,
+    "version": "v1.0.4",
+    "date": "December 16th, 2020",
+    "body": "<p><strong>Improvements</strong></p><ul><li>Adjusted layout of museum contribution menu when inspecting specific recipe. (Switched to horizontal instead of vertical layout)</li></ul><p><strong>Bug Fixes</strong></p><ul><li>If you beat a boss before unlocking all the recipes for that tier, those recipes will now be able to be gotten before finishing the current tier</li><li>Fixed missing text after a donation to museum</li></ul>"
+  },
+  {
+    "patchCount": 72,
+    "version": "v1.0.5",
+    "date": "December 16th, 2020",
+    "body": "<p><strong>Bug Fixes</strong></p><ul><li>Previous expedition changes seemed to not have transferred to live servers. Expeditions should require 4 members to complete now.</li></ul>"
+  },
+  {
+    "patchCount": 73,
+    "version": "v1.0.6",
+    "date": "December 17th, 2020",
+    "body": "<p><strong>Improvements</strong></p><ul><li>Updated quest descriptions for clarity and flavor</li><li>Boss 8 has received some new skill icons</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Fixed a bug where Boss 6 wouldn't trigger it's passive</li></ul>"
+  },
+  {
+    "patchCount": 74,
+    "version": "v1.0.7",
+    "date": "December 20th, 2020",
+    "body": "<p><strong>Improvements</strong></p><ul><li>Synthesizer now has a tooltip on remaining boost time if you used all your essence</li><li>Added the landmark count to the expedition screen for easier viewing</li></ul><p><strong>Bug Fixes</strong></p><ul><li>The perk \"Offer You Can't Refuse II\" was giving it's bonus before it was purchased. If you haven't purchased this perk yet, you may see your fusion slots be reduced to 2. Otherwise there will be no change in your experience</li><li>Fixed a bug where Titus required himself twice for his playbook Quest</li></ul>"
+  },
+  {
+    "patchCount": 75,
+    "version": "v1.0.8",
+    "date": "December 29th, 2020",
+    "body": "<p><strong>Bug Fixes</strong></p><ul><li>Fixed a bug where Grim's playbook Blood Bond wouldn't heal him if he killed the target with the move</li></ul>"
   }
 ]

@@ -221,13 +221,13 @@
   },
   {
     "id": "hk023",
-    "desc": "Quests Tab",
-    "type": "Quests",
-    "subtype": null,
+    "desc": "Expeditions Tab",
+    "type": "Town",
+    "subtype": "expedition",
     "key": "q",
-    "openedBy": "AL30061",
-    "bigTab": "questsTabLink",
-    "tabName": "questsTab"
+    "openedBy": "AL30062",
+    "bigTab": "townTabLink",
+    "tabName": "townsTab"
   },
   {
     "id": "hk024",

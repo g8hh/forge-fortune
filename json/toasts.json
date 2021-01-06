@@ -229,7 +229,7 @@
     "customClass": "success",
     "icon": "<i class=\"fas fa-check\"></i>",
     "title": "Extraction Complete!",
-    "description": "You collected {1} {0}!",
+    "description": "You collected {0} Essence!",
     "type": null,
     "actionText": null
   },
@@ -237,8 +237,8 @@
     "id": "insufficient_resynth_mats",
     "customClass": "warning",
     "icon": "<i class=\"fas fa-times\"></i>",
-    "title": "Cannot Perform Synthesis",
-    "description": "You do not have enough materials.",
+    "title": "Cannot Perform Resynthesis",
+    "description": "You do not have enough essence.",
     "type": null,
     "actionText": null
   },
@@ -329,6 +329,24 @@
     "icon": "<i class=\"fas fa-check\"></i>",
     "title": "Forge Auto-Contributed",
     "description": "The {0} you forged has been auto-contributed to a Merchant Order.",
+    "type": null,
+    "actionText": null
+  },
+  {
+    "id": "quest_hero_not_available",
+    "customClass": "warning",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "title": "Cannot Do Quest",
+    "description": "One or more heroes are not available. Remove them from adventuring or other expeditions.",
+    "type": null,
+    "actionText": null
+  },
+  {
+    "id": "playbook_unlock",
+    "customClass": "success",
+    "icon": "<i class=\"fas fa-check\"></i>",
+    "title": "Playbook Unlocked",
+    "description": "You unlocked a new playbook for {0}! Check it out on the hero tab.",
     "type": null,
     "actionText": null
   }

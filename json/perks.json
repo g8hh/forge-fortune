@@ -912,13 +912,13 @@
     "icon": "<i class=\"fas fa-vihara\"></i>"
   },
   {
-    "id": "AL30061",
+    "id": "AL30062",
     "title": "To The Chaos Gate!",
-    "description": "Opens up the Questing feature.  Your heroes might be happy to have new things to do.",
+    "description": "Opens up the Expeditions building.  Your heroes might be happy to have new things to do.",
     "category": "Town",
     "order": 8,
     "goldCost": 1000000,
-    "type": "quest",
+    "type": "expedition",
     "subtype": "open",
     "unlockReq": "D404",
     "icon": "<i class=\"fas fa-map-signs\"></i>"

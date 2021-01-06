@@ -3,6 +3,7 @@
     "id": "TB001",
     "name": "Magical Synthesizer",
     "description": "Harness the magical arts to transform your equipment.",
+    "icon": "<img src=\"assets/svg/magic-swirl.svg\">",
     "shorthand": "synth",
     "recipeID": "R99410"
   },
@@ -10,6 +11,7 @@
     "id": "TB002",
     "name": "The Bank",
     "description": "An entire vault of safety deposit boxes, just for you.",
+    "icon": "<img src=\"assets/svg/bank.svg\">",
     "shorthand": "bank",
     "recipeID": "R99110"
   },
@@ -17,13 +19,15 @@
     "id": "TB003",
     "name": "Fusion Cabin",
     "description": "Become the master alchemist you've always wanted to be.",
+    "icon": "<img src=\"assets/svg/cauldron.svg\">",
     "shorthand": "fusion",
     "recipeID": "R99210"
   },
   {
     "id": "TB004",
     "name": "The Forge",
-    "description": "This hammer won't hurt your gear.  ",
+    "description": "This hammer won't hurt your gear.",
+    "icon": "<img src=\"assets/svg/furnace.svg\">",
     "shorthand": "forge",
     "recipeID": "R99310"
   },
@@ -31,6 +35,7 @@
     "id": "TB005",
     "name": "Fortune Teller",
     "description": "Hopefully she won't disappear.",
+    "icon": "<img src=\"assets/svg/crystal-ball.svg\">",
     "shorthand": "fortune",
     "recipeID": "R99510"
   },
@@ -38,6 +43,7 @@
     "id": "TB006",
     "name": "Tinker Hut",
     "description": "It's an artifact finding mission.",
+    "icon": "<img src=\"assets/svg/tinker.svg\">",
     "shorthand": "tinker",
     "recipeID": "R99610"
   },
@@ -45,6 +51,7 @@
     "id": "TB008",
     "name": "The Museum",
     "description": "Let us know if you have items to donate.",
+    "icon": "<img src=\"assets/svg/bookmarklet.svg\">",
     "shorthand": "museum",
     "recipeID": "R99810"
   },
@@ -52,7 +59,16 @@
     "id": "TB009",
     "name": "Hall of Milestones",
     "description": "A list of all of your accomplishments and progress.",
+    "icon": "<img src=\"assets/svg/trophy.svg\">",
     "shorthand": "milestone",
     "recipeID": "R99910"
+  },
+  {
+    "id": "TB010",
+    "name": "Expeditions",
+    "description": "Perform expeditions for gold and other rewards",
+    "icon": "<img src=\"assets/svg/tread.svg\">",
+    "shorthand": "expedition",
+    "recipeID": "R99420"
   }
 ]

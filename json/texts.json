@@ -44,6 +44,18 @@
     "en": "Visit Now (forgeandfortune.com)"
   },
   {
+    "tid": "update_notice_desc",
+    "en": "It is highly recommended that you download your save before updating the game."
+  },
+  {
+    "tid": "update_notice_download",
+    "en": "Download Save"
+  },
+  {
+    "tid": "update_notice_update",
+    "en": "Update Game"
+  },
+  {
     "tid": "hotkey_assign",
     "en": "Assign"
   },
@@ -272,6 +284,50 @@
     "en": "Trinket"
   },
   {
+    "tid": "equipment_select_title",
+    "en": "Select Your Hero Equipment"
+  },
+  {
+    "tid": "type_locked",
+    "en": "Locked"
+  },
+  {
+    "tid": "type_trophy",
+    "en": "Trophy"
+  },
+  {
+    "tid": "equip_trophy",
+    "en": "Equip"
+  },
+  {
+    "tid": "trophy_back_button",
+    "en": "Back to Hero Equip"
+  },
+  {
+    "tid": "trophy_equip_heading",
+    "en": "Equip Boss Trophies"
+  },
+  {
+    "tid": "trophy_equip_desc",
+    "en": "Defeating bosses unlocks new trophies; refighting bosses levels up your trophies."
+  },
+  {
+    "tid": "trophy_equip_button",
+    "en": "Equip this Trophy"
+  },
+  {
+    "tid": "trophy_unequip_button",
+    "en": "Unequip this Trophy"
+  },
+  {
+    "tid": "trophy_locked_desc",
+    "en": "Unlock this trophy by defeating bosses."
+  },
+  {
+    "tid": "trophy_equip_none",
+    "en": "No hero has this trophy equipped."
+  },
+  {
     "tid": "header_adventure_areas_title",
     "en": "Adventure Areas"
   },
@@ -413,7 +469,7 @@
   },
   {
     "tid": "header_synthesizer_desynth_desc",
-    "en": "Items in your inventory that can be used in the Synthesizer."
+    "en": "Inventory items usable in the Synthesizer."
   },
   {
     "tid": "synthesizer_inventory_empty",
@@ -457,7 +513,19 @@
   },
   {
     "tid": "synthesizer_tutorial_desynth_desc",
-    "en": "Receive special Essence in exchange for lowering the rarity of a piece of equipment by one tier."
+    "en": "Receive special Essence in exchange for lowering the rarity of a piece of equipment to common."
+  },
+  {
+    "tid": "synthesizer_boost_header",
+    "en": "Synthesizer Boost"
+  },
+  {
+    "tid": "synthesizer_boost_enable",
+    "en": "Enable"
+  },
+  {
+    "tid": "synthesizer_boost_disable",
+    "en": "Disable"
   },
   {
     "tid": "bank_nav_inventory",
@@ -752,6 +820,10 @@
     "en": "Locked"
   },
   {
+    "tid": "button_more_info",
+    "en": "More Info"
+  },
+  {
     "tid": "tutorial_header",
     "en": "Introduction"
   },
@@ -894,5 +966,293 @@
   {
     "tid": "offline_dialog_gold_earned_header",
     "en": "Gold Earned"
+  },
+  {
+    "tid": "expedition_header_name",
+    "en": "Expedition Parties"
+  },
+  {
+    "tid": "expedition_header_desc",
+    "en": "Current parties out on expeditions."
+  },
+  {
+    "tid": "expedition_start",
+    "en": "Create new Expedition party"
+  },
+  {
+    "tid": "expedition_party_heading",
+    "en": "Your Expedition Party"
+  },
+  {
+    "tid": "expedition_party_desc",
+    "en": "Create or start an expedition party."
+  },
+  {
+    "tid": "expedition_party_stat_heading",
+    "en": "Current Party Stats"
+  },
+  {
+    "tid": "expedition_party_quest_heading",
+    "en": "Available Quests"
+  },
+  {
+    "tid": "expedition_party_quest_desc",
+    "en": "Quests available for your heroes to embark on."
+  },
+  {
+    "tid": "expedition_party_quest_none",
+    "en": "There are no available quests."
+  },
+  {
+    "tid": "expedition_party_creation_heading",
+    "en": "Expedition Party Creation"
+  },
+  {
+    "tid": "expedition_party_creation_desc",
+    "en": "Assign heroes to embark on expeditions."
+  },
+  {
+    "tid": "expedition_embark",
+    "en": "Start Expedition"
+  },
+  {
+    "tid": "expedition_name_1",
+    "en": "The Fishing Hole"
+  },
+  {
+    "tid": "expedition_name_2",
+    "en": "The Milk Hole"
+  },
+  {
+    "tid": "expedition_name_3",
+    "en": "The Snake Hole"
+  },
+  {
+    "tid": "expedition_name_4",
+    "en": "Whole Holes"
+  },
+  {
+    "tid": "expedition_name_5",
+    "en": "11454 Pruder Street"
+  },
+  {
+    "tid": "expedition_name_6",
+    "en": "Burrito Bonanza"
+  },
+  {
+    "tid": "expedition_name_7",
+    "en": "Asterisk Mansion"
+  },
+  {
+    "tid": "expedition_name_8",
+    "en": "An Ancient Tomb"
+  },
+  {
+    "tid": "expedition_name_9",
+    "en": "Philosophical Cave"
+  },
+  {
+    "tid": "expedition_name_10",
+    "en": "Mom's Basement"
+  },
+  {
+    "tid": "expedition_name_11",
+    "en": "An Arch"
+  },
+  {
+    "tid": "expedition_name_12",
+    "en": "Community College"
+  },
+  {
+    "tid": "expedition_name_13",
+    "en": "Crank Factory"
+  },
+  {
+    "tid": "expedition_name_14",
+    "en": "Steam Pipe Trunk Venue"
+  },
+  {
+    "tid": "expedition_name_15",
+    "en": "The Golden Catue"
+  },
+  {
+    "tid": "expedition_name_16",
+    "en": "Maple Harbor"
+  },
+  {
+    "tid": "expedition_name_17",
+    "en": "Rapid Chi Orchard"
+  },
+  {
+    "tid": "expedition_name_18",
+    "en": "Wildlife Sanctuary"
+  },
+  {
+    "tid": "expedition_name_19",
+    "en": "The Hive"
+  },
+  {
+    "tid": "expedition_name_20",
+    "en": "The Other Fishing Hole"
+  },
+  {
+    "tid": "expedition_name_21",
+    "en": "Dragonslayer's Den"
+  },
+  {
+    "tid": "expedition_name_22",
+    "en": "Food Module"
+  },
+  {
+    "tid": "expedition_name_23",
+    "en": "Deserted Snowy Mountain"
+  },
+  {
+    "tid": "expedition_name_24",
+    "en": "Endless Forest"
+  },
+  {
+    "tid": "expedition_name_25",
+    "en": "Forbidden Bookstore"
+  },
+  {
+    "tid": "expedition_desc_1",
+    "en": "Here sits a burnt out, washed up legend.  He used to be a brilliant merchant, like you."
+  },
+  {
+    "tid": "expedition_desc_2",
+    "en": "It is a wall.  It has a hole.  You get milk from the hole.  What is so hard to understand about that?"
+  },
+  {
+    "tid": "expedition_desc_3",
+    "en": "Once a high-end club, the Snake Hole went bankrupt after selling poisonous juice."
+  },
+  {
+    "tid": "expedition_desc_4",
+    "en": "Its purpose is to nourish adventurers, by selling only the best locally sourced organic holes."
+  },
+  {
+    "tid": "expedition_desc_5",
+    "en": "Sometimes it gets confused with Pruder Way, and Pruder Lane."
+  },
+  {
+    "tid": "expedition_desc_6",
+    "en": "This eatery features all of your favorite leftovers, wrapped in a flour tortilla."
+  },
+  {
+    "tid": "expedition_desc_7",
+    "en": "It has all of the trappings of a regular mansion, but with an extra little something."
+  },
+  {
+    "tid": "expedition_desc_8",
+    "en": "This relic of the past is home to Sir Randolph Doogleberry.  He is a big fan of puzzle elements and save systems."
+  },
+  {
+    "tid": "expedition_desc_9",
+    "en": "There seem to be reflections on the wall of this cave from some outside light source."
+  },
+  {
+    "tid": "expedition_desc_10",
+    "en": "Druids and Barbarians crowd around this legendary establishment, filled to the brim with corn chips and mead."
+  },
+  {
+    "tid": "expedition_desc_11",
+    "en": "It could be a marvel of engineering, or the remains of a half burn restaraunt advertisement."
+  },
+  {
+    "tid": "expedition_desc_12",
+    "en": "Be careful, there is a major gas leak on the fourth floor.  Proceed with caution."
+  },
+  {
+    "tid": "expedition_desc_13",
+    "en": "This landmark may have been a huge mistake."
+  },
+  {
+    "tid": "expedition_desc_14",
+    "en": "It is very hot, but thankfully the mess has pastries and ice."
+  },
+  {
+    "tid": "expedition_desc_15",
+    "en": "A wonderful inn, full of spoony bards and corrupt mayors.  Stay alert."
+  },
+  {
+    "tid": "expedition_desc_16",
+    "en": "It has been advertised as a launching point for cruise ships, but no one has ever seen any."
+  },
+  {
+    "tid": "expedition_desc_17",
+    "en": "All of the pear trees are aligned in nice, neat rows and columns.  There are no apples allowed here."
+  },
+  {
+    "tid": "expedition_desc_18",
+    "en": "There are opossums in the basement, squirrels in the rafters, wasps in the kitchen, and an old man on the couch."
+  },
+  {
+    "tid": "expedition_desc_19",
+    "en": "This place is teeming with lepidopteras, nightbugs and bats.  Zero stars."
+  },
+  {
+    "tid": "expedition_desc_20",
+    "en": "It's the same washed up legend from before.  Maybe he hasn't given up after all."
+  },
+  {
+    "tid": "expedition_desc_21",
+    "en": "Seek advice from the legendary coach if you ever need help vanquishing your foes."
+  },
+  {
+    "tid": "expedition_desc_22",
+    "en": "This amazing piece of technology will help you feel a lot better, but you'll still be hungry."
+  },
+  {
+    "tid": "expedition_desc_23",
+    "en": "It appears as if some designer crammed a lot of biome tropes into one landmark.  Hmmm."
+  },
+  {
+    "tid": "expedition_desc_24",
+    "en": "It's actually a small forest with nine different trees, but they instantly regrow when chopped down."
+  },
+  {
+    "tid": "expedition_desc_25",
+    "en": "They sell just one book, and one book only:  the Third Edition of Spells Vol VI."
+  },
+  {
+    "tid": "trophy_desc_tr001",
+    "en": "<p>While the Tree stood tall, a swift chop took it down. It's made with those splinters, of that tree, because it was chopped.</p><p>This trophy awards +{hp} {hpIcon}.</p>"
+  },
+  {
+    "tid": "trophy_desc_tr002",
+    "en": "<p>Although the Catcus was spikey, it's spikes will hurt no more. This trophy is much less sharp.</p><p>This trophy awards +{pow} {powIcon}.</p>"
+  },
+  {
+    "tid": "trophy_desc_tr003",
+    "en": "<p>While the Djinn was an equalizer, it's equally dead now.</p><p>This trophy awards +{hp} HP and +{pow} {powIcon}.</p>"
+  },
+  {
+    "tid": "trophy_desc_tr004",
+    "en": "<p>The Lich was already dead, but you managed to kill him again anyway.  Being a single parent is tough.</p><p>This trophy awards +{n} {powIcon} to normal attacks only.</p>"
+  },
+  {
+    "tid": "trophy_desc_tr005",
+    "en": "<p>The Paintbrush Knight was a masterpiece, but now he's just a blank canvas.</p><p>This trophy awards +{s} {powIcon} to special attacks only.</p>"
+  },
+  {
+    "tid": "trophy_desc_tr006",
+    "en": "<p>The Phoenix was strong, but now it will rise no more.</p><p>This trophy awards +{hp} {hpIcon} but {pow} {powIcon}.</p>"
+  },
+  {
+    "tid": "trophy_desc_tr007",
+    "en": "<p>This trophy is nice, but maybe the real trophy is all of the Monkies we knifed along the way.</p><p>This trophy awards +{pow} {powIcon} but {hp} {hpIcon}.</p>"
+  },
+  {
+    "tid": "trophy_desc_tr008",
+    "en": "<p>Krakoctopus captured the minds of many, but now he is no longer in control.  Have any good tempura recipes?</p><p>This trophy awards +{n} {powIcon} for normal attacks but reduces special attacks by {s} {powIcon}</p>"
+  },
+  {
+    "tid": "trophy_desc_tr009",
+    "en": "<p>Even kings bleed. Like the Goblin King. Because he's dead.</p><p>This trophy awards +{s} {powIcon} to special attacks but {n} {powIcon} to normal attacks.</p>"
+  },
+  {
+    "tid": "trophy_desc_tr010",
+    "en": "<p>Keep your eyes on the goal, especially all eight of them or else you'll die like this Beclutcher.</p><p>This trophy gives +{s} {powIcon} to special attacks but -{hp} {hpIcon}.</p>"
   }
 ]

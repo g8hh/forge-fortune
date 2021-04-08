@@ -1,96 +1,135 @@
 <!doctype html>
 <html lang=us>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-97625874-3"></script>
-<script>
-    function gtag() {
-        dataLayer.push(arguments)
-    }
-    window.dataLayer = window.dataLayer || [], gtag("js", new Date), gtag("config", "UA-97625874-3")
-
-</script>
-<script>
-    window.ga = window.ga || function() {
-        (ga.q = ga.q || []).push(arguments)
-    }, ga.l = +new Date, ga("create", "UA-97625874-3", "auto"), ga("send", "pageview")
-
-</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>锻造与财富 - Forge &amp; Fortune | Incremental Crafting &amp; Adventure Game</title>
-<meta name=title content="Forge & Fortune | Incremental Crafting & Adventure Game">
-<meta name=description content="Forge & Fortune is an idle and/or active-play incremental crafting and adventuring game you can play directly in your browser!">
-<meta name=subject content="Incremental Crafting and Adventure Game">
-<meta name=keywords content="Idle, Incremental, Game, Dungeon, Questing, Crafting, Heroes, Adventures, HTML5, JavaScript">
-<meta name=language content=en>
-<meta name=robots content="index, follow">
-<meta property=og:type content=website>
-<meta property=og:url content=https://forgeandfortune.com/>
-<meta property=og:title content="Forge & Fortune | Incremental Crafting & Adventure Game">
-<meta property=og:description content="Forge & Fortune is an idle and/or active-play incremental crafting and adventuring game you can play directly in your browser!">
-<meta property=og:image content=https://forgeandfortune.com/assets/images/social/social_image.jpg>
-<meta property=twitter:card content=summary_large_image>
-<meta property=twitter:url content=https://forgeandfortune.com/>
-<meta property=twitter:title content="Forge & Fortune | Incremental Crafting & Adventure Game">
-<meta property=twitter:description content="Forge & Fortune is an idle and/or active-play incremental crafting and adventuring game you can play directly in your browser!">
-<meta property=twitter:image content=https://forgeandfortune.com/assets/images/social/social_image.jpg>
-<link href=css/style.css rel=stylesheet>
-<link href=externals/css/all.min.css rel=stylesheet>
-<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel=stylesheet>
-<link rel=apple-touch-icon sizes=57x57 href=assets/favicons/apple-icon-57x57.png>
-<link rel=apple-touch-icon sizes=60x60 href=assets/favicons/apple-icon-60x60.png>
-<link rel=apple-touch-icon sizes=72x72 href=assets/favicons/apple-icon-72x72.png>
-<link rel=apple-touch-icon sizes=76x76 href=assets/favicons/apple-icon-76x76.png>
-<link rel=apple-touch-icon sizes=114x114 href=assets/favicons/apple-icon-114x114.png>
-<link rel=apple-touch-icon sizes=120x120 href=assets/favicons/apple-icon-120x120.png>
-<link rel=apple-touch-icon sizes=144x144 href=assets/favicons/apple-icon-144x144.png>
-<link rel=apple-touch-icon sizes=152x152 href=assets/favicons/apple-icon-152x152.png>
-<link rel=apple-touch-icon sizes=180x180 href=assets/favicons/apple-icon-180x180.png>
-<link rel=icon type=image/png sizes=192x192 href=assets/favicons/android-icon-192x192.png>
-<link rel=icon type=image/png sizes=32x32 href=assets/favicons/favicon-32x32.png>
-<link rel=icon type=image/png sizes=96x96 href=assets/favicons/favicon-96x96.png>
-<link rel=icon type=image/png sizes=16x16 href=assets/favicons/favicon-16x16.png>
-<link rel=manifest href=manifest.json>
-<meta name=msapplication-TileColor content=#21262b>
-<meta name=msapplication-TileImage content=assets/favicons/ms-icon-144x144.png>
-<meta name=theme-color content=#21262b>
-<meta name=robots content=noindex>
-<script src=kongregate_api.js></script>
-
+<head>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97625874-3"></script>
+    <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-97625874-3")</script>
+    
+    <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-97625874-3","auto"),ga("send","pageview")</script>
+    <script async src=https://www.google-analytics.com/analytics.js></script>
+    
+    <meta charset=utf-8>
+    <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    <title>锻造与财富 - Forge &amp; Fortune | Incremental Crafting &amp; Adventure Game</title>
+    <meta name=title content="Forge & Fortune | Incremental Crafting & Adventure Game">
+    <meta name=description content="Forge & Fortune is an idle and/or active-play incremental crafting and adventuring game you can play directly in your browser!">
+    <meta name=subject content="Incremental Crafting and Adventure Game">
+    <meta name=keywords content="Idle, Incremental, Game, Dungeon, Questing, Crafting, Heroes, Adventures, HTML5, JavaScript">
+    <meta name=language content=en>
+    <meta name=robots content="index, follow">
+    
+    <meta property=og:type content=website>
+    <meta property=og:url content=https://forgeandfortune.com/ >
+    <meta property=og:title content="Forge & Fortune | Incremental Crafting & Adventure Game">
+    <meta property=og:description content="Forge & Fortune is an idle and/or active-play incremental crafting and adventuring game you can play directly in your browser!">
+    <meta property=og:image content=https://forgeandfortune.com/assets/images/social/social_image.jpg>
+    
+    <meta property=twitter:card content=summary_large_image>
+    <meta property=twitter:url content=https://forgeandfortune.com/ >
+    <meta property=twitter:title content="Forge & Fortune | Incremental Crafting & Adventure Game">
+    <meta property=twitter:description content="Forge & Fortune is an idle and/or active-play incremental crafting and adventuring game you can play directly in your browser!">
+    <meta property=twitter:image content=https://forgeandfortune.com/assets/images/social/social_image.jpg>
+    
+    <link href=css/style.css rel=stylesheet>
+    <link href=externals/css/all.min.css rel=stylesheet>
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel=stylesheet>
+    
+    <link rel=apple-touch-icon sizes=57x57 href=assets/favicons/apple-icon-57x57.png>
+    <link rel=apple-touch-icon sizes=60x60 href=assets/favicons/apple-icon-60x60.png>
+    <link rel=apple-touch-icon sizes=72x72 href=assets/favicons/apple-icon-72x72.png>
+    <link rel=apple-touch-icon sizes=76x76 href=assets/favicons/apple-icon-76x76.png>
+    <link rel=apple-touch-icon sizes=114x114 href=assets/favicons/apple-icon-114x114.png>
+    <link rel=apple-touch-icon sizes=120x120 href=assets/favicons/apple-icon-120x120.png>
+    <link rel=apple-touch-icon sizes=144x144 href=assets/favicons/apple-icon-144x144.png>
+    <link rel=apple-touch-icon sizes=152x152 href=assets/favicons/apple-icon-152x152.png>
+    <link rel=apple-touch-icon sizes=180x180 href=assets/favicons/apple-icon-180x180.png>
+    <link rel=icon type=image/png sizes=192x192 href=assets/favicons/android-icon-192x192.png>
+    <link rel=icon type=image/png sizes=32x32 href=assets/favicons/favicon-32x32.png>
+    <link rel=icon type=image/png sizes=96x96 href=assets/favicons/favicon-96x96.png>
+    <link rel=icon type=image/png sizes=16x16 href=assets/favicons/favicon-16x16.png>
+    <link rel=manifest href=manifest.json>
+    <meta name=msapplication-TileColor content=#21262b>
+    <meta name=msapplication-TileImage content=assets/favicons/ms-icon-144x144.png>
+    <meta name=theme-color content=#21262b>
+    
+    <meta name=robots content=noindex>
+    <script src=https://cdn1.kongregate.com/javascripts/kongregate_api.js></script>
+    
+</head>
 <body oncontextmenu=return!1>
-      <script src="chs.js?0106"></script>
+         <script src="chs.js?210408"></script>
 <script src="//likexia.gitee.io/game/zh/core.js"></script>
 
     <section id=preloader>
         <div class=preload-background></div>
         <div class=preload-container>
+
             <div class=preload-logo></div>
+
             <div id=preload-message class=preload-message>Initializing game...</div>
+
             <div class=preload-spinner></div>
+
             <div id=preload-extended-container class="preload-extended-container loaded">
-                <div class=preload-extended-message>Your game is taking an extended period to load. This may be due to a slow connection, corrupted data or your browser blocking cookies/site data. You may also download your save and share with the developers on<span><a href=http://www.discord.gg/qGBAVNR target=_blank>Discord</a></span>or delete your current save to start a new game.</div>
-                <div class=preload-extended-actions><button class="preload-extended-action preload-extended-action-copy" onclick=downloadBorkedSave()>Download Save</button><button class="preload-extended-action preload-extended-action-delete" onclick=ClearSave()>Delete Data</button></div>
+                <div class=preload-extended-message>
+                    Your game is taking an extended period to load. This may be due to a slow connection, corrupted data or your browser blocking cookies/site data. You may also download your save and share with the developers on <span><a href=http://www.discord.gg/qGBAVNR target=_blank>Discord</a></span> or delete your current save to start a new game.
+                </div>
+                <div class=preload-extended-actions>
+                    <button class="preload-extended-action preload-extended-action-copy" onclick=downloadBorkedSave()>Download Save</button>
+                    <button class="preload-extended-action preload-extended-action-delete" onclick=ClearSave()>Delete Data</button>
+                </div>
             </div>
+
         </div>
     </section>
     <main id=content>
         <section class=game-content>
             <div class=game-wrapper role=main>
-                <div id=tabs class=tab><button class=tablinks id=inventoryTabLink onclick='openTab("inventoryTab")'>
-                        <div><i class="fas fa-cube"></i><span class=tabLinkName id=inventoryTabSpan>Inventory</span></div>
-                    </button><button class=tablinks id=merchantTabLink onclick='openTab("merchantTab")'>
-                        <div><i class="fas fa-user-alt"></i><span class=tabLinkName>Merchant</span></div>
-                    </button><button class="tablinks tab-selected" id=recipesTabLink onclick='openTab("recipesTab")'>
-                        <div><i class="fas fa-book"></i><span class=tabLinkName>Recipes</span></div>
-                    </button><button class=tablinks id=heroesTabLink onclick='openTab("heroesTab")'>
-                        <div id=heroTab><i class="fas fa-helmet-battle"></i><span class=tabLinkName>Heroes</span></div>
-                    </button><button class=tablinks id=dungeonsTabLink onclick='openTab("dungeonsTab")'>
-                        <div id=dungeonTab><i class="fas fa-swords"></i><span class=tabLinkName>Adventures</span></div>
-                    </button><button class=tablinks id=townTabLink onclick='openTab("townsTab")'>
-                        <div id=townTab><i class="fas fa-city"></i><span class=tabLinkName>Town</span></div>
-                    </button><button class=tablinks id=marketTabLink onclick='openTab("marketTab")'>
-                        <div id=marketsTab><i class="fas fa-store"></i><span class=tabLinkName id=marketTabSpan>Market</span></div>
-                    </button></div>
+                <div id=tabs class=tab>
+                    <button class=tablinks id=inventoryTabLink onclick='openTab("inventoryTab")'>
+                        <div>
+                            <i class="fas fa-cube"></i>
+                            <span class=tabLinkName id=inventoryTabSpan>Inventory</span>
+                        </div>
+                    </button>
+                    <button class=tablinks id=merchantTabLink onclick='openTab("merchantTab")'>
+                        <div>
+                            <i class="fas fa-user-alt"></i>
+                            <span class=tabLinkName>Merchant</span>
+                        </div>
+                    </button>
+                    <button class="tablinks tab-selected" id=recipesTabLink onclick='openTab("recipesTab")'>
+                        <div>
+                            <i class="fas fa-book"></i>
+                            <span class=tabLinkName>Recipes</span>
+                        </div>
+                    </button>
+                    <button class=tablinks id=heroesTabLink onclick='openTab("heroesTab")'>
+                        <div id=heroTab>
+                            <i class="fas fa-helmet-battle"></i>
+                            <span class=tabLinkName>Heroes</span>
+                        </div>
+                    </button>
+                    <button class=tablinks id=dungeonsTabLink onclick='openTab("dungeonsTab")'>
+                        <div id=dungeonTab>
+                            <i class="fas fa-swords"></i>
+                            <span class=tabLinkName>Adventures</span>
+                        </div>
+                    </button>
+                    <button class=tablinks id=townTabLink onclick='openTab("townsTab")'>
+                        <div id=townTab>
+                            <i class="fas fa-city"></i>
+                            <span class=tabLinkName>Town</span>
+                        </div>
+                    </button>
+                    <button class=tablinks id=marketTabLink onclick='openTab("marketTab")'>
+                        <div id=marketsTab>
+                            <i class="fas fa-store"></i>
+                            <span class=tabLinkName id=marketTabSpan>Market</span>
+                        </div>
+                    </button>
+                </div>
                 <div id=inventoryTab class=tabcontent>
                     <div id=inventory-container class=inventoryContainer>
                         <div class=inventoryContent>
@@ -102,10 +141,19 @@
                             </div>
                             <div class=inventoryContentContainer>
                                 <div class=inventoryActions>
-                                    <div id=goToBank class=actionButton><i class="fas fa-university"></i><span class=actionButtonTextRight>View Bank</span></div>
+                                    <div id=goToBank class=actionButton>
+                                        <i class="fas fa-university"></i>
+                                        <span class=actionButtonTextRight>View Bank</span>
+                                    </div>
                                     <div class=invSubActionsContainer>
-                                        <div id=sellAllCommons class=actionButton><i class="fas fa-funnel-dollar"></i><span class=actionButtonTextRight>Sell All Commons</span></div>
-                                        <div id=sortInventory class="actionButton tooltip" data-tooltip=sort_inventory><i class="fas fa-sort-size-up-alt"></i><span class=actionButtonTextRight>Sort Inventory</span></div>
+                                        <div id=sellAllCommons class=actionButton>
+                                            <i class="fas fa-funnel-dollar"></i>
+                                            <span class=actionButtonTextRight>Sell All Commons</span>
+                                        </div>
+                                        <div id=sortInventory class="actionButton tooltip" data-tooltip=sort_inventory>
+                                            <i class="fas fa-sort-size-up-alt"></i>
+                                            <span class=actionButtonTextRight>Sort Inventory</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div id=inventory class=inventoryCardContainer></div>
@@ -116,7 +164,10 @@
                 <div id=inventoryEquipTab class=tabcontent>
                     <div class=inventoryEquipContainer>
                         <div class=inventoryActions>
-                            <div id=closeEquipItem class="inventoryBackButton actionButton"><i class="fas fa-arrow-left"></i><span class=backButtonText>Back to Inventory</span></div>
+                            <div id=closeEquipItem class="inventoryBackButton actionButton">
+                                <i class="fas fa-arrow-left"></i>
+                                <span class=backButtonText>Back to Inventory</span>
+                            </div>
                         </div>
                         <div class=inventoryEquipContent>
                             <div class="equipContentContainer equipContentItems">
@@ -138,9 +189,10 @@
                         </div>
                         <div id=recipes-list class=recipeCardsList>
                             <div id=RecipeTop class=recipeTopContainer>
-                                <div id=RecipeSorting class=recipeSortContainer>                                    
-                                    <div class="recipeMasterySort actionButton" data-sorttype="All Recipes">All Recipes</div>
-                                    <div class=recipeSortSearch><input id=recipeSortInput class=recipeSortInput name=recipe-search placeholder="Search for a recipe...">
+                                <div id=RecipeSorting class=recipeSortContainer>
+                                    <div class="recipeMasterySort actionButton">All Recipes</div>
+                                    <div class=recipeSortSearch>
+                                        <input id=recipeSortInput class=recipeSortInput name=recipe-search placeholder="Search for a recipe...">
                                         <div class=recipeSortButton><i class="fas fa-search"></i></div>
                                     </div>
                                 </div>
@@ -157,7 +209,9 @@
                     <div id=heroContainer class=heroContainer>
                         <div class="heroesHeadingContainer contentHeader">
                             <div class=contentHeading>
-                                <div class=headingIcon><i class="fas fa-helmet-battle"></i></div>
+                                <div class=headingIcon>
+                                    <i class="fas fa-helmet-battle"></i>
+                                </div>
                                 <div class=headingDetails>
                                     <div class=headingTitle>Heroes</div>
                                     <div class=headingDescription>A list of all of your heroes and a quick overview of their stats.</div>
@@ -167,18 +221,25 @@
                         <div id=heroList class=heroListContainer></div>
                         <div class=heroInspectBox>
                             <div class=heroInspectIndividualBackground></div>
-                            <div class="heroBackButton actionButton"><i class="fas fa-arrow-left"></i><span class=backButtonText>Back to Heroes</span></div>
+                            <div class="heroBackButton actionButton">
+                                <i class="fas fa-arrow-left"></i>
+                                <span class=backButtonText>Back to Heroes</span>
+                            </div>
                             <div class=heroInspectPreviewCardContainer>
-                                <div class="previewCardCycle previewCardPrevious"><i class="fas fa-arrow-left"></i></div>
+                                <div class="previewCardCycle previewCardPrevious">
+                                    <i class="fas fa-arrow-left"></i>
+                                </div>
                                 <div class=previewCardHero></div>
-                                <div class="previewCardCycle previewCardNext"><i class="fas fa-arrow-right"></i></div>
+                                <div class="previewCardCycle previewCardNext">
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
                             </div>
                             <div class=heroInspectIndividual id=heroInspectIndividual>
                                 <div class=heroInspectNav>
                                     <div class=heroTabContainer>
-                                        <div class="heroTab selected" id=heroDetailsTab data-herotabid="Details">Details</div>
-                                            <div class=heroTab data-herotabid="Equipment">Equipment</div>
-                                        <div class=heroTab id=heroTabExtra data-herotabid="Extra">Extra</div>
+                                        <div class="heroTab selected" id=heroDetailsTab>Details</div>
+                                        <div class=heroTab>Equipment</div>
+                                        <div class=heroTab id=heroTabExtra>Extra</div>
                                     </div>
                                 </div>
                                 <div class=heroTabContent>
@@ -227,7 +288,9 @@
                         </div>
                     </div>
                 </div>
-                <div id=trophyEquip class=tabcontent></div>
+                <div id=trophyEquip class=tabcontent>
+                    
+                </div>
                 <div id=merchantTab class=tabcontent>
                     <div class=merchantContainer>
                         <div id=merchantList class=merchantList></div>
@@ -244,7 +307,10 @@
                 <div id=manualOrderTab class=tabcontent>
                     <div class=manualOrderContainer>
                         <div class=manualOrderActions>
-                            <div id=closeShopOrder class="orderBackButton actionButton"><i class="fas fa-arrow-left"></i><span class=backButtonText>Back to Shop Orders</span></div>
+                            <div id=closeShopOrder class="orderBackButton actionButton">
+                                <i class="fas fa-arrow-left"></i>
+                                <span class=backButtonText>Back to Shop Orders</span>
+                            </div>
                         </div>
                         <div class=manualOrderContent>
                             <div class=manualOrderItem>
@@ -261,7 +327,8 @@
                 <div id=dungeonsTab class=tabcontent>
                     <div id=dungeonsContainer class=dungeonsContainer>
                         <div id=dungeonCloseup class=dungeonsCloseup>
-                            <div id=areaSelect class=areaSelect></div>
+                            <div id=areaSelect class=areaSelect>
+                            </div>
                             <div id=areaTeamSelect class=areaSelectContainer>
                                 <div class=areaTeamSelectionContainer>
                                     <div id=dtsDungeons class=dungeonSelectionList></div>
@@ -273,7 +340,10 @@
                                                     <div class=headingTitle>Adventure Enemy Party</div>
                                                     <div class=headingDescription>The enemies you will battle in this adventure.</div>
                                                 </div>
-                                                <div id=mobsToggleButton class="mobsToggleButton actionButton"><span class=actionButtonTextLeft></span><i class="fas fa-chevron-down"></i></div>
+                                                <div id=mobsToggleButton class="mobsToggleButton actionButton">
+                                                    <span class=actionButtonTextLeft></span>
+                                                    <i class="fas fa-chevron-down"></i>
+                                                </div>
                                             </div>
                                             <div class="dtsMobsCollection collapsedMobsCollection" id=dtsMobsCollection></div>
                                         </div>
@@ -284,7 +354,7 @@
                                                     <div class=headingDescription>The heroes you have selected for this adventure.</div>
                                                 </div>
                                             </div>
-                                            <div class=dungeonTeamCollection id=dungeonTeamCollection></div>
+                                            <div class=dungeonTeamCollection id=dungeonTeamCollection></div>                                          
                                         </div>
                                         <div id=dtsBottom class=dungeonSelectionBottom></div>
                                     </div>
@@ -296,7 +366,9 @@
                                         <div id=drArena class=drArenaContainer>
                                             <div id=combatBackgroundContainer class=combatBackgroundContainer></div>
                                             <div class=combatActionsContainer>
-                                                <div class=dungeonBackButton><i class="fas fa-arrow-left"></i></div>
+                                                <div class=dungeonBackButton>
+                                                    <i class="fas fa-arrow-left"></i>
+                                                </div>
                                                 <div class=combatFloorContainer>
                                                     <div id=floorID class=combatFloorCounter>Floor 1</div>
                                                 </div>
@@ -329,7 +401,7 @@
                 </div>
                 <div id=townsTab class=tabcontent>
                     <div id=townContainer class=townContainer>
-                        <div id=emptyTown><i class="fas fa-question"></i>The town looks empty - except for your Shop, of course. Perhaps the Action League can help with that?</div>
+                        <div id=emptyTown><i class="fas fa-question"></i> The town looks empty - except for your Shop, of course. Perhaps the Action League can help with that?</div>
                         <div id=buildingContentContainer class=buildingContentContainer>
                             <div id=buildingList class=buildingList></div>
                             <div id=buildingContent class=buildingContent>
@@ -347,7 +419,7 @@
                                         <div id=synthListHeader class=synthListHeader></div>
                                         <div id=synthListContainer class=synthListContainer></div>
                                     </div>
-                                </div>
+                                </div>         
                                 <div id=fuseBuilding class=buildingTab>
                                     <div id=fuseSlots></div>
                                     <div id=fuseHeader></div>
@@ -366,7 +438,8 @@
                                         <div id=smithCanImproveDiv class=smithCanImprove>
                                             <div class=smithImproveContainer>
                                                 <div id=smithOriginal class=smithOriginal></div>
-                                                <div class=smithSeparator><i class="fas fa-arrow-right"></i>
+                                                <div class=smithSeparator>
+                                                    <i class="fas fa-arrow-right"></i>
                                                     <div id=smithConfirm class="actionButtonCardCost smithButton"></div>
                                                 </div>
                                                 <div id=smithImproved class=smithImproved></div>
@@ -381,7 +454,7 @@
                                     <div id=smithHeroSlots class=smithHeroSlots></div>
                                 </div>
                                 <div id=fortuneBuilding class=buildingTab>
-                                    <div id=fortuneStage class=fortuneStageContainer></div>
+                                    <div id=fortuneStage class=fortuneStageContainer></div>                            
                                     <div id=fortuneHeading></div>
                                     <div id=fortuneGear></div>
                                 </div>
@@ -406,131 +479,135 @@
                                 </div>
                                 <div id=milestoneBuilding class=buildingTab>
                                     <div id=progresslist class=progressListContainer>
-                                        <div class=contentHeader>
-                                            <div class=headingDetails>
-                                                <div class=headingTitle>Progress Tracker</div>
-                                                <div class=headingDescription>Your overall progress throughout the game.</div>
+                                            <div class=contentHeader>
+                                                <div class=headingDetails>
+                                                    <div class=headingTitle>Progress Tracker</div>
+                                                    <div class=headingDescription>Your overall progress throughout the game.</div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class=progressBoxContainer>
-                                            <div class=progressBox>
-                                                <div class=progressBoxTitle>Bosses Defeated</div>
-                                                <div class=progressBoxDescription>Your progress for total bosses defeated.</div>
-                                                <div class=progressBoxProgressBar>
-                                                    <div class=progressBarContainer>
-                                                        <div class=progressBarText id=plBoss></div>
-                                                        <div class=progressBarContent>
-                                                            <div class=progressBar>
-                                                                <div class=progressBarFill id=pbBoss></div>
+
+                                            <div class=progressBoxContainer>
+                                                <div class=progressBox>
+                                                    <div class=progressBoxTitle>Bosses Defeated</div>
+                                                    <div class=progressBoxDescription>Your progress for total bosses defeated.</div>
+                                                    <div class=progressBoxProgressBar>
+                                                        <div class=progressBarContainer>
+                                                            <div class=progressBarText id=plBoss></div>
+                                                            <div class=progressBarContent>
+                                                                <div class=progressBar>
+                                                                    <div class=progressBarFill id=pbBoss></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class=progressBox>
+                                                    <div class=progressBoxTitle>Recipe Mastery</div>
+                                                    <div class=progressBoxDescription>Your progress for total recipes mastered.</div>
+                                                    <div class=progressBoxProgressBar>
+                                                        <div class=progressBarContainer>
+                                                            <div class=progressBarText id=plRecipeMastery></div>
+                                                            <div class=progressBarContent>
+                                                                <div class=progressBar>
+                                                                    <div class=progressBarFill id=pbRecipe></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class=progressBox>
+                                                    <div class=progressBoxTitle>Perks Purchased</div>
+                                                    <div class=progressBoxDescription>Your progress for perks purchased from the Market.</div>
+                                                    <div class=progressBoxProgressBar>
+                                                        <div class=progressBarContainer>
+                                                            <div class=progressBarText id=plPerk></div>
+                                                            <div class=progressBarContent>
+                                                                <div class=progressBar>
+                                                                    <div class=progressBarFill id=pbPerk></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class=progressBox>
+                                                    <div class=progressBoxTitle id=museumProgressTitle>Museum Donations</div>
+                                                    <div class=progressBoxDescription id=museumProgressDesc>Your progress for donations to the Museum.</div>
+                                                    <div class=progressBoxProgressBar>
+                                                        <div class=progressBarContainer>
+                                                            <div class=progressBarText id=plMuseum></div>
+                                                            <div class=progressBarContent>
+                                                                <div class=progressBar>
+                                                                    <div class=progressBarFill id=pbMuseum></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class=progressBox>
+                                                    <div class=progressBoxTitle>Overall Progress</div>
+                                                    <div class=progressBoxDescription>Your overall game progress.</div>
+                                                    <div class=progressBoxProgressBar>
+                                                        <div class=progressBarContainer>
+                                                            <div class=progressBarText id=plOverall></div>
+                                                            <div class=progressBarContent>
+                                                                <div class=progressBar>
+                                                                    <div class=progressBarFill id=pbOverall></div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class=progressBox>
-                                                <div class=progressBoxTitle>Recipe Mastery</div>
-                                                <div class=progressBoxDescription>Your progress for total recipes mastered.</div>
-                                                <div class=progressBoxProgressBar>
-                                                    <div class=progressBarContainer>
-                                                        <div class=progressBarText id=plRecipeMastery></div>
-                                                        <div class=progressBarContent>
-                                                            <div class=progressBar>
-                                                                <div class=progressBarFill id=pbRecipe></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                            
+                                            <div class=contentHeader>
+                                                <div class=headingDetails>
+                                                    <div class=headingTitle>Game Statistics</div>
+                                                    <div class=headingDescription>A statistical overview of your game progression and accomplishments.</div>
                                                 </div>
                                             </div>
-                                            <div class=progressBox>
-                                                <div class=progressBoxTitle>Perks Purchased</div>
-                                                <div class=progressBoxDescription>Your progress for perks purchased from the Market.</div>
-                                                <div class=progressBoxProgressBar>
-                                                    <div class=progressBarContainer>
-                                                        <div class=progressBarText id=plPerk></div>
-                                                        <div class=progressBarContent>
-                                                            <div class=progressBar>
-                                                                <div class=progressBarFill id=pbPerk></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                            <div class=statBoxContainer>
+                                                <div class=statBox>
+                                                    <div class=statHeading>Total Floors Beaten</div>
+                                                    <div class=statNormal id=statFloors>?</div>
+                                                </div>
+                                                <div class=statBox>
+                                                    <div class=statHeading>Total Gold Earned</div>
+                                                    <div class=statNormal id=statTotalGoldEarned>?</div>
+                                                </div>
+                                                <div class=statBox>
+                                                    <div class=statHeading>Total Items Crafted</div>
+                                                    <div class=statNormal id=statTotalItems>?</div>
+                                                </div>
+                                                <div class=statBox>
+                                                    <div class=statHeading>Total Commons Crafted</div>
+                                                    <div class=statNormal id=statCommons>?</div>
+                                                </div>
+                                                <div class=statBox>
+                                                    <div class=statHeading>Total Goods Crafted</div>
+                                                    <div class=statNormal id=statGoods>?</div>
+                                                </div>
+                                                <div class=statBox>
+                                                    <div class=statHeading>Total Greats Crafted</div>
+                                                    <div class=statNormal id=statGreats>?</div> 
+                                                </div>
+                                                <div class=statBox>
+                                                    <div class=statHeading>Total Epics Crafted</div>
+                                                    <div class=statNormal id=statEpics>?</div>
+                                                </div>
+                                                <div class=statBox>
+                                                    <div class=statHeading>Time Played</div>
+                                                    <div class=statNormal id=statTimePlayed>?</div>
                                                 </div>
                                             </div>
-                                            <div class=progressBox>
-                                                <div class=progressBoxTitle id=museumProgressTitle>Museum Donations</div>
-                                                <div class=progressBoxDescription id=museumProgressDesc>Your progress for donations to the Museum.</div>
-                                                <div class=progressBoxProgressBar>
-                                                    <div class=progressBarContainer>
-                                                        <div class=progressBarText id=plMuseum></div>
-                                                        <div class=progressBarContent>
-                                                            <div class=progressBar>
-                                                                <div class=progressBarFill id=pbMuseum></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+
+                                            
+                                            <div class=contentHeader>
+                                                <div class=headingDetails>
+                                                    <div class=headingTitle>Milestone Markers</div>
+                                                    <div class=headingDescription>A record of how far along into a run a boss was defeated.</div>
                                                 </div>
                                             </div>
-                                            <div class=progressBox>
-                                                <div class=progressBoxTitle>Overall Progress</div>
-                                                <div class=progressBoxDescription>Your overall game progress.</div>
-                                                <div class=progressBoxProgressBar>
-                                                    <div class=progressBarContainer>
-                                                        <div class=progressBarText id=plOverall></div>
-                                                        <div class=progressBarContent>
-                                                            <div class=progressBar>
-                                                                <div class=progressBarFill id=pbOverall></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class=contentHeader>
-                                            <div class=headingDetails>
-                                                <div class=headingTitle>Game Statistics</div>
-                                                <div class=headingDescription>A statistical overview of your game progression and accomplishments.</div>
-                                            </div>
-                                        </div>
-                                        <div class=statBoxContainer>
-                                            <div class=statBox>
-                                                <div class=statHeading>Total Floors Beaten</div>
-                                                <div class=statNormal id=statFloors>?</div>
-                                            </div>
-                                            <div class=statBox>
-                                                <div class=statHeading>Total Gold Earned</div>
-                                                <div class=statNormal id=statTotalGoldEarned>?</div>
-                                            </div>
-                                            <div class=statBox>
-                                                <div class=statHeading>Total Items Crafted</div>
-                                                <div class=statNormal id=statTotalItems>?</div>
-                                            </div>
-                                            <div class=statBox>
-                                                <div class=statHeading>Total Commons Crafted</div>
-                                                <div class=statNormal id=statCommons>?</div>
-                                            </div>
-                                            <div class=statBox>
-                                                <div class=statHeading>Total Goods Crafted</div>
-                                                <div class=statNormal id=statGoods>?</div>
-                                            </div>
-                                            <div class=statBox>
-                                                <div class=statHeading>Total Greats Crafted</div>
-                                                <div class=statNormal id=statGreats>?</div>
-                                            </div>
-                                            <div class=statBox>
-                                                <div class=statHeading>Total Epics Crafted</div>
-                                                <div class=statNormal id=statEpics>?</div>
-                                            </div>
-                                            <div class=statBox>
-                                                <div class=statHeading>Time Played</div>
-                                                <div class=statNormal id=statTimePlayed>?</div>
-                                            </div>
-                                        </div>
-                                        <div class=contentHeader>
-                                            <div class=headingDetails>
-                                                <div class=headingTitle>Milestone Markers</div>
-                                                <div class=headingDescription>A record of how far along into a run a boss was defeated.</div>
-                                            </div>
-                                        </div>
-                                        <div class=statBoxContainer id=bossProgressContainer></div>
+                                            <div class=statBoxContainer id=bossProgressContainer></div>
                                     </div>
                                 </div>
                                 <div id=expeditionBuilding class=buildingTab>
@@ -545,7 +622,9 @@
                     <div class=marketContainer>
                         <div class=guildSummary>
                             <div class=guildBackground></div>
-                            <div class=buildingInfoImage><i class="fas fa-store"></i></div>
+                            <div class=buildingInfoImage>
+                                <i class="fas fa-store"></i>
+                            </div>
                             <div class=guildInfoDetails>
                                 <div class=guildName>The Marketplace</div>
                                 <div class=guildDesc>Purchase unique upgrades and perks that will expand your capabilities.</div>
@@ -569,8 +648,14 @@
                 </div>
                 <div id=comptitle1 class=heading>Gold &amp; Inventory</div>
                 <div class=sidebarContentContainer>
-                    <div id=goldSidebar class=invSideContainer><img src=https://d33wubrfki0l68.cloudfront.net/f442af966a3d329e1a5a8b978e2237a41daab356/550e8/assets/images/resources/m001.png alt=Gold><span id=goldSidebarAmt class=goldSidebarAmt>0</span></div>
-                    <div id=inventorySidebar class=invSideContainer><i class="fas fa-cube"></i><span id=invSidebarAmt class=invSidebarAmt>0/20</span></div>
+                    <div id=goldSidebar class=invSideContainer>
+                        <img src=https://d33wubrfki0l68.cloudfront.net/f442af966a3d329e1a5a8b978e2237a41daab356/550e8/assets/images/resources/m001.png alt=Gold>
+                        <span id=goldSidebarAmt class=goldSidebarAmt>0</span>
+                    </div>
+                    <div id=inventorySidebar class=invSideContainer>
+                        <i class="fas fa-cube"></i>
+                        <span id=invSidebarAmt class=invSidebarAmt>0/20</span>
+                    </div>
                 </div>
                 <div id=comptitle2 class=heading>Crafting Slots</div>
                 <div id=actionSlots class=craftingSlotsContainer></div>
@@ -578,16 +663,20 @@
                 <div>
                     <div class=workersSideContainer>
                         <div id=CogWorkersSide class="workersSide tooltip" data-tooltip=cog_worker>
-                            <div class=workerSideImage><i class="fas fa-cog"></i></div><span id=CogWorkerFree>0</span>
+                            <div class=workerSideImage><i class="fas fa-cog"></i></div>
+                            <span id=CogWorkerFree>0</span>
                         </div>
                         <div id=WeaponWorkersSide class="workersSide tooltip" data-tooltip=weapon_worker>
-                            <div class=workerSideImage><img src=https://d33wubrfki0l68.cloudfront.net/fef5d051c64b9846e4ed89d874501af14ef7e5f3/2a8c1/assets/svg/broadsword.svg></div><span id=WeaponWorkerFree>0</span>
+                            <div class=workerSideImage><img src=https://d33wubrfki0l68.cloudfront.net/fef5d051c64b9846e4ed89d874501af14ef7e5f3/2a8c1/assets/svg/broadsword.svg></div>
+                            <span id=WeaponWorkerFree>0</span>
                         </div>
                         <div id=ArmorWorkersSide class="workersSide tooltip" data-tooltip=armor_worker>
-                            <div class=workerSideImage><img src=https://d33wubrfki0l68.cloudfront.net/82b145fd22f9413f09b411dd0d6e2949a250ea88/4fc05/assets/svg/brutal-helm.svg></div><span id=ArmorWorkerFree>0</span>
+                            <div class=workerSideImage><img src=https://d33wubrfki0l68.cloudfront.net/82b145fd22f9413f09b411dd0d6e2949a250ea88/4fc05/assets/svg/brutal-helm.svg></div>
+                            <span id=ArmorWorkerFree>0</span>
                         </div>
                         <div id=JewelWorkersSide class="workersSide tooltip" data-tooltip=jewel_worker>
-                            <div class=workerSideImage><i class="fas fa-gem"></i></div><span id=JewelWorkerFree>0</span>
+                            <div class=workerSideImage><i class="fas fa-gem"></i></div>
+                            <span id=JewelWorkerFree>0</span>
                         </div>
                     </div>
                 </div>
@@ -597,32 +686,55 @@
                 </div>
             </div>
             <footer role=contentinfo>
-                <div id=bottom-left class=dialogOptions><a id=clearSave data-dialog-id=clear_save class="isDialog clearSave tooltip" data-tooltip=clear_save><i class="fas fa-file-times"></i>
+                <div id=bottom-left class=dialogOptions>
+                    <a id=clearSave data-dialog-id=clear_save class="isDialog clearSave tooltip" data-tooltip=clear_save>
+                        <i class="fas fa-file-times"></i>
                         <div class=footerButtonText>Clear Save</div>
-                    </a><a id=exportSave data-dialog-id=export_save class="isDialog tooltip" data-tooltip=export_save><i class="fas fa-file-export"></i>
+                    </a>
+                    <a id=exportSave data-dialog-id=export_save class="isDialog tooltip" data-tooltip=export_save>
+                        <i class="fas fa-file-export"></i>
                         <div class=footerButtonText>Export Save</div>
-                    </a><a id=importSave data-dialog-id=import_save class="isDialog tooltip" data-tooltip=import_save><i class="fas fa-file-import"></i>
+                    </a>
+                    <a id=importSave data-dialog-id=import_save class="isDialog tooltip" data-tooltip=import_save>
+                        <i class="fas fa-file-import"></i>
                         <div class=footerButtonText>Import Save</div>
-                    </a><a id=settings data-dialog-id=settings class="isDialog tooltip" data-tooltip=settings><i class="fas fa-cog"></i>
+                    </a>
+                    
+                    <a id=settings data-dialog-id=settings class="isDialog tooltip" data-tooltip=settings>
+                        <i class="fas fa-cog"></i>
                         <div class=footerButtonText>Settings</div>
-                    </a></div>
-                <div id=bottom-right class=extraOptions><a class=isDialog data-dialog-id=patch_notes id=versionNum>Fetching...</a><a class=patreon_link href=https://www.patreon.com/forgeandfortune target=_blank rel=noopener><i class="fab fa-patreon"></i>
+                    </a>
+                </div>
+                <div id=bottom-right class=extraOptions>
+                    <a class=isDialog data-dialog-id=patch_notes id=versionNum>Fetching...</a>
+                    <a class=patreon_link href=https://www.patreon.com/forgeandfortune target=_blank rel=noopener>
+                        <i class="fab fa-patreon"></i>
                         <div class=footerButtonText>Support on Patreon</div>
                     </a>
                     <div class=footer_more-container>
                         <div class=footer_more-btn>
-                            <div class=footer_more-text>View Links &amp; Resources</div><i class="fas fa-angle-up"></i>
+                            <div class=footer_more-text>View Links &amp; Resources</div>
+                            <i class="fas fa-angle-up"></i>
                         </div>
                         <ul class=footer_more-list>
-                            <li><a class='footer_more-content' href='/about' target='_blank' rel='noopener'><i class="fas fa-users"></i>
+                            <li>
+                                <a class='footer_more-content' href='/about' target='_blank' rel='noopener'>
+                                    <i class="fas fa-users"></i>
                                     <div class=footerButtonText>About &amp; Crediting</div>
                                 </a>
-                            <li><a class=footer_more-content href=http://www.discord.gg/qGBAVNR target=_blank rel=noopener><i class="fab fa-discord"></i>
+                            </li>
+                            <li>
+                                <a class=footer_more-content href=http://www.discord.gg/qGBAVNR target=_blank rel=noopener>
+                                    <i class="fab fa-discord"></i>
                                     <div class=footerButtonText>Join us on Discord</div>
                                 </a>
-                            <li><a class=footer_more-content href=https://www.reddit.com/r/forgeandfortune/ target=_blank rel=noopener><i class="fab fa-reddit"></i>
+                            </li>
+                            <li>
+                                <a class=footer_more-content href=https://www.reddit.com/r/forgeandfortune/ target=_blank rel=noopener>
+                                    <i class="fab fa-reddit"></i>
                                     <div class=footerButtonText>Visit our Subreddit</div>
                                 </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -632,14 +744,16 @@
     <section id=mobile-content>
         <nav class=mobile-nav>
             <ul class=mobile-nav-listing>
-                <li class=nav-item><a href='/about' rel='noopener'>About &amp; Crediting</a>
-                <li class=nav-item><a href=http://www.discord.gg/qGBAVNR rel=noopener>Discord Server</a>
-                <li class=nav-item><a href=https://www.patreon.com/forgeandfortune rel=noopener>Support on Patreon</a>
+                <li class=nav-item><a href='/about' rel='noopener'>About &amp; Crediting</a></li>
+                <li class=nav-item><a href=http://www.discord.gg/qGBAVNR rel=noopener>Discord Server</a></li>
+                <li class=nav-item><a href=https://www.patreon.com/forgeandfortune rel=noopener>Support on Patreon</a></li>
             </ul>
         </nav>
-        <div class=mobile-notice><img class=mobile-notice-logo src=https://d33wubrfki0l68.cloudfront.net/02b56785f6e9cd19b91cd2930c1f58f904d7d73b/19ec3/assets/images/site-logo.png>
+        <div class=mobile-notice>
+            <img class=mobile-notice-logo src=https://d33wubrfki0l68.cloudfront.net/cae3869d3bc26cf1b25f7f9b76459ec21e81ddd5/10363/assets/images/site-logo.png>
             <h1 class=mobile-notice-headline>Game not available on this device</h1>
-            <p class=mobile-notice-description>Thanks for checking us out, unfortunately, we don't support a screen of this size. Please visit us on your computer, laptop or on a device with a larger screen.<p class=mobile-notice-description>Feel free to check out our About &amp; Crediting page or join us on Discord.
+            <p class=mobile-notice-description>Thanks for checking us out, unfortunately, we don't support a screen of this size. Please visit us on your computer, laptop or on a device with a larger screen.</p>
+            <p class=mobile-notice-description>Feel free to check out our About &amp; Crediting page or join us on Discord.</p>
         </div>
     </section>
     <div id=db-panel></div>
@@ -647,17 +761,17 @@
     <div id=toasts>
         <div id=toastsWrapper></div>
     </div>
-    <script>
-        kongregateAPI.loadAPI(function() {
-            window.kongregate = kongregateAPI.getAPI()
-        })
-
-    </script>
+    <script>kongregateAPI.loadAPI(function(){window.kongregate=kongregateAPI.getAPI()})</script>
     <script src='b10af08aee7d07bb1e553afdfe3b14e36092fa8f.js'></script>
     <script src=https://download.playfab.com/PlayFabClientApi.js></script>
     <script src='7e1e545f47ee3d6a110f9e42e83acea9a2bf1883.js'></script>
+
 <!--客服 开始-->
 <script src="//likexia.gitee.io/game/js/jquery.min.js"></script>
 <link rel="stylesheet" href="//likexia.gitee.io/game/css/kf.css" type="text/css" media="screen" charset="utf-8">
 <script src="//likexia.gitee.io/game/js/kf.js"></script>
 <!-- 客服 结束 -->
+<!--站长统计-->
+    <div style="display: none">
+        <script type="text/javascript" src="//s13.cnzz.com/z_stat.php?id=1266957935&web_id=1266957935"></script>
+    </div>

@@ -442,5 +442,11 @@
     "version": "v1.0.8",
     "date": "December 29th, 2020",
     "body": "<p><strong>Bug Fixes</strong></p><ul><li>Fixed a bug where Grim's playbook Blood Bond wouldn't heal him if he killed the target with the move</li></ul>"
+  },
+  {
+    "patchCount": 76,
+    "version": "v4.2.0",
+    "date": "April 1st, 2020",
+    "body": "<p><strong>Improvements</strong></p><ul><li>Game was too serious, so we made it less serious. Stay forgey, fortuneers!</li></ul>"
   }
 ]

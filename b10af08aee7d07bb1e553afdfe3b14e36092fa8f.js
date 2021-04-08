@@ -4948,17 +4948,20 @@ $(document).on("click", ".recipeScopeName", function (e) {
 });
 $(document).on("click", ".recipeMasterySort", function (e) {
     e.preventDefault();
-    var currentType = $(e.currentTarget).html();
+    var currentType = $(e.currentTarget).attr("data-sorttype");
     if (currentType === "All Recipes") {
         $(e.currentTarget).html("Unmastered Only");
+            $(e.currentTarget).attr("data-sorttype","Unmastered Only");
         recipeList.masteryFilter = MasteryFilter.UNMASTERED
     }
     if (currentType === "Unmastered Only") {
         $(e.currentTarget).html("Mastered Only");
+    		$(e.currentTarget).attr("data-sorttype","Mastered Only");
         recipeList.masteryFilter = MasteryFilter.MASTERED
     }
     if (currentType === "Mastered Only") {
         $(e.currentTarget).html("All Recipes");
+    		$(e.currentTarget).attr("data-sorttype","All Recipes");
         recipeList.masteryFilter = MasteryFilter.BOTH
     }
     recipeFilterList()
@@ -8209,7 +8212,7 @@ $(document).on("click", ".heroTab", function (e) {
     if ($(e.currentTarget).hasClass("heroTabLocked")) return;
     $(".heroTab").removeClass("selected");
     $(e.currentTarget).addClass("selected");
-    var tabType = $(e.currentTarget).html();
+        var tabType = $(e.currentTarget).attr("data-herotabid");
     if (HeroManager.tabSelected === tabType) return;
     HeroManager.tabSelected = tabType;
     showTab(tabType)

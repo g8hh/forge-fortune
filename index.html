@@ -190,7 +190,7 @@
                         <div id=recipes-list class=recipeCardsList>
                             <div id=RecipeTop class=recipeTopContainer>
                                 <div id=RecipeSorting class=recipeSortContainer>
-                                    <div class="recipeMasterySort actionButton">All Recipes</div>
+                                    <div class="recipeMasterySort actionButton" data-sorttype="All Recipes">All Recipes</div>
                                     <div class=recipeSortSearch>
                                         <input id=recipeSortInput class=recipeSortInput name=recipe-search placeholder="Search for a recipe...">
                                         <div class=recipeSortButton><i class="fas fa-search"></i></div>
@@ -237,9 +237,9 @@
                             <div class=heroInspectIndividual id=heroInspectIndividual>
                                 <div class=heroInspectNav>
                                     <div class=heroTabContainer>
-                                        <div class="heroTab selected" id=heroDetailsTab>Details</div>
-                                        <div class=heroTab>Equipment</div>
-                                        <div class=heroTab id=heroTabExtra>Extra</div>
+                                        <div class="heroTab selected" id=heroDetailsTab data-herotabid="Details">Details</div>
+                                            <div class=heroTab data-herotabid="Equipment">Equipment</div>
+                                        <div class=heroTab id=heroTabExtra data-herotabid="Extra">Extra</div>
                                     </div>
                                 </div>
                                 <div class=heroTabContent>

@@ -1694,6 +1694,7 @@ var cnRegReplace = new Map([
     [/^You have (\d+).$/, '你有 $1.'],
     [/^Level (\d+) \($/, '等级 $1 \('],
     [/^Level (\d+) \(([\d\.]+)$/, '等级 $1 \($2'],
+    [/^Level (\d+)$/, '等级 $1'],
     [/^(\d+) Left$/, '$1 剩余'],
     [/^(.+) crafts remaining until mastery possible.$/, '$1 技能剩余直到可以掌握。'],
     [/^I. You have (.+).$/, 'I. 你有 $1.'],

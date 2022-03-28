@@ -48,7 +48,7 @@
     "id": "fortune_no_slot",
     "customClass": "warning",
     "icon": "<i class=\"fas fa-times\"></i>",
-    "title": "No Fortune Slots Available",
+    "title": "Cannot Start Fortune",
     "description": "You do not have any available fortune slots.",
     "type": null,
     "actionText": null
@@ -131,6 +131,15 @@
     "icon": "<i class=\"fas fa-times\"></i>",
     "title": "No Fusion Slots Available",
     "description": "You do not have any available fusion slots.",
+    "type": null,
+    "actionText": null
+  },
+  {
+    "id": "more_items_fuse",
+    "customClass": "warning",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "title": "Cannot Start Fusion",
+    "description": "You do not have three copies of this item.",
     "type": null,
     "actionText": null
   },
@@ -347,6 +356,204 @@
     "icon": "<i class=\"fas fa-check\"></i>",
     "title": "Playbook Unlocked",
     "description": "You unlocked a new playbook for {0}! Check it out on the hero tab.",
+    "type": null,
+    "actionText": null
+  },
+  {
+    "id": "audio_playing",
+    "customClass": "warning",
+    "icon": "<i class=\"fas fa-exclamation-circle\"></i>",
+    "title": "Audio Playing",
+    "description": "Audio is currently playing, you can disable this in the Settings menu under the General settings tab.",
+    "type": "disable_audio",
+    "actionText": "Disable Now"
+  },
+  {
+    "id": "cant_ascend",
+    "customClass": "warning",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "title": "Can't Ascend",
+    "description": "You must defeat the 10th boss before ascending",
+    "type": null,
+    "actionText": null
+  },
+  {
+    "id": "cant_ascend_respec",
+    "customClass": "warning",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "title": "Can't Respec",
+    "description": "You must defeat the 10th boss before respec'ing",
+    "type": null,
+    "actionText": null
+  },
+  {
+    "id": "cant_ascend_upgrade",
+    "customClass": "warning",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "title": "Can't Upgrade",
+    "description": "You must defeat the 10th boss before upgrading",
+    "type": null,
+    "actionText": null
+  },
+  {
+    "id": "desynth_common",
+    "customClass": "warning",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "title": "Cannot Desynthesize",
+    "description": "Rarity of item being desynthesized must be Good or higher.",
+    "type": null,
+    "actionText": null
+  },
+  {
+    "id": "already_donated_museum",
+    "customClass": "warning",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "title": "Cannot Donate",
+    "description": "Item has already been donated to the Museum.",
+    "type": null,
+    "actionText": null
+  },
+  {
+    "id": "max_inventory",
+    "customClass": "warning",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "title": "Cannot Start Craft",
+    "description": "You must clear inventory space below max inventory size before starting a new craft",
+    "type": null,
+    "actionText": null
+  },
+  {
+    "id": "no_fuel",
+    "customClass": "warning",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "title": "Cannot Start Boost",
+    "description": "You do not have any essence. Desynthesize items to gain essence.",
+    "type": null,
+    "actionText": null
+  },
+  {
+    "id": "no_candidate",
+    "customClass": "warning",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "title": "Cannot Forge-Contribute",
+    "description": "You do not have the base item neccessary.",
+    "type": null,
+    "actionText": null
+  },
+  {
+    "id": "cannot_forge_max_sharpness",
+    "customClass": "warning",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "title": "Cannot Forge Item",
+    "description": "The item has reached max sharpness.",
+    "type": null,
+    "actionText": null
+  },
+  {
+    "id": "hero_quest_unavailable",
+    "customClass": "warning",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "title": "Cannot Start Quest",
+    "description": "Neccessary party members are doing other expeditions or adventuring.",
+    "type": null,
+    "actionText": null
+  },
+  {
+    "id": "quest_complete",
+    "customClass": "success",
+    "icon": "<i class=\"fas fa-check\"></i>",
+    "title": "Quest Complete",
+    "description": "Your heroes have completed a quest, head to the Expedition Center to collect your reward!",
+    "type": null,
+    "actionText": null
+  },
+  {
+    "id": "expedition_unavailable",
+    "customClass": "warning",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "title": "Cannot Start Expedition",
+    "description": "You need to add at least one party member to start an expedition.",
+    "type": null,
+    "actionText": null
+  },
+  {
+    "id": "cant_fuse_rarity",
+    "customClass": "warning",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "title": "Cannot Start Fusion",
+    "description": "You cannot fuse epic rarity items.",
+    "type": null,
+    "actionText": null
+  },
+  {
+    "id": "cant_fuse_noslot",
+    "customClass": "warning",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "title": "Cannot Start Fusion",
+    "description": "You do not have empty fusion slots.",
+    "type": null,
+    "actionText": null
+  },
+  {
+    "id": "cant_fuse_material",
+    "customClass": "warning",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "title": "Cannot Start Fusion",
+    "description": "You do not have enough gold to start the fusion.",
+    "type": null,
+    "actionText": null
+  },
+  {
+    "id": "cant_fuse_quantity",
+    "customClass": "warning",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "title": "Cannot Start Fusion",
+    "description": "You do not have at least three copies of this item.",
+    "type": null,
+    "actionText": null
+  },
+  {
+    "id": "cant_fortune_rarity",
+    "customClass": "warning",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "title": "Cannot Start Fortune",
+    "description": "You cannot create fortunes from epic rarity items.",
+    "type": null,
+    "actionText": null
+  },
+  {
+    "id": "cant_fortune_material",
+    "customClass": "warning",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "title": "Cannot Start Fortune",
+    "description": "You do not have the required materials to create this fortune.",
+    "type": null,
+    "actionText": null
+  },
+  {
+    "id": "shop_order_no_item",
+    "customClass": "warning",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "title": "Cannot submit Shop Order",
+    "description": "You do not have a copy of this item to contribute.",
+    "type": null,
+    "actionText": null
+  },
+  {
+    "id": "recipe_master_craft_more",
+    "customClass": "warning",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "title": "Cannot Master Item",
+    "description": "You need to craft {0} more of this item before attempting mastery.",
+    "type": null,
+    "actionText": null
+  },
+  {
+    "id": "auto_contribute",
+    "customClass": "success",
+    "icon": "<i class=\"fas fa-scroll\"></i>",
+    "title": "Auto-Contributed Item",
+    "description": "You auto-contributed a {0} to one of your shop orders!",
     "type": null,
     "actionText": null
   }

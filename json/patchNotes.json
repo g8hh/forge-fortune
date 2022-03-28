@@ -1,452 +1,407 @@
 [
   {
-    "patchCount": 0,
     "version": "v0.3.0",
-    "date": "June 11th, 2019",
+    "date": "2019-06-11T04:00:00.000Z",
     "body": "<p>Welcome to the second biggest patch of the Forge & Fortune Lifecycle!</p><p><b>Combat</b></p><ul><li>Heroes now have a combat skill, triggered by reaching Max AP. Description of abilities are available on the hero screen. Heroes skill strength is largely determined by total POW.</li><li>Combat system has been updated from time-based to round-based.</li><li>ACT has been replaced by AP Add. Weapon POW is no longer normalized (AKA, the damage you see listed is the damage you deal). AP Add serves a similar purpose to ACT -- the more damage your weapon deals, the less AP it will generate (and thus the less skills your hero will use).</li><li>There are now three dungeons, each containing unique materials. Dungeon floors are random but pre-determined. Dungeons (and bosses) may lock out certain heroes, making them unable to adventure in that dungeon.</li><li>Floors reachable are capped at 50 floors per boss kill. For example, to reach floor 51-100 you'd need to beat the first boss. Bosses are unlockable in the Action League and challenged in the adventure screen.</li><li>Every 50th floor (up until Floor 450) can be converted to a Sanctuary which will heal your heroes upon reaching it. This is purchasable as a Perk in the Action League.</li></ul><p><b>Guilds</b></p><ul><li>The worker item contribution system has been replaced by a crafting guild system. There are five craft guilds, each with two major resources each. (Worker screen and worker auto-contribute were also removed as a consequence).</li><li>Complete guild orders to increase your guild level, unlocking new recipes!</li><li>Workers associated with the guild can be leveled up in the guild for gold once unlocked.</li></ul><p><b>Action League</b></p><ul><li>Tired of just seeing the Action League send you your materials? This is for you!</li><li>Hero experience (and levels) have been removed. Instead, completing dungeons awards you with Notoriety.</li><li>Once the required notoriety thresholds have been reached, Perks will be available for purchase for gold.</li><li>Perks are a permanent content unlock, such as new heroes, new workers, and permanent bonuses. It's also how new bosses become available.</li><li>Notoriety is capped based off bosses slayed. Kill more bosses to increase your notoriety caps!</li></ul><p><b>Town</b></p><ul><li>Town construction has been replaced by a single recipe to be slotted in an action slot (no more nails taking up inventory!)</li></ul><p><b>Recipes</b></p><ul><li>Filters are now more prominent at the top of the recipe screen.</li><li>Recipes are now searchable. Want to know how many recipes contain 'aker' in them? Now it's easy! (Hint: it's three)</li></ul><p><b>User Interface</b></p><ul><li>Improvements to almost every facet of the interface have been implemented.</li><li>Recipes are now shown in card form (to better scale with resolution and provide the content room for future features).</li><li>New icons are next to most headers to improve sexiness</li><li>Animations added to make it as smooth as butter</li><li>Left interface sidebar has been removed to facilitate smaller resolutions (in anticipation of Kongregate port). All information has been moved to the right bar with the exception of workers/materials information -- this is now listed on the recipe screen directly at the very top.</li><li>Footer bar is 1.2x more clickable, Patch notes are now listed in game, and as new patches come out the game should notify you of it (no more checking discord all the time!)</li></ul><p><b>Settings</b></p><ul><li>Battle Log Length: New setting that allows you to set the length of your battle log from 5 entries, up to 999 entries.</li><li>Toggle HP & AP Bars in Combat Area: Want some extra content space, hide the redundant HP and AP bars in the combat area with this setting.</li></ul><p>As always, thank you from the bottom of our hearts for playing our love child and we hope to see you for many patches to come! Make sure to stop by our discord and give us feedback on anything and everything you love or hate.</p><p>- Akerson & Friends</p><p class='hamster'>May the Lettuce be with you!</p>"
   },
   {
-    "patchCount": 1,
     "version": "v0.3.0.1",
-    "date": "June 11th, 2019",
+    "date": "2019-06-11T04:00:00.000Z",
     "body": "<ul><li>Fixed gold display on load (never was missing, just not updated properly)</li><li>Fixed workers not showing up in guilds after being bought in Action League</li></ul>"
   },
   {
-    "patchCount": 2,
     "version": "v0.3.0.2",
-    "date": "June 11th, 2019",
+    "date": "2019-06-11T04:00:00.000Z",
     "body": "<ul><li>Fixed Abqu Love Letter of notoriety cap not displaying</li><li>Fixed Flood (& subsequent mobs in the line) to drop correct resource</li><li>Removed flat function for browser compatibility</li><li>New patch notifications should work now</li></ul>"
   },
   {
-    "patchCount": 4,
     "version": "v0.3.0.3",
-    "date": "June 11th, 2019",
+    "date": "2019-06-11T04:00:00.000Z",
     "body": "<p>Is four patches in one day too much? We think not!</p><ul><li>Lowered armor on Boss 1 and Boss 2 to make it less impossible</li><li>Updated the notoriety cap love letter to be less unclear</li><li>Removed worker levels -- who needs 'em anyway?</li></ul>"
   },
   {
-    "patchCount": 5,
     "version": "v0.3.0.4",
-    "date": "June 12th, 2019",
+    "date": "2019-06-12T04:00:00.000Z",
     "body": "<p><b>User Interface</b></p><ul><li>Changed Guild Order craft button to be more prominent, explicitly mention it's for crafting and be reactive to craftable status (will be green when you can craft, red when you can't)</li><li>Hero Power now updates immediately after equipping an item</li></ul><p><b>Fixes</b></p><ul><li>Fixed typo in Troy's hero ability description</li><li>Fixed typo in Alok's hero ability description</li><li>Fixed typo in Grogmar's hero ability description</li></ul>"
   },
   {
-    "patchCount": 6,
     "version": "v0.3.0.5",
-    "date": "June 12th, 2019",
+    "date": "2019-06-12T04:00:00.000Z",
     "body": "<p><b>Features</b></p><ul><li>Parties are saved between dungeon adventures and automatically set if you re-enter a dungeon. If a member of the party is unavailable (say for example because they're in another dungeon) this feature won't take effect</li><li>Material count is shown next to the material on the dungeon screen</li></ul><p><b>Bug Fixes</b></p><ul><li>Fixed the bug where enhanced items in guild orders didn't show their \"+\" number</li><li>Updated craft button on guild screen to color properly (sometimes)</li><li>Corrected guild orders requesting multiples of the same item</li><li>Sort by mastery in recipes now works</li><li>Titus now correct heals the person with the highest missing HP, not the person with the lowest HP</li><li>Mail you have open won't disappear when a new piece of mail comes in</li><li>Fixed building recipes sometimes mysteriously disappearing</li><li>Removed the last of the worker level references (maybe)</li><li>Fixed a bug where refreshing the game terminated all parties adventuring rather than progressing them to where they should be</li></ul>"
   },
   {
-    "patchCount": 7,
     "version": "v0.3.0.6",
-    "date": "June 13th, 2019",
+    "date": "2019-06-13T04:00:00.000Z",
     "body": "<p><b>General Improvements</b></p><ul><li>Your expanded dropdown preferences are now saved for the \"Materials\" and \"Workers\" dropdown in the Recipes screen. By default, Workers will be expanded.</li><li>Your expanded dropdown preferences are now saved for the \"Materials Found In This Dungeon\" dropdown for each Dungeon separately.</li></ul><p><b>User Interface</b></p><ul><li>Improved display for material amounts in \"Materials Found In This Dungeon\" dropdown.</li></ul><p><b>New Setting: Reset All Settings</b></p><p>You can now reset your settings including preferences such as expanded dropdowns (like dungeon material dropdowns in adventures). Should your settings ever be corrupted this option can also be used to restore a usable state.</p>"
   },
   {
-    "patchCount": 8,
     "version": "v0.3.0.7",
-    "date": "June 14th, 2019",
+    "date": "2019-06-14T04:00:00.000Z",
     "body": "<ul><li>Reduced crit damage on bosses</li><li>Fixed bug making guild orders contribute 3x as many points as they should</li><li>Added AP on recipe cards</li><li>Updated guilds with descriptions to make it more clear what they do</li><li>Fixed bug with guild order over-submitting and fixed coloring of craft button once you generate new orders or submit items</li></ul>"
   },
   {
-    "patchCount": 9,
     "version": "v0.3.0.8",
-    "date": "June 17th, 2019",
+    "date": "2019-06-17T04:00:00.000Z",
     "body": "<ul><li>Reduced guild orders required for a level from 5 to 3</li></ul>"
   },
   {
-    "patchCount": 10,
     "version": "v0.3.0.9",
-    "date": "June 17th, 2019",
+    "date": "2019-06-17T04:00:00.000Z",
     "body": "<ul><li>Default to banned on party list rather than \"in dungeon\"</li><li>Guilds with progress over the current cap of 3 should \"level up\"</li></ul>"
   },
   {
-    "patchCount": 11,
     "version": "v0.3.0.10",
-    "date": "June 17th, 2019",
+    "date": "2019-06-17T04:00:00.000Z",
     "body": "<p>Dungeon balance changes:</p><ul><li>Greatly reduced strength of all dungeon enemies.</li><li>Reduced Demon-type enemy's base health.</li></ul><p>Boss balance changes:</p><ul><li>Boss I and Boss II are now easier.</li><li>Boss IX and Boss X have become more difficult.</li><li>All other bosses remain the same.</li></ul><p>Materials have been renamed to fit a standardized nomenclature.  This should help players better predict where materials come from.</p><p>Also some enemy renaming and small typo corrections.  Enjoy!</p>"
   },
   {
-    "patchCount": 12,
     "version": "v0.3.1",
-    "date": "June 30th, 2019",
+    "date": "2019-06-30T04:00:00.000Z",
     "body": "<p><b>Patch V0.3.1</b></p><p>Welcome to the first major patch in the v0.3 lifecycle, lovingly called the culling! Our focus here was to polish some of the systems we introduced, add some requested QoL features, and generally just tighten up the gameplay experience. We're planning on probably 3 more major patches before we release - one on town progression, one on combat, and a final one on the \"new player experience\". As always, drop us any feedback in discord!</p><p><b>New Building - Magical Desynthesizerr</b></p><p>Starting at tier 2, unlock the new Desynth building! Extract that magical essence out of junk items. What is magical essence for? Who knows!</p><p><b>Hero Overview</b></p><p>You can now get a quick glance at all of your heroes and their stats from the Hero Overview menu on the Heroes screen.</p><p><b>Game Lag Improvements</b></p><p>A lot of optimizations added to the game code to make it run faster, particularly combat but to most facets of the game. Hopefully this reduces or eliminates everyone's \"game slowdown\" that happens until they restart</p><p><b>General Improvements</b></p><ul><li>Guild Order inventory count will now be highlighted green when you can contribute.</li><li>Dungeon Speed now defaults to Fast unless you are viewing, in which case it'll use your selected viewing preference.</li><li>Dungeons now have an \"abandon\" button if you accidentally send out a team. You won't collect rewards but you'll get your workers back.</li><li>Inventory \"Sell All Commons\" button moved to the right to prevent accidental clicks.</li><li>You can now \"Resmith\" at the forge to forge harder and faster.</li><li>A \"Collect All Dungeon Rewards\" button has been added to dungeon mail to quickly collect all dungeon mail.</li><li>You can now unequip gear from the hero screen, hover over the slot and click on the \"Unslot Equipment\" button.</li><li>Added \"Download as File\" for Save Exporting, this will export your save as a .txt file for easy sharing.</li></ul><p><b>Recipe Changes</b></p><p>12 recipes lines have been removed, bringing the total count to 18. All classes now have a standard set of six equipment types to equip, guaranteeing that all your craft you are making are useful somewhere. As a result, weapon lines have been merged into three \"broad\" categories of Heavy (formerly swords, axes, maces, and spears used by Might heroes), Light (whips, daggers, and bows used by Moxie heroes), and Arcane (staves, wands, and rods used by Mind heroes). Any removed items you had equipped will automatically be converted into their appropriate type so no progress is lost.</p><p><b>Material Changes</b></p>\n<ul><li>Materials have been reduced from 6 unique types for each tier to 3 unique types per tier. This effectively halves the number of materials in the game.</li>\n<li>Any materials of the removed type you have will be \"joined\" with one of the remaining ones so no progress is lost.</li></ul><p><b>Guild Changes</b></p><ul><li>Guilds have been renamed to reflect the new Item Types they contain and one guild was removed. The four guilds are now:</li><li>Bird Arms: An avian guild focusing on offensive strategies, selling Arcane, Heavy, Gauntlets, and Thrown items.</li><li>Green Guard: A hamster guild focusing on defensive strategies, selling Helmets, Gloves, Armor, Shoes, and Vests.</li><li>The Cat's Meow: A feline guild focusing on sneakier strategies, selling Light, Hats, Masks, Cloaks, and Belts.</li><li>Trawled Treasures: An aquatic guild focusing on more valuable items, selling Shields, Tomes, Pendants, and Rings</li><li>Levels of guilds have been reduced to reflect the lower number of recipes to unlock. Levels of guilds have been reset to reflect the highest level of a currently owned recipe (thus no progress is lost). Some people will have \"boosted\" levels due to the restructuring and will have recipes to buy immediately.</li></ul><p><b>Worker Changes</b></p><ul><li>Resources (ore, wood, herb, lumber, etc) have been removed. Instead, recipes require workers from the 5 crafting guilds who are just assigned to a guild. For example, a Knife requires a worker from The Cat's Meow guild. This should clarify the resource-allocation sub-system that exists for recipes and alleviate some resource bottlenecks.</li><li>Worker counts for each guild are available on the sidebar.</li><li>Workers in each guild will show what they're currently working on.</li><li>Workers must be re-bought to unlock.</li></ul><p><b>Fixes</b></p><ul><li>Fixed issue with material amount tooltip on \"Materials Found In This Dungeon\" dropdown causing content overflow.</li><li>Fixed issue with \"Overall\" progress bar not being proper color upon 100% completion.</li><li>Fixed issue with Boss dungeons causing 404 error for a non-existent image</li><li>Fixed missing icon for healing in battle logs</li><li>Removed level on town building build cards</li><li>Hotkeys will no longer be triggered when inputting numbers in search bar</li></ul>"
   },
   {
-    "patchCount": 13,
     "version": "v0.3.1.1",
-    "date": "June 30th, 2019",
+    "date": "2019-06-30T04:00:00.000Z",
     "body": "<p>Fixed a bug preventing users who were fusing a removed item from loading in</p>"
   },
   {
-    "patchCount": 14,
     "version": "v0.3.1.2",
-    "date": "June 30th, 2019",
+    "date": "2019-06-30T04:00:00.000Z",
     "body": "<p>Fixed a bug where re-smithing without the neccessary materials would cause your item to disappear</p>"
   },
   {
-    "patchCount": 15,
     "version": "v0.3.1.3",
-    "date": "July 3rd, 2019",
+    "date": "2019-07-03T04:00:00.000Z",
     "body": "<ul><li>Added guild resource icons to guild orders</li><li>Fixed coloring of craft icons to properly reflect if you can craft it or not</li><li>Fixed inventory overflow</li><li>Fixed Perk count</li><li>Fixed the slotting of two buildings</li></ul>"
   },
   {
-    "patchCount": 16,
     "version": "v0.3.1.4",
-    "date": "July 5th, 2019",
+    "date": "2019-07-05T04:00:00.000Z",
     "body": "<p>Fixed bug with smithing success/failure being improperly colored</p>"
   },
   {
-    "patchCount": 17,
     "version": "v0.3.1.5",
-    "date": "July 5th, 2019",
+    "date": "2019-07-05T04:00:00.000Z",
     "body": "<p>Fixed the crafting button to not always turn green after you turn items in</p>"
   },
   {
-    "patchCount": 18,
     "version": "v0.3.1.6",
-    "date": "July 7th, 2019",
+    "date": "2019-07-07T04:00:00.000Z",
     "body": "<p>Finally actually removed obsolete materials (they have been rolled into the used material type). Fortune teller no longer should ask for obsolete materials.</p>"
   },
   {
-    "patchCount": 19,
     "version": "v0.3.1.7",
-    "date": "July 8th, 2019",
+    "date": "2019-07-08T04:00:00.000Z",
     "body": "<p>Fixed uncollectable mail due to old materials. Fixed Notoriety cap and bugged notoriety values if you've defeated all bosses. Fixed fortune teller still needing old mats for existing requests.</p>"
   },
   {
-    "patchCount": 20,
     "version": "v0.3.1.8",
-    "date": "July 9th, 2019",
+    "date": "2019-07-09T04:00:00.000Z",
     "body": "<p>Fixed a bug that didn't allow old saves to load</p>"
   },
   {
-    "patchCount": 21,
     "version": "v0.3.1.9",
-    "date": "August 6th, 2019",
+    "date": "2019-08-06T04:00:00.000Z",
     "body": "<p>Fixed several bugs with the re-forge option, eating people's items</p>"
   },
   {
-    "patchCount": 22,
     "version": "V0.3.2",
-    "date": "August 26th, 2019",
+    "date": "2019-08-26T04:00:00.000Z",
     "body": "<p>Hi everyone, we're back for another major update! This marks the V0.3.2 release, which was our building sweep/overhaul. Our goal with this patch is to do a last-pass sweep at the town with two goals in mind: First, we wanted to tier building progression so buildings have room to grow over time, and secondly we wanted to make sure we were happy with current designs. That said, this patch also snuck in a few more major changes!</p><p><b>Building Changes</b></p><ul><li>Adjusted the tiers some buildings unlock at, and added additional \"building levels\" at higher tiers. The levels are as follows:</li><li>Bank: 15/20/25 Bank Slots</li><li>Fusion Cabin: 2/3/4 Fusion Slots</li><li>Forge: Max enhancement of +3/+6/+10</li><li>Fortune: 1/2/3 Fortune Slots</li></ul><p><b>New Building: Tinker Hut</b></p><p>The Tinker Hut brings a way to use your junk commons and desynth materials into a new equipment type - the trinket! Trinkets feature secondary stats (crit, armor, and spow) and rather than having a rarity/enhancement level they have a star rating (currently capped at 100). Crafting more trinkets increases your mastery and your minimum star value, and leveling the Tinker Hut increases the maximum star value. With enough crafts, you will always make 100 star trinkets!</p><p><b>Building Improvements: The Forge</b></p><p>The forge is no longer a success system - instead, paying a hefty gold and material cost will permanently increase your gear. Use it when you're stuck and need a little push advancing!</p><p><b>Building Improvements: Fusion Cabin</b></p><p>The fusion cauldron has been renamed the fusion cabin and now features a \"two-click\" system to slot and start your fuses -- no more accidental fusings!</p><p><b>Building Improvements: The Fortune</b></p><p>The fortune teller has gotten a facelift and has some new tricks up her sleeve -- now, sacrificing an item will increase the proc chance of the next higher rarity for a certain number of crafts. Want more epic knives? Sacrifice a great one!</p><p>Also coming in a future update in the v0.3.2.x cycle will be a building to re-challenge old bosses for big rewards! Stay tuned!<p><b>Dungeon Collect Screen</b></p><p>No longer will Action League mail get sent to your spam folder! When an adventure is complete, it'll be available to collect (and repeat!) right in the dungeon screen. Boss fights also will tell you remaining HP% to help you gauge your progress!</p><p><b>Material and Mastery Changes</b></p><ul><li>Materials are now capped at 1000.</li><li>Mastery now takes a sliding scale of the appropriate material to master -- if you've never crafted the item it will take 1000 material, down to a minimum 100 material once you've crafted 100 of them. Use your materials strategically to master critical items quicker!</li></ul><p><b>Stat Changes</b></p><ul><li>Stat \"words' (like crit) have been replaced with a pictorial counterpart, and all stats icons got a facelift to match the game aethestic.</li><li>New stat: spow! Spow is like POW but it is used ONLY on special attacks. Use it to boost your specials with an extra punch!</li><li>Critdmg has been removed as a visible stat and has been adjusted to 1.5x for all heroes. Bosses can still have varying critdmg levels.</li></ul><p>As always thanks for playing and if you have any questions/comments/conerns/bugs let us know in Discord!</p>"
   },
   {
-    "patchCount": 23,
     "version": "V0.3.2.1",
-    "date": "August 26th, 2019",
+    "date": "2019-08-26T04:00:00.000Z",
     "body": "<p>Fixed tinker building not showing up when purchased</p>"
   },
   {
-    "patchCount": 24,
     "version": "V0.3.2.2",
-    "date": "August 26th, 2019",
+    "date": "2019-08-26T04:00:00.000Z",
     "body": "<p>Fixed tinker and fortune again...</p><p>Second time's a charm?</p>"
   },
   {
-    "patchCount": 25,
     "version": "V0.3.2.3",
-    "date": "August 26th, 2019",
+    "date": "2019-08-26T04:00:00.000Z",
     "body": "<p>Notoriety should be shown and collected on dungeon rewards screen<p><p>Fixed loading screen error</p>"
   },
   {
-    "patchCount": 26,
     "version": "V0.3.2.4",
-    "date": "August 27th, 2019",
+    "date": "2019-08-27T04:00:00.000Z",
     "body": "<p>Few things that I've been rolling out over the last day, all actually typed up now:</p><ul><li>Update dungeon sidebar to only show dungeon and its status, hotlink to the proper screen, and throw a notification if you've got rewards to collect</li><li>Lowered forge material requirements and added an appropriate gold reward to guild orders requiring forged items</li><li>Updated the icons on the dungeon screen to match the new aethestic</li><li>Fixed a bug where items staged in smith or in your trinket inventory could be moved/sold and these screens weren't updated</li><li>The collect buttons from mail rewards works again so you can collect that old mail</li><li>Fixing smithing gold cost NaN bug</li><li>Removed ability to see mastery on building recipes</li><li>Added notoriety back to the collection screen</li></ul>"
   },
   {
-    "patchCount": 27,
     "version": "V0.3.2.5",
-    "date": "August 29th, 2019",
+    "date": "2019-08-29T04:00:00.000Z",
     "body": "<ul><li>Tinker command \"destroy item\" now takes commons SOLD (rather than commons in inventory) to power it. Auto-sell and manual sells count towards this. No more filling your inventory with unneccessary items!</li><li>Fixed a bug where trinkets would show on hero overview scren</li><li>Actions slots should correctly craft multiples of an item in offline mode</li></ul>"
   },
   {
-    "patchCount": 28,
     "version": "V0.3.2.6",
-    "date": "August 30th, 2019",
+    "date": "2019-08-30T04:00:00.000Z",
     "body": "<ul><li>Fixed bug with tinkerer chewing sold trinkets causing it to error out</li><li>Reduced guild order requirements to +3 max instead of +6 and reduced overall chance of proccing a forge request. We may revisit rates once other systems are in place to speed up material acquisition.</li></ul>"
   },
   {
-    "patchCount": 29,
     "version": "V0.3.2.7",
-    "date": "September 2nd, 2019",
+    "date": "2019-09-02T04:00:00.000Z",
     "body": "<p>Added a \"remove fortune\" button to locked fortunes so you don't have to suffer through the whole thing if you don't want to </p>"
   },
   {
-    "patchCount": 30,
     "version": "V0.3.2.8",
-    "date": "September 8th, 2019",
+    "date": "2019-09-08T04:00:00.000Z",
     "body": "<p>Fixed our longest standing bug of building recipe cards magically disappearing until reload. Thanks snewt for the steps to reproduce!</p>"
   },
   {
-    "patchCount": 31,
     "version": "v0.3.2.9",
-    "date": "September 16th, 2019",
+    "date": "2019-09-16T04:00:00.000Z",
     "body": "<ul><li>Trinkets no longer disappear from \"sell all commons\" in inventory</li><li>Trinkets are now sorted with the inventory sort function</li><li>Tinker Hut received a facelift in the name of clarity - ALL items now are converted into the same material, and the command cards have been updated to be more clear as to what their costs and rewards are. Your deconstruction materials have been adjusted for this change.</li></ul>"
   },
   {
-    "patchCount": 32,
     "version": "v0.3.3",
-    "date": "September 18th, 2019",
+    "date": "2019-09-18T04:00:00.000Z",
     "body": "<p>Big update with small patch notes! This patch introduces the Monster Hall, which serves three purposes (each available via a perk!). Firstly, it serves as a bestiary to check out the monsters you've fought and gain more info on them. After your first upgrade, you'll be able to re-challenge bosses you've previously fought for craft speed upgrade rewards. Finally with the third upgrade, your recipe mastery level (aka how many recipes you've upgraded) will allow you to start further in the dungeon, up to 450 floors! As always, thanks for playing and I hope you like our final building for launch!</p>"
   },
   {
-    "patchCount": 33,
     "version": "v0.3.3.1",
-    "date": "September 20th, 2019",
+    "date": "2019-09-20T04:00:00.000Z",
     "body": "<ul><li>Fixed a bug with progress percentages over 100%</li><li>Fixed a bug with notoriety being null after re-fighting bosses</li><li>Fixed a bug with certain bosses not being able to be re-challenged</li><li>Action League no longer sends you mail for beating a boss, the first time or the 100th time (we'll re-introduce this later with better letters)</li></ul>"
   },
   {
-    "patchCount": 34,
     "version": "v0.3.3.2",
-    "date": "September 24th, 2019",
+    "date": "2019-09-24T04:00:00.000Z",
     "body": "<p>Added the ability to forge equipped gear, and the material required to forge it is displayed directly on the card</p>"
   },
   {
-    "patchCount": 35,
     "version": "v0.3.3.3",
-    "date": "September 26th, 2019",
+    "date": "2019-09-26T04:00:00.000Z",
     "body": "<p>Made tinkering hero equipment less messy</p>"
   },
   {
-    "patchCount": 36,
     "version": "v0.3.3.4",
-    "date": "September 30th, 2019",
+    "date": "2019-09-30T04:00:00.000Z",
     "body": "<ul><li>Fixed a bug where trinkets were forgable. Removed all enhancements from trinkets (sorry!)</li><li>Added the bank button back to inventory screen</li></ul>"
   },
   {
-    "patchCount": 37,
     "version": "v0.4.0.0",
-    "date": "June 28th, 2020",
+    "date": "2020-06-28T04:00:00.000Z",
     "body": "<p>Thank you for your patience and welcome to the big Patch V0.4! This is definitely our biggest patch to date, and is what the game is going to look like for final release!</p><p>First and foremost, this is for PATRONS ONLY, please do not share this link! When we're ready for release we will push to the main domain.</p><p>Rather than touch upon every little thing that's different, I want to focus on the major points (especially if you're jumping straight in).</p><p>PERKS:</br>The Action League has been replaced with \"The Market\" where you can buy perks for gold depending on the bosses you've killed. Notoriety is no more, just spend that gold!</p><p>COMBAT:</br>Each enemy and hero has four skills -- most of them are just a basic attack, but each combatant will have one or more \"special skils\" that you can hover your mouse over to read their effects. More interestingly, each hero has three playbooks you'll unlock over the course of the game that can sometimes drastically change what they do in combat -- change these on the adventure creation screen, or on the hero screen. There's also a robust buff/debuff system to add all kinds of interactions in combat. There's no more RNG, and no more spow/crit/dodge -- just HP/POW (for now!)</p><p>DUNGEONS:</br>There is now multiple dungeons in each \"area\" (The Spooky Spot, Groovy Grove, etc) that each have one material to gain. Each dungeon is endless and you're healed between floors, and getting further increases the rate of material you get (it's a flat timer, not tied to floor clear time). One thing to note is you must CLEAR a floor to gain/increase your rewards -- if you start your team on Floor 10 and they can't beat it, they'll retreat to Floor 9 and not start gaining materials until they finally defeat a floor.</p><p>QUESTS:</br>Further along, you'll unlock Quests. These are flat power/hp requirements where you can send teams and either pass/fail after a set period of time. These can be a source of gold and also used to unlock your playbooks.</p><p>TOWN:</br>Desynth has been renamed Magical Synthesizer and now includes a new synth option - use this to change your HP gear into POW gear and vice-versa for essence. Achievements/Progress have been moved to the Hall of Milestones Building and Tinker has been redone to be less confusing (with new trinkets). There's also a new museum building where you can submit one of each item to gain powerful effects!</p>"
   },
   {
-    "patchCount": 38,
     "version": "v0.4.0.1",
-    "date": "June 30th, 2020",
+    "date": "2020-06-30T04:00:00.000Z",
     "body": "<p>Good morning, Fortuneers!</p><p>Thanks to the feedback of our valued patrons, we have made a wide number of changes.  Most notable among them include:</p><p><b>Combat</b></br><ul><li>Increased starting difficulty for dungeons T2+</li><li>Increased difficulty of some mid-tier bosses</li></ul></p><p><b>Gold balance</b></br><ul><li>Due to the feedback about gold becoming increasingly meaningless, we created a new metric to assess gold spend, and implemented it</li>\n<li>Readjusted perk values and recipe unlock costs to create a more consistent curve</li><li>Some tiers have had their total gold spend decreased or left unchanged, but from T5+ perk and recipe unlock costs will cost noticeably more</li></ul></p><p><b>Other Changes</b></br><ul><li>Playfab cloud saves are now fully operational again</li><li>Quests now properly work and buying playbook perks awards the quest only (not the playbook). Complete the quest to unlock the playbook permanently</li><li>Tinker recipes now correctly unlocked for time-research (you'll need to wait for next unlock for this to kick in)</li><li>Using highest floor reached button doesn't automatically set highest floor reached to 1</li><li>Total Game Time is now set in Hall of Milestones</li><li>Removing heroes from party no longer removes the wrong hero</li></ul></p><p><b>Perks</b></br><ul><li>Added a new perk to highlight new dungeons unlocking</li><li>Reworded a few to increase clarity</li></ul></p><p><b>Bug Fixes</b></br><ul><li>Issue with T5 feature has been addressed</li><li>Many other minor fixes (over 25!) and errors have taken care of (mostly visual)</li></ul></p><p>As a final note, the team would like to thank you all for your diligence and patience as we work thru these issues.  Your input is extremely valuable to us.  During this patron access phase, all suggestions are taken seriously and discussed internally, regardless of scope or scale.  If you have a small bug fix or a broad strokes issue, please let us know!!</p>"
   },
   {
-    "patchCount": 39,
     "version": "v0.4.0.2",
-    "date": "June 30th, 2020",
+    "date": "2020-06-30T04:00:00.000Z",
     "body": "<p>Quick small patch to get rid of \"start fighting on floor 0\" issue. Starting floor should always be 1 and once you clear Floor 1 you'll start earning materials. Sidebar will also no longer say Floor 0 (and just exclude a floor).<p>"
   },
   {
-    "patchCount": 40,
     "version": "v0.4.0.3",
-    "date": "July 1st, 2020",
+    "date": "2020-07-01T04:00:00.000Z",
     "body": "<p>Hey Fortuneers!</p><p>V0.4.0.3 is here, mostly focusing on balance changes. Here's the scoop:</p><ul><li>Dungeons overall have been made easier (although still harder than release). This is especially true post T6.</li><li>Trinkets now have a crafting cost (as well as a research cost)</li><li>Fixed various tooltips (notably Titus's tooltips) and visual improvements</li></ul><p>That's it! As always leave us feedback over on discord and thank you for playing!</p><p>Akerson</p>"
   },
   {
-    "patchCount": 41,
     "version": "v0.4.0.4",
-    "date": "July 1st, 2020",
+    "date": "2020-07-01T04:00:00.000Z",
     "body": "<p>I missed Abqu's changes in merge, all is fixed (no additional notes but nerfs correctly applied)</p>"
   },
   {
-    "patchCount": 42,
     "version": "v0.4.0.5",
-    "date": "July 5th, 2020",
+    "date": "2020-07-05T04:00:00.000Z",
     "body": "<p><strong>Balancing/Gameplay Changes</strong></p><ul><li>Fundamental redesign to gold costs, this time it will make a major impact on gameplay</li><li>Redesigned Lich King boss, new skill, and balanced to be more difficult</li><li>Updated icons and skills text for Monkey Knife Fight, battle will now work correctly</li><li>Rebalanced Krakoptopus boss and added clarity to skills</li></ul><p><strong>Improvements</strong></p><ul><li>Guild Orders will now display proper status of material cost if recipe is mastered</li><li>Unlocking a playbook will now highlight with a notification bubble on where to find your new playbook</li><li>Quests now have their appropriate rewards listed directly on their card</li><li>Added material cost of recipe to crafting slot</li><li>Removed material cost on crafting slot if recipe is mastered</li><li>Multiple strings for skill tooltips adjusted to be more accurate or descriptive</li><li>&quot;View Links &amp; Resources&quot; list will now trigger on click instead of on hover</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Synthesis option will now properly unlock when purchasing the &quot;Get Your Fix&quot; perk</li><li>Trinkets can no longer be staged in Synthesizer for desynthesis or synthesis</li><li>Hero stats will now properly update when you upgrade your hero&#39;s equipment slot</li><li>Fixed &quot;Quests&quot; tab not being highlighted when navigating to it using hotkeys</li><li>Fixed un-rounded values in some tooltips and areas</li><li>Fixed material count not updating when materials expended on Dungeons section of sidebar</li><li>Fixed display of gold cost for Trinket recipe cards</li><li>Fixed issue preventing proper display of material cost on mastered recipes</li><li>Fixed Fortune Teller building recipe requiring materials from higher tier than intended</li><li>Fixed rarity effect for items in Fusion cards not filling entire card</li></ul>"
   },
   {
-    "patchCount": 43,
     "version": "v0.4.0.6",
-    "date": "July 5th, 2020",
+    "date": "2020-07-05T04:00:00.000Z",
     "body": "<p><ul><li>Fixed materials on building crafting slots appearing and breaking UI.</li></ul></p>"
   },
   {
-    "patchCount": 44,
     "version": "v0.4.0.7",
-    "date": "July 5th, 2020",
+    "date": "2020-07-05T04:00:00.000Z",
     "body": "<p>Balancing/Gameplay Changes</p><ul><li>Troy&#39;s healing has been reduced to be more in line with a previous change to enemies. His healing was too powerful, and making some boss encounters endless.</li></ul><p>Improvements</p><ul><li>Recipe cards have seen a UI change to attempt to improve game performance. They no longer flip for extra details, mastery is done exclusively in guilds and any important details have been moved to front matter.</li></ul><p>Bug Fixes</p><ul><li>Fixed a bug that would cause a crash when attempting to craft recipes with no initial material cost.</li><li>Fixed material cost not being immediately removed from crafting slot when recipe was mastered while assigned to crafting slot.</li></ul>"
   },
   {
-    "patchCount": 45,
     "version": "v0.4.0.8",
-    "date": "July 10th, 2020",
-    "body": "<p><strong>Balancing / Gameplay Changes</strong></p><ul><li>Troy&#39;s healing has been reduced to be more in line with a previous change to enemies. His healing was too powerful, and making some boss encounters endless.</li><li>Alok&#39;s ability has been fixed to work as intended. Alok&#39;s first cast increases max HP and all heroes are healed for amount gained, but he should not be healing on additional casts if not increasing max health. Increased max HP gain by 200% to compensate.</li><li>Rebalanced gold costs for Trinket crafting, along with increasing costs to Trinket research.</li><li>Trinkets can no longer be upgraded in the Forge.</li></ul><p><strong>Improvements</strong></p><ul><li>Several reductions in bandwidth usage for some assets. This includes certain fonts, please let us know of any icons not loading as a result and we&#39;ll get those fixed.</li><li>Offline time properly works now, complete with a popup letting you know what happened while you were gone.</li><li>Added a recipe filter toggle for recipe types and levels to Recipes, allowing you to now filter recipes by either their recipe type or their level.</li><li>Items assigned to the Forge no longer appear in the Inventory list as if not assigned.</li><li>Fusion Hut (and town button) now have red blip when fuses are complete.</li><li>Quest Tab now have red blip when a quest is complete and ready to be collected.</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Fixed gold count being visually overwritten when gaining Essence materials.</li><li>Fixed issues with Titus; can now be used in boss fights.</li><li>Fixed issues with Power and Health stats values in Heroes due to buffs.</li><li>Abandoning and restarting dungeon will no longer partially skip first turn.</li><li>Fixed mastery status of materials not being immediately reflected for guild orders.</li><li>Fixed buildings being autosell-able if perks was purchased while building was in crafting slot.</li><li>Fixed erroneous progression percentages for recipe lines in Museum.</li><li>Fixed Trinkets appearing in Museum.</li><li>Fixed a bug where Krakoptopus wouldn&#39;t be targeted properly with some abilities.</li></ul>"
+    "date": "2020-07-10T04:00:00.000Z",
+    "body": "<p><strong>Balancing / Gameplay Changes</strong></p><ul><li>Troy&#39;s healing has been reduced to be more in line with a previous change to enemies. His healing was too powerful, and making some boss encounters endless.</li><li>Alok&#39;s ability has been fixed to work as intended. Alok&#39;s first cast increases max HP and all heroes are healed for amount gained, but he should not be healing on additional casts if not increasing max health. Increased max HP gain by 200% to compensate.</li><li>Rebalanced gold costs for Trinket crafting, along with increasing costs to Trinket research.</li><li>Trinkets can no longer be upgraded in the Forge.</li></ul><p><strong>Improvements</strong></p><ul><li>Several reductions in bandwidth usage for some assets. This includes certain fonts, please let us know of any icons not loading as a result and we&#39;ll get those fixed.</li><li>Offline time properly works now, complete with a popup letting you know what happened while you were gone.</li><li>Added a recipe filter toggle for recipe types and levels to Recipes, allowing you to now filter recipes by either their recipe type or their level.</li><li>Items assigned to the Forge no longer appear in the Inventory list as if not assigned.</li><li>Fusion Cabin (and town button) now have red blip when fuses are complete.</li><li>Quest Tab now have red blip when a quest is complete and ready to be collected.</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Fixed gold count being visually overwritten when gaining Essence materials.</li><li>Fixed issues with Titus; can now be used in boss fights.</li><li>Fixed issues with Power and Health stats values in Heroes due to buffs.</li><li>Abandoning and restarting dungeon will no longer partially skip first turn.</li><li>Fixed mastery status of materials not being immediately reflected for guild orders.</li><li>Fixed buildings being autosell-able if perks was purchased while building was in crafting slot.</li><li>Fixed erroneous progression percentages for recipe lines in Museum.</li><li>Fixed Trinkets appearing in Museum.</li><li>Fixed a bug where Krakoptopus wouldn&#39;t be targeted properly with some abilities.</li></ul>"
   },
   {
-    "patchCount": 46,
     "version": "v0.4.0.9",
-    "date": "July 10th, 2020",
+    "date": "2020-07-10T04:00:00.000Z",
     "body": "<p><strong>Improvements</strong></p><ul><li>Added \"Sort Inventory\" button to Magical Synthesizer and The Forge buildings.</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Fixed Titus again, should be able to target bosses (maybe).</li><li>Fixed another case where buildings could be autosell-able.</li><li>Fixed the Power stat on Hero cards being visually the same as Health.</li><li>Trinkets can no longer be donated to the Museum.</li></ul>"
   },
   {
-    "patchCount": 47,
     "version": "v0.5.0.0",
-    "date": "July 17th, 2020",
+    "date": "2020-07-17T04:00:00.000Z",
     "body": "<p><strong>Balancing / Gameplay Changes</strong></p><ul><li>Rewrote all skills/buff texts to have a more unified &quot;voice&quot;, along with re-balancing (nerfing) a small number of skills.</li><li>Farewell to The Almighty Toastqu; T9 and T10 bosses have been adjusted to be more professional, and highlights the fact that they&#39;re both works in progress.</li><li>Hall of Milestones now shows museum progress (once unlocked) and overall % progress is a weighted average of all four categories.</li><li>First time boss is beaten is now timestamped in the Hall of Milestones. If you&#39;ve beaten the boss already, you&#39;ll have to beat a higher difficulty to capture a new time (sorry! we aren&#39;t mindreaders).</li></ul><p><strong>Improvements</strong></p><ul><li>Swapped location of &quot;Sort Inventory&quot; and &quot;Sell All Commons&quot; button in inventory to be consistent with other screens.</li><li>Updated headers and descriptions in Guilds to more clearly describe sections.</li><li>Recipe level filters now only show levels for recipes you owned/have acquired.</li><li>Recipe cards will now display crafting time with Museum bonuses applied.</li><li>Selected hero playbooks are now more prominently differentiated on the party selection screen.</li><li>Updated display of Fuse Time to match overall game UI language.</li><li>The Forge confirmation area will now follow along as you scroll down the page, this should help for those forging from Hero inventories.</li><li>You can now quickly cycle through recipe lines in Museum collections by using the arrows next to the recipe type header.</li><li>Added an additional tutorial step to collect dungeon II materials.</li><li>Area name is replaced with dungeon name on the area select screen if a dungeon is active.</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Attempted fix for issue where no login screen is present when PlayFab session expired.</li><li>Fixed being sent back to login screen when declining to import save from cloud.</li><li>Fixed missing icon for Synthesis option in Magical Synthesizer when option is not unlocked.</li><li>Fixed notification for completed fusion not being immediately present in building list.</li><li>Fixed missing icon for Research Time in Tinker Hut.</li></ul>"
   },
   {
-    "patchCount": 48,
     "version": "v0.5.0.1",
-    "date": "July 17th, 2020",
+    "date": "2020-07-17T04:00:00.000Z",
     "body": "<p>Hey Fortuneers! Quick update right now, thank you all for your positive feedback and comments!</p><p><strong>Balancing / Gameplay Changes</strong></p><ul><li>Distribution Djinn has been distributed a bit herself and is now more in tune with the intended progression curve</li></ul><p><strong>Kongregate Improvements</strong></p><ul><li>We pushed this out earlier, but in case you haven't seen it - it's now possible to scroll in the game window without scrolling down all of Kongregate!</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Fixed an issue with some save imports where guilds wouldn't show up</li><li>Fixed several typos found in toasts and recipes.</li></ul>"
   },
   {
-    "patchCount": 49,
     "version": "v0.5.0.2",
-    "date": "July 17th, 2020",
+    "date": "2020-07-17T04:00:00.000Z",
     "body": "<p>Hey Fortuneers! Sorry they're coming in hot on launch day. Thank you for all the reports and your patience, we're reading everything and responding as fast as we can!</p><p><strong>Balancing / Gameplay Changes</strong></p><ul><li>Adjusted curve for Guild Order reputation requirements. Later tiers should be more in line with the expected progression curve</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Fixed an issue where guild purchases wouldn't show up without a refresh.</li></ul>"
   },
   {
-    "patchCount": 50,
     "version": "v0.5.0.3",
-    "date": "July 19th, 2020",
+    "date": "2020-07-19T04:00:00.000Z",
     "body": "<p><strong>Balancing / Gameplay Changes</strong></p><ul><li>Shifted the material distribution in T5 recipes slightly.</li><li>Adjusted some T5 perk costs. </li></ul><p><strong>Improvements</strong></p><ul><li>Added indicator in inventory on item&#39;s stat if that item is an upgrade for any hero.</li><li>Forge Enhancement indicator has been made slightly more obvious on all cards where present, along with a helpful tooltip.</li><li>Magical Synthesizer action area will now follow you as you scroll down the page.</li><li>Item assigned to Magical Synthesizer will now be removed from inventory list below action area to prevent confusion.</li><li>Health bars for entities in Adventures has been changed to red.</li><li>Active skill (the skill that will be triggered on turn order) is now highlighted green on entities in Adventures.</li></ul><p><strong>Kongregate Improvements</strong></p><ul><li>Added new high score statistic for &quot;Total Floors Beaten&quot;.</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Tutorial progress is now saved, fixing some weird fringe cases of getting kicked back to the fourth tutorial tier.</li><li>Fixed issues with Buffs and Debuffs displaying &quot;undefined&quot; values.</li><li>Fixed Guild Order craft button not displaying proper craftable status when first unlocking a guild.</li><li>Fixed Recipes screen not populating or displaying proper filters when using &quot;View Recipes&quot; button from Heroes or Tinker Hut.</li><li>Fixed missing images for Tier 9 and Tier 10 placeholder bosses on Turn Order cards.</li><li>Fixed &quot;Total Floors Beaten&quot; stat in Hall of Milestones not properly registering.</li><li>Fixed missing icon for Moxious Maneuver.</li><li>Fixed several typos throughout various areas.</li></ul>"
   },
   {
-    "patchCount": 51,
     "version": "v0.5.0.4",
-    "date": "July 20th, 2020",
+    "date": "2020-07-20T04:00:00.000Z",
     "body": "<p><strong>Improvements</strong></p><ul><li>Offline gains will calculate material gains for crafting better, meaning more offline gold gains especially during longer stretches of inactivity.</li><li>The Magical Synthesizer Synthesis option will now display the text &quot;Locked&quot; when locked instead of the option name.</li><li>Per user feedback, scrollbar has been made 100% brighter as to be more identifiable.</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Fixed various combat bugs that caused offline gains to drop to 0 for the offline session.</li><li>Fixed combatants not being styled as dead unless you left the combat screen and came back.</li><li>Fixed a bug where monsters who die from non-attack related causes (like Beorn&#39;s Riposte) wouldn&#39;t trigger &quot;on death&quot; effects.</li><li>Fixed an issue where HP wasn&#39;t being tracked for inventory equipment upgrade indicator.</li><li>Fixed issue with recipe filter highlighting after purchasing new recipe from guilds.</li><li>Fixed formatting for Monster Trophies string in hero upgrades.</li><li>Crafting trinkets no longer triggers an &quot;epic crafted&quot; toast, nor does it count towards epics crafted in achievements.</li><li>Fixed a bug where last set of T10 recipes were not purchasable.</li></ul>"
   },
   {
-    "patchCount": 52,
     "version": "v0.5.0.5",
-    "date": "July 22nd, 2020",
+    "date": "2020-07-22T04:00:00.000Z",
     "body": "<p><strong>Balancing / Gameplay Changes</strong></p><ul><li>Reduced damage and healing done by Grim&#39;s second skill.</li><li>Decreased the conditional bonus damage done by Revere&#39;s third skill.</li><li>Increased difficulty of Playbook Quests available T8-T10.</li><li>Boss 7 now removes debuffs when his passive triggers, and properly goes to different positions (not just position 4).</li></ul><p><strong>Improvements</strong></p><ul><li>Adding functionality for hero cycling in hero inventories for Forge building.</li><li>Reworded Playbook Quest descriptions that require two heroes to highlight which heroes are needed.</li><li>Reordered dungeons in ascending order and added a &quot;locked&quot; line for each currently unavailable dungeon tier.</li><li>Changed &quot;Locked&quot; button after defeating boss and not owning boss re-challenge perk to say &quot;Boss Defeated&quot; along with informative tooltip.</li><li>Party creation no longer reorders existing party members when removing someone from the lineup.</li><li>Recipe order in Museum will now match order of recipes list in Recipes.</li><li>Removed &quot;complete time&quot; in Hall of Milestones, as this functionality has been detailed out to &quot;boss slain&quot; milestones.</li><li>Enemies will remove their buffs/debuffs upon death reducing visual clutter</li><li>Titus&#39;s Necrosis and Zoe&#39;s Scorch are now affected by damage reduction monster abilities.</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Fixed materials from offline orders being awarded over a longer period of time, resulting in a rapid &quot;tick up&quot; of materials (material generation unaffected).</li><li>MKF fight will no longer show health to the ten-thousandth digit when healed.</li><li>Fixed wrong recipe filter being highlighted if recipe was purchased from guilds.</li><li>Fixed recipe list not immediately reflecting newly purchased recipes from guilds if level filter was selected.</li><li>Fixed material icon on all crafting slots being removed when mastering any recipe.</li><li>Fixed missing icon for Tinker Hut research time progress bar.</li><li>Fixed an error on Stinkie&#39;s skill tooltip.</li><li>Fixed a typo on Stinkie&#39;s buff tooltip.</li><li>Fixed a typo in Titus&#39;s second skill tooltip.</li><li>Fixed two Titus bugs - he no longer targets dead enemies with mark, and if there&#39;s monsters already dead his targeting will work as intended.</li></ul>"
   },
   {
-    "patchCount": 53,
     "version": "v0.5.0.6",
-    "date": "July 25th, 2020",
+    "date": "2020-07-25T04:00:00.000Z",
     "body": "<p><strong>Balancing / Gameplay Changes</strong></p><ul><li>Monkey Knife Fight: Bananadine has had the conditional healing effect increased from 10% to 40% per stack.</li><li>Zoe: Conflagrate damage reduced from 300% to 250%.</li><li>Titus now accompanies Grim on his second playbook quest.</li></ul><p><strong>Improvements</strong></p><ul><li>Repeatable Quests have been completely revisited. The gold rewarded from these quests has been greatly improved. The power and health requirements have been raised slightly to compensate for this change.</li><li>Added messaging when all Trinket research is complete instead of a blank page.</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Fixed a bug preventing Trinket research from rendering in the Tinker Hut after unlocking any Level 10 Trinket recipe.</li><li>Fixed repeatable quests not triggering a quest notification upon subsequent completions.</li><li>Monkey Knife Fight: both knife and bananadine have had their skill tooltips updated to properly reflect what the skill does.</li><li>Fixed a bug where Larry Jr. wouldn&#39;t get his buff preventing him from dying while in a pile of bones.</li><li>Fixed incorrect party size limits for early dungeons (this bug was introduced in v0.5.0.5 with party creation changes).</li><li>Fixed various typos.</li></ul>"
   },
   {
-    "patchCount": 54,
     "version": "v0.5.0.7",
-    "date": "July 30th, 2020",
+    "date": "2020-07-30T04:00:00.000Z",
     "body": "<p><strong>Improvements</strong></p><ul><li>Offline time has been increased to 72 hours from 8 hours. The &quot;time offline&quot; will now cap at 72 hours and let you know that the maximum amount of time offline has been reached.</li><li>Toasts have seen a visual and slight functional change to match the game&#39;s aesthetic. We have switched from using a third party package to using our own developed toast system.</li><li>Materials gain bars in the Dungeons section of the sidebar now have a tooltip that displays your material gain rate.</li><li>Fusions can now be cancelled; you WILL NOT be refunded your materials however!</li><li>Fortunes will now last until your craft your desired fortune (rather than a set amount of crafts), Fortune Teller no longer shows duplicate items to sacrifice, and Fortune Teller no longer allows you to start two identical fortunes (which gave no additional benefit).</li><li>Trinket recipes are now found in the Tinket Hut (instead of Recipes) and show their Epic rarity stats instead of Common as they are always crafted at Epic rarity.</li><li>Quests can now be cancelled by hovering over the active quest and using the &quot;Abandon Quest&quot; button.</li><li>Enemy entities will now be marked as such in the Turn Order section of Combat.</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Offline progression fixed (once again). Should give proper offline crafts for unmastered items now.</li><li>Fixed issue where material counts to master recipes wasn&#39;t refreshed on load.</li><li>Sidebar inventory/gold counts now properly refresh on load.</li><li>Side inventory count now updates when moving items from bank to inventory.</li><li>The Forge now uses proper materials for items without a material to craft.</li><li>Fortunes not locked in will no longer give their effects until the item sacrifice has been made.</li><li>Beorn&#39;s Phalanx playbook now correctly drops buff after getting hit, not start of turn.</li><li>Titus&#39;s third playbook correctly deals 30% Power to his allies, not 100% power.</li></ul>"
   },
   {
-    "patchCount": 55,
     "version": "v0.5.0.8",
-    "date": "August 1st, 2020",
+    "date": "2020-08-01T04:00:00.000Z",
     "body": "<p><strong>Improvements</strong></p><ul><li>Settings dialog has been improved to decouple general and notification settings into separate tabs.</li><li>New setting: Notifications, allows you to choose whether notifications are rendered.</li><li>New setting: Notification Duration; allows you to choose the duration for which notifications stay on screen (5, 10 or 15 seconds).</li><li>Added new toast for Fortune expiration once appropriate item has been crafted; from this toast you can quickly navigate to the Fortune Teller building.</li><li>Added available fortune slot count to Fortune Teller building tab.</li><li>Removed redundant &quot;View Trinket Recipes&quot; button from Tinker Hut.</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Fixed issue with Fortune Teller being limited to one recipe per rarity per recipe line.</li><li>Fixed erroneous tooltip on active fusion cancel button stating items would be refunded.</li></ul>"
   },
   {
-    "patchCount": 56,
     "version": "v0.5.0.9",
-    "date": "August 6th, 2020",
+    "date": "2020-08-06T04:00:00.000Z",
     "body": "<p><strong>Balancing / Gameplay Changes</strong></p><ul><li>Clarified Monkey Knife Fight&#39;s Snack Break passive.</li><li>Some forge material costs were not the same as the cost to craft those items. This has been fixed.</li><li>Rebalanced the T1 forge cost distribution.</li></ul><p><strong>Improvements</strong></p><ul><li>New setting: Notification Size; allows you to choose from two different toast sizes (comfortable and compact). Defaults to Comfortable.</li><li>Added new toast for completed fusions; from this toast you can quickly navigate to the Fusion Cabin building.</li><li>Materials list in Inventory will now show any obtained material whether you have some or not.</li><li>Added hero type (Might, Mind, Moxie) indicators to party selection in Adventures.</li><li>Changed hero classes -- as they&#39;re no longer relevant -- to hero types (Might, Mind, Moxie) in hero details menu.</li><li>Reworded language in the Hall of Milestones for consistency.</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Fixed missing toast for attempting to collect a fusion while inventory is full.</li><li>10&#39;s floors (floor 10, 20, 30 etc) were receiving time changes prematurely, should happen on X1 floors (11, 21, 31, etc) to match material increases.</li><li>Fixed Trinket recipes list not immediately updating upon completing research, requiring the player to exit out and enter back into the Tinker Hut to see new recipes.</li><li>Minimush&#39;s skill tooltip now accurately reflects what it does.</li><li>Fixed a typo in the Hall of Milestones.</li><li>Added &quot;I&quot; designation to first tier dungeons, renamed Museum to The Museum, and added some more The&#39;s to guild names</li><li>Fixed a bug where enemies could attack after dying to Necrosis. In some circumstances, attack bugged out (and cancelled offline timer)</li></ul>"
   },
   {
-    "patchCount": 57,
     "version": "v0.5.0.10",
-    "date": "August 16th, 2020",
+    "date": "2020-08-16T04:00:00.000Z",
     "body": "<p><strong>Balancing / Gameplay Changes</strong></p><ul><li>Boss 9 has been added! Enjoy fighting The Goblin King and leave us feedback on the fight!</li></ul><p><strong>Improvements</strong></p><ul><li>Museum rewards have been updated to provide goodies over all turn-ins. Turn in a set of items (such as common knife +0 through +10) to receive a bonus to craft sped and good/great/epic chance proc for all items of that type!</li><li>New setting: Animations; allows you to disable animations when navigating through content. Please note this feature is in beta and may have adverse affects on your gameplay experience (such as, inaccessible screens or locked state).</li><li>Most items can now be ctrl+clicked to start crafting them (like from inventory).</li><li>Shift+click on most buildings will override the slot function and immediately perform the action.</li><li>Shift+click on selling in inventory will auto-sort it after selling.</li><li>Added rarity indicator to museum contributions (color is no longer the only indicator).</li><li>Standardized guild icon order on crafting cards. </li></ul><p><strong>Bug Fixes</strong></p><ul><li>Fixed a bug where Larry Jr. gets his buffs cleared upon death.</li><li>Fixed Earth Staff&#39;s forge material cost.</li><li>Searching for certain words no longer breaks recipe filter</li><li>Fortune now properly consumes materials when started</li><li>Cactus Boss now properly cleaves instead of targeting twice</li><li>Paint Brush Knight no longer remembers the last hero he targeted before you abandoned the dungeon.</li><li>Party size is now actually limited to slots you can see.</li></ul>"
   },
   {
-    "patchCount": 58,
     "version": "v0.5.0.11",
-    "date": "August 16th, 2020",
+    "date": "2020-08-16T04:00:00.000Z",
     "body": "<p><strong>Bug Fixes</strong></p><ul><li>Fixed a bug in Titus's targetting, causing combat to not work and offline gains to disappear.</li><li>Optimized offline catch-up code further, greatly reducing load times</li></ul>"
   },
   {
-    "patchCount": 59,
     "version": "v0.5.0.12",
-    "date": "August 17th, 2020",
+    "date": "2020-08-17T04:00:00.000Z",
     "body": "<p><strong>Balancing / Gameplay Changes</strong></p><ul><li>Thanks to your feedback, Museum rewards will be awarded every 11 turn-ins rather than requiring the full eleven forged versions of an item to get a reward.</li></ul><p><strong>Improvements</strong></p><ul><li>Standardized forge enhancement appearance in all relevant areas.</li><li>Fusion Cabin main content area (the fuse slots) will now follow you as you scroll.</li><li>Fortune Teller main content area (the fortune slots) will now follow you as you scroll.</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Fixed a bug where epic museum increases were counting good turn-ins.</li><li>Fixed a bug with Titus's combat, causing offline gains to disappear.</li></ul>"
   },
   {
-    "patchCount": 60,
     "version": "v0.5.0.13",
-    "date": "September 16th, 2020",
+    "date": "2020-09-16T04:00:00.000Z",
     "body": "<p><strong>Balancing / Gameplay Changes</strong></p><ul><li>Boss 10 has been added!</li></ul><p><strong>Improvements</strong></p><ul><li>Materials list will now display three materials per row instead of two.</li><li>\"View Bank\" button will now open \"Bank Storage\" tab immediately instead of \"Your Inventory\".</li><li>Material amount will now be displayed along with material icon in Adventures' dungeon selection screen.</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Fixed a rounding error for Museum rewards</li><li>Fixed tier 1 fortune materials on a few crafts</li></ul>"
   },
   {
-    "patchCount": 61,
     "version": "v0.6.0.0",
-    "date": "October 16th, 2020",
+    "date": "2020-10-16T04:00:00.000Z",
     "body": "<p><strong>Balancing / Gameplay Changes</strong></p><ul><li>New feature: Shop Orders! These replace the guild feature with a more streamlined experience with the same &quot;submit items for a reward&quot; taste. There&#39;s no longer four screens of orders to sift through, and after completing an order you&#39;ll gain a recipe which will unlock a respective order for that item to complete (before repeating the process to get a new recipe). You&#39;ll also get to choose the recipe! This means much less crafting slot and screen shuffling and constantly working on items in the tier you&#39;re in.</li><li>Mastery changes. Items now have a minimum number to craft before mastery can be attempted, and mastery cost can always be reduced to 0. Mastery will also never cost more than the max material count (assuming you&#39;re buying the Perks).</li><li>Hotkeys! Now every major screen is accessible by a hotkey and configurable in Settings, including disabling them altogether. This is most notable for hero, specific dungeon, and town screens that exist in submenus.</li></ul><p><strong>Improvements</strong></p><ul><li>Material caps have been increased via new shop perks, up to a maximum of 4000.</li><li>The &quot;fluff floors&quot; of dungeons have been removed. Previously, You&#39;d have to get to floor 11 for your first increase in material gain rate - now it&#39;ll happen on floor 2. However, floors get harder 10 times as fast. Reaching your potential will be much quicker. Every floor clear counts! (We also removed the &quot;max dungeon floor&quot; button as we&#39;ll be introducing a feature in the next patch to make up for it).</li><li>Museum screen will not return to the &quot;overview&quot; section upon leaving and reentering the Museum</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Fixed some monster skill texts that didn&#39;t match their skill effect entirely</li><li>Reordered materials on side bar to follow dungeon order</li><li>Fixed the Fortune Teller not refreshing possible fortunes when one completes</li><li>Fixed instance in which recipe filter scopes (type, level) could duplicate.</li></ul>"
   },
   {
-    "patchCount": 62,
     "version": "v0.6.0.1",
-    "date": "October 16th, 2020",
+    "date": "2020-10-16T04:00:00.000Z",
     "body": "<p><strong>Bug Fixes</strong></p><ul><li>Fixed missing forge enhancement requirements on Shop Orders - this will correct why you looked like you couldn't submit orders you had items for.</li><li>Fixed uncollectable fuses</li><li>Fixed the workers on sidebar not turning red when at 0</li></ul>"
   },
   {
-    "patchCount": 63,
     "version": "v0.6.0.2",
-    "date": "October 18th, 2020",
+    "date": "2020-10-18T04:00:00.000Z",
     "body": "<p><strong>Improvements</strong></p><ul><li>Added a \"complete\" tag to lines that have been fully completed in the Museum. Further improvements to Museum UI will be coming in the future.</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Trinket Research now correctly working again. Note: you might have to \"complete research\" before it'll kick in (don't worry you'll get free money if this is the case!)</li></ul>"
   },
   {
-    "patchCount": 64,
     "version": "v0.6.0.3",
-    "date": "October 21st, 2020",
+    "date": "2020-10-21T04:00:00.000Z",
     "body": "<p><strong>Improvements</strong></p><ul><li>Added a \"Sort Inventory\" hotkey</li><li>Forged items are now auto-submitted</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Inventory count on sidebar now updates when toggling auto contribute</li><li>The \"museum overview\" screen will now be remembered as the last screen you were on if you navigate away from it</li><li>Hotkeys are now done based off actual key, and not key location -- this means alternative keyboard layouts should work properly. You'll have to re-do your custom hotkeys for this patch, sorry!</li></ul>"
   },
   {
-    "patchCount": 65,
     "version": "v0.6.0.4",
-    "date": "October 24th, 2020",
+    "date": "2020-10-24T04:00:00.000Z",
     "body": "<p><strong>Bug Fixes</strong></p><ul><li>Fixed a bug where guild orders weren't synching to gaining recipes, causing the last (or sometimes second last) recipe gained to not have a shop order</li><li>Fixed a bug where hotkeys were triggering when user input was involved (such as recipe search)</li><li>Fixed a bug where playbook progress would be erased. You might need to re-run the quests to regain access to other missing playbooks. Feel free to stop by discord and I'll manually fix anyone's save who wants to bypass re-questing.</li></ul>"
   },
   {
-    "patchCount": 67,
     "version": "v1.0.0",
-    "date": "December 11th, 2020",
+    "date": "2020-12-11T05:00:00.000Z",
     "body": "<p>Hi Fortuneers! Two things - first, this is the v1.0.0 patch! What does that mean? We're happy with the core experience from starting play to beating the final boss. It's not perfect and we're missing a few small things I want to add in future updates, but it's time to call pencils down and start focusing on new content after this. A huge thanks for everyone who's stuck by since our v0.0.7 patch two and a half years ago! It's been a long and crazy journey full of learning and reworks and progress, Secondly, the patch note format is going to be a little different, as we're rolling out three features and they deserve a bit more explanation. With that said, here's what's in v1.0.0!</p><p><b>Expeditions</b></p><ul><li>Questing has been replaced with an expedition system (make sure you buy the perk in the Market!). It's now displayed in the town rather than on the top bar.</li><li>Expeditions have you sending out as many heroes as you want to try and tackle 25 landmark challenges for gold. Your party's power dictates the travel speed, and your party's HP dictates how far you need to travel. Be careful though -- the more heroes you add, the less efficient your teams get; sometimes it doesn't pay to send all 12 heroes to the same place!</li><li>Within expeditions, the playbook unlock system is now called quests. Send the specified parties and complete the target milestone to unlock a new playbook! (sound familiar?)</li></ul><p><b>Boss Trophies</b></p><ul><li>Boss trophies have received a facelift! They can be found on a new \"Extras\" tab on the hero screen, combined with the Trinket slot.<li>Complete with new sprites, trophies are no longer used to upgrade equipment slots. They are now their own equippable item.<li>Beating a boss for the first time unlocks their trophy which provides unique benefits, and beating the boss at higher difficulties levels the trophy up and makes it stronger. No longer do you have to worry about if you're committing upgrades properly!<li>There's 10 trophies total (one for each boss) and they can be swapped between heroes whenever, but they cannot be used by two heroes at once.</li></ul><p><b>Magical Synthesizer</b></p><ul><li>The three essences have been replaced with a single currency that lives just in the magical Synthesizer.</li><li>Essence can now be used to speed up the game to 200% speed while you have essence available at a rate of 1 essence per second for 200% game speed.</li><li>Old essence you had will be automatically converted to the new currency.</li><li>Resynthing costs have been increased at higher rarities to match the desynth costs.</li></ul>"
   },
   {
-    "patchCount": 68,
     "version": "v1.0.1",
-    "date": "December 11th, 2020",
+    "date": "2020-12-11T05:00:00.000Z",
     "body": "<p><strong>Bug Fixes</strong></p><ul><li>Fixed a bug where tutorial wouldn't recognize Revere is in an adventure</li></ul>"
   },
   {
-    "patchCount": 69,
     "version": "v1.0.2",
-    "date": "December 12th, 2020",
+    "date": "2020-12-12T05:00:00.000Z",
     "body": "<p><strong>Bug Fixes</strong></p><ul><li>Fixed a bug where buying the fusion cauldron upgrades wouldn't award you with additional slots</li><li>Attempt to fix a fusion duplication glitch</li></ul>"
   },
   {
-    "patchCount": 70,
     "version": "v1.0.3",
-    "date": "December 14th, 2020",
+    "date": "2020-12-14T05:00:00.000Z",
     "body": "<p><strong>Balancing / Gameplay Changes</strong></p><ul><li>Quests have been tuned to properly reflect the intended difficulty. Quests are now a 4-group member expedition, rather than 1 or 2.</li><li>Desynthesizer no longer de-slots your item when you downgrade it, unless you downgrade it to common rarity<li></ul><p><strong>Improvements</strong></p><ul><li>Expeditions and quests have received updated tooltips and descriptions to make it more clear which number landmark you're at, what the next landmark is, and what number landmark you need to get to for quests</li><li>The town building list now has snazzy icons!</li><li>An \"expedition complete\" red bubble has been added to the town list for when a group completes landmark 25 (the last landmark). It'll disappear after you collect the group</li><li>The \"start adventure\" button has been stylized to be a bit more noticable</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Hotkeys should function properly, be assigned in the hotkey menu, and expeditions have been added to the hotkey list</li><li>Fixed a fusion cauldron dupe bug, that also allowed you to get additional temporary inventory space</li><li>Fixed various bugs around the expedition naming (expedition_name_0 and expedition_name_26 bugs)</li></ul>"
   },
   {
-    "patchCount": 71,
     "version": "v1.0.4",
-    "date": "December 16th, 2020",
+    "date": "2020-12-16T05:00:00.000Z",
     "body": "<p><strong>Improvements</strong></p><ul><li>Adjusted layout of museum contribution menu when inspecting specific recipe. (Switched to horizontal instead of vertical layout)</li></ul><p><strong>Bug Fixes</strong></p><ul><li>If you beat a boss before unlocking all the recipes for that tier, those recipes will now be able to be gotten before finishing the current tier</li><li>Fixed missing text after a donation to museum</li></ul>"
   },
   {
-    "patchCount": 72,
     "version": "v1.0.5",
-    "date": "December 16th, 2020",
+    "date": "2020-12-16T05:00:00.000Z",
     "body": "<p><strong>Bug Fixes</strong></p><ul><li>Previous expedition changes seemed to not have transferred to live servers. Expeditions should require 4 members to complete now.</li></ul>"
   },
   {
-    "patchCount": 73,
     "version": "v1.0.6",
-    "date": "December 17th, 2020",
+    "date": "2020-12-17T05:00:00.000Z",
     "body": "<p><strong>Improvements</strong></p><ul><li>Updated quest descriptions for clarity and flavor</li><li>Boss 8 has received some new skill icons</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Fixed a bug where Boss 6 wouldn't trigger it's passive</li></ul>"
   },
   {
-    "patchCount": 74,
     "version": "v1.0.7",
-    "date": "December 20th, 2020",
+    "date": "2020-12-20T05:00:00.000Z",
     "body": "<p><strong>Improvements</strong></p><ul><li>Synthesizer now has a tooltip on remaining boost time if you used all your essence</li><li>Added the landmark count to the expedition screen for easier viewing</li></ul><p><strong>Bug Fixes</strong></p><ul><li>The perk \"Offer You Can't Refuse II\" was giving it's bonus before it was purchased. If you haven't purchased this perk yet, you may see your fusion slots be reduced to 2. Otherwise there will be no change in your experience</li><li>Fixed a bug where Titus required himself twice for his playbook Quest</li></ul>"
   },
   {
-    "patchCount": 75,
     "version": "v1.0.8",
-    "date": "December 29th, 2020",
+    "date": "2020-12-29T05:00:00.000Z",
     "body": "<p><strong>Bug Fixes</strong></p><ul><li>Fixed a bug where Grim's playbook Blood Bond wouldn't heal him if he killed the target with the move</li></ul>"
   },
   {
-    "patchCount": 76,
-    "version": "v4.2.0",
-    "date": "April 1st, 2020",
-    "body": "<p><strong>Improvements</strong></p><ul><li>Game was too serious, so we made it less serious. Stay forgey, fortuneers!</li></ul>"
+    "version": "v1.0.9",
+    "date": "2021-09-22T04:00:00.000Z",
+    "body": "<p>Hi guys! Thanks for playing Forge&Fortune! We have a big update planned with some QoL fixes and an Ascension system coming so stay tuned! In the mean time, enjoy a small fix to a pestering problem!</p><p><strong>Improvements</strong></p><ul><li>Merchant orders listed as \"auto-contribute\" won't remove auto-sell settings for the items crafted from the guild order cards</li></ul>"
+  },
+  {
+    "version": "v2.0.0",
+    "date": "2022-02-21T05:00:00.000Z",
+    "body": "<b><strong>Inventory</strong></b><ul><li>The inventory system has been reworked! Now, like-inventory items are stackable and inventory caps are applied to the max different types of items in your inventory at once. Moreover, you can exceed maximum inventory size, but doing so will prevent you from slotting new recipes to your action slots. No longer do you need to worry about losing crafts overnight or clearing your inventory in the middle of playing!</li><li>Inventory is now sortable with drag+drop. Inventory also features a new \"auto-sort\" option. Shift+clicking on an item stack in inventory sells all copies of that item.</li><li>Added an inventory side-menu, which features (most) actions you'd like to do with an item quickly <li>including desynthing, donating, equipping, fusing, etc.</li><li>Removed the bank, replaced the perks to give maximum inventory space instead.</li></ul><b><strong>Crafting</strong></b><ul><li>Reduced craft time of tier 8 by 5%, tier 9 by 30%, and tier 10 by 35%. Gold values were adjusted to compensate.</li></ul><b><strong>Right Sidebar</strong></b><ul><li>The sidebar has been redone to show more functionality quickly. Speed boost from essence can be toggled, and current running systems can be paged through. There's a default hotkey of ` to use, although you might need to re-assign this if you've played before.</li></ul><b><strong>Hero Screens</strong></b><ul><li>Added new \"hero compare\" screen to quickly see an overview of heroes gear. You can quickly swap gear between heroes by dragging/dropping!</li>"
+  },
+  {
+    "version": "v2.0.1",
+    "date": "2022-02-21T05:00:00.000Z",
+    "body": "<p><strong>Improvements</strong></p><ul><li>Added a quick view for active materials. Materials used for your active crafting slots or active dungeon parties are shown on the crafting right pane</li><li>Submitting a guild order when you don't have an item gives you a toast letting you know your action wasn't successful</li><li>You can now attempt mastering a recipe on the recipe cards themselves in the recipe tab</li><li>Shift-clicking the forge/synth functionality in the item inspect pane will lock the preview on the pre-forge/synth item rather than transferring to the new item</li><li>Shift-clicking a dungeon in the area select will abandon it</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Fixed a bug where shop order craft button doesn't work</li><li>Fixed styling for fortune rarities and level display</li><li>Added missing icons for perks</li><li>Fixed a bug with fortune slot loading</li><li>Essence timer properly displays turning off when you reach zero essence</li><li>Hero inspect screens show new item crafts</li><li>Auto-contributing an item from the forge correctly removes it from the staging area</li></ul>"
+  },
+  {
+    "version": "v2.0.2",
+    "date": "2022-02-21T05:00:00.000Z",
+    "body": "<p><strong>Bug Fixes</strong><p><ul><li>Fixed a bug with the load save logic getting stuck</li><li>Fixed a bug where boss dungeons wouldn't start</li></ul>"
+  },
+  {
+    "version": "v2.0.3",
+    "date": "2022-02-22T05:00:00.000Z",
+    "body": "<p><strong>Improvements</strong></p><ul><li>Materials Quickview is now also on the museum tab</li></ul><p><strong>Bug Fixes</strong></p><ul><li>Updated discord links as I accidentally deleted the old invite oops!</li><li>Inventory sidebar items now will update after completing an action if you can't repeat that action</li><li>Fusion slots on right bar update when fuse added from inventory sidebar</li><li>Forging items no longer sometimes removes from forge staging area</li><li>Switching tabs and switching back to inventory updates the inventory sidebar buttons</li><li>Rare items no longer show as non-fuseable</li></ul>"
+  },
+  {
+    "version": "v2.0.4",
+    "date": "2022-02-25T05:00:00.000Z",
+    "body": "<p><strong>Bug Fixes</strong></p><ul><li>Updated inventory sidebar to enable/disable the fuse button with item quantity changes</li><li>Fixed the ability to forge past the limits from hero screen</li><li>The dot disappears when checking a hero playbook</li><li>Fixed more time formatting issues for times over a day</li></ul>"
+  },
+  {
+    "version": "v2.0.5",
+    "date": "2022-02-26T05:00:00.000Z",
+    "body": "<p><strong>Bug Fixes</strong></p><ul><li>Updated inventory sidebar to enable/disable the fuse button with item quantity changes</li><li>Fixed the ability to forge past the limits from hero screen</li><li>The dot disappears when checking a hero playbook</li><li>Fixed more time formatting issues for times over a day</li></ul>"
   }
 ]

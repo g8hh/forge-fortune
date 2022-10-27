@@ -401,7 +401,37 @@
   },
   {
     "version": "v2.0.5",
-    "date": "2022-02-26T05:00:00.000Z",
-    "body": "<p><strong>Bug Fixes</strong></p><ul><li>Updated inventory sidebar to enable/disable the fuse button with item quantity changes</li><li>Fixed the ability to forge past the limits from hero screen</li><li>The dot disappears when checking a hero playbook</li><li>Fixed more time formatting issues for times over a day</li></ul>"
+    "date": "2022-07-29T04:00:00.000Z",
+    "body": "<p>This is just a small QoL patch, not ascension (yet!). Life has been busy for the three of us the last few months but we're back in the saddle again. Next major update will be our first major \"new content\" patch in quite some time. An ascension system; featuring new systems, new monsters and bosses, new toys, new challenges, and most importantly new content! It's coming, I promise, and we thank you for your patience! Working on this game for the last four years has been a calming cornerstone in the turbidity of things in and out of our control in this world and we're excited for the leg of that release. -Akerson</p><p><strong>Improvements</strong></p><ul><li>Clicking on a museum contribution square will attempt to auto-forge the closest item it can and donate it. This should make the museum a little more managable as you won't need to worry about forging levels. If that's not enough, shift-clicking on the \"donate to museum\" button on the item sidebar will attempt to auto-forge to the next available contribution.</li><li>Shift-clicking the desynth button in inventory will desynth the entire stack of items</li><li>Fuse slots on the right inventory sidebar now have tooltips</li></ul>"
+  },
+  {
+    "version": "v2.0.6",
+    "date": "2022-08-13T04:00:00.000Z",
+    "body": "<p><strong>Bug Fixes</strong></p><ul><li>Fixed a bug where you could donate previously donated item in the sidebar</li><li>Fixed a bug where shift-click donating already forged items didn't contribute properly</li></ul>"
+  },
+  {
+    "version": "v2.0.7",
+    "date": "2022-08-15T04:00:00.000Z",
+    "body": "<p><strong>Bug Fixes</strong></p><ul><li>Fixed a bug wih Titus's Disintegrate skill</li></ul>"
+  },
+  {
+    "version": "v2.0.8",
+    "date": "2022-09-03T04:00:00.000Z",
+    "body": "<p><strong>Bug Fixes</strong></p><ul><li>Fixed a bug where items could be multi-contributed to the Fortune Teller. Doing this had no effect (other than wasting a Fortune Teller slot).</li><ul>Fixed a bug where forge-contributing to the museum via the sidebar didn't update inventory</li></ul>"
+  },
+  {
+    "version": "v2.0.9",
+    "date": "2022-09-09T04:00:00.000Z",
+    "body": "<p><strong>Improvements</strong></p><ul><li>Fuses are automatically collected when finished</li></ul>"
+  },
+  {
+    "version": "v2.0.10",
+    "date": "2022-10-09T04:00:00.000Z",
+    "body": "<p><strong>Improvements</strong></p><ul><li>Auto-forging from museum is now possible. Works like the inventory functionality.</li><li>Added cursor change to museum auto-forge buttons to make functionality easier to find</li></ul>"
+  },
+  {
+    "version": "v2.0.11",
+    "date": "2022-10-16T04:00:00.000Z",
+    "body": "<p><strong>Improvements</strong></p><ul><li>Added Museum Progress to Recipe Cards (clicking on it will also redirect you to the Museum building).</li></ul>"
   }
 ]

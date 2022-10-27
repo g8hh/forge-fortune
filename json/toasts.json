@@ -531,6 +531,15 @@
     "actionText": null
   },
   {
+    "id": "cant_fortune_unique",
+    "customClass": "warning",
+    "icon": "<i class=\"fas fa-times\"></i>",
+    "title": "Cannot Start Fortune",
+    "description": "There already is an item with this rarity in the Fortune Teller.",
+    "type": null,
+    "actionText": null
+  },
+  {
     "id": "shop_order_no_item",
     "customClass": "warning",
     "icon": "<i class=\"fas fa-times\"></i>",

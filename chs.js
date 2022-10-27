@@ -2044,6 +2044,7 @@ var cnRegReplace = new Map([
     [/^(\d+) day, (\d+) hour, (\d+) minutes, (\d+) seconds$/, '$1 天, $2 小时, $3 分钟, $4 秒'],
     [/^(\d+) days (\d+):(\d+):(\d+)$/, '$1 天 $2:$3:$4'],
     [/^(\d+) Monster Trophies$/, '$1 怪物奖杯'],
+    [/^Part (\d+) of (\d+)$/, '$1 \/ $2'],
     [/^ (\d+) and$/, ' $1 和'],
     [/^Gaining ([\d\.]+) material every ([\d\.]+) seconds.$/, '每$2秒获得$1个材料。'],
     [/^LV(\d+) Potassium Trophy$/, '等级 $1 钾奖杯'],

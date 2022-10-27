@@ -4,7 +4,8 @@ var preloaderContent = document.querySelector("#preloader");
 var preloaderMessage = document.querySelector("#preload-message");
 var preloaderExtended = document.querySelector("#preload-extended-container");
 var preloader = {
-    loaded: false, contentLoading: function contentLoading() {
+    loaded: false,
+    contentLoading: function contentLoading() {
         var _this = this;
         this.loaded = false;
         content.style.display = "none";
@@ -12,19 +13,21 @@ var preloader = {
         setTimeout(function () {
             if (!_this.loaded) preloaderExtended.classList.remove("loaded")
         }, 25e3)
-    }, contentLoaded: function contentLoaded() {
+    },
+    contentLoaded: function contentLoaded() {
         this.loaded = true;
         preloaderContent.classList.add("contentLoaded");
         setTimeout(function () {
             content.style.display = "";
             preloaderContent.style.display = "none"
         }, 300)
-    }, setMessage: function setMessage(message) {
+    },
+    setMessage: function setMessage(message) {
         preloaderMessage.textContent = message
     }
 };
 preloader.contentLoading();
-!function (e, t) {
+! function (e, t) {
     "use strict";
     "object" == typeof module && "object" == typeof module.exports ? module.exports = e.document ? t(e, !0) : function (e) {
         if (!e.document) throw new Error("jQuery requires a window with a document");
@@ -32,127 +35,213 @@ preloader.contentLoading();
     } : t(e)
 }("undefined" != typeof window ? window : this, function (C, e) {
     "use strict";
-    var t = [], r = Object.getPrototypeOf, s = t.slice, g = t.flat ? function (e) {
+    var t = [],
+        r = Object.getPrototypeOf,
+        s = t.slice,
+        g = t.flat ? function (e) {
             return t.flat.call(e)
         } : function (e) {
             return t.concat.apply([], e)
-        }, u = t.push, i = t.indexOf, n = {}, o = n.toString, v = n.hasOwnProperty, a = v.toString, l = a.call(Object),
-        y = {}, m = function (e) {
+        },
+        u = t.push,
+        i = t.indexOf,
+        n = {},
+        o = n.toString,
+        v = n.hasOwnProperty,
+        a = v.toString,
+        l = a.call(Object),
+        y = {},
+        m = function (e) {
             return "function" == typeof e && "number" != typeof e.nodeType
-        }, x = function (e) {
+        },
+        x = function (e) {
             return null != e && e === e.window
-        }, E = C.document, c = {type: !0, src: !0, nonce: !0, noModule: !0};
+        },
+        E = C.document,
+        c = {
+            type: !0,
+            src: !0,
+            nonce: !0,
+            noModule: !0
+        };
 
     function b(e, t, n) {
         var r, i, o = (n = n || E).createElement("script");
-        if (o.text = e, t) for (r in c) (i = t[r] || t.getAttribute && t.getAttribute(r)) && o.setAttribute(r, i);
+        if (o.text = e, t)
+            for (r in c)(i = t[r] || t.getAttribute && t.getAttribute(r)) && o.setAttribute(r, i);
         n.head.appendChild(o).parentNode.removeChild(o)
     }
 
     function w(e) {
         return null == e ? e + "" : "object" == typeof e || "function" == typeof e ? n[o.call(e)] || "object" : typeof e
     }
-
-    var f = "3.5.1", S = function (e, t) {
-        return new S.fn.init(e, t)
-    };
+    var f = "3.5.1",
+        S = function (e, t) {
+            return new S.fn.init(e, t)
+        };
 
     function p(e) {
-        var t = !!e && "length" in e && e.length, n = w(e);
+        var t = !!e && "length" in e && e.length,
+            n = w(e);
         return !m(e) && !x(e) && ("array" === n || 0 === t || "number" == typeof t && 0 < t && t - 1 in e)
     }
-
     S.fn = S.prototype = {
-        jquery: f, constructor: S, length: 0, toArray: function () {
+        jquery: f,
+        constructor: S,
+        length: 0,
+        toArray: function () {
             return s.call(this)
-        }, get: function (e) {
+        },
+        get: function (e) {
             return null == e ? s.call(this) : e < 0 ? this[e + this.length] : this[e]
-        }, pushStack: function (e) {
+        },
+        pushStack: function (e) {
             var t = S.merge(this.constructor(), e);
             return t.prevObject = this, t
-        }, each: function (e) {
+        },
+        each: function (e) {
             return S.each(this, e)
-        }, map: function (n) {
+        },
+        map: function (n) {
             return this.pushStack(S.map(this, function (e, t) {
                 return n.call(e, t, e)
             }))
-        }, slice: function () {
+        },
+        slice: function () {
             return this.pushStack(s.apply(this, arguments))
-        }, first: function () {
+        },
+        first: function () {
             return this.eq(0)
-        }, last: function () {
+        },
+        last: function () {
             return this.eq(-1)
-        }, even: function () {
+        },
+        even: function () {
             return this.pushStack(S.grep(this, function (e, t) {
                 return (t + 1) % 2
             }))
-        }, odd: function () {
+        },
+        odd: function () {
             return this.pushStack(S.grep(this, function (e, t) {
                 return t % 2
             }))
-        }, eq: function (e) {
-            var t = this.length, n = +e + (e < 0 ? t : 0);
+        },
+        eq: function (e) {
+            var t = this.length,
+                n = +e + (e < 0 ? t : 0);
             return this.pushStack(0 <= n && n < t ? [this[n]] : [])
-        }, end: function () {
+        },
+        end: function () {
             return this.prevObject || this.constructor()
-        }, push: u, sort: t.sort, splice: t.splice
+        },
+        push: u,
+        sort: t.sort,
+        splice: t.splice
     }, S.extend = S.fn.extend = function () {
-        var e, t, n, r, i, o, a = arguments[0] || {}, s = 1, u = arguments.length, l = !1;
-        for ("boolean" == typeof a && (l = a, a = arguments[s] || {}, s++), "object" == typeof a || m(a) || (a = {}), s === u && (a = this, s--); s < u; s++) if (null != (e = arguments[s])) for (t in e) r = e[t], "__proto__" !== t && a !== r && (l && r && (S.isPlainObject(r) || (i = Array.isArray(r))) ? (n = a[t], o = i && !Array.isArray(n) ? [] : i || S.isPlainObject(n) ? n : {}, i = !1, a[t] = S.extend(l, o, r)) : void 0 !== r && (a[t] = r));
+        var e, t, n, r, i, o, a = arguments[0] || {},
+            s = 1,
+            u = arguments.length,
+            l = !1;
+        for ("boolean" == typeof a && (l = a, a = arguments[s] || {}, s++), "object" == typeof a || m(a) || (a = {}), s === u && (a = this, s--); s < u; s++)
+            if (null != (e = arguments[s]))
+                for (t in e) r = e[t], "__proto__" !== t && a !== r && (l && r && (S.isPlainObject(r) || (i = Array.isArray(r))) ? (n = a[t], o = i && !Array.isArray(n) ? [] : i || S.isPlainObject(n) ? n : {}, i = !1, a[t] = S.extend(l, o, r)) : void 0 !== r && (a[t] = r));
         return a
     }, S.extend({
-        expando: "jQuery" + (f + Math.random()).replace(/\D/g, ""), isReady: !0, error: function (e) {
+        expando: "jQuery" + (f + Math.random()).replace(/\D/g, ""),
+        isReady: !0,
+        error: function (e) {
             throw new Error(e)
-        }, noop: function () {
-        }, isPlainObject: function (e) {
+        },
+        noop: function () {},
+        isPlainObject: function (e) {
             var t, n;
             return !(!e || "[object Object]" !== o.call(e)) && (!(t = r(e)) || "function" == typeof (n = v.call(t, "constructor") && t.constructor) && a.call(n) === l)
-        }, isEmptyObject: function (e) {
+        },
+        isEmptyObject: function (e) {
             var t;
             for (t in e) return !1;
             return !0
-        }, globalEval: function (e, t, n) {
-            b(e, {nonce: t && t.nonce}, n)
-        }, each: function (e, t) {
+        },
+        globalEval: function (e, t, n) {
+            b(e, {
+                nonce: t && t.nonce
+            }, n)
+        },
+        each: function (e, t) {
             var n, r = 0;
             if (p(e)) {
-                for (n = e.length; r < n; r++) if (!1 === t.call(e[r], r, e[r])) break
-            } else for (r in e) if (!1 === t.call(e[r], r, e[r])) break;
+                for (n = e.length; r < n; r++)
+                    if (!1 === t.call(e[r], r, e[r])) break
+            } else
+                for (r in e)
+                    if (!1 === t.call(e[r], r, e[r])) break;
             return e
-        }, makeArray: function (e, t) {
+        },
+        makeArray: function (e, t) {
             var n = t || [];
             return null != e && (p(Object(e)) ? S.merge(n, "string" == typeof e ? [e] : e) : u.call(n, e)), n
-        }, inArray: function (e, t, n) {
+        },
+        inArray: function (e, t, n) {
             return null == t ? -1 : i.call(t, e, n)
-        }, merge: function (e, t) {
+        },
+        merge: function (e, t) {
             for (var n = +t.length, r = 0, i = e.length; r < n; r++) e[i++] = t[r];
             return e.length = i, e
-        }, grep: function (e, t, n) {
+        },
+        grep: function (e, t, n) {
             for (var r = [], i = 0, o = e.length, a = !n; i < o; i++) !t(e[i], i) !== a && r.push(e[i]);
             return r
-        }, map: function (e, t, n) {
-            var r, i, o = 0, a = [];
-            if (p(e)) for (r = e.length; o < r; o++) null != (i = t(e[o], o, n)) && a.push(i); else for (o in e) null != (i = t(e[o], o, n)) && a.push(i);
+        },
+        map: function (e, t, n) {
+            var r, i, o = 0,
+                a = [];
+            if (p(e))
+                for (r = e.length; o < r; o++) null != (i = t(e[o], o, n)) && a.push(i);
+            else
+                for (o in e) null != (i = t(e[o], o, n)) && a.push(i);
             return g(a)
-        }, guid: 1, support: y
+        },
+        guid: 1,
+        support: y
     }), "function" == typeof Symbol && (S.fn[Symbol.iterator] = t[Symbol.iterator]), S.each("Boolean Number String Function Array Date RegExp Object Error Symbol".split(" "), function (e, t) {
         n["[object " + t + "]"] = t.toLowerCase()
     });
     var d = function (n) {
-        var e, d, b, o, i, h, f, g, w, u, l, T, C, a, E, v, s, c, y, S = "sizzle" + 1 * new Date, p = n.document, k = 0,
-            r = 0, m = ue(), x = ue(), A = ue(), N = ue(), D = function (e, t) {
+        var e, d, b, o, i, h, f, g, w, u, l, T, C, a, E, v, s, c, y, S = "sizzle" + 1 * new Date,
+            p = n.document,
+            k = 0,
+            r = 0,
+            m = ue(),
+            x = ue(),
+            A = ue(),
+            N = ue(),
+            D = function (e, t) {
                 return e === t && (l = !0), 0
-            }, j = {}.hasOwnProperty, t = [], q = t.pop, L = t.push, H = t.push, O = t.slice, P = function (e, t) {
-                for (var n = 0, r = e.length; n < r; n++) if (e[n] === t) return n;
+            },
+            j = {}.hasOwnProperty,
+            t = [],
+            q = t.pop,
+            L = t.push,
+            H = t.push,
+            O = t.slice,
+            P = function (e, t) {
+                for (var n = 0, r = e.length; n < r; n++)
+                    if (e[n] === t) return n;
                 return -1
             },
             R = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",
-            M = "[\\x20\\t\\r\\n\\f]", I = "(?:\\\\[\\da-fA-F]{1,6}" + M + "?|\\\\[^\\r\\n\\f]|[\\w-]|[^\0-\\x7f])+",
+            M = "[\\x20\\t\\r\\n\\f]",
+            I = "(?:\\\\[\\da-fA-F]{1,6}" + M + "?|\\\\[^\\r\\n\\f]|[\\w-]|[^\0-\\x7f])+",
             W = "\\[" + M + "*(" + I + ")(?:" + M + "*([*^$|!~]?=)" + M + "*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|(" + I + "))|)" + M + "*\\]",
             F = ":(" + I + ")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|" + W + ")*)|.*)\\)|)",
-            B = new RegExp(M + "+", "g"), $ = new RegExp("^" + M + "+|((?:^|[^\\\\])(?:\\\\.)*)" + M + "+$", "g"),
-            _ = new RegExp("^" + M + "*," + M + "*"), z = new RegExp("^" + M + "*([>+~]|" + M + ")" + M + "*"),
-            U = new RegExp(M + "|>"), X = new RegExp(F), V = new RegExp("^" + I + "$"), G = {
+            B = new RegExp(M + "+", "g"),
+            $ = new RegExp("^" + M + "+|((?:^|[^\\\\])(?:\\\\.)*)" + M + "+$", "g"),
+            _ = new RegExp("^" + M + "*," + M + "*"),
+            z = new RegExp("^" + M + "*([>+~]|" + M + ")" + M + "*"),
+            U = new RegExp(M + "|>"),
+            X = new RegExp(F),
+            V = new RegExp("^" + I + "$"),
+            G = {
                 ID: new RegExp("^#(" + I + ")"),
                 CLASS: new RegExp("^\\.(" + I + ")"),
                 TAG: new RegExp("^(" + I + "|[*])"),
@@ -161,18 +250,31 @@ preloader.contentLoading();
                 CHILD: new RegExp("^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\(" + M + "*(even|odd|(([+-]|)(\\d*)n|)" + M + "*(?:([+-]|)" + M + "*(\\d+)|))" + M + "*\\)|)", "i"),
                 bool: new RegExp("^(?:" + R + ")$", "i"),
                 needsContext: new RegExp("^" + M + "*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\(" + M + "*((?:-\\d)?\\d*)" + M + "*\\)|)(?=[^-]|$)", "i")
-            }, Y = /HTML$/i, Q = /^(?:input|select|textarea|button)$/i, J = /^h\d$/i, K = /^[^{]+\{\s*\[native \w/,
-            Z = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/, ee = /[+~]/,
-            te = new RegExp("\\\\[\\da-fA-F]{1,6}" + M + "?|\\\\([^\\r\\n\\f])", "g"), ne = function (e, t) {
+            },
+            Y = /HTML$/i,
+            Q = /^(?:input|select|textarea|button)$/i,
+            J = /^h\d$/i,
+            K = /^[^{]+\{\s*\[native \w/,
+            Z = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,
+            ee = /[+~]/,
+            te = new RegExp("\\\\[\\da-fA-F]{1,6}" + M + "?|\\\\([^\\r\\n\\f])", "g"),
+            ne = function (e, t) {
                 var n = "0x" + e.slice(1) - 65536;
                 return t || (n < 0 ? String.fromCharCode(n + 65536) : String.fromCharCode(n >> 10 | 55296, 1023 & n | 56320))
-            }, re = /([\0-\x1f\x7f]|^-?\d)|^-$|[^\0-\x1f\x7f-\uFFFF\w-]/g, ie = function (e, t) {
+            },
+            re = /([\0-\x1f\x7f]|^-?\d)|^-$|[^\0-\x1f\x7f-\uFFFF\w-]/g,
+            ie = function (e, t) {
                 return t ? "\0" === e ? "�" : e.slice(0, -1) + "\\" + e.charCodeAt(e.length - 1).toString(16) + " " : "\\" + e
-            }, oe = function () {
+            },
+            oe = function () {
                 T()
-            }, ae = be(function (e) {
+            },
+            ae = be(function (e) {
                 return !0 === e.disabled && "fieldset" === e.nodeName.toLowerCase()
-            }, {dir: "parentNode", next: "legend"});
+            }, {
+                dir: "parentNode",
+                next: "legend"
+            });
         try {
             H.apply(t = O.call(p.childNodes), p.childNodes), t[p.childNodes.length].nodeType
         } catch (e) {
@@ -180,27 +282,29 @@ preloader.contentLoading();
                 apply: t.length ? function (e, t) {
                     L.apply(e, O.call(t))
                 } : function (e, t) {
-                    var n = e.length, r = 0;
-                    while (e[n++] = t[r++]) ;
+                    var n = e.length,
+                        r = 0;
+                    while (e[n++] = t[r++]);
                     e.length = n - 1
                 }
             }
         }
 
         function se(t, e, n, r) {
-            var i, o, a, s, u, l, c, f = e && e.ownerDocument, p = e ? e.nodeType : 9;
+            var i, o, a, s, u, l, c, f = e && e.ownerDocument,
+                p = e ? e.nodeType : 9;
             if (n = n || [], "string" != typeof t || !t || 1 !== p && 9 !== p && 11 !== p) return n;
             if (!r && (T(e), e = e || C, E)) {
-                if (11 !== p && (u = Z.exec(t))) if (i = u[1]) {
-                    if (9 === p) {
-                        if (!(a = e.getElementById(i))) return n;
-                        if (a.id === i) return n.push(a), n
-                    } else if (f && (a = f.getElementById(i)) && y(e, a) && a.id === i) return n.push(a), n
-                } else {
-                    if (u[2]) return H.apply(n, e.getElementsByTagName(t)), n;
-                    if ((i = u[3]) && d.getElementsByClassName && e.getElementsByClassName) return H.apply(n, e.getElementsByClassName(i)), n
-                }
-                if (d.qsa && !N[t + " "] && (!v || !v.test(t)) && (1 !== p || "object" !== e.nodeName.toLowerCase())) {
+                if (11 !== p && (u = Z.exec(t)))
+                    if (i = u[1]) {
+                        if (9 === p) {
+                            if (!(a = e.getElementById(i))) return n;
+                            if (a.id === i) return n.push(a), n
+                        } else if (f && (a = f.getElementById(i)) && y(e, a) && a.id === i) return n.push(a), n
+                    } else {
+                        if (u[2]) return H.apply(n, e.getElementsByTagName(t)), n;
+                        if ((i = u[3]) && d.getElementsByClassName && e.getElementsByClassName) return H.apply(n, e.getElementsByClassName(i)), n
+                    } if (d.qsa && !N[t + " "] && (!v || !v.test(t)) && (1 !== p || "object" !== e.nodeName.toLowerCase())) {
                     if (c = t, f = e, 1 === p && (U.test(t) || z.test(t))) {
                         (f = ee.test(t) && ye(e.parentNode) || e) === e && d.scope || ((s = e.getAttribute("id")) ? s = s.replace(re, ie) : e.setAttribute("id", s = S)), o = (l = h(t)).length;
                         while (o--) l[o] = (s ? "#" + s : ":scope") + " " + xe(l[o]);
@@ -241,14 +345,18 @@ preloader.contentLoading();
         }
 
         function fe(e, t) {
-            var n = e.split("|"), r = n.length;
+            var n = e.split("|"),
+                r = n.length;
             while (r--) b.attrHandle[n[r]] = t
         }
 
         function pe(e, t) {
-            var n = t && e, r = n && 1 === e.nodeType && 1 === t.nodeType && e.sourceIndex - t.sourceIndex;
+            var n = t && e,
+                r = n && 1 === e.nodeType && 1 === t.nodeType && e.sourceIndex - t.sourceIndex;
             if (r) return r;
-            if (n) while (n = n.nextSibling) if (n === t) return -1;
+            if (n)
+                while (n = n.nextSibling)
+                    if (n === t) return -1;
             return e ? 1 : -1
         }
 
@@ -274,7 +382,8 @@ preloader.contentLoading();
         function ve(a) {
             return le(function (o) {
                 return o = +o, le(function (e, t) {
-                    var n, r = a([], e.length, o), i = r.length;
+                    var n, r = a([], e.length, o),
+                        i = r.length;
                     while (i--) e[n = r[i]] && (e[n] = !(t[n] = e[n]))
                 })
             })
@@ -283,284 +392,356 @@ preloader.contentLoading();
         function ye(e) {
             return e && "undefined" != typeof e.getElementsByTagName && e
         }
-
         for (e in d = se.support = {}, i = se.isXML = function (e) {
-            var t = e.namespaceURI, n = (e.ownerDocument || e).documentElement;
-            return !Y.test(t || n && n.nodeName || "HTML")
-        }, T = se.setDocument = function (e) {
-            var t, n, r = e ? e.ownerDocument || e : p;
-            return r != C && 9 === r.nodeType && r.documentElement && (a = (C = r).documentElement, E = !i(C), p != C && (n = C.defaultView) && n.top !== n && (n.addEventListener ? n.addEventListener("unload", oe, !1) : n.attachEvent && n.attachEvent("onunload", oe)), d.scope = ce(function (e) {
-                return a.appendChild(e).appendChild(C.createElement("div")), "undefined" != typeof e.querySelectorAll && !e.querySelectorAll(":scope fieldset div").length
-            }), d.attributes = ce(function (e) {
-                return e.className = "i", !e.getAttribute("className")
-            }), d.getElementsByTagName = ce(function (e) {
-                return e.appendChild(C.createComment("")), !e.getElementsByTagName("*").length
-            }), d.getElementsByClassName = K.test(C.getElementsByClassName), d.getById = ce(function (e) {
-                return a.appendChild(e).id = S, !C.getElementsByName || !C.getElementsByName(S).length
-            }), d.getById ? (b.filter.ID = function (e) {
-                var t = e.replace(te, ne);
-                return function (e) {
-                    return e.getAttribute("id") === t
-                }
-            }, b.find.ID = function (e, t) {
-                if ("undefined" != typeof t.getElementById && E) {
-                    var n = t.getElementById(e);
-                    return n ? [n] : []
-                }
-            }) : (b.filter.ID = function (e) {
-                var n = e.replace(te, ne);
-                return function (e) {
-                    var t = "undefined" != typeof e.getAttributeNode && e.getAttributeNode("id");
-                    return t && t.value === n
-                }
-            }, b.find.ID = function (e, t) {
-                if ("undefined" != typeof t.getElementById && E) {
-                    var n, r, i, o = t.getElementById(e);
-                    if (o) {
-                        if ((n = o.getAttributeNode("id")) && n.value === e) return [o];
-                        i = t.getElementsByName(e), r = 0;
-                        while (o = i[r++]) if ((n = o.getAttributeNode("id")) && n.value === e) return [o]
-                    }
-                    return []
-                }
-            }), b.find.TAG = d.getElementsByTagName ? function (e, t) {
-                return "undefined" != typeof t.getElementsByTagName ? t.getElementsByTagName(e) : d.qsa ? t.querySelectorAll(e) : void 0
-            } : function (e, t) {
-                var n, r = [], i = 0, o = t.getElementsByTagName(e);
-                if ("*" === e) {
-                    while (n = o[i++]) 1 === n.nodeType && r.push(n);
-                    return r
-                }
-                return o
-            }, b.find.CLASS = d.getElementsByClassName && function (e, t) {
-                if ("undefined" != typeof t.getElementsByClassName && E) return t.getElementsByClassName(e)
-            }, s = [], v = [], (d.qsa = K.test(C.querySelectorAll)) && (ce(function (e) {
-                var t;
-                a.appendChild(e).innerHTML = "<a id='" + S + "'></a><select id='" + S + "-\r\\' msallowcapture=''><option selected=''></option></select>", e.querySelectorAll("[msallowcapture^='']").length && v.push("[*^$]=" + M + "*(?:''|\"\")"), e.querySelectorAll("[selected]").length || v.push("\\[" + M + "*(?:value|" + R + ")"), e.querySelectorAll("[id~=" + S + "-]").length || v.push("~="), (t = C.createElement("input")).setAttribute("name", ""), e.appendChild(t), e.querySelectorAll("[name='']").length || v.push("\\[" + M + "*name" + M + "*=" + M + "*(?:''|\"\")"), e.querySelectorAll(":checked").length || v.push(":checked"), e.querySelectorAll("a#" + S + "+*").length || v.push(".#.+[+~]"), e.querySelectorAll("\\\f"), v.push("[\\r\\n\\f]")
-            }), ce(function (e) {
-                e.innerHTML = "<a href='' disabled='disabled'></a><select disabled='disabled'><option/></select>";
-                var t = C.createElement("input");
-                t.setAttribute("type", "hidden"), e.appendChild(t).setAttribute("name", "D"), e.querySelectorAll("[name=d]").length && v.push("name" + M + "*[*^$|!~]?="), 2 !== e.querySelectorAll(":enabled").length && v.push(":enabled", ":disabled"), a.appendChild(e).disabled = !0, 2 !== e.querySelectorAll(":disabled").length && v.push(":enabled", ":disabled"), e.querySelectorAll("*,:x"), v.push(",.*:")
-            })), (d.matchesSelector = K.test(c = a.matches || a.webkitMatchesSelector || a.mozMatchesSelector || a.oMatchesSelector || a.msMatchesSelector)) && ce(function (e) {
-                d.disconnectedMatch = c.call(e, "*"), c.call(e, "[s!='']:x"), s.push("!=", F)
-            }), v = v.length && new RegExp(v.join("|")), s = s.length && new RegExp(s.join("|")), t = K.test(a.compareDocumentPosition), y = t || K.test(a.contains) ? function (e, t) {
-                var n = 9 === e.nodeType ? e.documentElement : e, r = t && t.parentNode;
-                return e === r || !(!r || 1 !== r.nodeType || !(n.contains ? n.contains(r) : e.compareDocumentPosition && 16 & e.compareDocumentPosition(r)))
-            } : function (e, t) {
-                if (t) while (t = t.parentNode) if (t === e) return !0;
-                return !1
-            }, D = t ? function (e, t) {
-                if (e === t) return l = !0, 0;
-                var n = !e.compareDocumentPosition - !t.compareDocumentPosition;
-                return n || (1 & (n = (e.ownerDocument || e) == (t.ownerDocument || t) ? e.compareDocumentPosition(t) : 1) || !d.sortDetached && t.compareDocumentPosition(e) === n ? e == C || e.ownerDocument == p && y(p, e) ? -1 : t == C || t.ownerDocument == p && y(p, t) ? 1 : u ? P(u, e) - P(u, t) : 0 : 4 & n ? -1 : 1)
-            } : function (e, t) {
-                if (e === t) return l = !0, 0;
-                var n, r = 0, i = e.parentNode, o = t.parentNode, a = [e], s = [t];
-                if (!i || !o) return e == C ? -1 : t == C ? 1 : i ? -1 : o ? 1 : u ? P(u, e) - P(u, t) : 0;
-                if (i === o) return pe(e, t);
-                n = e;
-                while (n = n.parentNode) a.unshift(n);
-                n = t;
-                while (n = n.parentNode) s.unshift(n);
-                while (a[r] === s[r]) r++;
-                return r ? pe(a[r], s[r]) : a[r] == p ? -1 : s[r] == p ? 1 : 0
-            }), C
-        }, se.matches = function (e, t) {
-            return se(e, null, null, t)
-        }, se.matchesSelector = function (e, t) {
-            if (T(e), d.matchesSelector && E && !N[t + " "] && (!s || !s.test(t)) && (!v || !v.test(t))) try {
-                var n = c.call(e, t);
-                if (n || d.disconnectedMatch || e.document && 11 !== e.document.nodeType) return n
-            } catch (e) {
-                N(t, !0)
-            }
-            return 0 < se(t, C, null, [e]).length
-        }, se.contains = function (e, t) {
-            return (e.ownerDocument || e) != C && T(e), y(e, t)
-        }, se.attr = function (e, t) {
-            (e.ownerDocument || e) != C && T(e);
-            var n = b.attrHandle[t.toLowerCase()],
-                r = n && j.call(b.attrHandle, t.toLowerCase()) ? n(e, t, !E) : void 0;
-            return void 0 !== r ? r : d.attributes || !E ? e.getAttribute(t) : (r = e.getAttributeNode(t)) && r.specified ? r.value : null
-        }, se.escape = function (e) {
-            return (e + "").replace(re, ie)
-        }, se.error = function (e) {
-            throw new Error("Syntax error, unrecognized expression: " + e)
-        }, se.uniqueSort = function (e) {
-            var t, n = [], r = 0, i = 0;
-            if (l = !d.detectDuplicates, u = !d.sortStable && e.slice(0), e.sort(D), l) {
-                while (t = e[i++]) t === e[i] && (r = n.push(i));
-                while (r--) e.splice(n[r], 1)
-            }
-            return u = null, e
-        }, o = se.getText = function (e) {
-            var t, n = "", r = 0, i = e.nodeType;
-            if (i) {
-                if (1 === i || 9 === i || 11 === i) {
-                    if ("string" == typeof e.textContent) return e.textContent;
-                    for (e = e.firstChild; e; e = e.nextSibling) n += o(e)
-                } else if (3 === i || 4 === i) return e.nodeValue
-            } else while (t = e[r++]) n += o(t);
-            return n
-        }, (b = se.selectors = {
-            cacheLength: 50,
-            createPseudo: le,
-            match: G,
-            attrHandle: {},
-            find: {},
-            relative: {
-                ">": {dir: "parentNode", first: !0},
-                " ": {dir: "parentNode"},
-                "+": {dir: "previousSibling", first: !0},
-                "~": {dir: "previousSibling"}
-            },
-            preFilter: {
-                ATTR: function (e) {
-                    return e[1] = e[1].replace(te, ne), e[3] = (e[3] || e[4] || e[5] || "").replace(te, ne), "~=" === e[2] && (e[3] = " " + e[3] + " "), e.slice(0, 4)
-                }, CHILD: function (e) {
-                    return e[1] = e[1].toLowerCase(), "nth" === e[1].slice(0, 3) ? (e[3] || se.error(e[0]), e[4] = +(e[4] ? e[5] + (e[6] || 1) : 2 * ("even" === e[3] || "odd" === e[3])), e[5] = +(e[7] + e[8] || "odd" === e[3])) : e[3] && se.error(e[0]), e
-                }, PSEUDO: function (e) {
-                    var t, n = !e[6] && e[2];
-                    return G.CHILD.test(e[0]) ? null : (e[3] ? e[2] = e[4] || e[5] || "" : n && X.test(n) && (t = h(n, !0)) && (t = n.indexOf(")", n.length - t) - n.length) && (e[0] = e[0].slice(0, t), e[2] = n.slice(0, t)), e.slice(0, 3))
-                }
-            },
-            filter: {
-                TAG: function (e) {
-                    var t = e.replace(te, ne).toLowerCase();
-                    return "*" === e ? function () {
-                        return !0
-                    } : function (e) {
-                        return e.nodeName && e.nodeName.toLowerCase() === t
-                    }
-                }, CLASS: function (e) {
-                    var t = m[e + " "];
-                    return t || (t = new RegExp("(^|" + M + ")" + e + "(" + M + "|$)")) && m(e, function (e) {
-                        return t.test("string" == typeof e.className && e.className || "undefined" != typeof e.getAttribute && e.getAttribute("class") || "")
-                    })
-                }, ATTR: function (n, r, i) {
+                var t = e.namespaceURI,
+                    n = (e.ownerDocument || e).documentElement;
+                return !Y.test(t || n && n.nodeName || "HTML")
+            }, T = se.setDocument = function (e) {
+                var t, n, r = e ? e.ownerDocument || e : p;
+                return r != C && 9 === r.nodeType && r.documentElement && (a = (C = r).documentElement, E = !i(C), p != C && (n = C.defaultView) && n.top !== n && (n.addEventListener ? n.addEventListener("unload", oe, !1) : n.attachEvent && n.attachEvent("onunload", oe)), d.scope = ce(function (e) {
+                    return a.appendChild(e).appendChild(C.createElement("div")), "undefined" != typeof e.querySelectorAll && !e.querySelectorAll(":scope fieldset div").length
+                }), d.attributes = ce(function (e) {
+                    return e.className = "i", !e.getAttribute("className")
+                }), d.getElementsByTagName = ce(function (e) {
+                    return e.appendChild(C.createComment("")), !e.getElementsByTagName("*").length
+                }), d.getElementsByClassName = K.test(C.getElementsByClassName), d.getById = ce(function (e) {
+                    return a.appendChild(e).id = S, !C.getElementsByName || !C.getElementsByName(S).length
+                }), d.getById ? (b.filter.ID = function (e) {
+                    var t = e.replace(te, ne);
                     return function (e) {
-                        var t = se.attr(e, n);
-                        return null == t ? "!=" === r : !r || (t += "", "=" === r ? t === i : "!=" === r ? t !== i : "^=" === r ? i && 0 === t.indexOf(i) : "*=" === r ? i && -1 < t.indexOf(i) : "$=" === r ? i && t.slice(-i.length) === i : "~=" === r ? -1 < (" " + t.replace(B, " ") + " ").indexOf(i) : "|=" === r && (t === i || t.slice(0, i.length + 1) === i + "-"))
+                        return e.getAttribute("id") === t
                     }
-                }, CHILD: function (h, e, t, g, v) {
-                    var y = "nth" !== h.slice(0, 3), m = "last" !== h.slice(-4), x = "of-type" === e;
-                    return 1 === g && 0 === v ? function (e) {
-                        return !!e.parentNode
-                    } : function (e, t, n) {
-                        var r, i, o, a, s, u, l = y !== m ? "nextSibling" : "previousSibling", c = e.parentNode,
-                            f = x && e.nodeName.toLowerCase(), p = !n && !x, d = !1;
-                        if (c) {
-                            if (y) {
-                                while (l) {
-                                    a = e;
-                                    while (a = a[l]) if (x ? a.nodeName.toLowerCase() === f : 1 === a.nodeType) return !1;
-                                    u = l = "only" === h && !u && "nextSibling"
-                                }
-                                return !0
-                            }
-                            if (u = [m ? c.firstChild : c.lastChild], m && p) {
-                                d = (s = (r = (i = (o = (a = c)[S] || (a[S] = {}))[a.uniqueID] || (o[a.uniqueID] = {}))[h] || [])[0] === k && r[1]) && r[2], a = s && c.childNodes[s];
-                                while (a = ++s && a && a[l] || (d = s = 0) || u.pop()) if (1 === a.nodeType && ++d && a === e) {
-                                    i[h] = [k, s, d];
-                                    break
-                                }
-                            } else if (p && (d = s = (r = (i = (o = (a = e)[S] || (a[S] = {}))[a.uniqueID] || (o[a.uniqueID] = {}))[h] || [])[0] === k && r[1]), !1 === d) while (a = ++s && a && a[l] || (d = s = 0) || u.pop()) if ((x ? a.nodeName.toLowerCase() === f : 1 === a.nodeType) && ++d && (p && ((i = (o = a[S] || (a[S] = {}))[a.uniqueID] || (o[a.uniqueID] = {}))[h] = [k, d]), a === e)) break;
-                            return (d -= v) === g || d % g == 0 && 0 <= d / g
+                }, b.find.ID = function (e, t) {
+                    if ("undefined" != typeof t.getElementById && E) {
+                        var n = t.getElementById(e);
+                        return n ? [n] : []
+                    }
+                }) : (b.filter.ID = function (e) {
+                    var n = e.replace(te, ne);
+                    return function (e) {
+                        var t = "undefined" != typeof e.getAttributeNode && e.getAttributeNode("id");
+                        return t && t.value === n
+                    }
+                }, b.find.ID = function (e, t) {
+                    if ("undefined" != typeof t.getElementById && E) {
+                        var n, r, i, o = t.getElementById(e);
+                        if (o) {
+                            if ((n = o.getAttributeNode("id")) && n.value === e) return [o];
+                            i = t.getElementsByName(e), r = 0;
+                            while (o = i[r++])
+                                if ((n = o.getAttributeNode("id")) && n.value === e) return [o]
                         }
+                        return []
                     }
-                }, PSEUDO: function (e, o) {
-                    var t, a = b.pseudos[e] || b.setFilters[e.toLowerCase()] || se.error("unsupported pseudo: " + e);
-                    return a[S] ? a(o) : 1 < a.length ? (t = [e, e, "", o], b.setFilters.hasOwnProperty(e.toLowerCase()) ? le(function (e, t) {
-                        var n, r = a(e, o), i = r.length;
-                        while (i--) e[n = P(e, r[i])] = !(t[n] = r[i])
-                    }) : function (e) {
-                        return a(e, 0, t)
-                    }) : a
-                }
-            },
-            pseudos: {
-                not: le(function (e) {
-                    var r = [], i = [], s = f(e.replace($, "$1"));
-                    return s[S] ? le(function (e, t, n, r) {
-                        var i, o = s(e, null, r, []), a = e.length;
-                        while (a--) (i = o[a]) && (e[a] = !(t[a] = i))
-                    }) : function (e, t, n) {
-                        return r[0] = e, s(r, null, n, i), r[0] = null, !i.pop()
+                }), b.find.TAG = d.getElementsByTagName ? function (e, t) {
+                    return "undefined" != typeof t.getElementsByTagName ? t.getElementsByTagName(e) : d.qsa ? t.querySelectorAll(e) : void 0
+                } : function (e, t) {
+                    var n, r = [],
+                        i = 0,
+                        o = t.getElementsByTagName(e);
+                    if ("*" === e) {
+                        while (n = o[i++]) 1 === n.nodeType && r.push(n);
+                        return r
                     }
-                }), has: le(function (t) {
-                    return function (e) {
-                        return 0 < se(t, e).length
-                    }
-                }), contains: le(function (t) {
-                    return t = t.replace(te, ne), function (e) {
-                        return -1 < (e.textContent || o(e)).indexOf(t)
-                    }
-                }), lang: le(function (n) {
-                    return V.test(n || "") || se.error("unsupported lang: " + n), n = n.replace(te, ne).toLowerCase(), function (e) {
-                        var t;
-                        do {
-                            if (t = E ? e.lang : e.getAttribute("xml:lang") || e.getAttribute("lang")) return (t = t.toLowerCase()) === n || 0 === t.indexOf(n + "-")
-                        } while ((e = e.parentNode) && 1 === e.nodeType);
-                        return !1
-                    }
-                }), target: function (e) {
-                    var t = n.location && n.location.hash;
-                    return t && t.slice(1) === e.id
-                }, root: function (e) {
-                    return e === a
-                }, focus: function (e) {
-                    return e === C.activeElement && (!C.hasFocus || C.hasFocus()) && !!(e.type || e.href || ~e.tabIndex)
-                }, enabled: ge(!1), disabled: ge(!0), checked: function (e) {
-                    var t = e.nodeName.toLowerCase();
-                    return "input" === t && !!e.checked || "option" === t && !!e.selected
-                }, selected: function (e) {
-                    return e.parentNode && e.parentNode.selectedIndex, !0 === e.selected
-                }, empty: function (e) {
-                    for (e = e.firstChild; e; e = e.nextSibling) if (e.nodeType < 6) return !1;
-                    return !0
-                }, parent: function (e) {
-                    return !b.pseudos.empty(e)
-                }, header: function (e) {
-                    return J.test(e.nodeName)
-                }, input: function (e) {
-                    return Q.test(e.nodeName)
-                }, button: function (e) {
-                    var t = e.nodeName.toLowerCase();
-                    return "input" === t && "button" === e.type || "button" === t
-                }, text: function (e) {
+                    return o
+                }, b.find.CLASS = d.getElementsByClassName && function (e, t) {
+                    if ("undefined" != typeof t.getElementsByClassName && E) return t.getElementsByClassName(e)
+                }, s = [], v = [], (d.qsa = K.test(C.querySelectorAll)) && (ce(function (e) {
                     var t;
-                    return "input" === e.nodeName.toLowerCase() && "text" === e.type && (null == (t = e.getAttribute("type")) || "text" === t.toLowerCase())
-                }, first: ve(function () {
-                    return [0]
-                }), last: ve(function (e, t) {
-                    return [t - 1]
-                }), eq: ve(function (e, t, n) {
-                    return [n < 0 ? n + t : n]
-                }), even: ve(function (e, t) {
-                    for (var n = 0; n < t; n += 2) e.push(n);
-                    return e
-                }), odd: ve(function (e, t) {
-                    for (var n = 1; n < t; n += 2) e.push(n);
-                    return e
-                }), lt: ve(function (e, t, n) {
-                    for (var r = n < 0 ? n + t : t < n ? t : n; 0 <= --r;) e.push(r);
-                    return e
-                }), gt: ve(function (e, t, n) {
-                    for (var r = n < 0 ? n + t : n; ++r < t;) e.push(r);
-                    return e
-                })
-            }
-        }).pseudos.nth = b.pseudos.eq, {
-            radio: !0,
-            checkbox: !0,
-            file: !0,
-            password: !0,
-            image: !0
-        }) b.pseudos[e] = de(e);
-        for (e in {submit: !0, reset: !0}) b.pseudos[e] = he(e);
+                    a.appendChild(e).innerHTML = "<a id='" + S + "'></a><select id='" + S + "-\r\\' msallowcapture=''><option selected=''></option></select>", e.querySelectorAll("[msallowcapture^='']").length && v.push("[*^$]=" + M + "*(?:''|\"\")"), e.querySelectorAll("[selected]").length || v.push("\\[" + M + "*(?:value|" + R + ")"), e.querySelectorAll("[id~=" + S + "-]").length || v.push("~="), (t = C.createElement("input")).setAttribute("name", ""), e.appendChild(t), e.querySelectorAll("[name='']").length || v.push("\\[" + M + "*name" + M + "*=" + M + "*(?:''|\"\")"), e.querySelectorAll(":checked").length || v.push(":checked"), e.querySelectorAll("a#" + S + "+*").length || v.push(".#.+[+~]"), e.querySelectorAll("\\\f"), v.push("[\\r\\n\\f]")
+                }), ce(function (e) {
+                    e.innerHTML = "<a href='' disabled='disabled'></a><select disabled='disabled'><option/></select>";
+                    var t = C.createElement("input");
+                    t.setAttribute("type", "hidden"), e.appendChild(t).setAttribute("name", "D"), e.querySelectorAll("[name=d]").length && v.push("name" + M + "*[*^$|!~]?="), 2 !== e.querySelectorAll(":enabled").length && v.push(":enabled", ":disabled"), a.appendChild(e).disabled = !0, 2 !== e.querySelectorAll(":disabled").length && v.push(":enabled", ":disabled"), e.querySelectorAll("*,:x"), v.push(",.*:")
+                })), (d.matchesSelector = K.test(c = a.matches || a.webkitMatchesSelector || a.mozMatchesSelector || a.oMatchesSelector || a.msMatchesSelector)) && ce(function (e) {
+                    d.disconnectedMatch = c.call(e, "*"), c.call(e, "[s!='']:x"), s.push("!=", F)
+                }), v = v.length && new RegExp(v.join("|")), s = s.length && new RegExp(s.join("|")), t = K.test(a.compareDocumentPosition), y = t || K.test(a.contains) ? function (e, t) {
+                    var n = 9 === e.nodeType ? e.documentElement : e,
+                        r = t && t.parentNode;
+                    return e === r || !(!r || 1 !== r.nodeType || !(n.contains ? n.contains(r) : e.compareDocumentPosition && 16 & e.compareDocumentPosition(r)))
+                } : function (e, t) {
+                    if (t)
+                        while (t = t.parentNode)
+                            if (t === e) return !0;
+                    return !1
+                }, D = t ? function (e, t) {
+                    if (e === t) return l = !0, 0;
+                    var n = !e.compareDocumentPosition - !t.compareDocumentPosition;
+                    return n || (1 & (n = (e.ownerDocument || e) == (t.ownerDocument || t) ? e.compareDocumentPosition(t) : 1) || !d.sortDetached && t.compareDocumentPosition(e) === n ? e == C || e.ownerDocument == p && y(p, e) ? -1 : t == C || t.ownerDocument == p && y(p, t) ? 1 : u ? P(u, e) - P(u, t) : 0 : 4 & n ? -1 : 1)
+                } : function (e, t) {
+                    if (e === t) return l = !0, 0;
+                    var n, r = 0,
+                        i = e.parentNode,
+                        o = t.parentNode,
+                        a = [e],
+                        s = [t];
+                    if (!i || !o) return e == C ? -1 : t == C ? 1 : i ? -1 : o ? 1 : u ? P(u, e) - P(u, t) : 0;
+                    if (i === o) return pe(e, t);
+                    n = e;
+                    while (n = n.parentNode) a.unshift(n);
+                    n = t;
+                    while (n = n.parentNode) s.unshift(n);
+                    while (a[r] === s[r]) r++;
+                    return r ? pe(a[r], s[r]) : a[r] == p ? -1 : s[r] == p ? 1 : 0
+                }), C
+            }, se.matches = function (e, t) {
+                return se(e, null, null, t)
+            }, se.matchesSelector = function (e, t) {
+                if (T(e), d.matchesSelector && E && !N[t + " "] && (!s || !s.test(t)) && (!v || !v.test(t))) try {
+                    var n = c.call(e, t);
+                    if (n || d.disconnectedMatch || e.document && 11 !== e.document.nodeType) return n
+                } catch (e) {
+                    N(t, !0)
+                }
+                return 0 < se(t, C, null, [e]).length
+            }, se.contains = function (e, t) {
+                return (e.ownerDocument || e) != C && T(e), y(e, t)
+            }, se.attr = function (e, t) {
+                (e.ownerDocument || e) != C && T(e);
+                var n = b.attrHandle[t.toLowerCase()],
+                    r = n && j.call(b.attrHandle, t.toLowerCase()) ? n(e, t, !E) : void 0;
+                return void 0 !== r ? r : d.attributes || !E ? e.getAttribute(t) : (r = e.getAttributeNode(t)) && r.specified ? r.value : null
+            }, se.escape = function (e) {
+                return (e + "").replace(re, ie)
+            }, se.error = function (e) {
+                throw new Error("Syntax error, unrecognized expression: " + e)
+            }, se.uniqueSort = function (e) {
+                var t, n = [],
+                    r = 0,
+                    i = 0;
+                if (l = !d.detectDuplicates, u = !d.sortStable && e.slice(0), e.sort(D), l) {
+                    while (t = e[i++]) t === e[i] && (r = n.push(i));
+                    while (r--) e.splice(n[r], 1)
+                }
+                return u = null, e
+            }, o = se.getText = function (e) {
+                var t, n = "",
+                    r = 0,
+                    i = e.nodeType;
+                if (i) {
+                    if (1 === i || 9 === i || 11 === i) {
+                        if ("string" == typeof e.textContent) return e.textContent;
+                        for (e = e.firstChild; e; e = e.nextSibling) n += o(e)
+                    } else if (3 === i || 4 === i) return e.nodeValue
+                } else
+                    while (t = e[r++]) n += o(t);
+                return n
+            }, (b = se.selectors = {
+                cacheLength: 50,
+                createPseudo: le,
+                match: G,
+                attrHandle: {},
+                find: {},
+                relative: {
+                    ">": {
+                        dir: "parentNode",
+                        first: !0
+                    },
+                    " ": {
+                        dir: "parentNode"
+                    },
+                    "+": {
+                        dir: "previousSibling",
+                        first: !0
+                    },
+                    "~": {
+                        dir: "previousSibling"
+                    }
+                },
+                preFilter: {
+                    ATTR: function (e) {
+                        return e[1] = e[1].replace(te, ne), e[3] = (e[3] || e[4] || e[5] || "").replace(te, ne), "~=" === e[2] && (e[3] = " " + e[3] + " "), e.slice(0, 4)
+                    },
+                    CHILD: function (e) {
+                        return e[1] = e[1].toLowerCase(), "nth" === e[1].slice(0, 3) ? (e[3] || se.error(e[0]), e[4] = +(e[4] ? e[5] + (e[6] || 1) : 2 * ("even" === e[3] || "odd" === e[3])), e[5] = +(e[7] + e[8] || "odd" === e[3])) : e[3] && se.error(e[0]), e
+                    },
+                    PSEUDO: function (e) {
+                        var t, n = !e[6] && e[2];
+                        return G.CHILD.test(e[0]) ? null : (e[3] ? e[2] = e[4] || e[5] || "" : n && X.test(n) && (t = h(n, !0)) && (t = n.indexOf(")", n.length - t) - n.length) && (e[0] = e[0].slice(0, t), e[2] = n.slice(0, t)), e.slice(0, 3))
+                    }
+                },
+                filter: {
+                    TAG: function (e) {
+                        var t = e.replace(te, ne).toLowerCase();
+                        return "*" === e ? function () {
+                            return !0
+                        } : function (e) {
+                            return e.nodeName && e.nodeName.toLowerCase() === t
+                        }
+                    },
+                    CLASS: function (e) {
+                        var t = m[e + " "];
+                        return t || (t = new RegExp("(^|" + M + ")" + e + "(" + M + "|$)")) && m(e, function (e) {
+                            return t.test("string" == typeof e.className && e.className || "undefined" != typeof e.getAttribute && e.getAttribute("class") || "")
+                        })
+                    },
+                    ATTR: function (n, r, i) {
+                        return function (e) {
+                            var t = se.attr(e, n);
+                            return null == t ? "!=" === r : !r || (t += "", "=" === r ? t === i : "!=" === r ? t !== i : "^=" === r ? i && 0 === t.indexOf(i) : "*=" === r ? i && -1 < t.indexOf(i) : "$=" === r ? i && t.slice(-i.length) === i : "~=" === r ? -1 < (" " + t.replace(B, " ") + " ").indexOf(i) : "|=" === r && (t === i || t.slice(0, i.length + 1) === i + "-"))
+                        }
+                    },
+                    CHILD: function (h, e, t, g, v) {
+                        var y = "nth" !== h.slice(0, 3),
+                            m = "last" !== h.slice(-4),
+                            x = "of-type" === e;
+                        return 1 === g && 0 === v ? function (e) {
+                            return !!e.parentNode
+                        } : function (e, t, n) {
+                            var r, i, o, a, s, u, l = y !== m ? "nextSibling" : "previousSibling",
+                                c = e.parentNode,
+                                f = x && e.nodeName.toLowerCase(),
+                                p = !n && !x,
+                                d = !1;
+                            if (c) {
+                                if (y) {
+                                    while (l) {
+                                        a = e;
+                                        while (a = a[l])
+                                            if (x ? a.nodeName.toLowerCase() === f : 1 === a.nodeType) return !1;
+                                        u = l = "only" === h && !u && "nextSibling"
+                                    }
+                                    return !0
+                                }
+                                if (u = [m ? c.firstChild : c.lastChild], m && p) {
+                                    d = (s = (r = (i = (o = (a = c)[S] || (a[S] = {}))[a.uniqueID] || (o[a.uniqueID] = {}))[h] || [])[0] === k && r[1]) && r[2], a = s && c.childNodes[s];
+                                    while (a = ++s && a && a[l] || (d = s = 0) || u.pop())
+                                        if (1 === a.nodeType && ++d && a === e) {
+                                            i[h] = [k, s, d];
+                                            break
+                                        }
+                                } else if (p && (d = s = (r = (i = (o = (a = e)[S] || (a[S] = {}))[a.uniqueID] || (o[a.uniqueID] = {}))[h] || [])[0] === k && r[1]), !1 === d)
+                                    while (a = ++s && a && a[l] || (d = s = 0) || u.pop())
+                                        if ((x ? a.nodeName.toLowerCase() === f : 1 === a.nodeType) && ++d && (p && ((i = (o = a[S] || (a[S] = {}))[a.uniqueID] || (o[a.uniqueID] = {}))[h] = [k, d]), a === e)) break;
+                                return (d -= v) === g || d % g == 0 && 0 <= d / g
+                            }
+                        }
+                    },
+                    PSEUDO: function (e, o) {
+                        var t, a = b.pseudos[e] || b.setFilters[e.toLowerCase()] || se.error("unsupported pseudo: " + e);
+                        return a[S] ? a(o) : 1 < a.length ? (t = [e, e, "", o], b.setFilters.hasOwnProperty(e.toLowerCase()) ? le(function (e, t) {
+                            var n, r = a(e, o),
+                                i = r.length;
+                            while (i--) e[n = P(e, r[i])] = !(t[n] = r[i])
+                        }) : function (e) {
+                            return a(e, 0, t)
+                        }) : a
+                    }
+                },
+                pseudos: {
+                    not: le(function (e) {
+                        var r = [],
+                            i = [],
+                            s = f(e.replace($, "$1"));
+                        return s[S] ? le(function (e, t, n, r) {
+                            var i, o = s(e, null, r, []),
+                                a = e.length;
+                            while (a--)(i = o[a]) && (e[a] = !(t[a] = i))
+                        }) : function (e, t, n) {
+                            return r[0] = e, s(r, null, n, i), r[0] = null, !i.pop()
+                        }
+                    }),
+                    has: le(function (t) {
+                        return function (e) {
+                            return 0 < se(t, e).length
+                        }
+                    }),
+                    contains: le(function (t) {
+                        return t = t.replace(te, ne),
+                            function (e) {
+                                return -1 < (e.textContent || o(e)).indexOf(t)
+                            }
+                    }),
+                    lang: le(function (n) {
+                        return V.test(n || "") || se.error("unsupported lang: " + n), n = n.replace(te, ne).toLowerCase(),
+                            function (e) {
+                                var t;
+                                do {
+                                    if (t = E ? e.lang : e.getAttribute("xml:lang") || e.getAttribute("lang")) return (t = t.toLowerCase()) === n || 0 === t.indexOf(n + "-")
+                                } while ((e = e.parentNode) && 1 === e.nodeType);
+                                return !1
+                            }
+                    }),
+                    target: function (e) {
+                        var t = n.location && n.location.hash;
+                        return t && t.slice(1) === e.id
+                    },
+                    root: function (e) {
+                        return e === a
+                    },
+                    focus: function (e) {
+                        return e === C.activeElement && (!C.hasFocus || C.hasFocus()) && !!(e.type || e.href || ~e.tabIndex)
+                    },
+                    enabled: ge(!1),
+                    disabled: ge(!0),
+                    checked: function (e) {
+                        var t = e.nodeName.toLowerCase();
+                        return "input" === t && !!e.checked || "option" === t && !!e.selected
+                    },
+                    selected: function (e) {
+                        return e.parentNode && e.parentNode.selectedIndex, !0 === e.selected
+                    },
+                    empty: function (e) {
+                        for (e = e.firstChild; e; e = e.nextSibling)
+                            if (e.nodeType < 6) return !1;
+                        return !0
+                    },
+                    parent: function (e) {
+                        return !b.pseudos.empty(e)
+                    },
+                    header: function (e) {
+                        return J.test(e.nodeName)
+                    },
+                    input: function (e) {
+                        return Q.test(e.nodeName)
+                    },
+                    button: function (e) {
+                        var t = e.nodeName.toLowerCase();
+                        return "input" === t && "button" === e.type || "button" === t
+                    },
+                    text: function (e) {
+                        var t;
+                        return "input" === e.nodeName.toLowerCase() && "text" === e.type && (null == (t = e.getAttribute("type")) || "text" === t.toLowerCase())
+                    },
+                    first: ve(function () {
+                        return [0]
+                    }),
+                    last: ve(function (e, t) {
+                        return [t - 1]
+                    }),
+                    eq: ve(function (e, t, n) {
+                        return [n < 0 ? n + t : n]
+                    }),
+                    even: ve(function (e, t) {
+                        for (var n = 0; n < t; n += 2) e.push(n);
+                        return e
+                    }),
+                    odd: ve(function (e, t) {
+                        for (var n = 1; n < t; n += 2) e.push(n);
+                        return e
+                    }),
+                    lt: ve(function (e, t, n) {
+                        for (var r = n < 0 ? n + t : t < n ? t : n; 0 <= --r;) e.push(r);
+                        return e
+                    }),
+                    gt: ve(function (e, t, n) {
+                        for (var r = n < 0 ? n + t : n; ++r < t;) e.push(r);
+                        return e
+                    })
+                }
+            }).pseudos.nth = b.pseudos.eq, {
+                radio: !0,
+                checkbox: !0,
+                file: !0,
+                password: !0,
+                image: !0
+            }) b.pseudos[e] = de(e);
+        for (e in {
+                submit: !0,
+                reset: !0
+            }) b.pseudos[e] = he(e);
 
-        function me() {
-        }
+        function me() {}
 
         function xe(e) {
             for (var t = 0, n = e.length, r = ""; t < n; t++) r += e[t].value;
@@ -568,55 +749,69 @@ preloader.contentLoading();
         }
 
         function be(s, e, t) {
-            var u = e.dir, l = e.next, c = l || u, f = t && "parentNode" === c, p = r++;
+            var u = e.dir,
+                l = e.next,
+                c = l || u,
+                f = t && "parentNode" === c,
+                p = r++;
             return e.first ? function (e, t, n) {
-                while (e = e[u]) if (1 === e.nodeType || f) return s(e, t, n);
+                while (e = e[u])
+                    if (1 === e.nodeType || f) return s(e, t, n);
                 return !1
             } : function (e, t, n) {
                 var r, i, o, a = [k, p];
                 if (n) {
-                    while (e = e[u]) if ((1 === e.nodeType || f) && s(e, t, n)) return !0
-                } else while (e = e[u]) if (1 === e.nodeType || f) if (i = (o = e[S] || (e[S] = {}))[e.uniqueID] || (o[e.uniqueID] = {}), l && l === e.nodeName.toLowerCase()) e = e[u] || e; else {
-                    if ((r = i[c]) && r[0] === k && r[1] === p) return a[2] = r[2];
-                    if ((i[c] = a)[2] = s(e, t, n)) return !0
-                }
-                return !1
+                    while (e = e[u])
+                        if ((1 === e.nodeType || f) && s(e, t, n)) return !0
+                } else
+                    while (e = e[u])
+                        if (1 === e.nodeType || f)
+                            if (i = (o = e[S] || (e[S] = {}))[e.uniqueID] || (o[e.uniqueID] = {}), l && l === e.nodeName.toLowerCase()) e = e[u] || e;
+                            else {
+                                if ((r = i[c]) && r[0] === k && r[1] === p) return a[2] = r[2];
+                                if ((i[c] = a)[2] = s(e, t, n)) return !0
+                            } return !1
             }
         }
 
         function we(i) {
             return 1 < i.length ? function (e, t, n) {
                 var r = i.length;
-                while (r--) if (!i[r](e, t, n)) return !1;
+                while (r--)
+                    if (!i[r](e, t, n)) return !1;
                 return !0
             } : i[0]
         }
 
         function Te(e, t, n, r, i) {
-            for (var o, a = [], s = 0, u = e.length, l = null != t; s < u; s++) (o = e[s]) && (n && !n(o, r, i) || (a.push(o), l && t.push(s)));
+            for (var o, a = [], s = 0, u = e.length, l = null != t; s < u; s++)(o = e[s]) && (n && !n(o, r, i) || (a.push(o), l && t.push(s)));
             return a
         }
 
         function Ce(d, h, g, v, y, e) {
             return v && !v[S] && (v = Ce(v)), y && !y[S] && (y = Ce(y, e)), le(function (e, t, n, r) {
-                var i, o, a, s = [], u = [], l = t.length, c = e || function (e, t, n) {
+                var i, o, a, s = [],
+                    u = [],
+                    l = t.length,
+                    c = e || function (e, t, n) {
                         for (var r = 0, i = t.length; r < i; r++) se(e, t[r], n);
                         return n
-                    }(h || "*", n.nodeType ? [n] : n, []), f = !d || !e && h ? c : Te(c, s, d, n, r),
+                    }(h || "*", n.nodeType ? [n] : n, []),
+                    f = !d || !e && h ? c : Te(c, s, d, n, r),
                     p = g ? y || (e ? d : l || v) ? [] : t : f;
                 if (g && g(f, p, n, r), v) {
                     i = Te(p, u), v(i, [], n, r), o = i.length;
-                    while (o--) (a = i[o]) && (p[u[o]] = !(f[u[o]] = a))
+                    while (o--)(a = i[o]) && (p[u[o]] = !(f[u[o]] = a))
                 }
                 if (e) {
                     if (y || d) {
                         if (y) {
                             i = [], o = p.length;
-                            while (o--) (a = p[o]) && i.push(f[o] = a);
+                            while (o--)(a = p[o]) && i.push(f[o] = a);
                             y(null, p = [], i, r)
                         }
                         o = p.length;
-                        while (o--) (a = p[o]) && -1 < (i = y ? P(e, a) : s[o]) && (e[i] = !(t[i] = a))
+                        while (o--)(a = p[o]) && -1 < (i = y ? P(e, a) : s[o]) && (e[i] = !(t[i] = a))
                     }
                 } else p = Te(p === t ? p.splice(l, p.length) : p), y ? y(null, t, p, r) : H.apply(t, p)
             })
@@ -624,31 +819,34 @@ preloader.contentLoading();
 
         function Ee(e) {
             for (var i, t, n, r = e.length, o = b.relative[e[0].type], a = o || b.relative[" "], s = o ? 1 : 0, u = be(function (e) {
-                return e === i
-            }, a, !0), l = be(function (e) {
-                return -1 < P(i, e)
-            }, a, !0), c = [function (e, t, n) {
-                var r = !o && (n || t !== w) || ((i = t).nodeType ? u(e, t, n) : l(e, t, n));
-                return i = null, r
-            }]; s < r; s++) if (t = b.relative[e[s].type]) c = [be(we(c), t)]; else {
-                if ((t = b.filter[e[s].type].apply(null, e[s].matches))[S]) {
-                    for (n = ++s; n < r; n++) if (b.relative[e[n].type]) break;
-                    return Ce(1 < s && we(c), 1 < s && xe(e.slice(0, s - 1).concat({value: " " === e[s - 2].type ? "*" : ""})).replace($, "$1"), t, s < n && Ee(e.slice(s, n)), n < r && Ee(e = e.slice(n)), n < r && xe(e))
-                }
-                c.push(t)
-            }
-            return we(c)
+                    return e === i
+                }, a, !0), l = be(function (e) {
+                    return -1 < P(i, e)
+                }, a, !0), c = [function (e, t, n) {
+                    var r = !o && (n || t !== w) || ((i = t).nodeType ? u(e, t, n) : l(e, t, n));
+                    return i = null, r
+                }]; s < r; s++)
+                if (t = b.relative[e[s].type]) c = [be(we(c), t)];
+                else {
+                    if ((t = b.filter[e[s].type].apply(null, e[s].matches))[S]) {
+                        for (n = ++s; n < r; n++)
+                            if (b.relative[e[n].type]) break;
+                        return Ce(1 < s && we(c), 1 < s && xe(e.slice(0, s - 1).concat({
+                            value: " " === e[s - 2].type ? "*" : ""
+                        })).replace($, "$1"), t, s < n && Ee(e.slice(s, n)), n < r && Ee(e = e.slice(n)), n < r && xe(e))
+                    }
+                    c.push(t)
+                } return we(c)
         }
-
         return me.prototype = b.filters = b.pseudos, b.setFilters = new me, h = se.tokenize = function (e, t) {
             var n, r, i, o, a, s, u, l = x[e + " "];
             if (l) return t ? 0 : l.slice(0);
             a = e, s = [], u = b.preFilter;
             while (a) {
                 for (o in n && !(r = _.exec(a)) || (r && (a = a.slice(r[0].length) || a), s.push(i = [])), n = !1, (r = z.exec(a)) && (n = r.shift(), i.push({
-                    value: n,
-                    type: r[0].replace($, " ")
-                }), a = a.slice(n.length)), b.filter) !(r = G[o].exec(a)) || u[o] && !(r = u[o](r)) || (n = r.shift(), i.push({
+                        value: n,
+                        type: r[0].replace($, " ")
+                    }), a = a.slice(n.length)), b.filter) !(r = G[o].exec(a)) || u[o] && !(r = u[o](r)) || (n = r.shift(), i.push({
                     value: n,
                     type: o,
                     matches: r
@@ -657,21 +855,29 @@ preloader.contentLoading();
             }
             return t ? a.length : a ? se.error(e) : x(e, s).slice(0)
         }, f = se.compile = function (e, t) {
-            var n, v, y, m, x, r, i = [], o = [], a = A[e + " "];
+            var n, v, y, m, x, r, i = [],
+                o = [],
+                a = A[e + " "];
             if (!a) {
                 t || (t = h(e)), n = t.length;
-                while (n--) (a = Ee(t[n]))[S] ? i.push(a) : o.push(a);
+                while (n--)(a = Ee(t[n]))[S] ? i.push(a) : o.push(a);
                 (a = A(e, (v = o, m = 0 < (y = i).length, x = 0 < v.length, r = function (e, t, n, r, i) {
-                    var o, a, s, u = 0, l = "0", c = e && [], f = [], p = w, d = e || x && b.find.TAG("*", i),
-                        h = k += null == p ? 1 : Math.random() || .1, g = d.length;
+                    var o, a, s, u = 0,
+                        l = "0",
+                        c = e && [],
+                        f = [],
+                        p = w,
+                        d = e || x && b.find.TAG("*", i),
+                        h = k += null == p ? 1 : Math.random() || .1,
+                        g = d.length;
                     for (i && (w = t == C || t || i); l !== g && null != (o = d[l]); l++) {
                         if (x && o) {
                             a = 0, t || o.ownerDocument == C || (T(o), n = !E);
-                            while (s = v[a++]) if (s(o, t || C, n)) {
-                                r.push(o);
-                                break
-                            }
-                            i && (k = h)
+                            while (s = v[a++])
+                                if (s(o, t || C, n)) {
+                                    r.push(o);
+                                    break
+                                } i && (k = h)
                         }
                         m && ((o = !s && o) && u--, e && c.push(o))
                     }
@@ -679,7 +885,8 @@ preloader.contentLoading();
                         a = 0;
                         while (s = y[a++]) s(c, f, t, n);
                         if (e) {
-                            if (0 < u) while (l--) c[l] || f[l] || (f[l] = q.call(r));
+                            if (0 < u)
+                                while (l--) c[l] || f[l] || (f[l] = q.call(r));
                             f = Te(f)
                         }
                         H.apply(r, f), i && !e && 0 < f.length && 1 < u + y.length && se.uniqueSort(r)
@@ -689,7 +896,8 @@ preloader.contentLoading();
             }
             return a
         }, g = se.select = function (e, t, n, r) {
-            var i, o, a, s, u, l = "function" == typeof e && e, c = !r && h(e = l.selector || e);
+            var i, o, a, s, u, l = "function" == typeof e && e,
+                c = !r && h(e = l.selector || e);
             if (n = n || [], 1 === c.length) {
                 if (2 < (o = c[0] = c[0].slice(0)).length && "ID" === (a = o[0]).type && 9 === t.nodeType && E && b.relative[o[1].type]) {
                     if (!(t = (b.find.ID(a.matches[0].replace(te, ne), t) || [])[0])) return n;
@@ -724,21 +932,23 @@ preloader.contentLoading();
     }(C);
     S.find = d, S.expr = d.selectors, S.expr[":"] = S.expr.pseudos, S.uniqueSort = S.unique = d.uniqueSort, S.text = d.getText, S.isXMLDoc = d.isXML, S.contains = d.contains, S.escapeSelector = d.escape;
     var h = function (e, t, n) {
-        var r = [], i = void 0 !== n;
-        while ((e = e[t]) && 9 !== e.nodeType) if (1 === e.nodeType) {
-            if (i && S(e).is(n)) break;
-            r.push(e)
-        }
-        return r
-    }, T = function (e, t) {
-        for (var n = []; e; e = e.nextSibling) 1 === e.nodeType && e !== t && n.push(e);
-        return n
-    }, k = S.expr.match.needsContext;
+            var r = [],
+                i = void 0 !== n;
+            while ((e = e[t]) && 9 !== e.nodeType)
+                if (1 === e.nodeType) {
+                    if (i && S(e).is(n)) break;
+                    r.push(e)
+                } return r
+        },
+        T = function (e, t) {
+            for (var n = []; e; e = e.nextSibling) 1 === e.nodeType && e !== t && n.push(e);
+            return n
+        },
+        k = S.expr.match.needsContext;
 
     function A(e, t) {
         return e.nodeName && e.nodeName.toLowerCase() === t.toLowerCase()
     }
-
     var N = /^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i;
 
     function D(e, n, r) {
@@ -750,7 +960,6 @@ preloader.contentLoading();
             return -1 < i.call(n, e) !== r
         }) : S.filter(n, e, r)
     }
-
     S.filter = function (e, t, n) {
         var r = t[0];
         return n && (e = ":not(" + e + ")"), 1 === t.length && 1 === r.nodeType ? S.find.matchesSelector(r, e) ? [r] : [] : S.find.matches(e, S.grep(t, function (e) {
@@ -758,17 +967,22 @@ preloader.contentLoading();
         }))
     }, S.fn.extend({
         find: function (e) {
-            var t, n, r = this.length, i = this;
+            var t, n, r = this.length,
+                i = this;
             if ("string" != typeof e) return this.pushStack(S(e).filter(function () {
-                for (t = 0; t < r; t++) if (S.contains(i[t], this)) return !0
+                for (t = 0; t < r; t++)
+                    if (S.contains(i[t], this)) return !0
             }));
             for (n = this.pushStack([]), t = 0; t < r; t++) S.find(e, i[t], n);
             return 1 < r ? S.uniqueSort(n) : n
-        }, filter: function (e) {
+        },
+        filter: function (e) {
             return this.pushStack(D(this, e || [], !1))
-        }, not: function (e) {
+        },
+        not: function (e) {
             return this.pushStack(D(this, e || [], !0))
-        }, is: function (e) {
+        },
+        is: function (e) {
             return !!D(this, "string" == typeof e && k.test(e) ? S(e) : e || [], !1).length
         }
     });
@@ -779,65 +993,93 @@ preloader.contentLoading();
         if (n = n || j, "string" == typeof e) {
             if (!(r = "<" === e[0] && ">" === e[e.length - 1] && 3 <= e.length ? [null, e, null] : q.exec(e)) || !r[1] && t) return !t || t.jquery ? (t || n).find(e) : this.constructor(t).find(e);
             if (r[1]) {
-                if (t = t instanceof S ? t[0] : t, S.merge(this, S.parseHTML(r[1], t && t.nodeType ? t.ownerDocument || t : E, !0)), N.test(r[1]) && S.isPlainObject(t)) for (r in t) m(this[r]) ? this[r](t[r]) : this.attr(r, t[r]);
+                if (t = t instanceof S ? t[0] : t, S.merge(this, S.parseHTML(r[1], t && t.nodeType ? t.ownerDocument || t : E, !0)), N.test(r[1]) && S.isPlainObject(t))
+                    for (r in t) m(this[r]) ? this[r](t[r]) : this.attr(r, t[r]);
                 return this
             }
             return (i = E.getElementById(r[2])) && (this[0] = i, this.length = 1), this
         }
         return e.nodeType ? (this[0] = e, this.length = 1, this) : m(e) ? void 0 !== n.ready ? n.ready(e) : e(S) : S.makeArray(e, this)
     }).prototype = S.fn, j = S(E);
-    var L = /^(?:parents|prev(?:Until|All))/, H = {children: !0, contents: !0, next: !0, prev: !0};
+    var L = /^(?:parents|prev(?:Until|All))/,
+        H = {
+            children: !0,
+            contents: !0,
+            next: !0,
+            prev: !0
+        };
 
     function O(e, t) {
-        while ((e = e[t]) && 1 !== e.nodeType) ;
+        while ((e = e[t]) && 1 !== e.nodeType);
         return e
     }
-
     S.fn.extend({
         has: function (e) {
-            var t = S(e, this), n = t.length;
+            var t = S(e, this),
+                n = t.length;
             return this.filter(function () {
-                for (var e = 0; e < n; e++) if (S.contains(this, t[e])) return !0
+                for (var e = 0; e < n; e++)
+                    if (S.contains(this, t[e])) return !0
             })
-        }, closest: function (e, t) {
-            var n, r = 0, i = this.length, o = [], a = "string" != typeof e && S(e);
-            if (!k.test(e)) for (; r < i; r++) for (n = this[r]; n && n !== t; n = n.parentNode) if (n.nodeType < 11 && (a ? -1 < a.index(n) : 1 === n.nodeType && S.find.matchesSelector(n, e))) {
-                o.push(n);
-                break
-            }
-            return this.pushStack(1 < o.length ? S.uniqueSort(o) : o)
-        }, index: function (e) {
+        },
+        closest: function (e, t) {
+            var n, r = 0,
+                i = this.length,
+                o = [],
+                a = "string" != typeof e && S(e);
+            if (!k.test(e))
+                for (; r < i; r++)
+                    for (n = this[r]; n && n !== t; n = n.parentNode)
+                        if (n.nodeType < 11 && (a ? -1 < a.index(n) : 1 === n.nodeType && S.find.matchesSelector(n, e))) {
+                            o.push(n);
+                            break
+                        } return this.pushStack(1 < o.length ? S.uniqueSort(o) : o)
+        },
+        index: function (e) {
             return e ? "string" == typeof e ? i.call(S(e), this[0]) : i.call(this, e.jquery ? e[0] : e) : this[0] && this[0].parentNode ? this.first().prevAll().length : -1
-        }, add: function (e, t) {
+        },
+        add: function (e, t) {
             return this.pushStack(S.uniqueSort(S.merge(this.get(), S(e, t))))
-        }, addBack: function (e) {
+        },
+        addBack: function (e) {
             return this.add(null == e ? this.prevObject : this.prevObject.filter(e))
         }
     }), S.each({
         parent: function (e) {
             var t = e.parentNode;
             return t && 11 !== t.nodeType ? t : null
-        }, parents: function (e) {
+        },
+        parents: function (e) {
             return h(e, "parentNode")
-        }, parentsUntil: function (e, t, n) {
+        },
+        parentsUntil: function (e, t, n) {
             return h(e, "parentNode", n)
-        }, next: function (e) {
+        },
+        next: function (e) {
             return O(e, "nextSibling")
-        }, prev: function (e) {
+        },
+        prev: function (e) {
             return O(e, "previousSibling")
-        }, nextAll: function (e) {
+        },
+        nextAll: function (e) {
             return h(e, "nextSibling")
-        }, prevAll: function (e) {
+        },
+        prevAll: function (e) {
             return h(e, "previousSibling")
-        }, nextUntil: function (e, t, n) {
+        },
+        nextUntil: function (e, t, n) {
             return h(e, "nextSibling", n)
-        }, prevUntil: function (e, t, n) {
+        },
+        prevUntil: function (e, t, n) {
             return h(e, "previousSibling", n)
-        }, siblings: function (e) {
+        },
+        siblings: function (e) {
             return T((e.parentNode || {}).firstChild, e)
-        }, children: function (e) {
+        },
+        children: function (e) {
             return T(e.firstChild)
-        }, contents: function (e) {
+        },
+        contents: function (e) {
             return null != e.contentDocument && r(e.contentDocument) ? e.contentDocument : (A(e, "template") && (e = e.content || e), S.merge([], e.childNodes))
         }
     }, function (r, i) {
@@ -864,62 +1106,83 @@ preloader.contentLoading();
             n.apply(void 0, [e])
         }
     }
-
     S.Callbacks = function (r) {
         var e, n;
         r = "string" == typeof r ? (e = r, n = {}, S.each(e.match(P) || [], function (e, t) {
             n[t] = !0
         }), n) : S.extend({}, r);
-        var i, t, o, a, s = [], u = [], l = -1, c = function () {
-            for (a = a || r.once, o = i = !0; u.length; l = -1) {
-                t = u.shift();
-                while (++l < s.length) !1 === s[l].apply(t[0], t[1]) && r.stopOnFalse && (l = s.length, t = !1)
-            }
-            r.memory || (t = !1), i = !1, a && (s = t ? [] : "")
-        }, f = {
-            add: function () {
-                return s && (t && !i && (l = s.length - 1, u.push(t)), function n(e) {
-                    S.each(e, function (e, t) {
-                        m(t) ? r.unique && f.has(t) || s.push(t) : t && t.length && "string" !== w(t) && n(t)
-                    })
-                }(arguments), t && !i && c()), this
-            }, remove: function () {
-                return S.each(arguments, function (e, t) {
-                    var n;
-                    while (-1 < (n = S.inArray(t, s, n))) s.splice(n, 1), n <= l && l--
-                }), this
-            }, has: function (e) {
-                return e ? -1 < S.inArray(e, s) : 0 < s.length
-            }, empty: function () {
-                return s && (s = []), this
-            }, disable: function () {
-                return a = u = [], s = t = "", this
-            }, disabled: function () {
-                return !s
-            }, lock: function () {
-                return a = u = [], t || i || (s = t = ""), this
-            }, locked: function () {
-                return !!a
-            }, fireWith: function (e, t) {
-                return a || (t = [e, (t = t || []).slice ? t.slice() : t], u.push(t), i || c()), this
-            }, fire: function () {
-                return f.fireWith(this, arguments), this
-            }, fired: function () {
-                return !!o
-            }
-        };
+        var i, t, o, a, s = [],
+            u = [],
+            l = -1,
+            c = function () {
+                for (a = a || r.once, o = i = !0; u.length; l = -1) {
+                    t = u.shift();
+                    while (++l < s.length) !1 === s[l].apply(t[0], t[1]) && r.stopOnFalse && (l = s.length, t = !1)
+                }
+                r.memory || (t = !1), i = !1, a && (s = t ? [] : "")
+            },
+            f = {
+                add: function () {
+                    return s && (t && !i && (l = s.length - 1, u.push(t)), function n(e) {
+                        S.each(e, function (e, t) {
+                            m(t) ? r.unique && f.has(t) || s.push(t) : t && t.length && "string" !== w(t) && n(t)
+                        })
+                    }(arguments), t && !i && c()), this
+                },
+                remove: function () {
+                    return S.each(arguments, function (e, t) {
+                        var n;
+                        while (-1 < (n = S.inArray(t, s, n))) s.splice(n, 1), n <= l && l--
+                    }), this
+                },
+                has: function (e) {
+                    return e ? -1 < S.inArray(e, s) : 0 < s.length
+                },
+                empty: function () {
+                    return s && (s = []), this
+                },
+                disable: function () {
+                    return a = u = [], s = t = "", this
+                },
+                disabled: function () {
+                    return !s
+                },
+                lock: function () {
+                    return a = u = [], t || i || (s = t = ""), this
+                },
+                locked: function () {
+                    return !!a
+                },
+                fireWith: function (e, t) {
+                    return a || (t = [e, (t = t || []).slice ? t.slice() : t], u.push(t), i || c()), this
+                },
+                fire: function () {
+                    return f.fireWith(this, arguments), this
+                },
+                fired: function () {
+                    return !!o
+                }
+            };
         return f
     }, S.extend({
         Deferred: function (e) {
-            var o = [["notify", "progress", S.Callbacks("memory"), S.Callbacks("memory"), 2], ["resolve", "done", S.Callbacks("once memory"), S.Callbacks("once memory"), 0, "resolved"], ["reject", "fail", S.Callbacks("once memory"), S.Callbacks("once memory"), 1, "rejected"]],
-                i = "pending", a = {
+            var o = [
+                    ["notify", "progress", S.Callbacks("memory"), S.Callbacks("memory"), 2],
+                    ["resolve", "done", S.Callbacks("once memory"), S.Callbacks("once memory"), 0, "resolved"],
+                    ["reject", "fail", S.Callbacks("once memory"), S.Callbacks("once memory"), 1, "rejected"]
+                ],
+                i = "pending",
+                a = {
                     state: function () {
                         return i
-                    }, always: function () {
+                    },
+                    always: function () {
                         return s.done(arguments).fail(arguments), this
-                    }, catch: function (e) {
+                    },
+                    catch: function (e) {
                         return a.then(null, e)
-                    }, pipe: function () {
+                    },
+                    pipe: function () {
                         var i = arguments;
                         return S.Deferred(function (r) {
                             S.each(o, function (e, t) {
@@ -930,49 +1193,61 @@ preloader.contentLoading();
                                 })
                             }), i = null
                         }).promise()
-                    }, then: function (t, n, r) {
+                    },
+                    then: function (t, n, r) {
                         var u = 0;
 
                         function l(i, o, a, s) {
                             return function () {
-                                var n = this, r = arguments, e = function () {
-                                    var e, t;
-                                    if (!(i < u)) {
-                                        if ((e = a.apply(n, r)) === o.promise()) throw new TypeError("Thenable self-resolution");
-                                        t = e && ("object" == typeof e || "function" == typeof e) && e.then, m(t) ? s ? t.call(e, l(u, o, R, s), l(u, o, M, s)) : (u++, t.call(e, l(u, o, R, s), l(u, o, M, s), l(u, o, R, o.notifyWith))) : (a !== R && (n = void 0, r = [e]), (s || o.resolveWith)(n, r))
-                                    }
-                                }, t = s ? e : function () {
-                                    try {
-                                        e()
-                                    } catch (e) {
-                                        S.Deferred.exceptionHook && S.Deferred.exceptionHook(e, t.stackTrace), u <= i + 1 && (a !== M && (n = void 0, r = [e]), o.rejectWith(n, r))
-                                    }
-                                };
+                                var n = this,
+                                    r = arguments,
+                                    e = function () {
+                                        var e, t;
+                                        if (!(i < u)) {
+                                            if ((e = a.apply(n, r)) === o.promise()) throw new TypeError("Thenable self-resolution");
+                                            t = e && ("object" == typeof e || "function" == typeof e) && e.then, m(t) ? s ? t.call(e, l(u, o, R, s), l(u, o, M, s)) : (u++, t.call(e, l(u, o, R, s), l(u, o, M, s), l(u, o, R, o.notifyWith))) : (a !== R && (n = void 0, r = [e]), (s || o.resolveWith)(n, r))
+                                        }
+                                    },
+                                    t = s ? e : function () {
+                                        try {
+                                            e()
+                                        } catch (e) {
+                                            S.Deferred.exceptionHook && S.Deferred.exceptionHook(e, t.stackTrace), u <= i + 1 && (a !== M && (n = void 0, r = [e]), o.rejectWith(n, r))
+                                        }
+                                    };
                                 i ? t() : (S.Deferred.getStackHook && (t.stackTrace = S.Deferred.getStackHook()), C.setTimeout(t))
                             }
                         }
-
                         return S.Deferred(function (e) {
                             o[0][3].add(l(0, e, m(r) ? r : R, e.notifyWith)), o[1][3].add(l(0, e, m(t) ? t : R)), o[2][3].add(l(0, e, m(n) ? n : M))
                         }).promise()
-                    }, promise: function (e) {
+                    },
+                    promise: function (e) {
                         return null != e ? S.extend(e, a) : a
                     }
-                }, s = {};
+                },
+                s = {};
             return S.each(o, function (e, t) {
-                var n = t[2], r = t[5];
+                var n = t[2],
+                    r = t[5];
                 a[t[1]] = n.add, r && n.add(function () {
                     i = r
                 }, o[3 - e][2].disable, o[3 - e][3].disable, o[0][2].lock, o[0][3].lock), n.add(t[3].fire), s[t[0]] = function () {
                     return s[t[0] + "With"](this === s ? void 0 : this, arguments), this
                 }, s[t[0] + "With"] = n.fireWith
             }), a.promise(s), e && e.call(s, s), s
-        }, when: function (e) {
-            var n = arguments.length, t = n, r = Array(t), i = s.call(arguments), o = S.Deferred(), a = function (t) {
-                return function (e) {
-                    r[t] = this, i[t] = 1 < arguments.length ? s.call(arguments) : e, --n || o.resolveWith(r, i)
-                }
-            };
+        },
+        when: function (e) {
+            var n = arguments.length,
+                t = n,
+                r = Array(t),
+                i = s.call(arguments),
+                o = S.Deferred(),
+                a = function (t) {
+                    return function (e) {
+                        r[t] = this, i[t] = 1 < arguments.length ? s.call(arguments) : e, --n || o.resolveWith(r, i)
+                    }
+                };
             if (n <= 1 && (I(e, o.done(a(t)).resolve, o.reject, !n), "pending" === o.state() || m(i[t] && i[t].then))) return o.then();
             while (t--) I(i[t], a(t), o.reject);
             return o.promise()
@@ -991,23 +1266,31 @@ preloader.contentLoading();
     function B() {
         E.removeEventListener("DOMContentLoaded", B), C.removeEventListener("load", B), S.ready()
     }
-
     S.fn.ready = function (e) {
         return F.then(e)["catch"](function (e) {
             S.readyException(e)
         }), this
     }, S.extend({
-        isReady: !1, readyWait: 1, ready: function (e) {
+        isReady: !1,
+        readyWait: 1,
+        ready: function (e) {
             (!0 === e ? --S.readyWait : S.isReady) || (S.isReady = !0) !== e && 0 < --S.readyWait || F.resolveWith(E, [S])
         }
     }), S.ready.then = F.then, "complete" === E.readyState || "loading" !== E.readyState && !E.documentElement.doScroll ? C.setTimeout(S.ready) : (E.addEventListener("DOMContentLoaded", B), C.addEventListener("load", B));
     var $ = function (e, t, n, r, i, o, a) {
-        var s = 0, u = e.length, l = null == n;
-        if ("object" === w(n)) for (s in i = !0, n) $(e, t, s, n[s], !0, o, a); else if (void 0 !== r && (i = !0, m(r) || (a = !0), l && (a ? (t.call(e, r), t = null) : (l = t, t = function (e, t, n) {
-            return l.call(S(e), n)
-        })), t)) for (; s < u; s++) t(e[s], n, a ? r : r.call(e[s], s, t(e[s], n)));
-        return i ? e : l ? t.call(e) : u ? t(e[0], n) : o
-    }, _ = /^-ms-/, z = /-([a-z])/g;
+            var s = 0,
+                u = e.length,
+                l = null == n;
+            if ("object" === w(n))
+                for (s in i = !0, n) $(e, t, s, n[s], !0, o, a);
+            else if (void 0 !== r && (i = !0, m(r) || (a = !0), l && (a ? (t.call(e, r), t = null) : (l = t, t = function (e, t, n) {
+                    return l.call(S(e), n)
+                })), t))
+                for (; s < u; s++) t(e[s], n, a ? r : r.call(e[s], s, t(e[s], n)));
+            return i ? e : l ? t.call(e) : u ? t(e[0], n) : o
+        },
+        _ = /^-ms-/,
+        z = /-([a-z])/g;
 
     function U(e, t) {
         return t.toUpperCase()
@@ -1016,7 +1299,6 @@ preloader.contentLoading();
     function X(e) {
         return e.replace(_, "ms-").replace(z, U)
     }
-
     var V = function (e) {
         return 1 === e.nodeType || 9 === e.nodeType || !+e.nodeType
     };
@@ -1024,7 +1306,6 @@ preloader.contentLoading();
     function G() {
         this.expando = S.expando + G.uid++
     }
-
     G.uid = 1, G.prototype = {
         cache: function (e) {
             var t = e[this.expando];
@@ -1032,57 +1313,70 @@ preloader.contentLoading();
                 value: t,
                 configurable: !0
             }))), t
-        }, set: function (e, t, n) {
+        },
+        set: function (e, t, n) {
             var r, i = this.cache(e);
-            if ("string" == typeof t) i[X(t)] = n; else for (r in t) i[X(r)] = t[r];
+            if ("string" == typeof t) i[X(t)] = n;
+            else
+                for (r in t) i[X(r)] = t[r];
             return i
-        }, get: function (e, t) {
+        },
+        get: function (e, t) {
             return void 0 === t ? this.cache(e) : e[this.expando] && e[this.expando][X(t)]
-        }, access: function (e, t, n) {
+        },
+        access: function (e, t, n) {
             return void 0 === t || t && "string" == typeof t && void 0 === n ? this.get(e, t) : (this.set(e, t, n), void 0 !== n ? n : t)
-        }, remove: function (e, t) {
+        },
+        remove: function (e, t) {
             var n, r = e[this.expando];
             if (void 0 !== r) {
                 if (void 0 !== t) {
                     n = (t = Array.isArray(t) ? t.map(X) : (t = X(t)) in r ? [t] : t.match(P) || []).length;
                     while (n--) delete r[t[n]]
-                }
-                (void 0 === t || S.isEmptyObject(r)) && (e.nodeType ? e[this.expando] = void 0 : delete e[this.expando])
+                }(void 0 === t || S.isEmptyObject(r)) && (e.nodeType ? e[this.expando] = void 0 : delete e[this.expando])
             }
-        }, hasData: function (e) {
+        },
+        hasData: function (e) {
             var t = e[this.expando];
             return void 0 !== t && !S.isEmptyObject(t)
         }
     };
-    var Y = new G, Q = new G, J = /^(?:\{[\w\W]*\}|\[[\w\W]*\])$/, K = /[A-Z]/g;
+    var Y = new G,
+        Q = new G,
+        J = /^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,
+        K = /[A-Z]/g;
 
     function Z(e, t, n) {
         var r, i;
-        if (void 0 === n && 1 === e.nodeType) if (r = "data-" + t.replace(K, "-$&").toLowerCase(), "string" == typeof (n = e.getAttribute(r))) {
-            try {
-                n = "true" === (i = n) || "false" !== i && ("null" === i ? null : i === +i + "" ? +i : J.test(i) ? JSON.parse(i) : i)
-            } catch (e) {
-            }
-            Q.set(e, t, n)
-        } else n = void 0;
+        if (void 0 === n && 1 === e.nodeType)
+            if (r = "data-" + t.replace(K, "-$&").toLowerCase(), "string" == typeof (n = e.getAttribute(r))) {
+                try {
+                    n = "true" === (i = n) || "false" !== i && ("null" === i ? null : i === +i + "" ? +i : J.test(i) ? JSON.parse(i) : i)
+                } catch (e) {}
+                Q.set(e, t, n)
+            } else n = void 0;
         return n
     }
-
     S.extend({
         hasData: function (e) {
             return Q.hasData(e) || Y.hasData(e)
-        }, data: function (e, t, n) {
+        },
+        data: function (e, t, n) {
             return Q.access(e, t, n)
-        }, removeData: function (e, t) {
+        },
+        removeData: function (e, t) {
             Q.remove(e, t)
-        }, _data: function (e, t, n) {
+        },
+        _data: function (e, t, n) {
             return Y.access(e, t, n)
-        }, _removeData: function (e, t) {
+        },
+        _removeData: function (e, t) {
             Y.remove(e, t)
         }
     }), S.fn.extend({
         data: function (n, e) {
-            var t, r, i, o = this[0], a = o && o.attributes;
+            var t, r, i, o = this[0],
+                a = o && o.attributes;
             if (void 0 === n) {
                 if (this.length && (i = Q.get(o), 1 === o.nodeType && !Y.get(o, "hasDataAttrs"))) {
                     t = a.length;
@@ -1100,7 +1394,8 @@ preloader.contentLoading();
                     Q.set(this, n, e)
                 })
             }, null, e, 1 < arguments.length, null, !0)
-        }, removeData: function (e) {
+        },
+        removeData: function (e) {
             return this.each(function () {
                 Q.remove(this, e)
             })
@@ -1109,13 +1404,18 @@ preloader.contentLoading();
         queue: function (e, t, n) {
             var r;
             if (e) return t = (t || "fx") + "queue", r = Y.get(e, t), n && (!r || Array.isArray(n) ? r = Y.access(e, t, S.makeArray(n)) : r.push(n)), r || []
-        }, dequeue: function (e, t) {
+        },
+        dequeue: function (e, t) {
             t = t || "fx";
-            var n = S.queue(e, t), r = n.length, i = n.shift(), o = S._queueHooks(e, t);
+            var n = S.queue(e, t),
+                r = n.length,
+                i = n.shift(),
+                o = S._queueHooks(e, t);
             "inprogress" === i && (i = n.shift(), r--), i && ("fx" === t && n.unshift("inprogress"), delete o.stop, i.call(e, function () {
                 S.dequeue(e, t)
             }, o)), !r && o && o.empty.fire()
-        }, _queueHooks: function (e, t) {
+        },
+        _queueHooks: function (e, t) {
             var n = t + "queueHooks";
             return Y.get(e, n) || Y.access(e, n, {
                 empty: S.Callbacks("once memory").add(function () {
@@ -1130,25 +1430,38 @@ preloader.contentLoading();
                 var e = S.queue(this, t, n);
                 S._queueHooks(this, t), "fx" === t && "inprogress" !== e[0] && S.dequeue(this, t)
             })
-        }, dequeue: function (e) {
+        },
+        dequeue: function (e) {
             return this.each(function () {
                 S.dequeue(this, e)
             })
-        }, clearQueue: function (e) {
+        },
+        clearQueue: function (e) {
             return this.queue(e || "fx", [])
-        }, promise: function (e, t) {
-            var n, r = 1, i = S.Deferred(), o = this, a = this.length, s = function () {
-                --r || i.resolveWith(o, [o])
-            };
+        },
+        promise: function (e, t) {
+            var n, r = 1,
+                i = S.Deferred(),
+                o = this,
+                a = this.length,
+                s = function () {
+                    --r || i.resolveWith(o, [o])
+                };
             "string" != typeof e && (t = e, e = void 0), e = e || "fx";
-            while (a--) (n = Y.get(o[a], e + "queueHooks")) && n.empty && (r++, n.empty.add(s));
+            while (a--)(n = Y.get(o[a], e + "queueHooks")) && n.empty && (r++, n.empty.add(s));
             return s(), i.promise(t)
         }
     });
-    var ee = /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source, te = new RegExp("^(?:([+-])=|)(" + ee + ")([a-z%]*)$", "i"),
-        ne = ["Top", "Right", "Bottom", "Left"], re = E.documentElement, ie = function (e) {
+    var ee = /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source,
+        te = new RegExp("^(?:([+-])=|)(" + ee + ")([a-z%]*)$", "i"),
+        ne = ["Top", "Right", "Bottom", "Left"],
+        re = E.documentElement,
+        ie = function (e) {
             return S.contains(e.ownerDocument, e)
-        }, oe = {composed: !0};
+        },
+        oe = {
+            composed: !0
+        };
     re.getRootNode && (ie = function (e) {
         return S.contains(e.ownerDocument, e) || e.getRootNode(oe) === e.ownerDocument
     });
@@ -1157,11 +1470,14 @@ preloader.contentLoading();
     };
 
     function se(e, t, n, r) {
-        var i, o, a = 20, s = r ? function () {
+        var i, o, a = 20,
+            s = r ? function () {
                 return r.cur()
             } : function () {
                 return S.css(e, t, "")
-            }, u = s(), l = n && n[3] || (S.cssNumber[t] ? "" : "px"),
+            },
+            u = s(),
+            l = n && n[3] || (S.cssNumber[t] ? "" : "px"),
             c = e.nodeType && (S.cssNumber[t] || "px" !== l && +u) && te.exec(S.css(e, t));
         if (c && c[3] !== l) {
             u /= 2, l = l || c[3], c = +u || 1;
@@ -1170,27 +1486,28 @@ preloader.contentLoading();
         }
         return n && (c = +c || +u || 0, i = n[1] ? c + (n[1] + 1) * n[2] : +n[2], r && (r.unit = l, r.start = c, r.end = i)), i
     }
-
     var ue = {};
 
     function le(e, t) {
-        for (var n, r, i, o, a, s, u, l = [], c = 0, f = e.length; c < f; c++) (r = e[c]).style && (n = r.style.display, t ? ("none" === n && (l[c] = Y.get(r, "display") || null, l[c] || (r.style.display = "")), "" === r.style.display && ae(r) && (l[c] = (u = a = o = void 0, a = (i = r).ownerDocument, s = i.nodeName, (u = ue[s]) || (o = a.body.appendChild(a.createElement(s)), u = S.css(o, "display"), o.parentNode.removeChild(o), "none" === u && (u = "block"), ue[s] = u)))) : "none" !== n && (l[c] = "none", Y.set(r, "display", n)));
+        for (var n, r, i, o, a, s, u, l = [], c = 0, f = e.length; c < f; c++)(r = e[c]).style && (n = r.style.display, t ? ("none" === n && (l[c] = Y.get(r, "display") || null, l[c] || (r.style.display = "")), "" === r.style.display && ae(r) && (l[c] = (u = a = o = void 0, a = (i = r).ownerDocument, s = i.nodeName, (u = ue[s]) || (o = a.body.appendChild(a.createElement(s)), u = S.css(o, "display"), o.parentNode.removeChild(o), "none" === u && (u = "block"), ue[s] = u)))) : "none" !== n && (l[c] = "none", Y.set(r, "display", n)));
         for (c = 0; c < f; c++) null != l[c] && (e[c].style.display = l[c]);
         return e
     }
-
     S.fn.extend({
         show: function () {
             return le(this, !0)
-        }, hide: function () {
+        },
+        hide: function () {
             return le(this)
-        }, toggle: function (e) {
+        },
+        toggle: function (e) {
             return "boolean" == typeof e ? e ? this.show() : this.hide() : this.each(function () {
                 ae(this) ? S(this).show() : S(this).hide()
             })
         }
     });
-    var ce, fe, pe = /^(?:checkbox|radio)$/i, de = /<([a-z][^\/\0>\x20\t\r\n\f]*)/i,
+    var ce, fe, pe = /^(?:checkbox|radio)$/i,
+        de = /<([a-z][^\/\0>\x20\t\r\n\f]*)/i,
         he = /^$|^module$|\/(?:java|ecma)script/i;
     ce = E.createDocumentFragment().appendChild(E.createElement("div")), (fe = E.createElement("input")).setAttribute("type", "radio"), fe.setAttribute("checked", "checked"), fe.setAttribute("name", "t"), ce.appendChild(fe), y.checkClone = ce.cloneNode(!0).cloneNode(!0).lastChild.checked, ce.innerHTML = "<textarea>x</textarea>", y.noCloneChecked = !!ce.cloneNode(!0).lastChild.defaultValue, ce.innerHTML = "<option></option>", y.option = !!ce.lastChild;
     var ge = {
@@ -1209,25 +1526,30 @@ preloader.contentLoading();
     function ye(e, t) {
         for (var n = 0, r = e.length; n < r; n++) Y.set(e[n], "globalEval", !t || Y.get(t[n], "globalEval"))
     }
-
     ge.tbody = ge.tfoot = ge.colgroup = ge.caption = ge.thead, ge.th = ge.td, y.option || (ge.optgroup = ge.option = [1, "<select multiple='multiple'>", "</select>"]);
     var me = /<|&#?\w+;/;
 
     function xe(e, t, n, r, i) {
-        for (var o, a, s, u, l, c, f = t.createDocumentFragment(), p = [], d = 0, h = e.length; d < h; d++) if ((o = e[d]) || 0 === o) if ("object" === w(o)) S.merge(p, o.nodeType ? [o] : o); else if (me.test(o)) {
+        for (var o, a, s, u, l, c, f = t.createDocumentFragment(), p = [], d = 0, h = e.length; d < h; d++)
+            if ((o = e[d]) || 0 === o)
+                if ("object" === w(o)) S.merge(p, o.nodeType ? [o] : o);
+                else if (me.test(o)) {
             a = a || f.appendChild(t.createElement("div")), s = (de.exec(o) || ["", ""])[1].toLowerCase(), u = ge[s] || ge._default, a.innerHTML = u[1] + S.htmlPrefilter(o) + u[2], c = u[0];
             while (c--) a = a.lastChild;
             S.merge(p, a.childNodes), (a = f.firstChild).textContent = ""
         } else p.push(t.createTextNode(o));
         f.textContent = "", d = 0;
-        while (o = p[d++]) if (r && -1 < S.inArray(o, r)) i && i.push(o); else if (l = ie(o), a = ve(f.appendChild(o), "script"), l && ye(a), n) {
+        while (o = p[d++])
+            if (r && -1 < S.inArray(o, r)) i && i.push(o);
+            else if (l = ie(o), a = ve(f.appendChild(o), "script"), l && ye(a), n) {
             c = 0;
             while (o = a[c++]) he.test(o.type || "") && n.push(o)
         }
         return f
     }
-
-    var be = /^key/, we = /^(?:mouse|pointer|contextmenu|drag|drop)|click/, Te = /^([^.]*)(?:\.(.+)|)/;
+    var be = /^key/,
+        we = /^(?:mouse|pointer|contextmenu|drag|drop)|click/,
+        Te = /^([^.]*)(?:\.(.+)|)/;
 
     function Ce() {
         return !0
@@ -1241,8 +1563,7 @@ preloader.contentLoading();
         return e === function () {
             try {
                 return E.activeElement
-            } catch (e) {
-            }
+            } catch (e) {}
         }() == ("focus" === t)
     }
 
@@ -1252,7 +1573,8 @@ preloader.contentLoading();
             for (s in "string" != typeof n && (r = r || n, n = void 0), t) ke(e, s, n, r, t[s], o);
             return e
         }
-        if (null == r && null == i ? (i = n, r = n = void 0) : null == i && ("string" == typeof n ? (i = r, r = void 0) : (i = r, r = n, n = void 0)), !1 === i) i = Ee; else if (!i) return e;
+        if (null == r && null == i ? (i = n, r = n = void 0) : null == i && ("string" == typeof n ? (i = r, r = void 0) : (i = r, r = n, n = void 0)), !1 === i) i = Ee;
+        else if (!i) return e;
         return 1 === o && (a = i, (i = function (e) {
             return S().off(e), a.apply(this, arguments)
         }).guid = a.guid || (a.guid = S.guid++)), e.each(function () {
@@ -1262,17 +1584,21 @@ preloader.contentLoading();
 
     function Ae(e, i, o) {
         o ? (Y.set(e, i, !1), S.event.add(e, i, {
-            namespace: !1, handler: function (e) {
+            namespace: !1,
+            handler: function (e) {
                 var t, n, r = Y.get(this, i);
                 if (1 & e.isTrigger && this[i]) {
-                    if (r.length) (S.event.special[i] || {}).delegateType && e.stopPropagation(); else if (r = s.call(arguments), Y.set(this, i, r), t = o(this, i), this[i](), r !== (n = Y.get(this, i)) || t ? Y.set(this, i, !1) : n = {}, r !== n) return e.stopImmediatePropagation(), e.preventDefault(), n.value
-                } else r.length && (Y.set(this, i, {value: S.event.trigger(S.extend(r[0], S.Event.prototype), r.slice(1), this)}), e.stopImmediatePropagation())
+                    if (r.length)(S.event.special[i] || {}).delegateType && e.stopPropagation();
+                    else if (r = s.call(arguments), Y.set(this, i, r), t = o(this, i), this[i](), r !== (n = Y.get(this, i)) || t ? Y.set(this, i, !1) : n = {}, r !== n) return e.stopImmediatePropagation(), e.preventDefault(), n.value
+                } else r.length && (Y.set(this, i, {
+                    value: S.event.trigger(S.extend(r[0], S.Event.prototype), r.slice(1), this)
+                }), e.stopImmediatePropagation())
             }
         })) : void 0 === Y.get(e, i) && S.event.add(e, i, Ce)
     }
-
     S.event = {
-        global: {}, add: function (t, e, n, r, i) {
+        global: {},
+        add: function (t, e, n, r, i) {
             var o, a, s, u, l, c, f, p, d, h, g, v = Y.get(t);
             if (V(t)) {
                 n.handler && (n = (o = n).handler, i = o.selector), i && S.find.matchesSelector(re, i), n.guid || (n.guid = S.guid++), (u = v.events) || (u = v.events = Object.create(null)), (a = v.handle) || (a = v.handle = function (e) {
@@ -1289,20 +1615,26 @@ preloader.contentLoading();
                     namespace: h.join(".")
                 }, o), (p = u[d]) || ((p = u[d] = []).delegateCount = 0, f.setup && !1 !== f.setup.call(t, r, h, a) || t.addEventListener && t.addEventListener(d, a)), f.add && (f.add.call(t, c), c.handler.guid || (c.handler.guid = n.guid)), i ? p.splice(p.delegateCount++, 0, c) : p.push(c), S.event.global[d] = !0)
             }
-        }, remove: function (e, t, n, r, i) {
+        },
+        remove: function (e, t, n, r, i) {
             var o, a, s, u, l, c, f, p, d, h, g, v = Y.hasData(e) && Y.get(e);
             if (v && (u = v.events)) {
                 l = (t = (t || "").match(P) || [""]).length;
-                while (l--) if (d = g = (s = Te.exec(t[l]) || [])[1], h = (s[2] || "").split(".").sort(), d) {
-                    f = S.event.special[d] || {}, p = u[d = (r ? f.delegateType : f.bindType) || d] || [], s = s[2] && new RegExp("(^|\\.)" + h.join("\\.(?:.*\\.|)") + "(\\.|$)"), a = o = p.length;
-                    while (o--) c = p[o], !i && g !== c.origType || n && n.guid !== c.guid || s && !s.test(c.namespace) || r && r !== c.selector && ("**" !== r || !c.selector) || (p.splice(o, 1), c.selector && p.delegateCount--, f.remove && f.remove.call(e, c));
-                    a && !p.length && (f.teardown && !1 !== f.teardown.call(e, h, v.handle) || S.removeEvent(e, d, v.handle), delete u[d])
-                } else for (d in u) S.event.remove(e, d + t[l], n, r, !0);
+                while (l--)
+                    if (d = g = (s = Te.exec(t[l]) || [])[1], h = (s[2] || "").split(".").sort(), d) {
+                        f = S.event.special[d] || {}, p = u[d = (r ? f.delegateType : f.bindType) || d] || [], s = s[2] && new RegExp("(^|\\.)" + h.join("\\.(?:.*\\.|)") + "(\\.|$)"), a = o = p.length;
+                        while (o--) c = p[o], !i && g !== c.origType || n && n.guid !== c.guid || s && !s.test(c.namespace) || r && r !== c.selector && ("**" !== r || !c.selector) || (p.splice(o, 1), c.selector && p.delegateCount--, f.remove && f.remove.call(e, c));
+                        a && !p.length && (f.teardown && !1 !== f.teardown.call(e, h, v.handle) || S.removeEvent(e, d, v.handle), delete u[d])
+                    } else
+                        for (d in u) S.event.remove(e, d + t[l], n, r, !0);
                 S.isEmptyObject(u) && Y.remove(e, "handle events")
             }
-        }, dispatch: function (e) {
-            var t, n, r, i, o, a, s = new Array(arguments.length), u = S.event.fix(e),
-                l = (Y.get(this, "events") || Object.create(null))[u.type] || [], c = S.event.special[u.type] || {};
+        },
+        dispatch: function (e) {
+            var t, n, r, i, o, a, s = new Array(arguments.length),
+                u = S.event.fix(e),
+                l = (Y.get(this, "events") || Object.create(null))[u.type] || [],
+                c = S.event.special[u.type] || {};
             for (s[0] = u, t = 1; t < arguments.length; t++) s[t] = arguments[t];
             if (u.delegateTarget = this, !c.preDispatch || !1 !== c.preDispatch.call(this, u)) {
                 a = S.event.handlers.call(this, u, l), t = 0;
@@ -1312,38 +1644,65 @@ preloader.contentLoading();
                 }
                 return c.postDispatch && c.postDispatch.call(this, u), u.result
             }
-        }, handlers: function (e, t) {
-            var n, r, i, o, a, s = [], u = t.delegateCount, l = e.target;
-            if (u && l.nodeType && !("click" === e.type && 1 <= e.button)) for (; l !== this; l = l.parentNode || this) if (1 === l.nodeType && ("click" !== e.type || !0 !== l.disabled)) {
-                for (o = [], a = {}, n = 0; n < u; n++) void 0 === a[i = (r = t[n]).selector + " "] && (a[i] = r.needsContext ? -1 < S(i, this).index(l) : S.find(i, this, null, [l]).length), a[i] && o.push(r);
-                o.length && s.push({elem: l, handlers: o})
-            }
-            return l = this, u < t.length && s.push({elem: l, handlers: t.slice(u)}), s
-        }, addProp: function (t, e) {
+        },
+        handlers: function (e, t) {
+            var n, r, i, o, a, s = [],
+                u = t.delegateCount,
+                l = e.target;
+            if (u && l.nodeType && !("click" === e.type && 1 <= e.button))
+                for (; l !== this; l = l.parentNode || this)
+                    if (1 === l.nodeType && ("click" !== e.type || !0 !== l.disabled)) {
+                        for (o = [], a = {}, n = 0; n < u; n++) void 0 === a[i = (r = t[n]).selector + " "] && (a[i] = r.needsContext ? -1 < S(i, this).index(l) : S.find(i, this, null, [l]).length), a[i] && o.push(r);
+                        o.length && s.push({
+                            elem: l,
+                            handlers: o
+                        })
+                    } return l = this, u < t.length && s.push({
+                elem: l,
+                handlers: t.slice(u)
+            }), s
+        },
+        addProp: function (t, e) {
             Object.defineProperty(S.Event.prototype, t, {
-                enumerable: !0, configurable: !0, get: m(e) ? function () {
+                enumerable: !0,
+                configurable: !0,
+                get: m(e) ? function () {
                     if (this.originalEvent) return e(this.originalEvent)
                 } : function () {
                     if (this.originalEvent) return this.originalEvent[t]
-                }, set: function (e) {
-                    Object.defineProperty(this, t, {enumerable: !0, configurable: !0, writable: !0, value: e})
+                },
+                set: function (e) {
+                    Object.defineProperty(this, t, {
+                        enumerable: !0,
+                        configurable: !0,
+                        writable: !0,
+                        value: e
+                    })
                 }
             })
-        }, fix: function (e) {
+        },
+        fix: function (e) {
             return e[S.expando] ? e : new S.Event(e)
-        }, special: {
-            load: {noBubble: !0}, click: {
+        },
+        special: {
+            load: {
+                noBubble: !0
+            },
+            click: {
                 setup: function (e) {
                     var t = this || e;
                     return pe.test(t.type) && t.click && A(t, "input") && Ae(t, "click", Ce), !1
-                }, trigger: function (e) {
+                },
+                trigger: function (e) {
                     var t = this || e;
                     return pe.test(t.type) && t.click && A(t, "input") && Ae(t, "click"), !0
-                }, _default: function (e) {
+                },
+                _default: function (e) {
                     var t = e.target;
                     return pe.test(t.type) && t.click && A(t, "input") && Y.get(t, "click") || A(t, "a")
                 }
-            }, beforeunload: {
+            },
+            beforeunload: {
                 postDispatch: function (e) {
                     void 0 !== e.result && e.originalEvent && (e.originalEvent.returnValue = e.result)
                 }
@@ -1407,13 +1766,18 @@ preloader.contentLoading();
             var t = e.button;
             return null == e.which && be.test(e.type) ? null != e.charCode ? e.charCode : e.keyCode : !e.which && void 0 !== t && we.test(e.type) ? 1 & t ? 1 : 2 & t ? 3 : 4 & t ? 2 : 0 : e.which
         }
-    }, S.event.addProp), S.each({focus: "focusin", blur: "focusout"}, function (e, t) {
+    }, S.event.addProp), S.each({
+        focus: "focusin",
+        blur: "focusout"
+    }, function (e, t) {
         S.event.special[e] = {
             setup: function () {
                 return Ae(this, e, Se), !1
-            }, trigger: function () {
+            },
+            trigger: function () {
                 return Ae(this, e), !0
-            }, delegateType: t
+            },
+            delegateType: t
         }
     }), S.each({
         mouseenter: "mouseover",
@@ -1422,17 +1786,22 @@ preloader.contentLoading();
         pointerleave: "pointerout"
     }, function (e, i) {
         S.event.special[e] = {
-            delegateType: i, bindType: i, handle: function (e) {
-                var t, n = e.relatedTarget, r = e.handleObj;
+            delegateType: i,
+            bindType: i,
+            handle: function (e) {
+                var t, n = e.relatedTarget,
+                    r = e.handleObj;
                 return n && (n === this || S.contains(this, n)) || (e.type = r.origType, t = r.handler.apply(this, arguments), e.type = i), t
             }
         }
     }), S.fn.extend({
         on: function (e, t, n, r) {
             return ke(this, e, t, n, r)
-        }, one: function (e, t, n, r) {
+        },
+        one: function (e, t, n, r) {
             return ke(this, e, t, n, r, 1)
-        }, off: function (e, t, n) {
+        },
+        off: function (e, t, n) {
             var r, i;
             if (e && e.preventDefault && e.handleObj) return r = e.handleObj, S(e.delegateTarget).off(r.namespace ? r.origType + "." + r.namespace : r.origType, r.selector, r.handler), this;
             if ("object" == typeof e) {
@@ -1444,7 +1813,8 @@ preloader.contentLoading();
             })
         }
     });
-    var Ne = /<script|<style|<link/i, De = /checked\s*(?:[^=]|=\s*.checked.)/i,
+    var Ne = /<script|<style|<link/i,
+        De = /checked\s*(?:[^=]|=\s*.checked.)/i,
         je = /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g;
 
     function qe(e, t) {
@@ -1462,21 +1832,30 @@ preloader.contentLoading();
     function Oe(e, t) {
         var n, r, i, o, a, s;
         if (1 === t.nodeType) {
-            if (Y.hasData(e) && (s = Y.get(e).events)) for (i in Y.remove(t, "handle events"), s) for (n = 0, r = s[i].length; n < r; n++) S.event.add(t, i, s[i][n]);
+            if (Y.hasData(e) && (s = Y.get(e).events))
+                for (i in Y.remove(t, "handle events"), s)
+                    for (n = 0, r = s[i].length; n < r; n++) S.event.add(t, i, s[i][n]);
             Q.hasData(e) && (o = Q.access(e), a = S.extend({}, o), Q.set(t, a))
         }
     }
 
     function Pe(n, r, i, o) {
         r = g(r);
-        var e, t, a, s, u, l, c = 0, f = n.length, p = f - 1, d = r[0], h = m(d);
+        var e, t, a, s, u, l, c = 0,
+            f = n.length,
+            p = f - 1,
+            d = r[0],
+            h = m(d);
         if (h || 1 < f && "string" == typeof d && !y.checkClone && De.test(d)) return n.each(function (e) {
             var t = n.eq(e);
             h && (r[0] = d.call(this, e, t.html())), Pe(t, r, i, o)
         });
         if (f && (t = (e = xe(r, n[0].ownerDocument, !1, n, o)).firstChild, 1 === e.childNodes.length && (e = t), t || o)) {
             for (s = (a = S.map(ve(e, "script"), Le)).length; c < f; c++) u = e, c !== p && (u = S.clone(u, !0, !0), s && S.merge(a, ve(u, "script"))), i.call(n[c], u, c);
-            if (s) for (l = a[a.length - 1].ownerDocument, S.map(a, He), c = 0; c < s; c++) u = a[c], he.test(u.type || "") && !Y.access(u, "globalEval") && S.contains(l, u) && (u.src && "module" !== (u.type || "").toLowerCase() ? S._evalUrl && !u.noModule && S._evalUrl(u.src, {nonce: u.nonce || u.getAttribute("nonce")}, l) : b(u.textContent.replace(je, ""), u, l))
+            if (s)
+                for (l = a[a.length - 1].ownerDocument, S.map(a, He), c = 0; c < s; c++) u = a[c], he.test(u.type || "") && !Y.access(u, "globalEval") && S.contains(l, u) && (u.src && "module" !== (u.type || "").toLowerCase() ? S._evalUrl && !u.noModule && S._evalUrl(u.src, {
+                    nonce: u.nonce || u.getAttribute("nonce")
+                }, l) : b(u.textContent.replace(je, ""), u, l))
         }
         return n
     }
@@ -1485,76 +1864,95 @@ preloader.contentLoading();
         for (var r, i = t ? S.filter(t, e) : e, o = 0; null != (r = i[o]); o++) n || 1 !== r.nodeType || S.cleanData(ve(r)), r.parentNode && (n && ie(r) && ye(ve(r, "script")), r.parentNode.removeChild(r));
         return e
     }
-
     S.extend({
         htmlPrefilter: function (e) {
             return e
-        }, clone: function (e, t, n) {
-            var r, i, o, a, s, u, l, c = e.cloneNode(!0), f = ie(e);
-            if (!(y.noCloneChecked || 1 !== e.nodeType && 11 !== e.nodeType || S.isXMLDoc(e))) for (a = ve(c), r = 0, i = (o = ve(e)).length; r < i; r++) s = o[r], u = a[r], void 0, "input" === (l = u.nodeName.toLowerCase()) && pe.test(s.type) ? u.checked = s.checked : "input" !== l && "textarea" !== l || (u.defaultValue = s.defaultValue);
-            if (t) if (n) for (o = o || ve(e), a = a || ve(c), r = 0, i = o.length; r < i; r++) Oe(o[r], a[r]); else Oe(e, c);
+        },
+        clone: function (e, t, n) {
+            var r, i, o, a, s, u, l, c = e.cloneNode(!0),
+                f = ie(e);
+            if (!(y.noCloneChecked || 1 !== e.nodeType && 11 !== e.nodeType || S.isXMLDoc(e)))
+                for (a = ve(c), r = 0, i = (o = ve(e)).length; r < i; r++) s = o[r], u = a[r], void 0, "input" === (l = u.nodeName.toLowerCase()) && pe.test(s.type) ? u.checked = s.checked : "input" !== l && "textarea" !== l || (u.defaultValue = s.defaultValue);
+            if (t)
+                if (n)
+                    for (o = o || ve(e), a = a || ve(c), r = 0, i = o.length; r < i; r++) Oe(o[r], a[r]);
+                else Oe(e, c);
             return 0 < (a = ve(c, "script")).length && ye(a, !f && ve(e, "script")), c
-        }, cleanData: function (e) {
-            for (var t, n, r, i = S.event.special, o = 0; void 0 !== (n = e[o]); o++) if (V(n)) {
-                if (t = n[Y.expando]) {
-                    if (t.events) for (r in t.events) i[r] ? S.event.remove(n, r) : S.removeEvent(n, r, t.handle);
-                    n[Y.expando] = void 0
+        },
+        cleanData: function (e) {
+            for (var t, n, r, i = S.event.special, o = 0; void 0 !== (n = e[o]); o++)
+                if (V(n)) {
+                    if (t = n[Y.expando]) {
+                        if (t.events)
+                            for (r in t.events) i[r] ? S.event.remove(n, r) : S.removeEvent(n, r, t.handle);
+                        n[Y.expando] = void 0
+                    }
+                    n[Q.expando] && (n[Q.expando] = void 0)
                 }
-                n[Q.expando] && (n[Q.expando] = void 0)
-            }
         }
     }), S.fn.extend({
         detach: function (e) {
             return Re(this, e, !0)
-        }, remove: function (e) {
+        },
+        remove: function (e) {
             return Re(this, e)
-        }, text: function (e) {
+        },
+        text: function (e) {
             return $(this, function (e) {
                 return void 0 === e ? S.text(this) : this.empty().each(function () {
                     1 !== this.nodeType && 11 !== this.nodeType && 9 !== this.nodeType || (this.textContent = e)
                 })
             }, null, e, arguments.length)
-        }, append: function () {
+        },
+        append: function () {
             return Pe(this, arguments, function (e) {
                 1 !== this.nodeType && 11 !== this.nodeType && 9 !== this.nodeType || qe(this, e).appendChild(e)
             })
-        }, prepend: function () {
+        },
+        prepend: function () {
             return Pe(this, arguments, function (e) {
                 if (1 === this.nodeType || 11 === this.nodeType || 9 === this.nodeType) {
                     var t = qe(this, e);
                     t.insertBefore(e, t.firstChild)
                 }
             })
-        }, before: function () {
+        },
+        before: function () {
             return Pe(this, arguments, function (e) {
                 this.parentNode && this.parentNode.insertBefore(e, this)
             })
-        }, after: function () {
+        },
+        after: function () {
             return Pe(this, arguments, function (e) {
                 this.parentNode && this.parentNode.insertBefore(e, this.nextSibling)
             })
-        }, empty: function () {
+        },
+        empty: function () {
             for (var e, t = 0; null != (e = this[t]); t++) 1 === e.nodeType && (S.cleanData(ve(e, !1)), e.textContent = "");
             return this
-        }, clone: function (e, t) {
+        },
+        clone: function (e, t) {
             return e = null != e && e, t = null == t ? e : t, this.map(function () {
                 return S.clone(this, e, t)
             })
-        }, html: function (e) {
+        },
+        html: function (e) {
             return $(this, function (e) {
-                var t = this[0] || {}, n = 0, r = this.length;
+                var t = this[0] || {},
+                    n = 0,
+                    r = this.length;
                 if (void 0 === e && 1 === t.nodeType) return t.innerHTML;
                 if ("string" == typeof e && !Ne.test(e) && !ge[(de.exec(e) || ["", ""])[1].toLowerCase()]) {
                     e = S.htmlPrefilter(e);
                     try {
                         for (; n < r; n++) 1 === (t = this[n] || {}).nodeType && (S.cleanData(ve(t, !1)), t.innerHTML = e);
                         t = 0
-                    } catch (e) {
-                    }
+                    } catch (e) {}
                 }
                 t && this.empty().append(e)
             }, null, e, arguments.length)
-        }, replaceWith: function () {
+        },
+        replaceWith: function () {
             var n = [];
             return Pe(this, arguments, function (e) {
                 var t = this.parentNode;
@@ -1573,15 +1971,18 @@ preloader.contentLoading();
             return this.pushStack(n)
         }
     });
-    var Me = new RegExp("^(" + ee + ")(?!px)[a-z%]+$", "i"), Ie = function (e) {
-        var t = e.ownerDocument.defaultView;
-        return t && t.opener || (t = C), t.getComputedStyle(e)
-    }, We = function (e, t, n) {
-        var r, i, o = {};
-        for (i in t) o[i] = e.style[i], e.style[i] = t[i];
-        for (i in r = n.call(e), t) e.style[i] = o[i];
-        return r
-    }, Fe = new RegExp(ne.join("|"), "i");
+    var Me = new RegExp("^(" + ee + ")(?!px)[a-z%]+$", "i"),
+        Ie = function (e) {
+            var t = e.ownerDocument.defaultView;
+            return t && t.opener || (t = C), t.getComputedStyle(e)
+        },
+        We = function (e, t, n) {
+            var r, i, o = {};
+            for (i in t) o[i] = e.style[i], e.style[i] = t[i];
+            for (i in r = n.call(e), t) e.style[i] = o[i];
+            return r
+        },
+        Fe = new RegExp(ne.join("|"), "i");
 
     function Be(e, t, n) {
         var r, i, o, a, s = e.style;
@@ -1595,9 +1996,7 @@ preloader.contentLoading();
                 delete this.get
             }
         }
-    }
-
-    !function () {
+    }! function () {
         function e() {
             if (l) {
                 u.style.cssText = "position:absolute;left:-11111px;width:60px;margin-top:1px;padding:0;border:0", l.style.cssText = "position:relative;display:block;box-sizing:border-box;overflow:scroll;margin:auto;border:1px;padding:1px;width:60%;top:1%", re.appendChild(u).appendChild(l);
@@ -1609,38 +2008,54 @@ preloader.contentLoading();
         function t(e) {
             return Math.round(parseFloat(e))
         }
-
-        var n, r, i, o, a, s, u = E.createElement("div"), l = E.createElement("div");
+        var n, r, i, o, a, s, u = E.createElement("div"),
+            l = E.createElement("div");
         l.style && (l.style.backgroundClip = "content-box", l.cloneNode(!0).style.backgroundClip = "", y.clearCloneStyle = "content-box" === l.style.backgroundClip, S.extend(y, {
             boxSizingReliable: function () {
                 return e(), r
-            }, pixelBoxStyles: function () {
+            },
+            pixelBoxStyles: function () {
                 return e(), o
-            }, pixelPosition: function () {
+            },
+            pixelPosition: function () {
                 return e(), n
-            }, reliableMarginLeft: function () {
+            },
+            reliableMarginLeft: function () {
                 return e(), s
-            }, scrollboxSize: function () {
+            },
+            scrollboxSize: function () {
                 return e(), i
-            }, reliableTrDimensions: function () {
+            },
+            reliableTrDimensions: function () {
                 var e, t, n, r;
                 return null == a && (e = E.createElement("table"), t = E.createElement("tr"), n = E.createElement("div"), e.style.cssText = "position:absolute;left:-11111px", t.style.height = "1px", n.style.height = "9px", re.appendChild(e).appendChild(t).appendChild(n), r = C.getComputedStyle(t), a = 3 < parseInt(r.height), re.removeChild(e)), a
             }
         }))
     }();
-    var _e = ["Webkit", "Moz", "ms"], ze = E.createElement("div").style, Ue = {};
+    var _e = ["Webkit", "Moz", "ms"],
+        ze = E.createElement("div").style,
+        Ue = {};
 
     function Xe(e) {
         var t = S.cssProps[e] || Ue[e];
         return t || (e in ze ? e : Ue[e] = function (e) {
-            var t = e[0].toUpperCase() + e.slice(1), n = _e.length;
-            while (n--) if ((e = _e[n] + t) in ze) return e
+            var t = e[0].toUpperCase() + e.slice(1),
+                n = _e.length;
+            while (n--)
+                if ((e = _e[n] + t) in ze) return e
         }(e) || e)
     }
-
-    var Ve = /^(none|table(?!-c[ea]).+)/, Ge = /^--/,
-        Ye = {position: "absolute", visibility: "hidden", display: "block"},
-        Qe = {letterSpacing: "0", fontWeight: "400"};
+    var Ve = /^(none|table(?!-c[ea]).+)/,
+        Ge = /^--/,
+        Ye = {
+            position: "absolute",
+            visibility: "hidden",
+            display: "block"
+        },
+        Qe = {
+            letterSpacing: "0",
+            fontWeight: "400"
+        };
 
     function Je(e, t, n) {
         var r = te.exec(t);
@@ -1648,15 +2063,20 @@ preloader.contentLoading();
     }
 
     function Ke(e, t, n, r, i, o) {
-        var a = "width" === t ? 1 : 0, s = 0, u = 0;
+        var a = "width" === t ? 1 : 0,
+            s = 0,
+            u = 0;
         if (n === (r ? "border" : "content")) return 0;
         for (; a < 4; a += 2) "margin" === n && (u += S.css(e, n + ne[a], !0, i)), r ? ("content" === n && (u -= S.css(e, "padding" + ne[a], !0, i)), "margin" !== n && (u -= S.css(e, "border" + ne[a] + "Width", !0, i))) : (u += S.css(e, "padding" + ne[a], !0, i), "padding" !== n ? u += S.css(e, "border" + ne[a] + "Width", !0, i) : s += S.css(e, "border" + ne[a] + "Width", !0, i));
         return !r && 0 <= o && (u += Math.max(0, Math.ceil(e["offset" + t[0].toUpperCase() + t.slice(1)] - o - u - s - .5)) || 0), u
     }
 
     function Ze(e, t, n) {
-        var r = Ie(e), i = (!y.boxSizingReliable() || n) && "border-box" === S.css(e, "boxSizing", !1, r), o = i,
-            a = Be(e, t, r), s = "offset" + t[0].toUpperCase() + t.slice(1);
+        var r = Ie(e),
+            i = (!y.boxSizingReliable() || n) && "border-box" === S.css(e, "boxSizing", !1, r),
+            o = i,
+            a = Be(e, t, r),
+            s = "offset" + t[0].toUpperCase() + t.slice(1);
         if (Me.test(a)) {
             if (!n) return a;
             a = "auto"
@@ -1667,7 +2087,6 @@ preloader.contentLoading();
     function et(e, t, n, r, i) {
         return new et.prototype.init(e, t, n, r, i)
     }
-
     S.extend({
         cssHooks: {
             opacity: {
@@ -1704,7 +2123,9 @@ preloader.contentLoading();
         cssProps: {},
         style: function (e, t, n, r) {
             if (e && 3 !== e.nodeType && 8 !== e.nodeType && e.style) {
-                var i, o, a, s = X(t), u = Ge.test(t), l = e.style;
+                var i, o, a, s = X(t),
+                    u = Ge.test(t),
+                    l = e.style;
                 if (u || (t = Xe(s)), a = S.cssHooks[t] || S.cssHooks[s], void 0 === n) return a && "get" in a && void 0 !== (i = a.get(e, !1, r)) ? i : l[t];
                 "string" === (o = typeof n) && (i = te.exec(n)) && i[1] && (n = se(e, t, i), o = "number"), null != n && n == n && ("number" !== o || u || (n += i && i[3] || (S.cssNumber[s] ? "" : "px")), y.clearCloneStyle || "" !== n || 0 !== t.indexOf("background") || (l[t] = "inherit"), a && "set" in a && void 0 === (n = a.set(e, n, r)) || (u ? l.setProperty(t, n) : l[t] = n))
             }
@@ -1719,17 +2140,26 @@ preloader.contentLoading();
                 if (t) return !Ve.test(S.css(e, "display")) || e.getClientRects().length && e.getBoundingClientRect().width ? Ze(e, u, n) : We(e, Ye, function () {
                     return Ze(e, u, n)
                 })
-            }, set: function (e, t, n) {
-                var r, i = Ie(e), o = !y.scrollboxSize() && "absolute" === i.position,
-                    a = (o || n) && "border-box" === S.css(e, "boxSizing", !1, i), s = n ? Ke(e, u, n, a, i) : 0;
+            },
+            set: function (e, t, n) {
+                var r, i = Ie(e),
+                    o = !y.scrollboxSize() && "absolute" === i.position,
+                    a = (o || n) && "border-box" === S.css(e, "boxSizing", !1, i),
+                    s = n ? Ke(e, u, n, a, i) : 0;
                 return a && o && (s -= Math.ceil(e["offset" + u[0].toUpperCase() + u.slice(1)] - parseFloat(i[u]) - Ke(e, u, "border", !1, i) - .5)), s && (r = te.exec(t)) && "px" !== (r[3] || "px") && (e.style[u] = t, t = S.css(e, u)), Je(0, t, s)
             }
         }
     }), S.cssHooks.marginLeft = $e(y.reliableMarginLeft, function (e, t) {
-        if (t) return (parseFloat(Be(e, "marginLeft")) || e.getBoundingClientRect().left - We(e, {marginLeft: 0}, function () {
+        if (t) return (parseFloat(Be(e, "marginLeft")) || e.getBoundingClientRect().left - We(e, {
+            marginLeft: 0
+        }, function () {
             return e.getBoundingClientRect().left
         })) + "px"
-    }), S.each({margin: "", padding: "", border: "Width"}, function (i, o) {
+    }), S.each({
+        margin: "",
+        padding: "",
+        border: "Width"
+    }, function (i, o) {
         S.cssHooks[i + o] = {
             expand: function (e) {
                 for (var t = 0, n = {}, r = "string" == typeof e ? e.split(" ") : [e]; t < 4; t++) n[i + ne[t] + o] = r[t] || r[t - 2] || r[0];
@@ -1739,7 +2169,8 @@ preloader.contentLoading();
     }), S.fn.extend({
         css: function (e, t) {
             return $(this, function (e, t, n) {
-                var r, i, o = {}, a = 0;
+                var r, i, o = {},
+                    a = 0;
                 if (Array.isArray(t)) {
                     for (r = Ie(e), i = t.length; a < i; a++) o[t[a]] = S.css(e, t[a], !1, r);
                     return o
@@ -1748,12 +2179,15 @@ preloader.contentLoading();
             }, e, t, 1 < arguments.length)
         }
     }), ((S.Tween = et).prototype = {
-        constructor: et, init: function (e, t, n, r, i, o) {
+        constructor: et,
+        init: function (e, t, n, r, i, o) {
             this.elem = e, this.prop = n, this.easing = i || S.easing._default, this.options = t, this.start = this.now = this.cur(), this.end = r, this.unit = o || (S.cssNumber[n] ? "" : "px")
-        }, cur: function () {
+        },
+        cur: function () {
             var e = et.propHooks[this.prop];
             return e && e.get ? e.get(this) : et.propHooks._default.get(this)
-        }, run: function (e) {
+        },
+        run: function (e) {
             var t, n = et.propHooks[this.prop];
             return this.options.duration ? this.pos = t = S.easing[this.easing](e, this.options.duration * e, 0, 1, this.options.duration) : this.pos = t = e, this.now = (this.end - this.start) * t + this.start, this.options.step && this.options.step.call(this.elem, this.now, this), n && n.set ? n.set(this) : et.propHooks._default.set(this), this
         }
@@ -1762,7 +2196,8 @@ preloader.contentLoading();
             get: function (e) {
                 var t;
                 return 1 !== e.elem.nodeType || null != e.elem[e.prop] && null == e.elem.style[e.prop] ? e.elem[e.prop] : (t = S.css(e.elem, e.prop, "")) && "auto" !== t ? t : 0
-            }, set: function (e) {
+            },
+            set: function (e) {
                 S.fx.step[e.prop] ? S.fx.step[e.prop](e) : 1 !== e.elem.nodeType || !S.cssHooks[e.prop] && null == e.elem.style[Xe(e.prop)] ? e.elem[e.prop] = e.now : S.style(e.elem, e.prop, e.now + e.unit)
             }
         }
@@ -1773,11 +2208,14 @@ preloader.contentLoading();
     }, S.easing = {
         linear: function (e) {
             return e
-        }, swing: function (e) {
+        },
+        swing: function (e) {
             return .5 - Math.cos(e * Math.PI) / 2
-        }, _default: "swing"
+        },
+        _default: "swing"
     }, S.fx = et.prototype.init, S.fx.step = {};
-    var tt, nt, rt, it, ot = /^(?:toggle|show|hide)$/, at = /queueHooks$/;
+    var tt, nt, rt, it, ot = /^(?:toggle|show|hide)$/,
+        at = /queueHooks$/;
 
     function st() {
         nt && (!1 === E.hidden && C.requestAnimationFrame ? C.requestAnimationFrame(st) : C.setTimeout(st, S.fx.interval), S.fx.tick())
@@ -1790,86 +2228,112 @@ preloader.contentLoading();
     }
 
     function lt(e, t) {
-        var n, r = 0, i = {height: e};
+        var n, r = 0,
+            i = {
+                height: e
+            };
         for (t = t ? 1 : 0; r < 4; r += 2 - t) i["margin" + (n = ne[r])] = i["padding" + n] = e;
         return t && (i.opacity = i.width = e), i
     }
 
     function ct(e, t, n) {
-        for (var r, i = (ft.tweeners[t] || []).concat(ft.tweeners["*"]), o = 0, a = i.length; o < a; o++) if (r = i[o].call(n, t, e)) return r
+        for (var r, i = (ft.tweeners[t] || []).concat(ft.tweeners["*"]), o = 0, a = i.length; o < a; o++)
+            if (r = i[o].call(n, t, e)) return r
     }
 
     function ft(o, e, t) {
-        var n, a, r = 0, i = ft.prefilters.length, s = S.Deferred().always(function () {
-            delete u.elem
-        }), u = function () {
-            if (a) return !1;
-            for (var e = tt || ut(), t = Math.max(0, l.startTime + l.duration - e), n = 1 - (t / l.duration || 0), r = 0, i = l.tweens.length; r < i; r++) l.tweens[r].run(n);
-            return s.notifyWith(o, [l, n, t]), n < 1 && i ? t : (i || s.notifyWith(o, [l, 1, 0]), s.resolveWith(o, [l]), !1)
-        }, l = s.promise({
-            elem: o,
-            props: S.extend({}, e),
-            opts: S.extend(!0, {specialEasing: {}, easing: S.easing._default}, t),
-            originalProperties: e,
-            originalOptions: t,
-            startTime: tt || ut(),
-            duration: t.duration,
-            tweens: [],
-            createTween: function (e, t) {
-                var n = S.Tween(o, l.opts, e, t, l.opts.specialEasing[e] || l.opts.easing);
-                return l.tweens.push(n), n
+        var n, a, r = 0,
+            i = ft.prefilters.length,
+            s = S.Deferred().always(function () {
+                delete u.elem
+            }),
+            u = function () {
+                if (a) return !1;
+                for (var e = tt || ut(), t = Math.max(0, l.startTime + l.duration - e), n = 1 - (t / l.duration || 0), r = 0, i = l.tweens.length; r < i; r++) l.tweens[r].run(n);
+                return s.notifyWith(o, [l, n, t]), n < 1 && i ? t : (i || s.notifyWith(o, [l, 1, 0]), s.resolveWith(o, [l]), !1)
             },
-            stop: function (e) {
-                var t = 0, n = e ? l.tweens.length : 0;
-                if (a) return this;
-                for (a = !0; t < n; t++) l.tweens[t].run(1);
-                return e ? (s.notifyWith(o, [l, 1, 0]), s.resolveWith(o, [l, e])) : s.rejectWith(o, [l, e]), this
-            }
-        }), c = l.props;
-        for ((!function (e, t) {
-            var n, r, i, o, a;
-            for (n in e) if (i = t[r = X(n)], o = e[n], Array.isArray(o) && (i = o[1], o = e[n] = o[0]), n !== r && (e[r] = o, delete e[n]), (a = S.cssHooks[r]) && "expand" in a) for (n in o = a.expand(o), delete e[r], o) n in e || (e[n] = o[n], t[n] = i); else t[r] = i
-        }(c, l.opts.specialEasing)); r < i; r++) if (n = ft.prefilters[r].call(l, o, c, l.opts)) return m(n.stop) && (S._queueHooks(l.elem, l.opts.queue).stop = n.stop.bind(n)), n;
+            l = s.promise({
+                elem: o,
+                props: S.extend({}, e),
+                opts: S.extend(!0, {
+                    specialEasing: {},
+                    easing: S.easing._default
+                }, t),
+                originalProperties: e,
+                originalOptions: t,
+                startTime: tt || ut(),
+                duration: t.duration,
+                tweens: [],
+                createTween: function (e, t) {
+                    var n = S.Tween(o, l.opts, e, t, l.opts.specialEasing[e] || l.opts.easing);
+                    return l.tweens.push(n), n
+                },
+                stop: function (e) {
+                    var t = 0,
+                        n = e ? l.tweens.length : 0;
+                    if (a) return this;
+                    for (a = !0; t < n; t++) l.tweens[t].run(1);
+                    return e ? (s.notifyWith(o, [l, 1, 0]), s.resolveWith(o, [l, e])) : s.rejectWith(o, [l, e]), this
+                }
+            }),
+            c = l.props;
+        for ((! function (e, t) {
+                var n, r, i, o, a;
+                for (n in e)
+                    if (i = t[r = X(n)], o = e[n], Array.isArray(o) && (i = o[1], o = e[n] = o[0]), n !== r && (e[r] = o, delete e[n]), (a = S.cssHooks[r]) && "expand" in a)
+                        for (n in o = a.expand(o), delete e[r], o) n in e || (e[n] = o[n], t[n] = i);
+                    else t[r] = i
+            }(c, l.opts.specialEasing)); r < i; r++)
+            if (n = ft.prefilters[r].call(l, o, c, l.opts)) return m(n.stop) && (S._queueHooks(l.elem, l.opts.queue).stop = n.stop.bind(n)), n;
         return S.map(c, ct, l), m(l.opts.start) && l.opts.start.call(o, l), l.progress(l.opts.progress).done(l.opts.done, l.opts.complete).fail(l.opts.fail).always(l.opts.always), S.fx.timer(S.extend(u, {
             elem: o,
             anim: l,
             queue: l.opts.queue
         })), l
     }
-
     S.Animation = S.extend(ft, {
         tweeners: {
             "*": [function (e, t) {
                 var n = this.createTween(e, t);
                 return se(n.elem, e, te.exec(t), n), n
             }]
-        }, tweener: function (e, t) {
+        },
+        tweener: function (e, t) {
             m(e) ? (t = e, e = ["*"]) : e = e.match(P);
             for (var n, r = 0, i = e.length; r < i; r++) n = e[r], ft.tweeners[n] = ft.tweeners[n] || [], ft.tweeners[n].unshift(t)
-        }, prefilters: [function (e, t, n) {
-            var r, i, o, a, s, u, l, c, f = "width" in t || "height" in t, p = this, d = {}, h = e.style,
-                g = e.nodeType && ae(e), v = Y.get(e, "fxshow");
+        },
+        prefilters: [function (e, t, n) {
+            var r, i, o, a, s, u, l, c, f = "width" in t || "height" in t,
+                p = this,
+                d = {},
+                h = e.style,
+                g = e.nodeType && ae(e),
+                v = Y.get(e, "fxshow");
             for (r in n.queue || (null == (a = S._queueHooks(e, "fx")).unqueued && (a.unqueued = 0, s = a.empty.fire, a.empty.fire = function () {
-                a.unqueued || s()
-            }), a.unqueued++, p.always(function () {
-                p.always(function () {
-                    a.unqueued--, S.queue(e, "fx").length || a.empty.fire()
-                })
-            })), t) if (i = t[r], ot.test(i)) {
-                if (delete t[r], o = o || "toggle" === i, i === (g ? "hide" : "show")) {
-                    if ("show" !== i || !v || void 0 === v[r]) continue;
-                    g = !0
-                }
-                d[r] = v && v[r] || S.style(e, r)
-            }
-            if ((u = !S.isEmptyObject(t)) || !S.isEmptyObject(d)) for (r in f && 1 === e.nodeType && (n.overflow = [h.overflow, h.overflowX, h.overflowY], null == (l = v && v.display) && (l = Y.get(e, "display")), "none" === (c = S.css(e, "display")) && (l ? c = l : (le([e], !0), l = e.style.display || l, c = S.css(e, "display"), le([e]))), ("inline" === c || "inline-block" === c && null != l) && "none" === S.css(e, "float") && (u || (p.done(function () {
-                h.display = l
-            }), null == l && (c = h.display, l = "none" === c ? "" : c)), h.display = "inline-block")), n.overflow && (h.overflow = "hidden", p.always(function () {
-                h.overflow = n.overflow[0], h.overflowX = n.overflow[1], h.overflowY = n.overflow[2]
-            })), u = !1, d) u || (v ? "hidden" in v && (g = v.hidden) : v = Y.access(e, "fxshow", {display: l}), o && (v.hidden = !g), g && le([e], !0), p.done(function () {
-                for (r in g || le([e]), Y.remove(e, "fxshow"), d) S.style(e, r, d[r])
-            })), u = ct(g ? v[r] : 0, r, p), r in v || (v[r] = u.start, g && (u.end = u.start, u.start = 0))
-        }], prefilter: function (e, t) {
+                    a.unqueued || s()
+                }), a.unqueued++, p.always(function () {
+                    p.always(function () {
+                        a.unqueued--, S.queue(e, "fx").length || a.empty.fire()
+                    })
+                })), t)
+                if (i = t[r], ot.test(i)) {
+                    if (delete t[r], o = o || "toggle" === i, i === (g ? "hide" : "show")) {
+                        if ("show" !== i || !v || void 0 === v[r]) continue;
+                        g = !0
+                    }
+                    d[r] = v && v[r] || S.style(e, r)
+                } if ((u = !S.isEmptyObject(t)) || !S.isEmptyObject(d))
+                for (r in f && 1 === e.nodeType && (n.overflow = [h.overflow, h.overflowX, h.overflowY], null == (l = v && v.display) && (l = Y.get(e, "display")), "none" === (c = S.css(e, "display")) && (l ? c = l : (le([e], !0), l = e.style.display || l, c = S.css(e, "display"), le([e]))), ("inline" === c || "inline-block" === c && null != l) && "none" === S.css(e, "float") && (u || (p.done(function () {
+                        h.display = l
+                    }), null == l && (c = h.display, l = "none" === c ? "" : c)), h.display = "inline-block")), n.overflow && (h.overflow = "hidden", p.always(function () {
+                        h.overflow = n.overflow[0], h.overflowX = n.overflow[1], h.overflowY = n.overflow[2]
+                    })), u = !1, d) u || (v ? "hidden" in v && (g = v.hidden) : v = Y.access(e, "fxshow", {
+                    display: l
+                }), o && (v.hidden = !g), g && le([e], !0), p.done(function () {
+                    for (r in g || le([e]), Y.remove(e, "fxshow"), d) S.style(e, r, d[r])
+                })), u = ct(g ? v[r] : 0, r, p), r in v || (v[r] = u.start, g && (u.end = u.start, u.start = 0))
+        }],
+        prefilter: function (e, t) {
             t ? ft.prefilters.unshift(e) : ft.prefilters.push(e)
         }
     }), S.speed = function (e, t, n) {
@@ -1883,27 +2347,43 @@ preloader.contentLoading();
         }, r
     }, S.fn.extend({
         fadeTo: function (e, t, n, r) {
-            return this.filter(ae).css("opacity", 0).show().end().animate({opacity: t}, e, n, r)
-        }, animate: function (t, e, n, r) {
-            var i = S.isEmptyObject(t), o = S.speed(e, n, r), a = function () {
-                var e = ft(this, S.extend({}, t), o);
-                (i || Y.get(this, "finish")) && e.stop(!0)
-            };
+            return this.filter(ae).css("opacity", 0).show().end().animate({
+                opacity: t
+            }, e, n, r)
+        },
+        animate: function (t, e, n, r) {
+            var i = S.isEmptyObject(t),
+                o = S.speed(e, n, r),
+                a = function () {
+                    var e = ft(this, S.extend({}, t), o);
+                    (i || Y.get(this, "finish")) && e.stop(!0)
+                };
             return a.finish = a, i || !1 === o.queue ? this.each(a) : this.queue(o.queue, a)
-        }, stop: function (i, e, o) {
+        },
+        stop: function (i, e, o) {
             var a = function (e) {
                 var t = e.stop;
                 delete e.stop, t(o)
             };
             return "string" != typeof i && (o = e, e = i, i = void 0), e && this.queue(i || "fx", []), this.each(function () {
-                var e = !0, t = null != i && i + "queueHooks", n = S.timers, r = Y.get(this);
-                if (t) r[t] && r[t].stop && a(r[t]); else for (t in r) r[t] && r[t].stop && at.test(t) && a(r[t]);
+                var e = !0,
+                    t = null != i && i + "queueHooks",
+                    n = S.timers,
+                    r = Y.get(this);
+                if (t) r[t] && r[t].stop && a(r[t]);
+                else
+                    for (t in r) r[t] && r[t].stop && at.test(t) && a(r[t]);
                 for (t = n.length; t--;) n[t].elem !== this || null != i && n[t].queue !== i || (n[t].anim.stop(o), e = !1, n.splice(t, 1));
                 !e && o || S.dequeue(this, i)
             })
-        }, finish: function (a) {
+        },
+        finish: function (a) {
             return !1 !== a && (a = a || "fx"), this.each(function () {
-                var e, t = Y.get(this), n = t[a + "queue"], r = t[a + "queueHooks"], i = S.timers, o = n ? n.length : 0;
+                var e, t = Y.get(this),
+                    n = t[a + "queue"],
+                    r = t[a + "queueHooks"],
+                    i = S.timers,
+                    o = n ? n.length : 0;
                 for (t.finish = !0, S.queue(this, a, []), r && r.stop && r.stop.call(this, !0), e = i.length; e--;) i[e].elem === this && i[e].queue === a && (i[e].anim.stop(!0), i.splice(e, 1));
                 for (e = 0; e < o; e++) n[e] && n[e].finish && n[e].finish.call(this);
                 delete t.finish
@@ -1918,16 +2398,23 @@ preloader.contentLoading();
         slideDown: lt("show"),
         slideUp: lt("hide"),
         slideToggle: lt("toggle"),
-        fadeIn: {opacity: "show"},
-        fadeOut: {opacity: "hide"},
-        fadeToggle: {opacity: "toggle"}
+        fadeIn: {
+            opacity: "show"
+        },
+        fadeOut: {
+            opacity: "hide"
+        },
+        fadeToggle: {
+            opacity: "toggle"
+        }
     }, function (e, r) {
         S.fn[e] = function (e, t, n) {
             return this.animate(r, e, t, n)
         }
     }), S.timers = [], S.fx.tick = function () {
-        var e, t = 0, n = S.timers;
-        for (tt = Date.now(); t < n.length; t++) (e = n[t])() || n[t] !== e || n.splice(t--, 1);
+        var e, t = 0,
+            n = S.timers;
+        for (tt = Date.now(); t < n.length; t++)(e = n[t])() || n[t] !== e || n.splice(t--, 1);
         n.length || S.fx.stop(), tt = void 0
     }, S.fx.timer = function (e) {
         S.timers.push(e), S.fx.start()
@@ -1935,7 +2422,11 @@ preloader.contentLoading();
         nt || (nt = !0, st())
     }, S.fx.stop = function () {
         nt = null
-    }, S.fx.speeds = {slow: 600, fast: 200, _default: 400}, S.fn.delay = function (r, e) {
+    }, S.fx.speeds = {
+        slow: 600,
+        fast: 200,
+        _default: 400
+    }, S.fn.delay = function (r, e) {
         return r = S.fx && S.fx.speeds[r] || r, e = e || "fx", this.queue(e, function (e, t) {
             var n = C.setTimeout(e, r);
             t.stop = function () {
@@ -1947,7 +2438,8 @@ preloader.contentLoading();
     S.fn.extend({
         attr: function (e, t) {
             return $(this, S.attr, e, t, 1 < arguments.length)
-        }, removeAttr: function (e) {
+        },
+        removeAttr: function (e) {
             return this.each(function () {
                 S.removeAttr(this, e)
             })
@@ -1956,7 +2448,8 @@ preloader.contentLoading();
         attr: function (e, t, n) {
             var r, i, o = e.nodeType;
             if (3 !== o && 8 !== o && 2 !== o) return "undefined" == typeof e.getAttribute ? S.prop(e, t, n) : (1 === o && S.isXMLDoc(e) || (i = S.attrHooks[t.toLowerCase()] || (S.expr.match.bool.test(t) ? pt : void 0)), void 0 !== n ? null === n ? void S.removeAttr(e, t) : i && "set" in i && void 0 !== (r = i.set(e, n, t)) ? r : (e.setAttribute(t, n + ""), n) : i && "get" in i && null !== (r = i.get(e, t)) ? r : null == (r = S.find.attr(e, t)) ? void 0 : r)
-        }, attrHooks: {
+        },
+        attrHooks: {
             type: {
                 set: function (e, t) {
                     if (!y.radioValue && "radio" === t && A(e, "input")) {
@@ -1965,9 +2458,12 @@ preloader.contentLoading();
                     }
                 }
             }
-        }, removeAttr: function (e, t) {
-            var n, r = 0, i = t && t.match(P);
-            if (i && 1 === e.nodeType) while (n = i[r++]) e.removeAttribute(n)
+        },
+        removeAttr: function (e, t) {
+            var n, r = 0,
+                i = t && t.match(P);
+            if (i && 1 === e.nodeType)
+                while (n = i[r++]) e.removeAttribute(n)
         }
     }), pt = {
         set: function (e, t, n) {
@@ -1980,7 +2476,8 @@ preloader.contentLoading();
             return n || (i = dt[o], dt[o] = r, r = null != a(e, t, n) ? o : null, dt[o] = i), r
         }
     });
-    var ht = /^(?:input|select|textarea|button)$/i, gt = /^(?:a|area)$/i;
+    var ht = /^(?:input|select|textarea|button)$/i,
+        gt = /^(?:a|area)$/i;
 
     function vt(e) {
         return (e.match(P) || []).join(" ")
@@ -1993,11 +2490,11 @@ preloader.contentLoading();
     function mt(e) {
         return Array.isArray(e) ? e : "string" == typeof e && e.match(P) || []
     }
-
     S.fn.extend({
         prop: function (e, t) {
             return $(this, S.prop, e, t, 1 < arguments.length)
-        }, removeProp: function (e) {
+        },
+        removeProp: function (e) {
             return this.each(function () {
                 delete this[S.propFix[e] || e]
             })
@@ -2006,19 +2503,25 @@ preloader.contentLoading();
         prop: function (e, t, n) {
             var r, i, o = e.nodeType;
             if (3 !== o && 8 !== o && 2 !== o) return 1 === o && S.isXMLDoc(e) || (t = S.propFix[t] || t, i = S.propHooks[t]), void 0 !== n ? i && "set" in i && void 0 !== (r = i.set(e, n, t)) ? r : e[t] = n : i && "get" in i && null !== (r = i.get(e, t)) ? r : e[t]
-        }, propHooks: {
+        },
+        propHooks: {
             tabIndex: {
                 get: function (e) {
                     var t = S.find.attr(e, "tabindex");
                     return t ? parseInt(t, 10) : ht.test(e.nodeName) || gt.test(e.nodeName) && e.href ? 0 : -1
                 }
             }
-        }, propFix: {for: "htmlFor", class: "className"}
+        },
+        propFix: {
+            for: "htmlFor",
+            class: "className"
+        }
     }), y.optSelected || (S.propHooks.selected = {
         get: function (e) {
             var t = e.parentNode;
             return t && t.parentNode && t.parentNode.selectedIndex, null
-        }, set: function (e) {
+        },
+        set: function (e) {
             var t = e.parentNode;
             t && (t.selectedIndex, t.parentNode && t.parentNode.selectedIndex)
         }
@@ -2030,26 +2533,32 @@ preloader.contentLoading();
             if (m(t)) return this.each(function (e) {
                 S(this).addClass(t.call(this, e, yt(this)))
             });
-            if ((e = mt(t)).length) while (n = this[u++]) if (i = yt(n), r = 1 === n.nodeType && " " + vt(i) + " ") {
-                a = 0;
-                while (o = e[a++]) r.indexOf(" " + o + " ") < 0 && (r += o + " ");
-                i !== (s = vt(r)) && n.setAttribute("class", s)
-            }
-            return this
-        }, removeClass: function (t) {
+            if ((e = mt(t)).length)
+                while (n = this[u++])
+                    if (i = yt(n), r = 1 === n.nodeType && " " + vt(i) + " ") {
+                        a = 0;
+                        while (o = e[a++]) r.indexOf(" " + o + " ") < 0 && (r += o + " ");
+                        i !== (s = vt(r)) && n.setAttribute("class", s)
+                    } return this
+        },
+        removeClass: function (t) {
             var e, n, r, i, o, a, s, u = 0;
             if (m(t)) return this.each(function (e) {
                 S(this).removeClass(t.call(this, e, yt(this)))
             });
             if (!arguments.length) return this.attr("class", "");
-            if ((e = mt(t)).length) while (n = this[u++]) if (i = yt(n), r = 1 === n.nodeType && " " + vt(i) + " ") {
-                a = 0;
-                while (o = e[a++]) while (-1 < r.indexOf(" " + o + " ")) r = r.replace(" " + o + " ", " ");
-                i !== (s = vt(r)) && n.setAttribute("class", s)
-            }
-            return this
-        }, toggleClass: function (i, t) {
-            var o = typeof i, a = "string" === o || Array.isArray(i);
+            if ((e = mt(t)).length)
+                while (n = this[u++])
+                    if (i = yt(n), r = 1 === n.nodeType && " " + vt(i) + " ") {
+                        a = 0;
+                        while (o = e[a++])
+                            while (-1 < r.indexOf(" " + o + " ")) r = r.replace(" " + o + " ", " ");
+                        i !== (s = vt(r)) && n.setAttribute("class", s)
+                    } return this
+        },
+        toggleClass: function (i, t) {
+            var o = typeof i,
+                a = "string" === o || Array.isArray(i);
             return "boolean" == typeof t && a ? t ? this.addClass(i) : this.removeClass(i) : m(i) ? this.each(function (e) {
                 S(this).toggleClass(i.call(this, e, yt(this), t), t)
             }) : this.each(function () {
@@ -2059,10 +2568,12 @@ preloader.contentLoading();
                     while (e = r[t++]) n.hasClass(e) ? n.removeClass(e) : n.addClass(e)
                 } else void 0 !== i && "boolean" !== o || ((e = yt(this)) && Y.set(this, "__className__", e), this.setAttribute && this.setAttribute("class", e || !1 === i ? "" : Y.get(this, "__className__") || ""))
             })
-        }, hasClass: function (e) {
+        },
+        hasClass: function (e) {
             var t, n, r = 0;
             t = " " + e + " ";
-            while (n = this[r++]) if (1 === n.nodeType && -1 < (" " + vt(yt(n)) + " ").indexOf(t)) return !0;
+            while (n = this[r++])
+                if (1 === n.nodeType && -1 < (" " + vt(yt(n)) + " ").indexOf(t)) return !0;
             return !1
         }
     });
@@ -2084,18 +2595,25 @@ preloader.contentLoading();
                     var t = S.find.attr(e, "value");
                     return null != t ? t : vt(S.text(e))
                 }
-            }, select: {
+            },
+            select: {
                 get: function (e) {
-                    var t, n, r, i = e.options, o = e.selectedIndex, a = "select-one" === e.type, s = a ? null : [],
+                    var t, n, r, i = e.options,
+                        o = e.selectedIndex,
+                        a = "select-one" === e.type,
+                        s = a ? null : [],
                         u = a ? o + 1 : i.length;
-                    for (r = o < 0 ? u : a ? o : 0; r < u; r++) if (((n = i[r]).selected || r === o) && !n.disabled && (!n.parentNode.disabled || !A(n.parentNode, "optgroup"))) {
-                        if (t = S(n).val(), a) return t;
-                        s.push(t)
-                    }
-                    return s
-                }, set: function (e, t) {
-                    var n, r, i = e.options, o = S.makeArray(t), a = i.length;
-                    while (a--) ((r = i[a]).selected = -1 < S.inArray(S.valHooks.option.get(r), o)) && (n = !0);
+                    for (r = o < 0 ? u : a ? o : 0; r < u; r++)
+                        if (((n = i[r]).selected || r === o) && !n.disabled && (!n.parentNode.disabled || !A(n.parentNode, "optgroup"))) {
+                            if (t = S(n).val(), a) return t;
+                            s.push(t)
+                        } return s
+                },
+                set: function (e, t) {
+                    var n, r, i = e.options,
+                        o = S.makeArray(t),
+                        a = i.length;
+                    while (a--)((r = i[a]).selected = -1 < S.inArray(S.valHooks.option.get(r), o)) && (n = !0);
                     return n || (e.selectedIndex = -1), o
                 }
             }
@@ -2109,12 +2627,14 @@ preloader.contentLoading();
             return null === e.getAttribute("value") ? "on" : e.value
         })
     }), y.focusin = "onfocusin" in C;
-    var bt = /^(?:focusinfocus|focusoutblur)$/, wt = function (e) {
-        e.stopPropagation()
-    };
+    var bt = /^(?:focusinfocus|focusoutblur)$/,
+        wt = function (e) {
+            e.stopPropagation()
+        };
     S.extend(S.event, {
         trigger: function (e, t, n, r) {
-            var i, o, a, s, u, l, c, f, p = [n || E], d = v.call(e, "type") ? e.type : e,
+            var i, o, a, s, u, l, c, f, p = [n || E],
+                d = v.call(e, "type") ? e.type : e,
                 h = v.call(e, "namespace") ? e.namespace.split(".") : [];
             if (o = f = a = n = n || E, 3 !== n.nodeType && 8 !== n.nodeType && !bt.test(d + S.event.triggered) && (-1 < d.indexOf(".") && (d = (h = d.split(".")).shift(), h.sort()), u = d.indexOf(":") < 0 && "on" + d, (e = e[S.expando] ? e : new S.Event(d, "object" == typeof e && e)).isTrigger = r ? 2 : 3, e.namespace = h.join("."), e.rnamespace = e.namespace ? new RegExp("(^|\\.)" + h.join("\\.(?:.*\\.|)") + "(\\.|$)") : null, e.result = void 0, e.target || (e.target = n), t = null == t ? [e] : S.makeArray(t, [e]), c = S.event.special[d] || {}, r || !c.trigger || !1 !== c.trigger.apply(n, t))) {
                 if (!r && !c.noBubble && !x(n)) {
@@ -2125,8 +2645,12 @@ preloader.contentLoading();
                 while ((o = p[i++]) && !e.isPropagationStopped()) f = o, e.type = 1 < i ? s : c.bindType || d, (l = (Y.get(o, "events") || Object.create(null))[e.type] && Y.get(o, "handle")) && l.apply(o, t), (l = u && o[u]) && l.apply && V(o) && (e.result = l.apply(o, t), !1 === e.result && e.preventDefault());
                 return e.type = d, r || e.isDefaultPrevented() || c._default && !1 !== c._default.apply(p.pop(), t) || !V(n) || u && m(n[d]) && !x(n) && ((a = n[u]) && (n[u] = null), S.event.triggered = d, e.isPropagationStopped() && f.addEventListener(d, wt), n[d](), e.isPropagationStopped() && f.removeEventListener(d, wt), S.event.triggered = void 0, a && (n[u] = a)), e.result
             }
-        }, simulate: function (e, t, n) {
-            var r = S.extend(new S.Event, n, {type: e, isSimulated: !0});
+        },
+        simulate: function (e, t, n) {
+            var r = S.extend(new S.Event, n, {
+                type: e,
+                isSimulated: !0
+            });
             S.event.trigger(r, null, t)
         }
     }), S.fn.extend({
@@ -2134,25 +2658,36 @@ preloader.contentLoading();
             return this.each(function () {
                 S.event.trigger(e, t, this)
             })
-        }, triggerHandler: function (e, t) {
+        },
+        triggerHandler: function (e, t) {
             var n = this[0];
             if (n) return S.event.trigger(e, t, n, !0)
         }
-    }), y.focusin || S.each({focus: "focusin", blur: "focusout"}, function (n, r) {
+    }), y.focusin || S.each({
+        focus: "focusin",
+        blur: "focusout"
+    }, function (n, r) {
         var i = function (e) {
             S.event.simulate(r, e.target, S.event.fix(e))
         };
         S.event.special[r] = {
             setup: function () {
-                var e = this.ownerDocument || this.document || this, t = Y.access(e, r);
+                var e = this.ownerDocument || this.document || this,
+                    t = Y.access(e, r);
                 t || e.addEventListener(n, i, !0), Y.access(e, r, (t || 0) + 1)
-            }, teardown: function () {
-                var e = this.ownerDocument || this.document || this, t = Y.access(e, r) - 1;
+            },
+            teardown: function () {
+                var e = this.ownerDocument || this.document || this,
+                    t = Y.access(e, r) - 1;
                 t ? Y.access(e, r, t) : (e.removeEventListener(n, i, !0), Y.remove(e, r))
             }
         }
     });
-    var Tt = C.location, Ct = {guid: Date.now()}, Et = /\?/;
+    var Tt = C.location,
+        Ct = {
+            guid: Date.now()
+        },
+        Et = /\?/;
     S.parseXML = function (e) {
         var t;
         if (!e || "string" != typeof e) return null;
@@ -2163,30 +2698,38 @@ preloader.contentLoading();
         }
         return t && !t.getElementsByTagName("parsererror").length || S.error("Invalid XML: " + e), t
     };
-    var St = /\[\]$/, kt = /\r?\n/g, At = /^(?:submit|button|image|reset|file)$/i,
+    var St = /\[\]$/,
+        kt = /\r?\n/g,
+        At = /^(?:submit|button|image|reset|file)$/i,
         Nt = /^(?:input|select|textarea|keygen)/i;
 
     function Dt(n, e, r, i) {
         var t;
         if (Array.isArray(e)) S.each(e, function (e, t) {
             r || St.test(n) ? i(n, t) : Dt(n + "[" + ("object" == typeof t && null != t ? e : "") + "]", t, r, i)
-        }); else if (r || "object" !== w(e)) i(n, e); else for (t in e) Dt(n + "[" + t + "]", e[t], r, i)
+        });
+        else if (r || "object" !== w(e)) i(n, e);
+        else
+            for (t in e) Dt(n + "[" + t + "]", e[t], r, i)
     }
-
     S.param = function (e, t) {
-        var n, r = [], i = function (e, t) {
-            var n = m(t) ? t() : t;
-            r[r.length] = encodeURIComponent(e) + "=" + encodeURIComponent(null == n ? "" : n)
-        };
+        var n, r = [],
+            i = function (e, t) {
+                var n = m(t) ? t() : t;
+                r[r.length] = encodeURIComponent(e) + "=" + encodeURIComponent(null == n ? "" : n)
+            };
         if (null == e) return "";
         if (Array.isArray(e) || e.jquery && !S.isPlainObject(e)) S.each(e, function () {
             i(this.name, this.value)
-        }); else for (n in e) Dt(n, e[n], t, i);
+        });
+        else
+            for (n in e) Dt(n, e[n], t, i);
         return r.join("&")
     }, S.fn.extend({
         serialize: function () {
             return S.param(this.serializeArray())
-        }, serializeArray: function () {
+        },
+        serializeArray: function () {
             return this.map(function () {
                 var e = S.prop(this, "elements");
                 return e ? S.makeArray(e) : this
@@ -2196,24 +2739,41 @@ preloader.contentLoading();
             }).map(function (e, t) {
                 var n = S(this).val();
                 return null == n ? null : Array.isArray(n) ? S.map(n, function (e) {
-                    return {name: t.name, value: e.replace(kt, "\r\n")}
-                }) : {name: t.name, value: n.replace(kt, "\r\n")}
+                    return {
+                        name: t.name,
+                        value: e.replace(kt, "\r\n")
+                    }
+                }) : {
+                    name: t.name,
+                    value: n.replace(kt, "\r\n")
+                }
             }).get()
         }
     });
-    var jt = /%20/g, qt = /#.*$/, Lt = /([?&])_=[^&]*/, Ht = /^(.*?):[ \t]*([^\r\n]*)$/gm, Ot = /^(?:GET|HEAD)$/,
-        Pt = /^\/\//, Rt = {}, Mt = {}, It = "*/".concat("*"), Wt = E.createElement("a");
+    var jt = /%20/g,
+        qt = /#.*$/,
+        Lt = /([?&])_=[^&]*/,
+        Ht = /^(.*?):[ \t]*([^\r\n]*)$/gm,
+        Ot = /^(?:GET|HEAD)$/,
+        Pt = /^\/\//,
+        Rt = {},
+        Mt = {},
+        It = "*/".concat("*"),
+        Wt = E.createElement("a");
 
     function Ft(o) {
         return function (e, t) {
             "string" != typeof e && (t = e, e = "*");
-            var n, r = 0, i = e.toLowerCase().match(P) || [];
-            if (m(t)) while (n = i[r++]) "+" === n[0] ? (n = n.slice(1) || "*", (o[n] = o[n] || []).unshift(t)) : (o[n] = o[n] || []).push(t)
+            var n, r = 0,
+                i = e.toLowerCase().match(P) || [];
+            if (m(t))
+                while (n = i[r++]) "+" === n[0] ? (n = n.slice(1) || "*", (o[n] = o[n] || []).unshift(t)) : (o[n] = o[n] || []).push(t)
         }
     }
 
     function Bt(t, i, o, a) {
-        var s = {}, u = t === Mt;
+        var s = {},
+            u = t === Mt;
 
         function l(e) {
             var r;
@@ -2222,7 +2782,6 @@ preloader.contentLoading();
                 return "string" != typeof n || u || s[n] ? u ? !(r = n) : void 0 : (i.dataTypes.unshift(n), l(n), !1)
             }), r
         }
-
         return l(i.dataTypes[0]) || !s["*"] && l("*")
     }
 
@@ -2231,7 +2790,6 @@ preloader.contentLoading();
         for (n in t) void 0 !== t[n] && ((i[n] ? e : r || (r = {}))[n] = t[n]);
         return r && S.extend(!0, e, r), e
     }
-
     Wt.href = Tt.href, S.extend({
         active: 0,
         lastModified: {},
@@ -2251,10 +2809,26 @@ preloader.contentLoading();
                 xml: "application/xml, text/xml",
                 json: "application/json, text/javascript"
             },
-            contents: {xml: /\bxml\b/, html: /\bhtml/, json: /\bjson\b/},
-            responseFields: {xml: "responseXML", text: "responseText", json: "responseJSON"},
-            converters: {"* text": String, "text html": !0, "text json": JSON.parse, "text xml": S.parseXML},
-            flatOptions: {url: !0, context: !0}
+            contents: {
+                xml: /\bxml\b/,
+                html: /\bhtml/,
+                json: /\bjson\b/
+            },
+            responseFields: {
+                xml: "responseXML",
+                text: "responseText",
+                json: "responseJSON"
+            },
+            converters: {
+                "* text": String,
+                "text html": !0,
+                "text json": JSON.parse,
+                "text xml": S.parseXML
+            },
+            flatOptions: {
+                url: !0,
+                context: !0
+            }
         },
         ajaxSetup: function (e, t) {
             return t ? $t($t(e, S.ajaxSettings), t) : $t(S.ajaxSettings, e)
@@ -2263,10 +2837,18 @@ preloader.contentLoading();
         ajaxTransport: Ft(Mt),
         ajax: function (e, t) {
             "object" == typeof e && (t = e, e = void 0), t = t || {};
-            var c, f, p, n, d, r, h, g, i, o, v = S.ajaxSetup({}, t), y = v.context || v,
-                m = v.context && (y.nodeType || y.jquery) ? S(y) : S.event, x = S.Deferred(),
-                b = S.Callbacks("once memory"), w = v.statusCode || {}, a = {}, s = {}, u = "canceled", T = {
-                    readyState: 0, getResponseHeader: function (e) {
+            var c, f, p, n, d, r, h, g, i, o, v = S.ajaxSetup({}, t),
+                y = v.context || v,
+                m = v.context && (y.nodeType || y.jquery) ? S(y) : S.event,
+                x = S.Deferred(),
+                b = S.Callbacks("once memory"),
+                w = v.statusCode || {},
+                a = {},
+                s = {},
+                u = "canceled",
+                T = {
+                    readyState: 0,
+                    getResponseHeader: function (e) {
                         var t;
                         if (h) {
                             if (!n) {
@@ -2276,17 +2858,25 @@ preloader.contentLoading();
                             t = n[e.toLowerCase() + " "]
                         }
                         return null == t ? null : t.join(", ")
-                    }, getAllResponseHeaders: function () {
+                    },
+                    getAllResponseHeaders: function () {
                         return h ? p : null
-                    }, setRequestHeader: function (e, t) {
+                    },
+                    setRequestHeader: function (e, t) {
                         return null == h && (e = s[e.toLowerCase()] = s[e.toLowerCase()] || e, a[e] = t), this
-                    }, overrideMimeType: function (e) {
+                    },
+                    overrideMimeType: function (e) {
                         return null == h && (v.mimeType = e), this
-                    }, statusCode: function (e) {
+                    },
+                    statusCode: function (e) {
                         var t;
-                        if (e) if (h) T.always(e[T.status]); else for (t in e) w[t] = [w[t], e[t]];
+                        if (e)
+                            if (h) T.always(e[T.status]);
+                            else
+                                for (t in e) w[t] = [w[t], e[t]];
                         return this
-                    }, abort: function (e) {
+                    },
+                    abort: function (e) {
                         var t = e || u;
                         return c && c.abort(t), l(0, t), this
                     }
@@ -2318,13 +2908,16 @@ preloader.contentLoading();
             function l(e, t, n, r) {
                 var i, o, a, s, u, l = t;
                 h || (h = !0, d && C.clearTimeout(d), c = void 0, p = r || "", T.readyState = 0 < e ? 4 : 0, i = 200 <= e && e < 300 || 304 === e, n && (s = function (e, t, n) {
-                    var r, i, o, a, s = e.contents, u = e.dataTypes;
+                    var r, i, o, a, s = e.contents,
+                        u = e.dataTypes;
                     while ("*" === u[0]) u.shift(), void 0 === r && (r = e.mimeType || t.getResponseHeader("Content-Type"));
-                    if (r) for (i in s) if (s[i] && s[i].test(r)) {
-                        u.unshift(i);
-                        break
-                    }
-                    if (u[0] in n) o = u[0]; else {
+                    if (r)
+                        for (i in s)
+                            if (s[i] && s[i].test(r)) {
+                                u.unshift(i);
+                                break
+                            } if (u[0] in n) o = u[0];
+                    else {
                         for (i in n) {
                             if (!u[0] || e.converters[i + " " + u[0]]) {
                                 o = i;
@@ -2335,26 +2928,38 @@ preloader.contentLoading();
                         o = o || a
                     }
                     if (o) return o !== u[0] && u.unshift(o), n[o]
-                }(v, T, n)), !i && -1 < S.inArray("script", v.dataTypes) && (v.converters["text script"] = function () {
-                }), s = function (e, t, n, r) {
-                    var i, o, a, s, u, l = {}, c = e.dataTypes.slice();
-                    if (c[1]) for (a in e.converters) l[a.toLowerCase()] = e.converters[a];
+                }(v, T, n)), !i && -1 < S.inArray("script", v.dataTypes) && (v.converters["text script"] = function () {}), s = function (e, t, n, r) {
+                    var i, o, a, s, u, l = {},
+                        c = e.dataTypes.slice();
+                    if (c[1])
+                        for (a in e.converters) l[a.toLowerCase()] = e.converters[a];
                     o = c.shift();
-                    while (o) if (e.responseFields[o] && (n[e.responseFields[o]] = t), !u && r && e.dataFilter && (t = e.dataFilter(t, e.dataType)), u = o, o = c.shift()) if ("*" === o) o = u; else if ("*" !== u && u !== o) {
-                        if (!(a = l[u + " " + o] || l["* " + o])) for (i in l) if ((s = i.split(" "))[1] === o && (a = l[u + " " + s[0]] || l["* " + s[0]])) {
-                            !0 === a ? a = l[i] : !0 !== l[i] && (o = s[0], c.unshift(s[1]));
-                            break
-                        }
-                        if (!0 !== a) if (a && e["throws"]) t = a(t); else try {
-                            t = a(t)
-                        } catch (e) {
-                            return {state: "parsererror", error: a ? e : "No conversion from " + u + " to " + o}
-                        }
+                    while (o)
+                        if (e.responseFields[o] && (n[e.responseFields[o]] = t), !u && r && e.dataFilter && (t = e.dataFilter(t, e.dataType)), u = o, o = c.shift())
+                            if ("*" === o) o = u;
+                            else if ("*" !== u && u !== o) {
+                        if (!(a = l[u + " " + o] || l["* " + o]))
+                            for (i in l)
+                                if ((s = i.split(" "))[1] === o && (a = l[u + " " + s[0]] || l["* " + s[0]])) {
+                                    !0 === a ? a = l[i] : !0 !== l[i] && (o = s[0], c.unshift(s[1]));
+                                    break
+                                } if (!0 !== a)
+                            if (a && e["throws"]) t = a(t);
+                            else try {
+                                t = a(t)
+                            } catch (e) {
+                                return {
+                                    state: "parsererror",
+                                    error: a ? e : "No conversion from " + u + " to " + o
+                                }
+                            }
                     }
-                    return {state: "success", data: t}
+                    return {
+                        state: "success",
+                        data: t
+                    }
                 }(v, s, T, i), i ? (v.ifModified && ((u = T.getResponseHeader("Last-Modified")) && (S.lastModified[f] = u), (u = T.getResponseHeader("etag")) && (S.etag[f] = u)), 204 === e || "HEAD" === v.type ? l = "nocontent" : 304 === e ? l = "notmodified" : (l = s.state, o = s.data, i = !(a = s.error))) : (a = l, !e && l || (l = "error", e < 0 && (e = 0))), T.status = e, T.statusText = (t || l) + "", i ? x.resolveWith(y, [o, l, T]) : x.rejectWith(y, [T, l, a]), T.statusCode(w), w = void 0, g && m.trigger(i ? "ajaxSuccess" : "ajaxError", [T, v, i ? o : a]), b.fireWith(y, [T, l]), g && (m.trigger("ajaxComplete", [T, v]), --S.active || S.event.trigger("ajaxStop")))
             }
-
             return T
         },
         getJSON: function (e, t, n) {
@@ -2385,8 +2990,7 @@ preloader.contentLoading();
             async: !1,
             global: !1,
             converters: {
-                "text script": function () {
-                }
+                "text script": function () {}
             },
             dataFilter: function (e) {
                 S.globalEval(e, t, n)
@@ -2400,19 +3004,23 @@ preloader.contentLoading();
                 while (e.firstElementChild) e = e.firstElementChild;
                 return e
             }).append(this)), this
-        }, wrapInner: function (n) {
+        },
+        wrapInner: function (n) {
             return m(n) ? this.each(function (e) {
                 S(this).wrapInner(n.call(this, e))
             }) : this.each(function () {
-                var e = S(this), t = e.contents();
+                var e = S(this),
+                    t = e.contents();
                 t.length ? t.wrapAll(n) : e.append(n)
             })
-        }, wrap: function (t) {
+        },
+        wrap: function (t) {
             var n = m(t);
             return this.each(function (e) {
                 S(this).wrapAll(n ? t.call(this, e) : t)
             })
-        }, unwrap: function (e) {
+        },
+        unwrap: function (e) {
             return this.parent(e).not("body").each(function () {
                 S(this).replaceWith(this.childNodes)
             }), this
@@ -2424,20 +3032,28 @@ preloader.contentLoading();
     }, S.ajaxSettings.xhr = function () {
         try {
             return new C.XMLHttpRequest
-        } catch (e) {
-        }
+        } catch (e) {}
     };
-    var _t = {0: 200, 1223: 204}, zt = S.ajaxSettings.xhr();
+    var _t = {
+            0: 200,
+            1223: 204
+        },
+        zt = S.ajaxSettings.xhr();
     y.cors = !!zt && "withCredentials" in zt, y.ajax = zt = !!zt, S.ajaxTransport(function (i) {
         var o, a;
         if (y.cors || zt && !i.crossDomain) return {
             send: function (e, t) {
                 var n, r = i.xhr();
-                if (r.open(i.type, i.url, i.async, i.username, i.password), i.xhrFields) for (n in i.xhrFields) r[n] = i.xhrFields[n];
+                if (r.open(i.type, i.url, i.async, i.username, i.password), i.xhrFields)
+                    for (n in i.xhrFields) r[n] = i.xhrFields[n];
                 for (n in i.mimeType && r.overrideMimeType && r.overrideMimeType(i.mimeType), i.crossDomain || e["X-Requested-With"] || (e["X-Requested-With"] = "XMLHttpRequest"), e) r.setRequestHeader(n, e[n]);
                 o = function (e) {
                     return function () {
-                        o && (o = a = r.onload = r.onerror = r.onabort = r.ontimeout = r.onreadystatechange = null, "abort" === e ? r.abort() : "error" === e ? "number" != typeof r.status ? t(0, "error") : t(r.status, r.statusText) : t(_t[r.status] || r.status, r.statusText, "text" !== (r.responseType || "text") || "string" != typeof r.responseText ? {binary: r.response} : {text: r.responseText}, r.getAllResponseHeaders()))
+                        o && (o = a = r.onload = r.onerror = r.onabort = r.ontimeout = r.onreadystatechange = null, "abort" === e ? r.abort() : "error" === e ? "number" != typeof r.status ? t(0, "error") : t(r.status, r.statusText) : t(_t[r.status] || r.status, r.statusText, "text" !== (r.responseType || "text") || "string" != typeof r.responseText ? {
+                            binary: r.response
+                        } : {
+                            text: r.responseText
+                        }, r.getAllResponseHeaders()))
                     }
                 }, r.onload = o(), a = r.onerror = r.ontimeout = o("error"), void 0 !== r.onabort ? r.onabort = a : r.onreadystatechange = function () {
                     4 === r.readyState && C.setTimeout(function () {
@@ -2449,15 +3065,20 @@ preloader.contentLoading();
                 } catch (e) {
                     if (o) throw e
                 }
-            }, abort: function () {
+            },
+            abort: function () {
                 o && o()
             }
         }
     }), S.ajaxPrefilter(function (e) {
         e.crossDomain && (e.contents.script = !1)
     }), S.ajaxSetup({
-        accepts: {script: "text/javascript, application/javascript, application/ecmascript, application/x-ecmascript"},
-        contents: {script: /\b(?:java|ecma)script\b/},
+        accepts: {
+            script: "text/javascript, application/javascript, application/ecmascript, application/x-ecmascript"
+        },
+        contents: {
+            script: /\b(?:java|ecma)script\b/
+        },
         converters: {
             "text script": function (e) {
                 return S.globalEval(e), e
@@ -2475,20 +3096,22 @@ preloader.contentLoading();
                 }).on("load error", i = function (e) {
                     r.remove(), i = null, e && t("error" === e.type ? 404 : 200, e.type)
                 }), E.head.appendChild(r[0])
-            }, abort: function () {
+            },
+            abort: function () {
                 i && i()
             }
         }
     });
-    var Ut, Xt = [], Vt = /(=)\?(?=&|$)|\?\?/;
+    var Ut, Xt = [],
+        Vt = /(=)\?(?=&|$)|\?\?/;
     S.ajaxSetup({
-        jsonp: "callback", jsonpCallback: function () {
+        jsonp: "callback",
+        jsonpCallback: function () {
             var e = Xt.pop() || S.expando + "_" + Ct.guid++;
             return this[e] = !0, e
         }
     }), S.ajaxPrefilter("json jsonp", function (e, t, n) {
-        var r, i, o,
-            a = !1 !== e.jsonp && (Vt.test(e.url) ? "url" : "string" == typeof e.data && 0 === (e.contentType || "").indexOf("application/x-www-form-urlencoded") && Vt.test(e.data) && "data");
+        var r, i, o, a = !1 !== e.jsonp && (Vt.test(e.url) ? "url" : "string" == typeof e.data && 0 === (e.contentType || "").indexOf("application/x-www-form-urlencoded") && Vt.test(e.data) && "data");
         if (a || "jsonp" === e.dataTypes[0]) return r = e.jsonpCallback = m(e.jsonpCallback) ? e.jsonpCallback() : e.jsonpCallback, a ? e[a] = e[a].replace(Vt, "$1" + r) : !1 !== e.jsonp && (e.url += (Et.test(e.url) ? "&" : "?") + e.jsonp + "=" + r), e.converters["script json"] = function () {
             return o || S.error(r + " was not called"), o[0]
         }, e.dataTypes[0] = "json", i = C[r], C[r] = function () {
@@ -2500,7 +3123,8 @@ preloader.contentLoading();
         return "string" != typeof e ? [] : ("boolean" == typeof t && (n = t, t = !1), t || (y.createHTMLDocument ? ((r = (t = E.implementation.createHTMLDocument("")).createElement("base")).href = E.location.href, t.head.appendChild(r)) : t = E), o = !n && [], (i = N.exec(e)) ? [t.createElement(i[1])] : (i = xe([e], t, o), o && o.length && S(o).remove(), S.merge([], i.childNodes)));
         var r, i, o
     }, S.fn.load = function (e, t, n) {
-        var r, i, o, a = this, s = e.indexOf(" ");
+        var r, i, o, a = this,
+            s = e.indexOf(" ");
         return -1 < s && (r = vt(e.slice(s)), e = e.slice(0, s)), m(t) ? (n = t, t = void 0) : t && "object" == typeof t && (i = "POST"), 0 < a.length && S.ajax({
             url: e,
             type: i || "GET",
@@ -2519,7 +3143,9 @@ preloader.contentLoading();
         }).length
     }, S.offset = {
         setOffset: function (e, t, n) {
-            var r, i, o, a, s, u, l = S.css(e, "position"), c = S(e), f = {};
+            var r, i, o, a, s, u, l = S.css(e, "position"),
+                c = S(e),
+                f = {};
             "static" === l && (e.style.position = "relative"), s = c.offset(), o = S.css(e, "top"), u = S.css(e, "left"), ("absolute" === l || "fixed" === l) && -1 < (o + u).indexOf("auto") ? (a = (r = c.position()).top, i = r.left) : (a = parseFloat(o) || 0, i = parseFloat(u) || 0), m(t) && (t = t.call(e, n, S.extend({}, s))), null != t.top && (f.top = t.top - s.top + a), null != t.left && (f.left = t.left - s.left + i), "using" in t ? t.using.call(e, f) : ("number" == typeof f.top && (f.top += "px"), "number" == typeof f.left && (f.left += "px"), c.css(f))
         }
     }, S.fn.extend({
@@ -2531,11 +3157,20 @@ preloader.contentLoading();
             return r ? r.getClientRects().length ? (e = r.getBoundingClientRect(), n = r.ownerDocument.defaultView, {
                 top: e.top + n.pageYOffset,
                 left: e.left + n.pageXOffset
-            }) : {top: 0, left: 0} : void 0
-        }, position: function () {
+            }) : {
+                top: 0,
+                left: 0
+            } : void 0
+        },
+        position: function () {
             if (this[0]) {
-                var e, t, n, r = this[0], i = {top: 0, left: 0};
-                if ("fixed" === S.css(r, "position")) t = r.getBoundingClientRect(); else {
+                var e, t, n, r = this[0],
+                    i = {
+                        top: 0,
+                        left: 0
+                    };
+                if ("fixed" === S.css(r, "position")) t = r.getBoundingClientRect();
+                else {
                     t = this.offset(), n = r.ownerDocument, e = r.offsetParent || n.documentElement;
                     while (e && (e === n.body || e === n.documentElement) && "static" === S.css(e, "position")) e = e.parentNode;
                     e && e !== r && 1 === e.nodeType && ((i = S(e).offset()).top += S.css(e, "borderTopWidth", !0), i.left += S.css(e, "borderLeftWidth", !0))
@@ -2545,14 +3180,18 @@ preloader.contentLoading();
                     left: t.left - i.left - S.css(r, "marginLeft", !0)
                 }
             }
-        }, offsetParent: function () {
+        },
+        offsetParent: function () {
             return this.map(function () {
                 var e = this.offsetParent;
                 while (e && "static" === S.css(e, "position")) e = e.offsetParent;
                 return e || re
             })
         }
-    }), S.each({scrollLeft: "pageXOffset", scrollTop: "pageYOffset"}, function (t, i) {
+    }), S.each({
+        scrollLeft: "pageXOffset",
+        scrollTop: "pageYOffset"
+    }, function (t, i) {
         var o = "pageYOffset" === i;
         S.fn[t] = function (e) {
             return $(this, function (e, t, n) {
@@ -2565,8 +3204,15 @@ preloader.contentLoading();
         S.cssHooks[n] = $e(y.pixelPosition, function (e, t) {
             if (t) return t = Be(e, n), Me.test(t) ? S(e).position()[n] + "px" : t
         })
-    }), S.each({Height: "height", Width: "width"}, function (a, s) {
-        S.each({padding: "inner" + a, content: s, "": "outer" + a}, function (r, o) {
+    }), S.each({
+        Height: "height",
+        Width: "width"
+    }, function (a, s) {
+        S.each({
+            padding: "inner" + a,
+            content: s,
+            "": "outer" + a
+        }, function (r, o) {
             S.fn[o] = function (e, t) {
                 var n = arguments.length && (r || "boolean" != typeof e),
                     i = r || (!0 === e || !0 === t ? "margin" : "border");
@@ -2583,13 +3229,17 @@ preloader.contentLoading();
     }), S.fn.extend({
         bind: function (e, t, n) {
             return this.on(e, null, t, n)
-        }, unbind: function (e, t) {
+        },
+        unbind: function (e, t) {
             return this.off(e, null, t)
-        }, delegate: function (e, t, n, r) {
+        },
+        delegate: function (e, t, n, r) {
             return this.on(t, e, n, r)
-        }, undelegate: function (e, t, n) {
+        },
+        undelegate: function (e, t, n) {
             return 1 === arguments.length ? this.off(e, "**") : this.off(t, e || "**", n)
-        }, hover: function (e, t) {
+        },
+        hover: function (e, t) {
             return this.mouseenter(e).mouseleave(t || e)
         }
     }), S.each("blur focus focusin focusout resize scroll click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup contextmenu".split(" "), function (e, n) {
@@ -2613,7 +3263,8 @@ preloader.contentLoading();
     }, "function" == typeof define && define.amd && define("jquery", [], function () {
         return S
     });
-    var Yt = C.jQuery, Qt = C.$;
+    var Yt = C.jQuery,
+        Qt = C.$;
     return S.noConflict = function (e) {
         return C.$ === S && (C.$ = Qt), e && C.jQuery === S && (C.jQuery = Yt), S
     }, "undefined" == typeof e && (C.jQuery = C.$ = S), S
@@ -2621,7 +3272,9 @@ preloader.contentLoading();
 "use strict";
 
 function loadMisc() {
-    $.ajax({url: "json/misc.json"}).done(function (data) {
+    $.ajax({
+        url: "json/misc.json"
+    }).done(function (data) {
         $.each(data, function (i, prop) {
             $.each(prop, function (name, val) {
                 miscLoadedValues[name] = val
@@ -2630,18 +3283,21 @@ function loadMisc() {
         loadGlobalTexts()
     })
 }
-
 var globalTexts = null;
 
 function loadGlobalTexts() {
-    $.ajax({url: "json/texts.json"}).done(function (data) {
+    $.ajax({
+        url: "json/texts.json"
+    }).done(function (data) {
         globalTexts = Object.values(data);
         loadHotKeys()
     })
 }
 
 function loadHotKeys() {
-    $.ajax({url: "json/hotkeys.json"}).done(function (data) {
+    $.ajax({
+        url: "json/hotkeys.json"
+    }).done(function (data) {
         $.each(data, function (i, props) {
             var key = new Hotkey(props);
             HotKeys.addKey(key)
@@ -2651,7 +3307,9 @@ function loadHotKeys() {
 }
 
 function loadPatchnotes() {
-    $.ajax({url: "json/patchNotes.json"}).done(function (data) {
+    $.ajax({
+        url: "json/patchNotes.json"
+    }).done(function (data) {
         $.each(data, function (i, props) {
             var patch = new PatchNote(props);
             PatchManager.addPatch(patch)
@@ -2661,7 +3319,9 @@ function loadPatchnotes() {
 }
 
 function loadMaterials() {
-    $.ajax({url: "json/materials.json"}).done(function (data) {
+    $.ajax({
+        url: "json/materials.json"
+    }).done(function (data) {
         $.each(data, function (i, props) {
             var material = new Material(props);
             ResourceManager.addNewMaterial(material)
@@ -2672,7 +3332,9 @@ function loadMaterials() {
 }
 
 function loadRecipes() {
-    $.ajax({url: "json/recipes.json"}).done(function (data) {
+    $.ajax({
+        url: "json/recipes.json"
+    }).done(function (data) {
         $.each(data, function (i, props) {
             var item = new Item(props);
             recipeList.addItem(item)
@@ -2683,7 +3345,9 @@ function loadRecipes() {
 }
 
 function loadOrders() {
-    $.ajax({url: "json/orders.json"}).done(function (data) {
+    $.ajax({
+        url: "json/orders.json"
+    }).done(function (data) {
         $.each(data, function (i, props) {
             var order = new Order(props);
             Merchant.addOrderConfig(order)
@@ -2694,7 +3358,9 @@ function loadOrders() {
 }
 
 function loadSkills() {
-    $.ajax({url: "json/skills.json"}).done(function (data) {
+    $.ajax({
+        url: "json/skills.json"
+    }).done(function (data) {
         $.each(data, function (i, props) {
             var skill = new Skill(props);
             SkillManager.addSkill(skill)
@@ -2705,7 +3371,9 @@ function loadSkills() {
 }
 
 function loadPlaybooks() {
-    $.ajax({url: "json/playbook.json"}).done(function (data) {
+    $.ajax({
+        url: "json/playbook.json"
+    }).done(function (data) {
         $.each(data, function (i, props) {
             var playbook = new playBookTemplate(props);
             PlaybookManager.addPlaybookTemplate(playbook)
@@ -2715,7 +3383,9 @@ function loadPlaybooks() {
 }
 
 function loadBuffs() {
-    $.ajax({url: "json/buffs.json"}).done(function (data) {
+    $.ajax({
+        url: "json/buffs.json"
+    }).done(function (data) {
         $.each(data, function (i, props) {
             var buff = new buffTemplate(props);
             BuffManager.addBuffTemplate(buff)
@@ -2725,7 +3395,9 @@ function loadBuffs() {
 }
 
 function loadHeroes() {
-    $.ajax({url: "json/heroes.json"}).done(function (data) {
+    $.ajax({
+        url: "json/heroes.json"
+    }).done(function (data) {
         $.each(data, function (i, props) {
             var hero = new Hero(props);
             HeroManager.addHero(hero)
@@ -2736,7 +3408,9 @@ function loadHeroes() {
 }
 
 function loadPerks() {
-    $.ajax({url: "json/perks.json"}).done(function (data) {
+    $.ajax({
+        url: "json/perks.json"
+    }).done(function (data) {
         $.each(data, function (i, props) {
             var perk = new Perk(props);
             Shop.addPerk(perk)
@@ -2746,7 +3420,9 @@ function loadPerks() {
 }
 
 function loadMobs() {
-    $.ajax({url: "json/mobs.json"}).done(function (data) {
+    $.ajax({
+        url: "json/mobs.json"
+    }).done(function (data) {
         $.each(data, function (i, props) {
             var mob = new MobTemplate(props);
             MobManager.addMob(mob)
@@ -2756,7 +3432,9 @@ function loadMobs() {
 }
 
 function loadAreas() {
-    $.ajax({url: "json/areas.json"}).done(function (data) {
+    $.ajax({
+        url: "json/areas.json"
+    }).done(function (data) {
         $.each(data, function (i, props) {
             var area = new Area(props);
             AreaManager.addArea(area)
@@ -2766,7 +3444,9 @@ function loadAreas() {
 }
 
 function loadDungeons() {
-    $.ajax({url: "json/dungeons.json"}).done(function (data) {
+    $.ajax({
+        url: "json/dungeons.json"
+    }).done(function (data) {
         $.each(data, function (i, props) {
             var event = new Dungeon(props);
             DungeonManager.addDungeon(event)
@@ -2777,7 +3457,9 @@ function loadDungeons() {
 }
 
 function loadTinker() {
-    $.ajax({url: "json/tinker.json"}).done(function (data) {
+    $.ajax({
+        url: "json/tinker.json"
+    }).done(function (data) {
         $.each(data, function (i, props) {
             var command = new tinkerCommand(props);
             TinkerManager.addCommand(command)
@@ -2787,7 +3469,9 @@ function loadTinker() {
 }
 
 function loadTown() {
-    $.ajax({url: "json/town.json"}).done(function (data) {
+    $.ajax({
+        url: "json/town.json"
+    }).done(function (data) {
         $.each(data, function (i, props) {
             var building = new Building(props);
             TownManager.addBuilding(building)
@@ -2798,7 +3482,9 @@ function loadTown() {
 }
 
 function loadDialogs() {
-    $.ajax({url: "json/dialogs.json"}).done(function (data) {
+    $.ajax({
+        url: "json/dialogs.json"
+    }).done(function (data) {
         $.each(data, function (i, props) {
             var dialog = new Dialog(props);
             DialogManager.addDialog(dialog)
@@ -2808,7 +3494,9 @@ function loadDialogs() {
 }
 
 function loadQuests() {
-    $.ajax({url: "json/quest.json"}).done(function (data) {
+    $.ajax({
+        url: "json/quest.json"
+    }).done(function (data) {
         $.each(data, function (i, props) {
             var quest = new Quest(props);
             ExpeditionManager.addQuest(quest)
@@ -2818,7 +3506,9 @@ function loadQuests() {
 }
 
 function loadTrophies() {
-    $.ajax({url: "json/trophies.json"}).done(function (data) {
+    $.ajax({
+        url: "json/trophies.json"
+    }).done(function (data) {
         $.each(data, function (i, props) {
             var trophy = new Trophy(props);
             DungeonManager.addTrophy(trophy)
@@ -2828,7 +3518,9 @@ function loadTrophies() {
 }
 
 function loadTooltips() {
-    $.ajax({url: "json/tooltips.json"}).done(function (data) {
+    $.ajax({
+        url: "json/tooltips.json"
+    }).done(function (data) {
         $.each(data, function (i, props) {
             var tooltip = new Tooltip(props);
             TooltipManager.addTooltip(tooltip)
@@ -2839,7 +3531,9 @@ function loadTooltips() {
 }
 
 function loadAchievements() {
-    $.ajax({url: "json/achievements.json"}).done(function (data) {
+    $.ajax({
+        url: "json/achievements.json"
+    }).done(function (data) {
         $.each(data, function (i, props) {
             var achievement = new AchievementLookup[props.id](props);
             AchievementManager.addAchievement(achievement)
@@ -2849,7 +3543,9 @@ function loadAchievements() {
 }
 
 function loadAscendants() {
-    $.ajax({url: "json/ascendants.json"}).done(function (data) {
+    $.ajax({
+        url: "json/ascendants.json"
+    }).done(function (data) {
         $.each(data, function (i, props) {
             var ascendant = new Ascendant(props);
             AscensionManager.addAscendant(ascendant)
@@ -2859,7 +3555,9 @@ function loadAscendants() {
 }
 
 function loadToasts() {
-    $.ajax({url: "json/toasts.json"}).done(function (data) {
+    $.ajax({
+        url: "json/toasts.json"
+    }).done(function (data) {
         $.each(data, function (i, props) {
             var toast = new Toast(props);
             ToastManager.addToast(toast)
@@ -2868,7 +3566,6 @@ function loadToasts() {
         afterLoad()
     })
 }
-
 "use strict";
 var settings = {
     lang: "en",
@@ -2907,7 +3604,6 @@ function clearSettings() {
     localStorage.removeItem("settings");
     location.reload()
 }
-
 loadSettings();
 
 function portSettings() {
@@ -2916,7 +3612,6 @@ function portSettings() {
     delete settings.battleLogLength;
     delete settings.expandedMaterials
 }
-
 "use strict";
 
 function _classCallCheck(instance, Constructor) {
@@ -2940,9 +3635,11 @@ function _createClass(Constructor, protoProps, staticProps) {
     if (staticProps) _defineProperties(Constructor, staticProps);
     return Constructor
 }
-
 var HotKeys = {
-    keys: [], assigning: null, enabled: 1, createSave: function createSave() {
+    keys: [],
+    assigning: null,
+    enabled: 1,
+    createSave: function createSave() {
         var save = {};
         save.keys = [];
         this.keys.forEach(function (key) {
@@ -2951,7 +3648,8 @@ var HotKeys = {
         save.enabled = this.enabled;
         save.inventoryAutoSort = Inventory.autosort;
         return save
-    }, loadSave: function loadSave(save) {
+    },
+    loadSave: function loadSave(save) {
         var _this = this;
         save.keys.forEach(function (key) {
             var keyid = _this.keys.find(function (k) {
@@ -2962,27 +3660,34 @@ var HotKeys = {
         });
         this.enabled = save.enabled;
         if (save.inventoryAutoSort !== undefined) Inventory.autosort = save.inventoryAutoSort
-    }, addKey: function addKey(key) {
+    },
+    addKey: function addKey(key) {
         this.keys.push(key)
-    }, setEnabled: function setEnabled() {
+    },
+    setEnabled: function setEnabled() {
         this.enabled = 1
-    }, setDisabled: function setDisabled() {
+    },
+    setDisabled: function setDisabled() {
         this.enabled = 0
-    }, allDefault: function allDefault() {
+    },
+    allDefault: function allDefault() {
         this.keys.forEach(function (key) {
             return key.reset()
         })
-    }, unassignKey: function unassignKey(kid) {
+    },
+    unassignKey: function unassignKey(kid) {
         var akey = this.keys.find(function (k) {
             return k.id === kid
         });
         akey.unassign()
-    }, defaultKey: function defaultKey(kid) {
+    },
+    defaultKey: function defaultKey(kid) {
         var akey = this.keys.find(function (k) {
             return k.id === kid
         });
         akey.reset()
-    }, assignKey: function assignKey(code) {
+    },
+    assignKey: function assignKey(code) {
         var _this2 = this;
         this.keys.forEach(function (k) {
             return k.unassignIf(code)
@@ -2992,9 +3697,11 @@ var HotKeys = {
         });
         akey.assign(code);
         this.assigning = null
-    }, startAssign: function startAssign(kid) {
+    },
+    startAssign: function startAssign(kid) {
         this.assigning = kid
-    }, testKey: function testKey(keyCode) {
+    },
+    testKey: function testKey(keyCode) {
         if (HotKeys.assigning !== null) {
             this.assignKey(keyCode);
             showHotkey();
@@ -3017,36 +3724,42 @@ var Hotkey = function () {
         Object.assign(this, props);
         this.ogkey = this.key
     }
-
     _createClass(Hotkey, [{
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
             save.id = this.id;
             save.key = this.key;
             return save
         }
     }, {
-        key: "loadSave", value: function loadSave(save) {
+        key: "loadSave",
+        value: function loadSave(save) {
             this.key = save.key
         }
     }, {
-        key: "reset", value: function reset() {
+        key: "reset",
+        value: function reset() {
             this.key = this.ogkey
         }
     }, {
-        key: "unassign", value: function unassign() {
+        key: "unassign",
+        value: function unassign() {
             this.key = "Not Assigned"
         }
     }, {
-        key: "assign", value: function assign(code) {
+        key: "assign",
+        value: function assign(code) {
             this.key = code
         }
     }, {
-        key: "unassignIf", value: function unassignIf(code) {
+        key: "unassignIf",
+        value: function unassignIf(code) {
             if (this.key === code) this.unassign()
         }
     }, {
-        key: "canSee", value: function canSee() {
+        key: "canSee",
+        value: function canSee() {
             if (this.openedBy === null) return true;
             return Shop.alreadyPurchased(this.openedBy)
         }
@@ -3077,7 +3790,6 @@ function showHotkey(skipAnimation) {
         }
     })
 }
-
 $(document).on("change", ".hotkeyPrefSelection", function (e) {
     $(e.target).attr("checked", "checked");
     HotKeys.enabled = parseInt($(e.target).val())
@@ -3112,20 +3824,28 @@ function _classCallCheck(instance, Constructor) {
         throw new TypeError("Cannot call a class as a function")
     }
 }
-
 var PatchManager = {
-    patchList: [], current: 0, time: 0, addPatch: function addPatch(patchNote) {
+    patchList: [],
+    current: 0,
+    time: 0,
+    addPatch: function addPatch(patchNote) {
         this.patchList.push(patchNote);
         this.current = patchNote.version
-    }, lastVersion: function lastVersion() {
+    },
+    lastVersion: function lastVersion() {
         return this.current
-    }, updateNeeded: function updateNeeded(data) {
+    },
+    updateNeeded: function updateNeeded(data) {
         if (data === undefined) return false;
         return this.current.toLowerCase() !== data.toLowerCase()
-    }, patchTimer: function patchTimer(elapsed) {
+    },
+    patchTimer: function patchTimer(elapsed) {
         this.time += elapsed;
         if (this.time > 3e5) {
-            $.ajax({url: "json/patchNum.txt", dataType: "text"}).done(function (data) {
+            $.ajax({
+                url: "json/patchNum.txt",
+                dataType: "text"
+            }).done(function (data) {
                 refreshPatchNotes(data)
             });
             this.time = 0
@@ -3138,7 +3858,8 @@ var PatchNote = function PatchNote(props) {
 };
 
 function refreshPatchNotes(data) {
-    if (PatchManager.updateNeeded(data)) $("#versionNum").addClass("hasEvent"); else $("#versionNum").removeClass("hasEvent")
+    if (PatchManager.updateNeeded(data)) $("#versionNum").addClass("hasEvent");
+    else $("#versionNum").removeClass("hasEvent")
 }
 
 function showPatchNotes() {
@@ -3155,9 +3876,9 @@ function showPatchNotes() {
         $("<div/>").addClass("patchNoteBody").html(patch.body).appendTo(d);
         $("#patchList").prepend(d)
     });
-    if (PatchManager.updateNeeded()) $("#updateTrigger").show(); else $("#updateTrigger").hide()
+    if (PatchManager.updateNeeded()) $("#updateTrigger").show();
+    else $("#updateTrigger").hide()
 }
-
 $(document).on("click", "#updateRefresh", function (e) {
     location.reload()
 });
@@ -3184,23 +3905,23 @@ function _createClass(Constructor, protoProps, staticProps) {
     if (staticProps) _defineProperties(Constructor, staticProps);
     return Constructor
 }
-
 var idAmt = function () {
     function idAmt(id, amt) {
         _classCallCheck(this, idAmt);
         this.id = id;
         this.amt = amt
     }
-
     _createClass(idAmt, [{
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
             save.id = this.id;
             save.amt = this.amt;
             return save
         }
     }, {
-        key: "loadSave", value: function loadSave() {
+        key: "loadSave",
+        value: function loadSave() {
             return
         }
     }]);
@@ -3214,9 +3935,9 @@ function formatToUnits(number, precision) {
     var suffix = abbrev[order];
     return parseFloat((number / Math.pow(10, order * 3)).toFixedDown(precision)) + suffix
 }
-
 Number.prototype.toFixedDown = function (digits) {
-    var re = new RegExp("(\\d+\\.\\d{" + digits + "})(\\d)"), m = this.toString().match(re);
+    var re = new RegExp("(\\d+\\.\\d{" + digits + "})(\\d)"),
+        m = this.toString().match(re);
     return m ? parseFloat(m[1]) : this.valueOf()
 };
 
@@ -3226,15 +3947,14 @@ function formatWithCommas(number) {
 
 function msToTime(ms) {
     var secs = Math.floor(ms / 1e3 % 60);
-    secs = secs < 10 ? "0" + secs : secs;
     var mins = Math.floor(ms / 1e3 / 60 % 60);
-    mins = mins < 10 ? "0" + mins : mins;
     var hours = Math.floor(ms / 1e3 / 60 / 60 % 24);
     var days = Math.floor(ms / 1e3 / 60 / 60 / 24);
-    if (days > 1) return "".concat(days, " days ").concat(hours, ":").concat(mins, ":").concat(secs);
-    if (days === 1) return "".concat(days, " day ").concat(hours, ":").concat(mins, ":").concat(secs);
-    if (hours > 0) return "".concat(hours, ":").concat(mins, ":").concat(secs);
-    return "".concat(mins, ":").concat(secs)
+    if (days > 1) return "".concat(days, "d ").concat(hours, "h ").concat(mins, "m ").concat(secs, "s");
+    if (days === 1) return "".concat(days, "d ").concat(hours, "h ").concat(mins, "m ").concat(secs, "s");
+    if (hours > 0) return "".concat(hours, "h ").concat(mins, "m ").concat(secs, "s");
+    if (mins > 0) return "".concat(mins, "m ").concat(secs, "s");
+    return "".concat(secs, "s")
 }
 
 function round(number, precision) {
@@ -3251,17 +3971,20 @@ function timeSince(startTime, endTime) {
     var diff = Math.round((endTime - startTime) / 1e3);
     var d = Math.floor(diff / (24 * 60 * 60));
     diff = diff - d * 24 * 60 * 60;
-    if (d === 1) s += d + " day, "; else s += d + " days, ";
+    if (d === 1) s += d + " day, ";
+    else s += d + " days, ";
     var h = Math.floor(diff / (60 * 60));
     diff = diff - h * 60 * 60;
-    if (h === 1) s += h + " hour, "; else s += h + " hours, ";
+    if (h === 1) s += h + " hour, ";
+    else s += h + " hours, ";
     var m = Math.floor(diff / 60);
     diff = diff - m * 60;
-    if (m === 1) s += m + " minute, "; else s += m + " minutes, ";
-    if (diff === 1) s += diff + " second, "; else s += diff + " seconds, ";
+    if (m === 1) s += m + " minute, ";
+    else s += m + " minutes, ";
+    if (diff === 1) s += diff + " second, ";
+    else s += diff + " seconds, ";
     return s.slice(0, -2)
 }
-
 var miscIcons = Object.freeze({
     hp: '<i class="fas fa-heart statHP"></i>',
     pow: '<i class="fad fa-sword statPOW"></i>',
@@ -3310,12 +4033,14 @@ var miscIcons = Object.freeze({
     waterRune: '<i class="fas fa-spinner"></i>',
     thunderRune: '<i class="fas fa-clock"></i>'
 });
-var heroStat = Object.freeze({hp: "hp", pow: "pow"});
+var heroStat = Object.freeze({
+    hp: "hp",
+    pow: "pow"
+});
 
 function msToSec(ms) {
     return round(ms / 1e3, 1) + "s"
 }
-
 var miscLoadedValues = {};
 
 function inventorySort(a, b) {
@@ -3363,7 +4088,6 @@ function groupArray(i) {
         return a[c] = (a[c] || 0) + 1, a
     }, Object.create(null))
 }
-
 var a = ["", "One ", "Two ", "Three ", "Four ", "Five ", "Six ", "Seven ", "Eight ", "Nine ", "Ten ", "Eleven ", "Twelve ", "Thirteen ", "Fourteen ", "Fifteen ", "Sixteen ", "Seventeen ", "Eighteen ", "Nineteen "];
 var b = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
 
@@ -3382,7 +4106,8 @@ function inWords(num) {
 }
 
 function createArray(length) {
-    var arr = new Array(length || 0), i = length;
+    var arr = new Array(length || 0),
+        i = length;
     arr.fill(false);
     if (arguments.length > 1) {
         var args = Array.prototype.slice.call(arguments, 1);
@@ -3404,20 +4129,34 @@ function displayText(id) {
 }
 
 function generateProgressBar(options) {
-    var prefix = options.prefix, tooltip = options.tooltip, text = options.text, textID = options.textID,
-        icon = options.icon, width = options.width, fill = options.fill, tooltipData = options.tooltipData;
+    var prefix = options.prefix,
+        tooltip = options.tooltip,
+        text = options.text,
+        textID = options.textID,
+        icon = options.icon,
+        width = options.width,
+        fill = options.fill,
+        tooltipData = options.tooltipData;
     var progressBarContainer = $("<div/>").addClass("progressBarContainer ".concat(prefix, "BarContainer"));
-    if (tooltip) progressBarContainer.addClass("tooltip").attr({"data-tooltip": tooltip});
-    if (tooltipData) progressBarContainer.attr({"data-tooltip-value": tooltipData});
+    if (tooltip) progressBarContainer.addClass("tooltip").attr({
+        "data-tooltip": tooltip
+    });
+    if (tooltipData) progressBarContainer.attr({
+        "data-tooltip-value": tooltipData
+    });
     var progressBarText = $("<div/>").addClass("progressBarText");
     if (text) progressBarText.html(text).appendTo(progressBarContainer);
-    if (textID) progressBarText.attr({id: textID});
+    if (textID) progressBarText.attr({
+        id: textID
+    });
     var progressBarContent = $("<div/>").addClass("progressBarContent");
     if (icon) $("<div/>").addClass("progressBarIcon").html(icon).appendTo(progressBarContent);
     if (icon && text) progressBarText.addClass("containsIcon");
     var progressBar = $("<div/>").addClass("progressBar").appendTo(progressBarContent);
     var progressBarFill = $("<div/>").addClass("progressBarFill").css("width", width).appendTo(progressBar);
-    if (fill) progressBarFill.attr({id: fill});
+    if (fill) progressBarFill.attr({
+        id: fill
+    });
     progressBarContainer.append(progressBarContent);
     return progressBarContainer
 }
@@ -3425,7 +4164,6 @@ function generateProgressBar(options) {
 function shortenName(name, characters) {
     return name.substring(0, characters - 3) + "..."
 }
-
 "use strict";
 var heroOverviewLast = true;
 var lastTown = "synth";
@@ -3480,14 +4218,19 @@ $comptitle9.click(function (e) {
 });
 
 function tabHide() {
-    if (Shop.alreadyPurchased("AL1000") || AscensionManager.ascendedAlready()) $merchantTabLink.show(); else $merchantTabLink.hide();
-    if (recipeList.idToItem("R13001").craftCount > 0 || AscensionManager.ascendedAlready()) $inventoryTabLink.show(); else $inventoryTabLink.hide();
-    if (HeroManager.heroOwned("H203") || AscensionManager.ascendedAlready()) $heroesTabLink.show(); else $heroesTabLink.hide();
-    if (AreaManager.idToArea("A01").unlocked() || AscensionManager.ascendedAlready()) $dungeonsTabLink.show(); else $dungeonsTabLink.hide();
-    if (TownManager.buildingsOwned() || AscensionManager.ascendedAlready()) $townTabLink.show(); else $townTabLink.hide();
-    if (achievementStats.totalGoldEarned > 0 || AscensionManager.ascendedAlready()) $marketTabLink.show(); else $marketTabLink.hide()
+    if (Shop.alreadyPurchased("AL1000") || AscensionManager.ascendedAlready()) $merchantTabLink.show();
+    else $merchantTabLink.hide();
+    if (recipeList.idToItem("R13001").craftCount > 0 || AscensionManager.ascendedAlready()) $inventoryTabLink.show();
+    else $inventoryTabLink.hide();
+    if (HeroManager.heroOwned("H203") || AscensionManager.ascendedAlready()) $heroesTabLink.show();
+    else $heroesTabLink.hide();
+    if (AreaManager.idToArea("A01").unlocked() || AscensionManager.ascendedAlready()) $dungeonsTabLink.show();
+    else $dungeonsTabLink.hide();
+    if (TownManager.buildingsOwned() || AscensionManager.ascendedAlready()) $townTabLink.show();
+    else $townTabLink.hide();
+    if (achievementStats.totalGoldEarned > 0 || AscensionManager.ascendedAlready()) $marketTabLink.show();
+    else $marketTabLink.hide()
 }
-
 var tabHistory = [];
 var $tabcontent = $(".tabcontent");
 var $tablinks = $(".tablinks");
@@ -3591,7 +4334,8 @@ function openTab(tabName) {
     } else if (tabParts[0] === "dungeons") {
         $dungeonsTabLink.addClass("tab-selected");
         $dungeonsTab.show();
-        if (tabParts[1] === "overview") dungeonsTabClicked(); else screenDirectDungeon(tabParts[1])
+        if (tabParts[1] === "overview") dungeonsTabClicked();
+        else screenDirectDungeon(tabParts[1])
     } else if (tabParts[0] === "town") {
         $townTabLink.addClass("tab-selected");
         $townsTab.show();
@@ -3609,7 +4353,6 @@ function openTab(tabName) {
         refreshShop()
     }
 }
-
 var $rightSidebarButtons = $("#rightSidebarButtons");
 var $sidebarContents = $(".sidebarContents");
 var $inventorySidebarToggle = $("#inventorySidebarToggle");
@@ -3667,7 +4410,6 @@ function nextSidebarTab() {
         $museumSidebarToggle.addClass("highlight")
     }
 }
-
 var $expeditionSidebar = $("#expeditionSidebar");
 
 function refreshExpeditionSidebar() {
@@ -3725,7 +4467,6 @@ function refreshExpeditionSpecificSidebar(expedition) {
     $("#esb" + expedition.id).html(barText);
     $("#esbf" + expedition.id).css("width", width)
 }
-
 var $fuseSidebar = $("#fuseSidebar");
 
 function refreshFuseSidebar() {
@@ -3742,7 +4483,10 @@ function refreshFuseSidebar() {
             width: fsbWidth,
             fill: "fsbFill" + fuse.fuseID
         };
-        var d = $("<div/>").addClass("fusionSidebarContainer").appendTo($fuseSidebar);
+        var d = $("<div/>").addClass("fusionSidebarContainer tooltip").attr({
+            "data-tooltip": "fuse_slot_container",
+            "data-tooltip-value": fuse.container.uniqueID()
+        }).appendTo($fuseSidebar);
         $("<div/>").addClass("fusionSidebarItemPic").html(fuse.container.picName()).appendTo(d);
         var d1 = $("<div/>").addClass("fusionSidebarAction").data("fid", fuse.fuseID).appendTo(d);
         generateProgressBar(options).appendTo(d1)
@@ -3772,7 +4516,6 @@ function refreshFuseSidebarText() {
         $("#fsb" + fuse.fuseID).html(fsbText)
     })
 }
-
 $fuseSidebar.on("click", ".fusionSidebarAction", function (e) {
     e.preventDefault();
     var fid = $(e.currentTarget).data("fid");
@@ -3789,14 +4532,15 @@ function refreshFortuneSidebar() {
     FortuneManager.slots.forEach(function (fortune) {
         var d = $("<div/>").addClass("fortuneSidebarItem").addClass("R" + fortune.rarity).appendTo($fortuneSidebar);
         $("<div/>").addClass("itemName").html(fortune.picName()).appendTo(d);
-        $("<div/>").addClass("itemRarity RT".concat(fortune.rarity, " tooltip")).attr({"data-tooltip": "rarity_".concat(rarities[fortune.rarity].toLowerCase())}).html(miscIcons.rarity).appendTo(d)
+        $("<div/>").addClass("itemRarity RT".concat(fortune.rarity, " tooltip")).attr({
+            "data-tooltip": "rarity_".concat(rarities[fortune.rarity].toLowerCase())
+        }).html(miscIcons.rarity).appendTo(d)
     });
     if (FortuneManager.emptySlotCount() > 0 || FortuneManager.stage !== null) {
         var d = $("<div/>").addClass("fortuneSidebarItem").appendTo($fortuneSidebar);
         $("<div/>").addClass("fortuneEmpty").html(displayText("add_fortune")).appendTo(d)
     }
 }
-
 $fortuneSidebar.on("click", ".fortuneSidebarItem", function (e) {
     e.preventDefault();
     openTab("town_fortune")
@@ -3830,7 +4574,6 @@ function createTinkerSidebar(command) {
     generateProgressBar(options).appendTo(d);
     return d
 }
-
 $tinkerSidebar.on("click", ".tinkerSidebarCommand", function (e) {
     e.preventDefault();
     var tid = $(e.currentTarget).data("tid");
@@ -3848,7 +4591,6 @@ function museumInspect() {
     lastMuseum = recipeID;
     $museumSidebar.empty().append(generateMuseumSpecificDonation(recipe, false))
 }
-
 var $DungeonSideBar = $("#DungeonSideBar");
 
 function showSidebarHeadings() {
@@ -3895,7 +4637,6 @@ function townUnlocked() {
 function museumUnlocked() {
     return TownManager.idToBuilding("TB008").status >= 2
 }
-
 "use strict";
 Math.seededRandom = function () {
     Math.seed = (Math.seed * 9301 + 49297) % 233280;
@@ -3980,8 +4721,11 @@ function _createClass(Constructor, protoProps, staticProps) {
     if (staticProps) _defineProperties(Constructor, staticProps);
     return Constructor
 }
-
-var AchievementStatus = Object.freeze({ACTIVE: 0, FAILED: 1, COMPLETE: 2});
+var AchievementStatus = Object.freeze({
+    ACTIVE: 0,
+    FAILED: 1,
+    COMPLETE: 2
+});
 var AchievementManager = {
     achievements: [],
     achievementRewards: [],
@@ -4002,24 +4746,27 @@ var Achievement = function () {
         this.complete = false;
         this.description = "<p><b>Requirement:</b> ".concat(this.restrictions, "</p><p><b>Reward: </b>").concat(this.reward, "</p>")
     }
-
     _createClass(Achievement, [{
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
             save.id = this.id;
             save.complete = this.complete;
             return save
         }
     }, {
-        key: "loadSave", value: function loadSave(save) {
+        key: "loadSave",
+        value: function loadSave(save) {
             this.complete = save.complete
         }
     }, {
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             return AchievementStatus.FAILED
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             return
         }
     }]);
@@ -4032,13 +4779,14 @@ var AC000 = function (_Achievement) {
         _classCallCheck(this, AC000);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC000).call(this, props))
     }
-
     _createClass(AC000, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             bloopSmith.runeUnlock = true
         }
@@ -4052,9 +4800,9 @@ var AC001 = function (_Achievement2) {
         _classCallCheck(this, AC001);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC001).call(this, props))
     }
-
     _createClass(AC001, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.totalPoints() < 10) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
@@ -4068,9 +4816,9 @@ var AC002 = function (_Achievement3) {
         _classCallCheck(this, AC002);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC002).call(this, props))
     }
-
     _createClass(AC002, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.totalPoints() < 30) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
@@ -4084,17 +4832,18 @@ var AC100 = function (_Achievement4) {
         _classCallCheck(this, AC100);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC100).call(this, props))
     }
-
     _createClass(AC100, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H001")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H001")
+                })) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             Shop.idToPerk("AL2026").purchase();
             PlaybookManager.unlockPlaybook("PB0011")
@@ -4109,17 +4858,18 @@ var AC101 = function (_Achievement5) {
         _classCallCheck(this, AC101);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC101).call(this, props))
     }
-
     _createClass(AC101, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H002")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H002")
+                })) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             Shop.idToPerk("AL2029").purchase();
             PlaybookManager.unlockPlaybook("PB0021")
@@ -4134,17 +4884,18 @@ var AC102 = function (_Achievement6) {
         _classCallCheck(this, AC102);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC102).call(this, props))
     }
-
     _createClass(AC102, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H003")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H003")
+                })) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             Shop.idToPerk("AL2033").purchase();
             PlaybookManager.unlockPlaybook("PB0031")
@@ -4159,17 +4910,18 @@ var AC103 = function (_Achievement7) {
         _classCallCheck(this, AC103);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC103).call(this, props))
     }
-
     _createClass(AC103, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H004")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H004")
+                })) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             Shop.idToPerk("AL2037").purchase();
             PlaybookManager.unlockPlaybook("PB0041")
@@ -4184,17 +4936,18 @@ var AC104 = function (_Achievement8) {
         _classCallCheck(this, AC104);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC104).call(this, props))
     }
-
     _createClass(AC104, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H101")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H101")
+                })) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             Shop.idToPerk("AL2030").purchase();
             PlaybookManager.unlockPlaybook("PB0051")
@@ -4209,17 +4962,18 @@ var AC105 = function (_Achievement9) {
         _classCallCheck(this, AC105);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC105).call(this, props))
     }
-
     _createClass(AC105, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H102")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H102")
+                })) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             Shop.idToPerk("AL2027").purchase();
             PlaybookManager.unlockPlaybook("PB0061")
@@ -4234,17 +4988,18 @@ var AC106 = function (_Achievement10) {
         _classCallCheck(this, AC106);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC106).call(this, props))
     }
-
     _createClass(AC106, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H103")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H103")
+                })) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             Shop.idToPerk("AL2031").purchase();
             PlaybookManager.unlockPlaybook("PB0071")
@@ -4259,17 +5014,18 @@ var AC107 = function (_Achievement11) {
         _classCallCheck(this, AC107);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC107).call(this, props))
     }
-
     _createClass(AC107, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H104")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H104")
+                })) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             Shop.idToPerk("AL2025").purchase();
             PlaybookManager.unlockPlaybook("PB0081")
@@ -4284,17 +5040,18 @@ var AC108 = function (_Achievement12) {
         _classCallCheck(this, AC108);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC108).call(this, props))
     }
-
     _createClass(AC108, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H201")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H201")
+                })) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             Shop.idToPerk("AL2032").purchase();
             PlaybookManager.unlockPlaybook("PB0091")
@@ -4309,17 +5066,18 @@ var AC109 = function (_Achievement13) {
         _classCallCheck(this, AC109);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC109).call(this, props))
     }
-
     _createClass(AC109, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H202")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H202")
+                })) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             Shop.idToPerk("AL2035").purchase();
             PlaybookManager.unlockPlaybook("PB0101")
@@ -4334,17 +5092,18 @@ var AC110 = function (_Achievement14) {
         _classCallCheck(this, AC110);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC110).call(this, props))
     }
-
     _createClass(AC110, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H203")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H203")
+                })) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             Shop.idToPerk("AL2034").purchase();
             PlaybookManager.unlockPlaybook("PB0111")
@@ -4359,17 +5118,18 @@ var AC111 = function (_Achievement15) {
         _classCallCheck(this, AC111);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC111).call(this, props))
     }
-
     _createClass(AC111, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H204")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H204")
+                })) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             Shop.idToPerk("AL2024").purchase();
             PlaybookManager.unlockPlaybook("PB0121")
@@ -4384,18 +5144,19 @@ var AC112 = function (_Achievement16) {
         _classCallCheck(this, AC112);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC112).call(this, props))
     }
-
     _createClass(AC112, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H001")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H001")
+                })) return AchievementStatus.FAILED;
             if (AscensionManager.difficulty < RunDifficulty.HARD) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             Shop.idToPerk("AL2041").purchase();
             PlaybookManager.unlockPlaybook("PB0012")
@@ -4410,18 +5171,19 @@ var AC113 = function (_Achievement17) {
         _classCallCheck(this, AC113);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC113).call(this, props))
     }
-
     _createClass(AC113, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H002")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H002")
+                })) return AchievementStatus.FAILED;
             if (AscensionManager.difficulty < RunDifficulty.HARD) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             Shop.idToPerk("AL2038").purchase();
             PlaybookManager.unlockPlaybook("PB0022")
@@ -4436,18 +5198,19 @@ var AC114 = function (_Achievement18) {
         _classCallCheck(this, AC114);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC114).call(this, props))
     }
-
     _createClass(AC114, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H003")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H003")
+                })) return AchievementStatus.FAILED;
             if (AscensionManager.difficulty < RunDifficulty.HARD) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             Shop.idToPerk("AL2042").purchase();
             PlaybookManager.unlockPlaybook("PB0032")
@@ -4462,18 +5225,19 @@ var AC115 = function (_Achievement19) {
         _classCallCheck(this, AC115);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC115).call(this, props))
     }
-
     _createClass(AC115, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H004")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H004")
+                })) return AchievementStatus.FAILED;
             if (AscensionManager.difficulty < RunDifficulty.HARD) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             Shop.idToPerk("AL2044").purchase();
             PlaybookManager.unlockPlaybook("PB0042")
@@ -4488,18 +5252,19 @@ var AC116 = function (_Achievement20) {
         _classCallCheck(this, AC116);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC116).call(this, props))
     }
-
     _createClass(AC116, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H101")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H101")
+                })) return AchievementStatus.FAILED;
             if (AscensionManager.difficulty < RunDifficulty.HARD) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             Shop.idToPerk("AL2047").purchase();
             PlaybookManager.unlockPlaybook("PB0052")
@@ -4514,18 +5279,19 @@ var AC117 = function (_Achievement21) {
         _classCallCheck(this, AC117);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC117).call(this, props))
     }
-
     _createClass(AC117, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H102")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H102")
+                })) return AchievementStatus.FAILED;
             if (AscensionManager.difficulty < RunDifficulty.HARD) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             Shop.idToPerk("AL2039").purchase();
             PlaybookManager.unlockPlaybook("PB0062")
@@ -4540,18 +5306,19 @@ var AC118 = function (_Achievement22) {
         _classCallCheck(this, AC118);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC118).call(this, props))
     }
-
     _createClass(AC118, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H103")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H103")
+                })) return AchievementStatus.FAILED;
             if (AscensionManager.difficulty < RunDifficulty.HARD) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             Shop.idToPerk("AL2031").purchase();
             PlaybookManager.unlockPlaybook("PB0072")
@@ -4566,18 +5333,19 @@ var AC119 = function (_Achievement23) {
         _classCallCheck(this, AC119);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC119).call(this, props))
     }
-
     _createClass(AC119, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H104")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H104")
+                })) return AchievementStatus.FAILED;
             if (AscensionManager.difficulty < RunDifficulty.HARD) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             Shop.idToPerk("AL2040").purchase();
             PlaybookManager.unlockPlaybook("PB0082")
@@ -4592,18 +5360,19 @@ var AC120 = function (_Achievement24) {
         _classCallCheck(this, AC120);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC120).call(this, props))
     }
-
     _createClass(AC120, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H201")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H201")
+                })) return AchievementStatus.FAILED;
             if (AscensionManager.difficulty < RunDifficulty.HARD) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             Shop.idToPerk("AL2036").purchase();
             PlaybookManager.unlockPlaybook("PB0092")
@@ -4618,18 +5387,19 @@ var AC121 = function (_Achievement25) {
         _classCallCheck(this, AC121);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC121).call(this, props))
     }
-
     _createClass(AC121, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H202")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H202")
+                })) return AchievementStatus.FAILED;
             if (AscensionManager.difficulty < RunDifficulty.HARD) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             Shop.idToPerk("AL2046").purchase();
             PlaybookManager.unlockPlaybook("PB0102")
@@ -4644,18 +5414,19 @@ var AC122 = function (_Achievement26) {
         _classCallCheck(this, AC122);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC122).call(this, props))
     }
-
     _createClass(AC122, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H203")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H203")
+                })) return AchievementStatus.FAILED;
             if (AscensionManager.difficulty < RunDifficulty.HARD) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             Shop.idToPerk("AL2045").purchase();
             PlaybookManager.unlockPlaybook("PB0112")
@@ -4670,18 +5441,19 @@ var AC123 = function (_Achievement27) {
         _classCallCheck(this, AC123);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC123).call(this, props))
     }
-
     _createClass(AC123, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H204")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H204")
+                })) return AchievementStatus.FAILED;
             if (AscensionManager.difficulty < RunDifficulty.HARD) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             Shop.idToPerk("AL2028").purchase();
             PlaybookManager.unlockPlaybook("PB0122")
@@ -4696,18 +5468,19 @@ var AC124 = function (_Achievement28) {
         _classCallCheck(this, AC124);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC124).call(this, props))
     }
-
     _createClass(AC124, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H001")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H001")
+                })) return AchievementStatus.FAILED;
             if (AscensionManager.difficulty < RunDifficulty.HARDER) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             HeroManager.idToHero("H001").passiveUnlocked = true
         }
@@ -4721,18 +5494,19 @@ var AC125 = function (_Achievement29) {
         _classCallCheck(this, AC125);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC125).call(this, props))
     }
-
     _createClass(AC125, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H002")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H002")
+                })) return AchievementStatus.FAILED;
             if (AscensionManager.difficulty < RunDifficulty.HARDER) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             HeroManager.idToHero("H002").passiveUnlocked = true
         }
@@ -4746,18 +5520,19 @@ var AC126 = function (_Achievement30) {
         _classCallCheck(this, AC126);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC126).call(this, props))
     }
-
     _createClass(AC126, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H003")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H003")
+                })) return AchievementStatus.FAILED;
             if (AscensionManager.difficulty < RunDifficulty.HARDER) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             HeroManager.idToHero("H003").passiveUnlocked = true
         }
@@ -4771,18 +5546,19 @@ var AC127 = function (_Achievement31) {
         _classCallCheck(this, AC127);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC127).call(this, props))
     }
-
     _createClass(AC127, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H004")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H004")
+                })) return AchievementStatus.FAILED;
             if (AscensionManager.difficulty < RunDifficulty.HARDER) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             HeroManager.idToHero("H004").passiveUnlocked = true
         }
@@ -4796,18 +5572,19 @@ var AC128 = function (_Achievement32) {
         _classCallCheck(this, AC128);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC128).call(this, props))
     }
-
     _createClass(AC128, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H101")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H101")
+                })) return AchievementStatus.FAILED;
             if (AscensionManager.difficulty < RunDifficulty.HARDER) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             HeroManager.idToHero("H101").passiveUnlocked = true
         }
@@ -4821,18 +5598,19 @@ var AC129 = function (_Achievement33) {
         _classCallCheck(this, AC129);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC129).call(this, props))
     }
-
     _createClass(AC129, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H102")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H102")
+                })) return AchievementStatus.FAILED;
             if (AscensionManager.difficulty < RunDifficulty.HARDER) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             HeroManager.idToHero("H102").passiveUnlocked = true
         }
@@ -4846,18 +5624,19 @@ var AC130 = function (_Achievement34) {
         _classCallCheck(this, AC130);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC130).call(this, props))
     }
-
     _createClass(AC130, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H103")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H103")
+                })) return AchievementStatus.FAILED;
             if (AscensionManager.difficulty < RunDifficulty.HARDER) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             HeroManager.idToHero("H103").passiveUnlocked = true
         }
@@ -4871,18 +5650,19 @@ var AC131 = function (_Achievement35) {
         _classCallCheck(this, AC131);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC131).call(this, props))
     }
-
     _createClass(AC131, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H104")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H104")
+                })) return AchievementStatus.FAILED;
             if (AscensionManager.difficulty < RunDifficulty.HARDER) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             HeroManager.idToHero("H104").passiveUnlocked = true
         }
@@ -4896,18 +5676,19 @@ var AC132 = function (_Achievement36) {
         _classCallCheck(this, AC132);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC132).call(this, props))
     }
-
     _createClass(AC132, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H201")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H201")
+                })) return AchievementStatus.FAILED;
             if (AscensionManager.difficulty < RunDifficulty.HARDER) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             HeroManager.idToHero("H201").passiveUnlocked = true
         }
@@ -4921,18 +5702,19 @@ var AC133 = function (_Achievement37) {
         _classCallCheck(this, AC133);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC133).call(this, props))
     }
-
     _createClass(AC133, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H202")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H202")
+                })) return AchievementStatus.FAILED;
             if (AscensionManager.difficulty < RunDifficulty.HARDER) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             HeroManager.idToHero("H202").passiveUnlocked = true
         }
@@ -4946,18 +5728,19 @@ var AC134 = function (_Achievement38) {
         _classCallCheck(this, AC134);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC134).call(this, props))
     }
-
     _createClass(AC134, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H203")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H203")
+                })) return AchievementStatus.FAILED;
             if (AscensionManager.difficulty < RunDifficulty.HARDER) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             HeroManager.idToHero("H203").passiveUnlocked = true
         }
@@ -4971,18 +5754,19 @@ var AC135 = function (_Achievement39) {
         _classCallCheck(this, AC135);
         return _possibleConstructorReturn(this, _getPrototypeOf(AC135).call(this, props))
     }
-
     _createClass(AC135, [{
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             if (!AscensionManager.ascendedAlready()) return AchievementStatus.FAILED;
             if (!AscensionManager.bossTeams.every(function (t) {
-                return t.includes("H204")
-            })) return AchievementStatus.FAILED;
+                    return t.includes("H204")
+                })) return AchievementStatus.FAILED;
             if (AscensionManager.difficulty < RunDifficulty.HARDER) return AchievementStatus.FAILED;
             return AchievementStatus.ACTIVE
         }
     }, {
-        key: "initializeRun", value: function initializeRun() {
+        key: "initializeRun",
+        value: function initializeRun() {
             if (!this.complete) return;
             HeroManager.idToHero("H204").passiveUnlocked = true
         }
@@ -5053,8 +5837,11 @@ function _createClass(Constructor, protoProps, staticProps) {
     if (staticProps) _defineProperties(Constructor, staticProps);
     return Constructor
 }
-
-var RunDifficulty = Object.freeze({NORMAL: 0, HARD: 1, HARDER: 2});
+var RunDifficulty = Object.freeze({
+    NORMAL: 0,
+    HARD: 1,
+    HARDER: 2
+});
 var AscensionManager = {
     difficulty: RunDifficulty.NORMAL,
     selectedDifficulty: RunDifficulty.NORMAL,
@@ -5132,10 +5919,14 @@ var AscensionManager = {
         }, 0) > 0
     },
     decreaseDifficulty: function decreaseDifficulty() {
-        if (this.selectedDifficulty === RunDifficulty.NORMAL) return; else if (this.selectedDifficulty === RunDifficulty.HARD) this.selectedDifficulty = RunDifficulty.NORMAL; else if (this.selectedDifficulty === RunDifficulty.HARDER) this.selectedDifficulty = RunDifficulty.HARD
+        if (this.selectedDifficulty === RunDifficulty.NORMAL) return;
+        else if (this.selectedDifficulty === RunDifficulty.HARD) this.selectedDifficulty = RunDifficulty.NORMAL;
+        else if (this.selectedDifficulty === RunDifficulty.HARDER) this.selectedDifficulty = RunDifficulty.HARD
     },
     increaseDifficulty: function increaseDifficulty() {
-        if (this.selectedDifficulty === RunDifficulty.HARDER) return; else if (this.selectedDifficulty === RunDifficulty.HARD) this.selectedDifficulty = RunDifficulty.HARDER; else if (this.selectedDifficulty === RunDifficulty.NORMAL) this.selectedDifficulty = RunDifficulty.HARD
+        if (this.selectedDifficulty === RunDifficulty.HARDER) return;
+        else if (this.selectedDifficulty === RunDifficulty.HARD) this.selectedDifficulty = RunDifficulty.HARDER;
+        else if (this.selectedDifficulty === RunDifficulty.NORMAL) this.selectedDifficulty = RunDifficulty.HARD
     },
     totalPoints: function totalPoints() {
         return this.clears[0] + this.clears[1] * 2 + this.clears[2] * 3
@@ -5171,36 +5962,41 @@ var Ascendant = function () {
         this.lvl = 0;
         this.maxlvl = 3
     }
-
     _createClass(Ascendant, [{
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
             save.id = this.id;
             save.lvl = this.lvl;
             return save
         }
     }, {
-        key: "loadSave", value: function loadSave(save) {
+        key: "loadSave",
+        value: function loadSave(save) {
             this.lvl = save.lvl
         }
     }, {
-        key: "spent", value: function spent() {
+        key: "spent",
+        value: function spent() {
             if (this.lvl === 0) return 0;
             if (this.lvl === 1) return 1;
             if (this.lvl === 2) return 3;
             if (this.lvl === 3) return 6
         }
     }, {
-        key: "cost", value: function cost() {
+        key: "cost",
+        value: function cost() {
             return this.lvl + 1
         }
     }, {
-        key: "upgrade", value: function upgrade() {
+        key: "upgrade",
+        value: function upgrade() {
             if (this.lvl === this.maxlvl) return;
             this.lvl += 1
         }
     }, {
-        key: "rest", value: function rest() {
+        key: "rest",
+        value: function rest() {
             this.lvl = 0
         }
     }]);
@@ -5247,7 +6043,6 @@ function populateAchievements() {
         }
     })
 }
-
 $merchantAscendButtons.on("click", "#ascendDifficultyLeft", function (e) {
     e.preventDefault();
     if (AscensionManager.selectedDifficulty === RunDifficulty.NORMAL) return;
@@ -5276,8 +6071,10 @@ $merchantAscendants.on("click", "#showAchievements", function (e) {
 function refreshAscendDifficulty() {
     var $ascendDifficultyLeft = $("#ascendDifficultyLeft");
     var $ascendDifficultyRight = $("#ascendDifficultyRight");
-    if (AscensionManager.selectedDifficulty === RunDifficulty.NORMAL) $ascendDifficultyLeft.addClass("difficultyDisable"); else $ascendDifficultyLeft.removeClass("difficultyDisable");
-    if (AscensionManager.selectedDifficulty === RunDifficulty.HARDER) $ascendDifficultyRight.addClass("difficultyDisable"); else $ascendDifficultyRight.removeClass("difficultyDisable");
+    if (AscensionManager.selectedDifficulty === RunDifficulty.NORMAL) $ascendDifficultyLeft.addClass("difficultyDisable");
+    else $ascendDifficultyLeft.removeClass("difficultyDisable");
+    if (AscensionManager.selectedDifficulty === RunDifficulty.HARDER) $ascendDifficultyRight.addClass("difficultyDisable");
+    else $ascendDifficultyRight.removeClass("difficultyDisable");
     $("#ascendDifficultyButton").html(displayText("difficulty_button_".concat(AscensionManager.selectedDifficulty)))
 }
 
@@ -5299,7 +6096,6 @@ function showAscendants() {
         $("<div/>").addClass("ascendantUpgrade").data("tid", t.id).html("Upgrade").appendTo(e1a1)
     })
 }
-
 $merchantAscendants.on("click", "#ascendantRespec", function (e) {
     e.preventDefault();
     AscensionManager.clearAscendants();
@@ -5372,10 +6168,13 @@ function _createClass(Constructor, protoProps, staticProps) {
     if (staticProps) _defineProperties(Constructor, staticProps);
     return Constructor
 }
-
 var ItemType = ["Armor", "Belts", "Cloaks", "Gauntlets", "Gloves", "Hats", "Helmets", "Knives", "Masks", "Pendants", "Rings", "Shields", "Shoes", "Staves", "Swords", "Thrown", "Tomes", "Trinkets", "Vests"];
 var $RecipeResults = $("#RecipeResults");
-var MasteryFilter = Object.freeze({BOTH: 0, MASTERED: 1, UNMASTERED: 2});
+var MasteryFilter = Object.freeze({
+    BOTH: 0,
+    MASTERED: 1,
+    UNMASTERED: 2
+});
 var Item = function () {
     function Item(props) {
         _classCallCheck(this, Item);
@@ -5387,9 +6186,9 @@ var Item = function () {
         this.goldComma = this.itemValueCommas(this.value);
         this.museum = createArray(4, 11)
     }
-
     _createClass(Item, [{
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
             save.id = this.id;
             save.craftCount = this.craftCount;
@@ -5400,7 +6199,8 @@ var Item = function () {
             return save
         }
     }, {
-        key: "loadSave", value: function loadSave(save) {
+        key: "loadSave",
+        value: function loadSave(save) {
             this.craftCount = save.craftCount;
             this.autoSell = save.autoSell;
             this.owned = save.owned;
@@ -5408,53 +6208,66 @@ var Item = function () {
             if (save.museum !== undefined) this.museum = save.museum
         }
     }, {
-        key: "clearProgress", value: function clearProgress() {
+        key: "clearProgress",
+        value: function clearProgress() {
             this.craftCount = 0;
             this.mastered = false;
             this.autoSell = "None";
             this.owned = false
         }
     }, {
-        key: "itemDescription", value: function itemDescription() {
+        key: "itemDescription",
+        value: function itemDescription() {
             return this.description
         }
     }, {
-        key: "itemPicName", value: function itemPicName() {
+        key: "itemPicName",
+        value: function itemPicName() {
             return "<img src='assets/images/recipes/" + this.type + "/" + this.id + ".png'>" + "<div class='item-name'>" + this.name + "</div>"
         }
     }, {
-        key: "itemName", value: function itemName() {
+        key: "itemName",
+        value: function itemName() {
             return "<div class='item-name'>" + this.name + "</div>"
         }
     }, {
-        key: "itemPic", value: function itemPic() {
+        key: "itemPic",
+        value: function itemPic() {
             return "<img src='assets/images/recipes/" + this.type + "/" + this.id + ".png'>"
         }
     }, {
-        key: "itemLevel", value: function itemLevel() {
+        key: "itemLevel",
+        value: function itemLevel() {
             return '<div class="level_text">LVL</div><div class="level_integer">'.concat(this.lvl, "</div>")
         }
     }, {
-        key: "itemValueCommas", value: function itemValueCommas() {
+        key: "itemValueCommas",
+        value: function itemValueCommas() {
             return formatWithCommas(this.value)
         }
     }, {
-        key: "itemValueFormatted", value: function itemValueFormatted() {
+        key: "itemValueFormatted",
+        value: function itemValueFormatted() {
             return formatToUnits(this.value, 2)
         }
     }, {
-        key: "itemValue", value: function itemValue() {
+        key: "itemValue",
+        value: function itemValue() {
             return this.value
         }
     }, {
-        key: "visualizeResAndMat", value: function visualizeResAndMat() {
+        key: "visualizeResAndMat",
+        value: function visualizeResAndMat() {
             var d = $("<div/>").addClass("itemCost");
             this.gcost.forEach(function (type) {
-                d.append($("<div/>").addClass("indvCost resCost tooltip").attr({"data-tooltip": "".concat(type, "_worker")}).html(miscIcons[type]))
+                d.append($("<div/>").addClass("indvCost resCost tooltip").attr({
+                    "data-tooltip": "".concat(type, "_worker")
+                }).html(miscIcons[type]))
             });
             if (this.mcost === null) return d;
             for (var _i = 0, _Object$entries = Object.entries(this.mcost); _i < _Object$entries.length; _i++) {
-                var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2), material = _Object$entries$_i[0],
+                var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+                    material = _Object$entries$_i[0],
                     amt = _Object$entries$_i[1];
                 var mat = ResourceManager.idToMaterial(material);
                 var d1 = $("<div/>").addClass("indvCost matCost tooltip").attr("id", "vr" + this.id).attr({
@@ -5470,7 +6283,8 @@ var Item = function () {
             return d
         }
     }, {
-        key: "recipeListStats", value: function recipeListStats(isEpic) {
+        key: "recipeListStats",
+        value: function recipeListStats(isEpic) {
             var d = $("<div/>").addClass("recipeStatList");
             var pow = isEpic ? this.pow * this.pts * miscLoadedValues.rarityMod[3] : this.pow * this.pts;
             var hp = isEpic ? 9 * this.hp * this.pts * miscLoadedValues.rarityMod[3] : 9 * this.hp * this.pts;
@@ -5479,15 +6293,18 @@ var Item = function () {
             return d
         }
     }, {
-        key: "count", value: function count() {
+        key: "count",
+        value: function count() {
             return Math.min(this.craftCount, 100)
         }
     }, {
-        key: "addCount", value: function addCount() {
+        key: "addCount",
+        value: function addCount() {
             this.craftCount += 1
         }
     }, {
-        key: "attemptMastery", value: function attemptMastery() {
+        key: "attemptMastery",
+        value: function attemptMastery() {
             if (this.isMastered()) return;
             if (this.canMaster() > 0) return ToastManager.renderToast("recipe_master_craft_more", this.canMaster());
             var masteryCost = this.masteryCost();
@@ -5504,21 +6321,29 @@ var Item = function () {
             refreshRecipeMastery()
         }
     }, {
-        key: "isMastered", value: function isMastered() {
+        key: "isMastered",
+        value: function isMastered() {
             if (this.recipeType === "building" || this.recipeType === "Trinket") return false;
             return this.mastered
         }
     }, {
-        key: "autoSellToggle", value: function autoSellToggle() {
-            if (this.autoSell === "None") this.autoSell = "Common"; else if (this.autoSell === "Common") this.autoSell = "Good"; else if (this.autoSell === "Good") this.autoSell = "Great"; else if (this.autoSell === "Great") this.autoSell = "Epic"; else this.autoSell = "None";
+        key: "autoSellToggle",
+        value: function autoSellToggle() {
+            if (this.autoSell === "None") this.autoSell = "Common";
+            else if (this.autoSell === "Common") this.autoSell = "Good";
+            else if (this.autoSell === "Good") this.autoSell = "Great";
+            else if (this.autoSell === "Great") this.autoSell = "Epic";
+            else this.autoSell = "None";
             return this.autoSell
         }
     }, {
-        key: "setCanCraft", value: function setCanCraft(canProduceBucket) {
+        key: "setCanCraft",
+        value: function setCanCraft(canProduceBucket) {
             var needBucket = groupArray(this.gcost);
             this.canProduce = true;
             for (var _i2 = 0, _Object$entries2 = Object.entries(needBucket); _i2 < _Object$entries2.length; _i2++) {
-                var _Object$entries2$_i = _slicedToArray(_Object$entries2[_i2], 2), type = _Object$entries2$_i[0],
+                var _Object$entries2$_i = _slicedToArray(_Object$entries2[_i2], 2),
+                    type = _Object$entries2$_i[0],
                     amt = _Object$entries2$_i[1];
                 if (canProduceBucket[type] < amt) {
                     this.canProduce = false
@@ -5526,20 +6351,24 @@ var Item = function () {
             }
         }
     }, {
-        key: "material", value: function material() {
+        key: "material",
+        value: function material() {
             if (!this.mcost) return "M201";
             return Object.keys(this.mcost)[0]
         }
     }, {
-        key: "reducedCraft", value: function reducedCraft() {
+        key: "reducedCraft",
+        value: function reducedCraft() {
             return Math.floor(this.craftTime * Museum.craftTime(this.id))
         }
     }, {
-        key: "canMaster", value: function canMaster() {
+        key: "canMaster",
+        value: function canMaster() {
             return Math.max(0, this.minCraft - this.craftCount)
         }
     }, {
-        key: "masteryCost", value: function masteryCost() {
+        key: "masteryCost",
+        value: function masteryCost() {
             var amt = Math.max(0, this.masteryTotal - this.masteryAmt * (this.craftCount - this.minCraft));
             var material = this.mcost ? Object.keys(this.mcost)[0] : "M201";
             return new idAmt(material, amt)
@@ -5686,7 +6515,9 @@ function refreshRecipeFilters() {
     if (recipeList.recipeFilterScope === "itemType") {
         ItemType.forEach(function (itemtype) {
             if (itemtype !== "Trinkets" && recipeList.ownAtLeastOne(itemtype)) {
-                var recipeSelect = $("<div/>").addClass("recipeSelect").attr({id: "rf".concat(itemtype)}).data("itemType", itemtype).appendTo($recipeFilter);
+                var recipeSelect = $("<div/>").addClass("recipeSelect").attr({
+                    id: "rf".concat(itemtype)
+                }).data("itemType", itemtype).appendTo($recipeFilter);
                 if (itemtype === recipeList.recipeFilterType) recipeSelect.addClass("selectedRecipeFilter");
                 $("<div/>").addClass("recipeSelectIcon").html('<img src="assets/images/recipeFilter/'.concat(itemtype, '32.png" />')).appendTo(recipeSelect);
                 $("<div/>").addClass("recipeSelectName").html(itemtype).appendTo(recipeSelect)
@@ -5708,11 +6539,14 @@ function refreshRecipeFilters() {
         }
     }
 }
-
 var $recipeContents = $("#recipeContents");
 var $recipeFilter = $("#recipeFilter");
 var $recipeFilterScope = $("#recipeFilterScope");
-var sortOrder = {defaultAsc: [], recipeDivDict: {}, recipeDivs: null};
+var sortOrder = {
+    defaultAsc: [],
+    recipeDivDict: {},
+    recipeDivs: null
+};
 
 function initializeRecipes() {
     $("#recipeFilterScope").empty();
@@ -5770,14 +6604,36 @@ function recipeCardFront(recipe, isTrinket) {
     $("<div/>").addClass("statValue").html(recipe.itemValueFormatted()).appendTo(goldStat);
     var timeStat = $("<div/>").addClass("recipeStat recipeTime tooltip").attr("data-tooltip", "crafting_time").html('<i class="fas fa-clock"></i>');
     $("<div/>").addClass("statValue").attr("id", "rt".concat(recipe.id)).html(msToTime(recipe.reducedCraft())).appendTo(timeStat);
-    if (recipe.recipeType !== "normal") recipeStats.append(timeStat); else recipeStats.append(gearStat, goldStat, timeStat);
+    if (recipe.recipeType !== "normal") recipeStats.append(timeStat);
+    else recipeStats.append(gearStat, goldStat, timeStat);
     var td6 = $("<div/>").addClass("recipeCountAndCraft");
-    var td6a = $("<div/>").addClass("recipeMasteredStatus").attr("id", "rms" + recipe.id).data("rid", recipe.id).html(displayText("recipes_card_mastery_recipe_unmastered"));
-    if (recipe.isMastered()) td6a.addClass("isMastered").html('<i class="fas fa-star-christmas"></i> '.concat(displayText("recipes_card_mastery_recipe_mastered")));
-    if (recipe.recipeType !== "normal" || recipe.type === "Trinkets") td6a.hide();
+    var td6a = $("<div/>").addClass("recipeMasteredStatus tooltip").attr({
+        "data-tooltip": "recipe_unmastered"
+    }).attr("id", "rms" + recipe.id).data("rid", recipe.id).html('<i class="fas fa-star-christmas"></i>');
+    if (recipe.isMastered()) td6a.addClass("isMastered").attr({
+        "data-tooltip": "recipe_mastered"
+    }).html('<i class="fas fa-star-christmas"></i>');
+    var total = flattenArray(recipe.museum).length;
+    var current = flattenArray(recipe.museum).filter(function (r) {
+        return r
+    }).length;
+    var progress = $("<div/>").addClass("recipeMuseumProgress tooltip").data("recipeID", recipe.id).attr({
+        id: "rmm" + recipe.id,
+        "data-tooltip": "recipe_museum_progress"
+    });
+    if (TownManager.idToBuilding("TB008").status < 2) progress.addClass("disabled");
+    if (current !== total) $("<div/>").addClass("museumRecipeProgressText").html("".concat(current, " / ").concat(total)).appendTo(progress);
+    else {
+        progress.addClass("museumRecipeCompleted");
+        $("<div/>").addClass("museumRecipeProgressIcon").html(miscIcons.checkmark).appendTo(progress)
+    }
+    if (recipe.recipeType !== "normal" || recipe.type === "Trinkets") {
+        progress.hide();
+        td6a.hide()
+    }
     var td6b = $("<div/>").addClass("recipeCraft rr".concat(recipe.id)).attr("id", recipe.id).html('<i class="fas fa-hammer"></i><span>Craft</span>');
     recipe.recipeDiv = td6b;
-    td6.append(td6a, td6b);
+    td6.append(td6a, progress, td6b);
     var e = $("<div/>").addClass("recipeCardFront").append(td1, td2, td3, td4, recipeStats, td6);
     if (isTrinket) {
         e.addClass("recipeCardTrinket");
@@ -5793,6 +6649,21 @@ function refreshCraftTimes() {
     })
 }
 
+function refreshMuseumRecipeCard(recipe) {
+    if (!recipe.rmm) recipe.rmm = $("#rmm" + recipe.id);
+    if (TownManager.idToBuilding("TB008").status >= 2) recipe.rmm.removeClass("disabled");
+    var total = flattenArray(recipe.museum).length;
+    var current = flattenArray(recipe.museum).filter(function (r) {
+        return r
+    }).length;
+    if (current !== total) recipe.rmm.find(".museumRecipeProgressText").html("".concat(current, " / ").concat(total));
+    else {
+        recipe.rmm.empty();
+        recipe.rmm.addClass("museumRecipeCompleted");
+        $("<div/>").addClass("museumRecipeProgressIcon").html(miscIcons.checkmark).appendTo(recipe.rmm)
+    }
+}
+
 function refreshCraftedCount(recipe) {
     if (!recipe.rbd) recipe.rbd = $("#rbd" + recipe.id);
     if (!recipe.rms) recipe.rms = $("#rms" + recipe.id);
@@ -5806,7 +6677,9 @@ function refreshCraftedCount(recipe) {
     }).html("".concat(ResourceManager.idToMaterial(masteryCost.id).img, " ").concat(masteryCost.amt)).appendTo(recipe.rcc);
     if (recipe.isMastered()) {
         recipe.rbd.addClass("isMastered").html(displayText("recipes_card_mastery_attained_notice"));
-        recipe.rms.addClass("isMastered").html('<i class="fas fa-star-christmas"></i> '.concat(displayText("recipes_card_mastery_recipe_mastered")));
+        recipe.rms.addClass("isMastered").attr({
+            "data-tooltip": "recipe_mastered"
+        }).html('<i class="fas fa-star-christmas"></i>');
         recipe.rcd.find(".matCost").attr({
             "data-tooltip": "material_desc_mastered",
             "data-tooltip-value": material.id
@@ -5818,10 +6691,10 @@ function refreshCraftedCount(recipe) {
 function recipeCanCraft() {
     recipeList.recipes.forEach(function (recipe) {
         if (recipe.recipeDiv === undefined) return;
-        if (recipe.canProduce && actionSlotManager.slots.length < actionSlotManager.maxSlots) recipe.recipeDiv.removeClass("recipeCraftDisable"); else recipe.recipeDiv.addClass("recipeCraftDisable")
+        if (recipe.canProduce && actionSlotManager.slots.length < actionSlotManager.maxSlots) recipe.recipeDiv.removeClass("recipeCraftDisable");
+        else recipe.recipeDiv.addClass("recipeCraftDisable")
     })
 }
-
 var $blueprintUnlock = $("#BlueprintUnlock");
 var cacheBlueprintType = null;
 $recipeContents.on("click", ".recipeCraft", function (e) {
@@ -5843,7 +6716,6 @@ function invokeSearch(string) {
     $(".recipeSelect").removeClass("selectedRecipeFilter");
     recipeFilterList()
 }
-
 var $recipeSortButton = $(".recipeSortButton");
 $recipeSortButton.on("click", function (e) {
     e.preventDefault();
@@ -5878,7 +6750,8 @@ $recipeFilterScope.on("click", ".recipeScopeName", function (e) {
     e.preventDefault();
     if (recipeList.recipeFilterScope === $(e.currentTarget).data("recipeScope")) return;
     recipeList.recipeFilterScope = $(e.currentTarget).data("recipeScope");
-    if (recipeList.recipeFilterScope === "level") recipeList.recipeFilterType = 1; else if (recipeList.recipeFilterScope === "itemType") recipeList.recipeFilterType = "Knives";
+    if (recipeList.recipeFilterScope === "level") recipeList.recipeFilterType = 1;
+    else if (recipeList.recipeFilterScope === "itemType") recipeList.recipeFilterType = "Knives";
     $(".recipeScopeName").removeClass("selectedRecipeScope");
     $(e.currentTarget).addClass("selectedRecipeScope");
     refreshRecipeFilters();
@@ -5890,17 +6763,17 @@ $recipeMasterySort.on("click", function (e) {
     var currentType = $(e.currentTarget).attr("data-sorttype");
     if (currentType === "All Recipes") {
         $(e.currentTarget).html("Unmastered Only");
-            $(e.currentTarget).attr("data-sorttype","Unmastered Only");
+        $(e.currentTarget).attr("data-sorttype","Unmastered Only");
         recipeList.masteryFilter = MasteryFilter.UNMASTERED
     }
     if (currentType === "Unmastered Only") {
         $(e.currentTarget).html("Mastered Only");
-    		$(e.currentTarget).attr("data-sorttype","Mastered Only");
+        $(e.currentTarget).attr("data-sorttype","Mastered Only");
         recipeList.masteryFilter = MasteryFilter.MASTERED
     }
     if (currentType === "Mastered Only") {
         $(e.currentTarget).html("All Recipes");
-    		$(e.currentTarget).attr("data-sorttype","All Recipes");
+        $(e.currentTarget).attr("data-sorttype","All Recipes");
         recipeList.masteryFilter = MasteryFilter.BOTH
     }
     recipeFilterList()
@@ -5909,6 +6782,14 @@ $recipeContents.on("click", ".recipeMasteredStatus", function (e) {
     e.preventDefault();
     var rid = $(e.currentTarget).data("rid");
     recipeList.attemptMastery(rid)
+});
+$recipeContents.on("click", ".recipeMuseumProgress", function (e) {
+    e.preventDefault();
+    openTab("town_museum");
+    var id = $(e.currentTarget).data("recipeID");
+    var recipe = recipeList.idToItem(id);
+    showMuseumType(recipe.type);
+    generateContributionsList(recipe)
 });
 "use strict";
 
@@ -5971,7 +6852,6 @@ function _createClass(Constructor, protoProps, staticProps) {
     if (staticProps) _defineProperties(Constructor, staticProps);
     return Constructor
 }
-
 var Material = function () {
     function Material(props) {
         _classCallCheck(this, Material);
@@ -5980,9 +6860,9 @@ var Material = function () {
         this.img = "<img src='assets/images/resources/".concat(this.id, ".png' alt='").concat(this.name, "'>");
         this.seen = false
     }
-
     _createClass(Material, [{
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
             save.id = this.id;
             save.amt = this.amt;
@@ -5990,12 +6870,14 @@ var Material = function () {
             return save
         }
     }, {
-        key: "loadSave", value: function loadSave(save) {
+        key: "loadSave",
+        value: function loadSave(save) {
             this.amt = save.amt;
             this.seen = save.seen
         }
     }, {
-        key: "clearProgress", value: function clearProgress() {
+        key: "clearProgress",
+        value: function clearProgress() {
             this.amt = 0;
             this.seen = 0
         }
@@ -6005,26 +6887,32 @@ var Material = function () {
 var $goldSidebar = $("#goldSidebar");
 var $goldSidebarAmt = $("#goldSidebarAmt");
 var ResourceManager = {
-    materials: [], uncapMats: false, createSave: function createSave() {
+    materials: [],
+    uncapMats: false,
+    createSave: function createSave() {
         var save = [];
         this.materials.forEach(function (m) {
             save.push(m.createSave())
         });
         return save
-    }, loadSave: function loadSave(save) {
+    },
+    loadSave: function loadSave(save) {
         var _this = this;
         save.forEach(function (m) {
             var mat = _this.idToMaterial(m.id);
             if (mat === undefined) return;
             mat.loadSave(m)
         })
-    }, clearProgress: function clearProgress() {
+    },
+    clearProgress: function clearProgress() {
         this.materials.forEach(function (m) {
             return m.clearProgress()
         })
-    }, addNewMaterial: function addNewMaterial(material) {
+    },
+    addNewMaterial: function addNewMaterial(material) {
         this.materials.push(material)
-    }, addMaterial: function addMaterial(res, amt, skipAnimation) {
+    },
+    addMaterial: function addMaterial(res, amt, skipAnimation) {
         var mat = this.materials.find(function (mat) {
             return mat.id === res
         });
@@ -6033,92 +6921,113 @@ var ResourceManager = {
         mat.seen = true;
         if (skipAnimation) return;
         refreshMaterial(res)
-    }, capMats: function capMats() {
+    },
+    capMats: function capMats() {
         var _this2 = this;
         this.materials.forEach(function (mat) {
             if (mat.id === "M001") return;
             mat.amt = Math.min(mat.amt, _this2.materialCap())
         })
-    }, materialCap: function materialCap() {
+    },
+    materialCap: function materialCap() {
         var total = 1e3;
         if (Shop.alreadyPurchased("AL1030")) total += 500;
         if (Shop.alreadyPurchased("AL1031")) total += 500;
         if (Shop.alreadyPurchased("AL1032")) total += 1e3;
         if (Shop.alreadyPurchased("AL1033")) total += 1e3;
         return total
-    }, canAffordMaterial: function canAffordMaterial(item) {
+    },
+    canAffordMaterial: function canAffordMaterial(item) {
         if (item.mcost === null) return true;
         for (var _i = 0, _Object$entries = Object.entries(item.mcost); _i < _Object$entries.length; _i++) {
-            var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2), material = _Object$entries$_i[0],
+            var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+                material = _Object$entries$_i[0],
                 amt = _Object$entries$_i[1];
             if (amt > this.materialAvailable(material)) return false
         }
         return true
-    }, deductMoney: function deductMoney(amt) {
+    },
+    deductMoney: function deductMoney(amt) {
         this.addMaterial("M001", -amt)
-    }, addGold: function addGold(amt) {
+    },
+    addGold: function addGold(amt) {
         this.addMaterial("M001", amt)
-    }, deductMaterial: function deductMaterial(item, skipAnimation) {
+    },
+    deductMaterial: function deductMaterial(item, skipAnimation) {
         if (item.mcost === null) return;
         for (var _i2 = 0, _Object$entries2 = Object.entries(item.mcost); _i2 < _Object$entries2.length; _i2++) {
-            var _Object$entries2$_i = _slicedToArray(_Object$entries2[_i2], 2), resource = _Object$entries2$_i[0],
+            var _Object$entries2$_i = _slicedToArray(_Object$entries2[_i2], 2),
+                resource = _Object$entries2$_i[0],
                 amt = _Object$entries2$_i[1];
             this.addMaterial(resource, -amt, skipAnimation)
         }
-    }, refundMaterial: function refundMaterial(item) {
+    },
+    refundMaterial: function refundMaterial(item) {
         if (item.mcost === null) return;
         for (var _i3 = 0, _Object$entries3 = Object.entries(item.mcost); _i3 < _Object$entries3.length; _i3++) {
-            var _Object$entries3$_i = _slicedToArray(_Object$entries3[_i3], 2), resource = _Object$entries3$_i[0],
+            var _Object$entries3$_i = _slicedToArray(_Object$entries3[_i3], 2),
+                resource = _Object$entries3$_i[0],
                 amt = _Object$entries3$_i[1];
             this.addMaterial(resource, amt)
         }
-    }, materialIcon: function materialIcon(type) {
+    },
+    materialIcon: function materialIcon(type) {
         if (type[0] === "R") return recipeList.idToItem(type).itemPic();
         if (type[0] === "G") return GuildManager.idToGuild(type).icon;
         return '<img src="assets/images/resources/'.concat(type, '.png" alt="').concat(type, '">')
-    }, formatCost: function formatCost(res, amt) {
+    },
+    formatCost: function formatCost(res, amt) {
         return '<div class="matIcon">'.concat(this.materialIcon(res), '</div> <span class="matAmt">').concat(formatToUnits(amt, 2), "</span>")
-    }, sidebarMaterial: function sidebarMaterial(resID) {
+    },
+    sidebarMaterial: function sidebarMaterial(resID) {
         var res = this.materials.find(function (resource) {
             return resource.id == resID
         });
         return "".concat(this.materialIcon(resID), "&nbsp;&nbsp").concat(res.amt)
-    }, available: function available(res, amt) {
+    },
+    available: function available(res, amt) {
         var item = recipeList.idToItem(res);
         if (item === undefined) {
             return this.idToMaterial(res).amt >= amt
         }
         return Inventory.itemCount(res, 0) >= amt
-    }, materialAvailable: function materialAvailable(matID) {
+    },
+    materialAvailable: function materialAvailable(matID) {
         if (matID.charAt(0) === "R") {
             return Inventory.itemCount(matID, 0)
         }
         return this.materials.find(function (mat) {
             return mat.id === matID
         }).amt
-    }, materialsSeen: function materialsSeen() {
+    },
+    materialsSeen: function materialsSeen() {
         return ResourceManager.materials.filter(function (mat) {
             return mat.id !== "M001"
         }).some(function (mat) {
             return mat.seen
         })
-    }, nameForWorkerSac: function nameForWorkerSac(mat) {
+    },
+    nameForWorkerSac: function nameForWorkerSac(mat) {
         var item = recipeList.idToItem(mat);
         if (item === undefined) return this.idToMaterial(mat).name;
         return item.name
-    }, idToMaterial: function idToMaterial(matID) {
+    },
+    idToMaterial: function idToMaterial(matID) {
         return this.materials.find(function (m) {
             return m.id === matID
         })
-    }, isAMaterial: function isAMaterial(matID) {
+    },
+    isAMaterial: function isAMaterial(matID) {
         return this.materials.some(function (m) {
             return m.id === matID
         })
-    }, reOrderMats: function reOrderMats() {
+    },
+    reOrderMats: function reOrderMats() {
         this.materials.sort(function (a, b) {
             return a.tier - b.tier
         })
-    }, fortuneResource: function fortuneResource(lvl) {
+    },
+    fortuneResource: function fortuneResource(lvl) {
         var resources = this.materials.filter(function (r) {
             return r.fortuneLvl === lvl
         });
@@ -6127,7 +7036,8 @@ var ResourceManager = {
         var great = resources[(week + 1) % resources.length].id;
         var epic = resources[(week + 2) % resources.length].id;
         return [good, great, epic]
-    }, materialSeenDungeon: function materialSeenDungeon(dungeonID) {
+    },
+    materialSeenDungeon: function materialSeenDungeon(dungeonID) {
         var _this3 = this;
         if (dungeonID === "D004") return [];
         var matids = MobManager.allMobDropsByDungeon(dungeonID);
@@ -6157,13 +7067,14 @@ function initializeMats() {
         }
     })
 }
-
 var $noMaterialDiv = $("#noMaterialDiv");
 
 function hardMatRefresh() {
-    if (!ResourceManager.materialsSeen()) $noMaterialDiv.show(); else $noMaterialDiv.hide();
+    if (!ResourceManager.materialsSeen()) $noMaterialDiv.show();
+    else $noMaterialDiv.hide();
     ResourceManager.materials.forEach(function (mat) {
-        if (!mat.seen) $("#" + mat.id).hide(); else $("#" + mat.id).show();
+        if (!mat.seen) $("#" + mat.id).hide();
+        else $("#" + mat.id).show();
         $("#amt" + mat.id).html(formatToUnits(mat.amt, 1));
         if (mat.id === "M001") {
             if (mat.amt === null) mat.amt = 0;
@@ -6178,8 +7089,10 @@ function hardMatRefresh() {
 
 function refreshMaterial(matID) {
     var mat = ResourceManager.idToMaterial(matID);
-    if (!ResourceManager.materialsSeen()) $noMaterialDiv.show(); else $noMaterialDiv.hide();
-    if (!mat.seen) $("#" + matID).hide(); else $("#" + matID).show();
+    if (!ResourceManager.materialsSeen()) $noMaterialDiv.show();
+    else $noMaterialDiv.hide();
+    if (!mat.seen) $("#" + matID).hide();
+    else $("#" + matID).show();
     $("#amt" + matID).html(formatToUnits(mat.amt, 2));
     if (mat.type === "dungeon") {
         var dungeonid = DungeonManager.dungeonByMat(matID).id;
@@ -6193,7 +7106,6 @@ function refreshMaterial(matID) {
         "data-tooltip-value": formatWithCommas(mat.amt)
     })
 }
-
 "use strict";
 
 function _classCallCheck(instance, Constructor) {
@@ -6217,7 +7129,6 @@ function _createClass(Constructor, protoProps, staticProps) {
     if (staticProps) _defineProperties(Constructor, staticProps);
     return Constructor
 }
-
 var TargetType = Object.freeze({
     FIRST: 0,
     SECOND: 1,
@@ -6240,16 +7151,21 @@ var TargetType = Object.freeze({
     FIRSTMOXIE: 19,
     HIGHESTPOW: 20
 });
-var SideType = Object.freeze({ALLIES: 0, ENEMIES: 1});
+var SideType = Object.freeze({
+    ALLIES: 0,
+    ENEMIES: 1
+});
 var CombatManager = {
-    refreshLater: false, executeTurn: function executeTurn(dungeon) {
+    refreshLater: false,
+    executeTurn: function executeTurn(dungeon) {
         var attacker = dungeon.order.currentTurn();
         var allies = attacker.unitType === "hero" ? dungeon.party.heroes : dungeon.mobs;
         var enemies = attacker.unitType === "hero" ? dungeon.mobs : dungeon.party.heroes;
         var attack = attacker.getSkill();
         var combatParams = new combatRoundParams(attacker, allies, enemies, attack, dungeon.id);
         this.execute(combatParams)
-    }, execute: function execute(combatRound) {
+    },
+    execute: function execute(combatRound) {
         SkillManager.skillEffects[combatRound.attack.id](combatRound);
         combatRound.attacker.buffTick("onHitting");
         if (combatRound.attack.id !== "S0000") combatRound.attacker.buffTick("onSpecial");
@@ -6273,9 +7189,9 @@ var combatRoundParams = function () {
         this.power = Math.floor(this.attacker.getPow(false, this.attack.id) * this.attack.powMod);
         this.dungeonid = dungeonid
     }
-
     _createClass(combatRoundParams, [{
-        key: "getTarget", value: function getTarget(target, side) {
+        key: "getTarget",
+        value: function getTarget(target, side) {
             var _this = this;
             var isNormal = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
             var aliveEnemys = this.enemies.filter(function (h) {
@@ -6372,8 +7288,8 @@ var combatRoundParams = function () {
                     return h.uniqueid === _uid5
                 });
                 if (this.enemies.some(function (h) {
-                    return h.mark(_this.attacker.type)
-                })) return [this.enemies.find(function (h) {
+                        return h.mark(_this.attacker.type)
+                    })) return [this.enemies.find(function (h) {
                     return h.mark(_this.attacker.type)
                 })];
                 if (this.attacker.confusion()) return [this.attacker];
@@ -6429,9 +7345,9 @@ var Combatant = function () {
         this.hp = 1;
         this.buffs = []
     }
-
     _createClass(Combatant, [{
-        key: "buffTick", value: function buffTick(type, attack, refreshLater) {
+        key: "buffTick",
+        value: function buffTick(type, attack, refreshLater) {
             this.buffs.forEach(function (buff) {
                 buff.buffTick(type, attack, refreshLater)
             });
@@ -6440,7 +7356,8 @@ var Combatant = function () {
             })
         }
     }, {
-        key: "passiveCheck", value: function passiveCheck(type, attack, refreshLater) {
+        key: "passiveCheck",
+        value: function passiveCheck(type, attack, refreshLater) {
             if (type === "onSpecial") {
                 if (this.getRuneCount(RuneType.FIRE) >= 3) BuffManager.generateBuff("B0043", attack.target)
             }
@@ -6449,7 +7366,8 @@ var Combatant = function () {
             SkillManager.idToSkill(this.passiveSkill).passiveCheck(type, this, attack, refreshLater)
         }
     }, {
-        key: "takeAttack", value: function takeAttack(attack) {
+        key: "takeAttack",
+        value: function takeAttack(attack) {
             var reducedDmg = Math.floor(attack.power * this.getProtection() * this.getVulnerability(attack.attacker));
             this.hp = Math.max(this.hp - reducedDmg, 0);
             if (this.hp === 0) {
@@ -6468,16 +7386,19 @@ var Combatant = function () {
             if (attack.attack.id !== "S0000") {
                 attack.attacker.buffTick("onSpecialHit");
                 if (attack.attacker.getRuneCount(RuneType.FIRE) >= 4) {
-                    if (attack.attacker.id === "H101" && attack.attacker.passive) BuffManager.generateBuff("B1011", this, Math.floor(attack.power * .1 * 1.25)); else BuffManager.generateBuff("B1010", this, Math.floor(attack.power * .1))
+                    if (attack.attacker.id === "H101" && attack.attacker.passive) BuffManager.generateBuff("B1011", this, Math.floor(attack.power * .1 * 1.25));
+                    else BuffManager.generateBuff("B1010", this, Math.floor(attack.power * .1))
                 }
                 if (attack.attacker.getRuneCount(RuneType.WATER) >= 4) {
-                    if (attack.attacker.id === "H102" && attack.attacker.passive) BuffManager.generateBuff("B1021", this, Math.floor(attack.power * .1)); else BuffManager.generateBuff("B1020", this, Math.floor(attack.power * .1))
+                    if (attack.attacker.id === "H102" && attack.attacker.passive) BuffManager.generateBuff("B1021", this, Math.floor(attack.power * .1));
+                    else BuffManager.generateBuff("B1020", this, Math.floor(attack.power * .1))
                 }
                 if (attack.attacker.getRuneCount(RuneType.THUNDER) >= 4) BuffManager.generateBuff("B3000", this, Math.floor(attack.power * .1))
             }
         }
     }, {
-        key: "destroy", value: function destroy() {
+        key: "destroy",
+        value: function destroy() {
             this.hp = 0;
             BuffManager.clearBuffs(this);
             this.passiveCheck("dead");
@@ -6485,7 +7406,8 @@ var Combatant = function () {
             refreshHPBar(this)
         }
     }, {
-        key: "takeDamage", value: function takeDamage(dmg, ignoreProtection) {
+        key: "takeDamage",
+        value: function takeDamage(dmg, ignoreProtection) {
             var mod = ignoreProtection ? 1 : this.getProtection();
             var reducedDmg = Math.floor(dmg * mod);
             this.hp = Math.max(this.hp - reducedDmg, 0);
@@ -6497,7 +7419,8 @@ var Combatant = function () {
             if (!CombatManager.refreshLater) refreshHPBar(this)
         }
     }, {
-        key: "takeDamagePercent", value: function takeDamagePercent(hpPercent) {
+        key: "takeDamagePercent",
+        value: function takeDamagePercent(hpPercent) {
             this.hp -= Math.floor(this.maxHP() * hpPercent / 100);
             this.hp = Math.max(0, this.hp);
             if (this.hp === 0) {
@@ -6508,93 +7431,112 @@ var Combatant = function () {
             if (!CombatManager.refreshLater) refreshHPBar(this)
         }
     }, {
-        key: "hasBuff", value: function hasBuff(buffID) {
+        key: "hasBuff",
+        value: function hasBuff(buffID) {
             return this.buffs.some(function (b) {
                 return b.id === buffID
             })
         }
     }, {
-        key: "getBuff", value: function getBuff(buffID) {
+        key: "getBuff",
+        value: function getBuff(buffID) {
             return this.buffs.find(function (b) {
                 return b.id === buffID
             })
         }
     }, {
-        key: "getBuffStacks", value: function getBuffStacks(buffID) {
+        key: "getBuffStacks",
+        value: function getBuffStacks(buffID) {
             if (!this.hasBuff(buffID)) return 0;
             return this.getBuff(buffID).stacks
         }
     }, {
-        key: "addBuff", value: function addBuff(buff) {
+        key: "addBuff",
+        value: function addBuff(buff) {
             this.buffs.push(buff);
             this.hp = Math.min(this.hp, this.maxHP())
         }
     }, {
-        key: "removeBuff", value: function removeBuff(buffID) {
+        key: "removeBuff",
+        value: function removeBuff(buffID) {
             this.buffs = this.buffs.filter(function (b) {
                 return b.id !== buffID
             });
             this.hp = Math.min(this.hp, this.maxHP())
         }
     }, {
-        key: "getPow", value: function getPow() {
+        key: "getPow",
+        value: function getPow() {
             var pow = Math.floor(this.pow + this.getBuffPower() + this.getPassivePow());
             return Math.floor(pow * (1 + this.getBuffPowerPercent()))
         }
     }, {
-        key: "getProtection", value: function getProtection() {
+        key: "getProtection",
+        value: function getProtection() {
             return 1 - (this.protection + this.getBuffProtection() + this.getPassiveProtection())
         }
     }, {
-        key: "getVulnerability", value: function getVulnerability(attacker) {
+        key: "getVulnerability",
+        value: function getVulnerability(attacker) {
             return 1 + this.getBuffVulnerability(attacker)
         }
     }, {
-        key: "getPassiveProtection", value: function getPassiveProtection() {
+        key: "getPassiveProtection",
+        value: function getPassiveProtection() {
             return 0
         }
     }, {
-        key: "getPassivePow", value: function getPassivePow() {
+        key: "getPassivePow",
+        value: function getPassivePow() {
             return 0
         }
     }, {
-        key: "getAdjPow", value: function getAdjPow() {
+        key: "getAdjPow",
+        value: function getAdjPow() {
             return this.getPow()
         }
     }, {
-        key: "dead", value: function dead() {
+        key: "dead",
+        value: function dead() {
             return this.hp <= 0
         }
     }, {
-        key: "alive", value: function alive() {
+        key: "alive",
+        value: function alive() {
             return this.hp > 0
         }
     }, {
-        key: "maxHP", value: function maxHP() {
+        key: "maxHP",
+        value: function maxHP() {
             var hp = Math.floor(this.hpmax + this.getBuffMaxHP());
             return Math.floor(hp * (1 + this.getBuffMaxHPPercent()))
         }
     }, {
-        key: "missingHP", value: function missingHP() {
+        key: "missingHP",
+        value: function missingHP() {
             return this.maxHP() - this.hp
         }
     }, {
-        key: "hpLessThan", value: function hpLessThan(percent) {
+        key: "hpLessThan",
+        value: function hpLessThan(percent) {
             return this.maxHP() * percent >= this.hp
         }
     }, {
-        key: "hpGreaterThan", value: function hpGreaterThan(percent) {
+        key: "hpGreaterThan",
+        value: function hpGreaterThan(percent) {
             return this.maxHP() * percent <= this.hp
         }
     }, {
-        key: "heal", value: function heal(hp) {
+        key: "heal",
+        value: function heal(hp) {
             if (this.hp === 0) return;
             if (this.isWilt()) hp = Math.floor(hp / 2);
             this.hp = Math.min(this.hp + hp, this.maxHP());
             if (!CombatManager.refreshLater) refreshHPBar(this)
         }
     }, {
-        key: "healPercent", value: function healPercent(hpPercent) {
+        key: "healPercent",
+        value: function healPercent(hpPercent) {
             if (this.hp === 0) return;
             if (this.isWilt()) hpPercent = hpPercent / 2;
             this.hp += Math.floor(this.maxHP() * hpPercent / 100);
@@ -6602,53 +7544,64 @@ var Combatant = function () {
             if (!CombatManager.refreshLater) refreshHPBar(this)
         }
     }, {
-        key: "setHP", value: function setHP(hp) {
+        key: "setHP",
+        value: function setHP(hp) {
             if (this.hp === 0) return;
             this.hp = Math.min(hp, this.maxHP());
             if (!CombatManager.refreshLater) refreshHPBar(this)
         }
     }, {
-        key: "resetPlaybookPosition", value: function resetPlaybookPosition() {
+        key: "resetPlaybookPosition",
+        value: function resetPlaybookPosition() {
             this.playbook.reset()
         }
     }, {
-        key: "getSkill", value: function getSkill() {
+        key: "getSkill",
+        value: function getSkill() {
             return this.playbook.nextSkill(this.reverse())
         }
     }, {
-        key: "previousSkill", value: function previousSkill() {
+        key: "previousSkill",
+        value: function previousSkill() {
             return this.playbook.previousSkill(this.reverse())
         }
     }, {
-        key: "getActiveSkill", value: function getActiveSkill() {
+        key: "getActiveSkill",
+        value: function getActiveSkill() {
             return this.playbook.skillCount()
         }
     }, {
-        key: "untilNextSpecial", value: function untilNextSpecial() {
+        key: "untilNextSpecial",
+        value: function untilNextSpecial() {
             return this.playbook.untilNextSpecial(this.reverse())
         }
     }, {
-        key: "getSkillIcons", value: function getSkillIcons() {
+        key: "getSkillIcons",
+        value: function getSkillIcons() {
             return this.playbook.getSkillIcons()
         }
     }, {
-        key: "getSkillIDs", value: function getSkillIDs() {
+        key: "getSkillIDs",
+        value: function getSkillIDs() {
             return this.playbook.getSkillIDs()
         }
     }, {
-        key: "mark", value: function mark(type) {
+        key: "mark",
+        value: function mark(type) {
             return this.buffs.some(function (b) {
                 return b.mark(type)
             })
         }
     }, {
-        key: "phase", value: function phase(type) {
+        key: "phase",
+        value: function phase(type) {
             return this.buffs.some(function (b) {
                 return b.phase(type)
             })
         }
     }, {
-        key: "parry", value: function parry() {
+        key: "parry",
+        value: function parry() {
             return this.buffs.map(function (b) {
                 return b.parry()
             }).reduce(function (a, b) {
@@ -6656,14 +7609,16 @@ var Combatant = function () {
             }, 0)
         }
     }, {
-        key: "confusion", value: function confusion(isNormal) {
+        key: "confusion",
+        value: function confusion(isNormal) {
             if (isNormal) return false;
             return this.buffs.some(function (b) {
                 return b.confusion()
             })
         }
     }, {
-        key: "getBuffProtection", value: function getBuffProtection() {
+        key: "getBuffProtection",
+        value: function getBuffProtection() {
             var buffs = this.buffs.map(function (b) {
                 return b.getProtection()
             });
@@ -6672,7 +7627,8 @@ var Combatant = function () {
             }, 0)
         }
     }, {
-        key: "getBuffVulnerability", value: function getBuffVulnerability(attacker) {
+        key: "getBuffVulnerability",
+        value: function getBuffVulnerability(attacker) {
             var buffs = this.buffs.map(function (b) {
                 return b.getVulnerability(attacker)
             });
@@ -6681,7 +7637,8 @@ var Combatant = function () {
             }, 0)
         }
     }, {
-        key: "getBuffPower", value: function getBuffPower() {
+        key: "getBuffPower",
+        value: function getBuffPower() {
             var buffs = this.buffs.map(function (b) {
                 return b.getPow()
             });
@@ -6690,7 +7647,8 @@ var Combatant = function () {
             }, 0)
         }
     }, {
-        key: "getBuffPowerPercent", value: function getBuffPowerPercent() {
+        key: "getBuffPowerPercent",
+        value: function getBuffPowerPercent() {
             var buffs = this.buffs.map(function (b) {
                 return b.getPowPercent()
             });
@@ -6699,7 +7657,8 @@ var Combatant = function () {
             }, 0)
         }
     }, {
-        key: "getBuffMaxHP", value: function getBuffMaxHP() {
+        key: "getBuffMaxHP",
+        value: function getBuffMaxHP() {
             var buffs = this.buffs.map(function (b) {
                 return b.maxHP()
             });
@@ -6708,7 +7667,8 @@ var Combatant = function () {
             }, 0)
         }
     }, {
-        key: "getBuffMaxHPPercent", value: function getBuffMaxHPPercent() {
+        key: "getBuffMaxHPPercent",
+        value: function getBuffMaxHPPercent() {
             var buffs = this.buffs.map(function (b) {
                 return b.maxHPPercent()
             });
@@ -6717,25 +7677,29 @@ var Combatant = function () {
             }, 0)
         }
     }, {
-        key: "debuffImmune", value: function debuffImmune() {
+        key: "debuffImmune",
+        value: function debuffImmune() {
             return this.buffs.some(function (b) {
                 return b.debuffImmune()
             })
         }
     }, {
-        key: "buffCount", value: function buffCount() {
+        key: "buffCount",
+        value: function buffCount() {
             return this.buffs.filter(function (b) {
                 return b.type === "buff"
             }).length
         }
     }, {
-        key: "debuffCount", value: function debuffCount() {
+        key: "debuffCount",
+        value: function debuffCount() {
             return this.buffs.filter(function (b) {
                 return b.type === "debuff"
             }).length
         }
     }, {
-        key: "removeBuffs", value: function removeBuffs() {
+        key: "removeBuffs",
+        value: function removeBuffs() {
             var _this2 = this;
             this.buffs.forEach(function (buff) {
                 BuffRefreshManager.removeBuff(buff, _this2)
@@ -6744,7 +7708,8 @@ var Combatant = function () {
             this.hp = Math.min(this.hp, this.maxHP())
         }
     }, {
-        key: "removeDebuffs", value: function removeDebuffs() {
+        key: "removeDebuffs",
+        value: function removeDebuffs() {
             var _this3 = this;
             this.buffs.forEach(function (buff) {
                 if (buff.type === "debuff") BuffRefreshManager.removeBuff(buff, _this3)
@@ -6755,29 +7720,34 @@ var Combatant = function () {
             this.hp = Math.min(this.hp, this.maxHP())
         }
     }, {
-        key: "isChilled", value: function isChilled() {
+        key: "isChilled",
+        value: function isChilled() {
             return this.buffs.some(function (b) {
                 return b.isChilled()
             })
         }
     }, {
-        key: "isLifeTapped", value: function isLifeTapped() {
+        key: "isLifeTapped",
+        value: function isLifeTapped() {
             return this.buffs.some(function (b) {
                 return b.isLifeTapped()
             })
         }
     }, {
-        key: "isWilt", value: function isWilt() {
+        key: "isWilt",
+        value: function isWilt() {
             return this.buffs.some(function (b) {
                 return b.isWilt()
             })
         }
     }, {
-        key: "underHalfHP", value: function underHalfHP() {
+        key: "underHalfHP",
+        value: function underHalfHP() {
             return 2 * this.hp <= this.maxHP()
         }
     }, {
-        key: "thorns", value: function thorns() {
+        key: "thorns",
+        value: function thorns() {
             var thorns = this.buffs.map(function (b) {
                 return b.thorns()
             });
@@ -6786,7 +7756,8 @@ var Combatant = function () {
             }, 0)
         }
     }, {
-        key: "beornTank", value: function beornTank() {
+        key: "beornTank",
+        value: function beornTank() {
             return this.buffs.map(function (b) {
                 return b.beornTank()
             }).reduce(function (a, b) {
@@ -6794,21 +7765,25 @@ var Combatant = function () {
             }, 0)
         }
     }, {
-        key: "reverse", value: function reverse() {
+        key: "reverse",
+        value: function reverse() {
             return this.buffs.some(function (b) {
                 return b.reverse()
             })
         }
     }, {
-        key: "usedSpecial", value: function usedSpecial() {
+        key: "usedSpecial",
+        value: function usedSpecial() {
             return
         }
     }, {
-        key: "usedNormal", value: function usedNormal() {
+        key: "usedNormal",
+        value: function usedNormal() {
             return
         }
     }, {
-        key: "getRuneCount", value: function getRuneCount() {
+        key: "getRuneCount",
+        value: function getRuneCount() {
             return 0
         }
     }]);
@@ -6893,7 +7868,6 @@ function _classCallCheck(instance, Constructor) {
         throw new TypeError("Cannot call a class as a function")
     }
 }
-
 var buffTemplate = function buffTemplate(props) {
     _classCallCheck(this, buffTemplate);
     Object.assign(this, props)
@@ -6907,9 +7881,9 @@ var Buff = function () {
         this.power = power;
         this.power2 = power2
     }
-
     _createClass(Buff, [{
-        key: "addCast", value: function addCast() {
+        key: "addCast",
+        value: function addCast() {
             if (this.onCast === "refresh") {
                 this.stacks = this.stackCast
             } else if (this.onCast === "stack") {
@@ -6917,7 +7891,8 @@ var Buff = function () {
             }
         }
     }, {
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
             save.stacks = this.stacks;
             save.power = this.power;
@@ -6926,11 +7901,13 @@ var Buff = function () {
             return save
         }
     }, {
-        key: "loadSave", value: function loadSave(save) {
+        key: "loadSave",
+        value: function loadSave(save) {
             this.stacks = save.stacks
         }
     }, {
-        key: "buffTick", value: function buffTick(type, attack, refreshLater) {
+        key: "buffTick",
+        value: function buffTick(type, attack, refreshLater) {
             if (type === "onMyTurn") this.onTick();
             if (type === "onHit") this.onHit(attack);
             if (type === "onHitting") this.onHitting();
@@ -6942,104 +7919,130 @@ var Buff = function () {
             } else if (!refreshLater) BuffRefreshManager.updateBuffCount(this, this.target)
         }
     }, {
-        key: "expired", value: function expired() {
+        key: "expired",
+        value: function expired() {
             return this.stacks <= 0
         }
     }, {
-        key: "onTick", value: function onTick() {
+        key: "onTick",
+        value: function onTick() {
             return
         }
     }, {
-        key: "onHit", value: function onHit() {
+        key: "onHit",
+        value: function onHit() {
             return
         }
     }, {
-        key: "onHitting", value: function onHitting() {
+        key: "onHitting",
+        value: function onHitting() {
             return
         }
     }, {
-        key: "getPow", value: function getPow() {
+        key: "getPow",
+        value: function getPow() {
             return 0
         }
     }, {
-        key: "getPowPercent", value: function getPowPercent() {
+        key: "getPowPercent",
+        value: function getPowPercent() {
             return 0
         }
     }, {
-        key: "isChilled", value: function isChilled() {
+        key: "isChilled",
+        value: function isChilled() {
             return false
         }
     }, {
-        key: "isWilt", value: function isWilt() {
+        key: "isWilt",
+        value: function isWilt() {
             return false
         }
     }, {
-        key: "isLifeTapped", value: function isLifeTapped() {
+        key: "isLifeTapped",
+        value: function isLifeTapped() {
             return false
         }
     }, {
-        key: "getProtection", value: function getProtection() {
+        key: "getProtection",
+        value: function getProtection() {
             return 0
         }
     }, {
-        key: "getVulnerability", value: function getVulnerability() {
+        key: "getVulnerability",
+        value: function getVulnerability() {
             return 0
         }
     }, {
-        key: "maxHP", value: function maxHP() {
+        key: "maxHP",
+        value: function maxHP() {
             return 0
         }
     }, {
-        key: "maxHPPercent", value: function maxHPPercent() {
+        key: "maxHPPercent",
+        value: function maxHPPercent() {
             return 0
         }
     }, {
-        key: "mark", value: function mark() {
+        key: "mark",
+        value: function mark() {
             return false
         }
     }, {
-        key: "phase", value: function phase() {
+        key: "phase",
+        value: function phase() {
             return false
         }
     }, {
-        key: "debuffImmune", value: function debuffImmune() {
+        key: "debuffImmune",
+        value: function debuffImmune() {
             return false
         }
     }, {
-        key: "thorns", value: function thorns() {
+        key: "thorns",
+        value: function thorns() {
             return 0
         }
     }, {
-        key: "parry", value: function parry() {
+        key: "parry",
+        value: function parry() {
             return 0
         }
     }, {
-        key: "beornTank", value: function beornTank() {
+        key: "beornTank",
+        value: function beornTank() {
             return 0
         }
     }, {
-        key: "expire", value: function expire() {
+        key: "expire",
+        value: function expire() {
             return
         }
     }, {
-        key: "confusion", value: function confusion() {
+        key: "confusion",
+        value: function confusion() {
             return false
         }
     }, {
-        key: "reverse", value: function reverse() {
+        key: "reverse",
+        value: function reverse() {
             return false
         }
     }]);
     return Buff
 }();
 var BuffManager = {
-    buffDB: [], uniqueid: 0, addBuffTemplate: function addBuffTemplate(buff) {
+    buffDB: [],
+    uniqueid: 0,
+    addBuffTemplate: function addBuffTemplate(buff) {
         this.buffDB.push(buff)
-    }, idToBuff: function idToBuff(buffID) {
+    },
+    idToBuff: function idToBuff(buffID) {
         return this.buffDB.find(function (b) {
             return b.id === buffID
         })
-    }, generateBuff: function generateBuff(buffID, target) {
+    },
+    generateBuff: function generateBuff(buffID, target) {
         var power = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
         var power2 = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
         if (target === undefined) return;
@@ -7056,33 +8059,39 @@ var BuffManager = {
         this.uniqueid += 1;
         target.addBuff(buff);
         BuffRefreshManager.addBuff(buff, target)
-    }, removeBuff: function removeBuff(buffID, target) {
+    },
+    removeBuff: function removeBuff(buffID, target) {
         if (!target.hasBuff(buffID)) return;
         var buff = target.getBuff(buffID);
         target.removeBuff(buffID);
         BuffRefreshManager.removeBuff(buff, target)
-    }, clearBuffs: function clearBuffs(target) {
+    },
+    clearBuffs: function clearBuffs(target) {
         var _this = this;
         target.buffs.forEach(function (buff) {
             _this.removeBuff(buff.id, target)
         })
-    }, clearDebuffs: function clearDebuffs(target) {
+    },
+    clearDebuffs: function clearDebuffs(target) {
         var _this2 = this;
         target.buffs.forEach(function (buff) {
             if (buff.type !== "debuff") return;
             _this2.removeBuff(buff.id, target)
         })
-    }, generateSaveBuff: function generateSaveBuff(buffID, target, power) {
+    },
+    generateSaveBuff: function generateSaveBuff(buffID, target, power) {
         var power2 = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
         var buffTemplate = this.idToBuff(buffID);
         var buff = new BuffLookup[buffID](buffTemplate, target, power, power2);
         buff.uniqueid = "BI" + this.uniqueid;
         this.uniqueid += 1;
         return buff
-    }, maxStack: function maxStack(buffID) {
+    },
+    maxStack: function maxStack(buffID) {
         var buff = this.idToBuff(buffID);
         return buff.maxStack
-    }, findBuff: function findBuff(uniqueid) {
+    },
+    findBuff: function findBuff(uniqueid) {
         return AreaManager.allBuffs().find(function (b) {
             return b.uniqueid === uniqueid
         })
@@ -7106,7 +8115,8 @@ var BuffRefreshManager = {
                 _this3.makeBuffContainer(buff, enemy.uniqueid).appendTo($enemyDiv)
             })
         })
-    }, makeBuffContainer: function makeBuffContainer(buff, uniqueid) {
+    },
+    makeBuffContainer: function makeBuffContainer(buff, uniqueid) {
         var d1 = $("<div/>").addClass("buffContainer tooltip").attr("id", "bc" + uniqueid + buff.id).attr({
             "data-tooltip": "buff_desc",
             "data-tooltip-value": buff.uniqueid
@@ -7114,12 +8124,15 @@ var BuffRefreshManager = {
         $("<div/>").addClass("buffContainerIcon").html(buff.icon).appendTo(d1);
         $("<div/>").addClass("buffContainerCount").attr("id", "bcount" + uniqueid + buff.id).html(buff.stacks).appendTo(d1);
         return d1
-    }, addBuff: function addBuff(buff, combatant) {
+    },
+    addBuff: function addBuff(buff, combatant) {
         var buffList = $("#buffList" + combatant.uniqueid);
         buffList.append(this.makeBuffContainer(buff, combatant.uniqueid))
-    }, updateBuffCount: function updateBuffCount(buff, combatant) {
+    },
+    updateBuffCount: function updateBuffCount(buff, combatant) {
         $("#bcount" + combatant.uniqueid + buff.id).html(buff.stacks)
-    }, removeBuff: function removeBuff(buff, combatant) {
+    },
+    removeBuff: function removeBuff(buff, combatant) {
         $("#bc" + combatant.uniqueid + buff.id).remove()
     }
 };
@@ -7130,9 +8143,9 @@ var B0010 = function (_Buff) {
         _classCallCheck(this, B0010);
         return _possibleConstructorReturn(this, _getPrototypeOf(B0010).call(this, buffTemplate, target, power))
     }
-
     _createClass(B0010, [{
-        key: "getProtection", value: function getProtection() {
+        key: "getProtection",
+        value: function getProtection() {
             return this.power
         }
     }]);
@@ -7145,13 +8158,14 @@ var B0011 = function (_Buff2) {
         _classCallCheck(this, B0011);
         return _possibleConstructorReturn(this, _getPrototypeOf(B0011).call(this, buffTemplate, target, power))
     }
-
     _createClass(B0011, [{
-        key: "parry", value: function parry() {
+        key: "parry",
+        value: function parry() {
             return this.power
         }
     }, {
-        key: "getProtection", value: function getProtection() {
+        key: "getProtection",
+        value: function getProtection() {
             return 1
         }
     }]);
@@ -7164,13 +8178,14 @@ var B0012 = function (_Buff3) {
         _classCallCheck(this, B0012);
         return _possibleConstructorReturn(this, _getPrototypeOf(B0012).call(this, buffTemplate, target, power))
     }
-
     _createClass(B0012, [{
-        key: "getProtection", value: function getProtection() {
+        key: "getProtection",
+        value: function getProtection() {
             return this.power
         }
     }, {
-        key: "beornTank", value: function beornTank() {
+        key: "beornTank",
+        value: function beornTank() {
             return 1 - this.power
         }
     }]);
@@ -7183,9 +8198,9 @@ var B0020 = function (_Buff4) {
         _classCallCheck(this, B0020);
         return _possibleConstructorReturn(this, _getPrototypeOf(B0020).call(this, buffTemplate, target, power))
     }
-
     _createClass(B0020, [{
-        key: "maxHP", value: function maxHP() {
+        key: "maxHP",
+        value: function maxHP() {
             return this.power * this.stacks
         }
     }]);
@@ -7198,9 +8213,9 @@ var B0021 = function (_Buff5) {
         _classCallCheck(this, B0021);
         return _possibleConstructorReturn(this, _getPrototypeOf(B0021).call(this, buffTemplate, target, power))
     }
-
     _createClass(B0021, [{
-        key: "mark", value: function mark() {
+        key: "mark",
+        value: function mark() {
             return true
         }
     }]);
@@ -7216,13 +8231,14 @@ var B0022 = function (_Buff6) {
         _this4.power2 = power2;
         return _this4
     }
-
     _createClass(B0022, [{
-        key: "maxHPPercent", value: function maxHPPercent() {
+        key: "maxHPPercent",
+        value: function maxHPPercent() {
             return -this.power * this.stacks
         }
     }, {
-        key: "getPowPercent", value: function getPowPercent() {
+        key: "getPowPercent",
+        value: function getPowPercent() {
             return this.power2 * this.stacks
         }
     }]);
@@ -7235,7 +8251,6 @@ var B0041 = function (_Buff7) {
         _classCallCheck(this, B0041);
         return _possibleConstructorReturn(this, _getPrototypeOf(B0041).call(this, buffTemplate, target, power))
     }
-
     return B0041
 }(Buff);
 var B0042 = function (_Buff8) {
@@ -7245,9 +8260,9 @@ var B0042 = function (_Buff8) {
         _classCallCheck(this, B0042);
         return _possibleConstructorReturn(this, _getPrototypeOf(B0042).call(this, buffTemplate, target, power))
     }
-
     _createClass(B0042, [{
-        key: "getPow", value: function getPow() {
+        key: "getPow",
+        value: function getPow() {
             return this.power * this.stacks
         }
     }]);
@@ -7260,7 +8275,6 @@ var B0043 = function (_Buff9) {
         _classCallCheck(this, B0043);
         return _possibleConstructorReturn(this, _getPrototypeOf(B0043).call(this, buffTemplate, target, power))
     }
-
     return B0043
 }(Buff);
 var B1010 = function (_Buff10) {
@@ -7270,9 +8284,9 @@ var B1010 = function (_Buff10) {
         _classCallCheck(this, B1010);
         return _possibleConstructorReturn(this, _getPrototypeOf(B1010).call(this, buffTemplate, target, power))
     }
-
     _createClass(B1010, [{
-        key: "onHitting", value: function onHitting() {
+        key: "onHitting",
+        value: function onHitting() {
             this.target.takeDamage(this.power)
         }
     }]);
@@ -7285,9 +8299,9 @@ var B1011 = function (_Buff11) {
         _classCallCheck(this, B1011);
         return _possibleConstructorReturn(this, _getPrototypeOf(B1011).call(this, buffTemplate, target, power))
     }
-
     _createClass(B1011, [{
-        key: "onHitting", value: function onHitting() {
+        key: "onHitting",
+        value: function onHitting() {
             this.target.takeDamage(this.power)
         }
     }]);
@@ -7300,7 +8314,6 @@ var B1012 = function (_Buff12) {
         _classCallCheck(this, B1012);
         return _possibleConstructorReturn(this, _getPrototypeOf(B1012).call(this, buffTemplate, target, power))
     }
-
     return B1012
 }(Buff);
 var B1020 = function (_Buff13) {
@@ -7310,9 +8323,9 @@ var B1020 = function (_Buff13) {
         _classCallCheck(this, B1020);
         return _possibleConstructorReturn(this, _getPrototypeOf(B1020).call(this, buffTemplate, target, power))
     }
-
     _createClass(B1020, [{
-        key: "isChilled", value: function isChilled() {
+        key: "isChilled",
+        value: function isChilled() {
             return true
         }
     }]);
@@ -7325,9 +8338,9 @@ var B1021 = function (_Buff14) {
         _classCallCheck(this, B1021);
         return _possibleConstructorReturn(this, _getPrototypeOf(B1021).call(this, buffTemplate, target, power))
     }
-
     _createClass(B1021, [{
-        key: "isChilled", value: function isChilled() {
+        key: "isChilled",
+        value: function isChilled() {
             return true
         }
     }]);
@@ -7340,9 +8353,9 @@ var B1022 = function (_Buff15) {
         _classCallCheck(this, B1022);
         return _possibleConstructorReturn(this, _getPrototypeOf(B1022).call(this, buffTemplate, target, power))
     }
-
     _createClass(B1022, [{
-        key: "getProtection", value: function getProtection() {
+        key: "getProtection",
+        value: function getProtection() {
             return 1
         }
     }]);
@@ -7355,13 +8368,14 @@ var B1030 = function (_Buff16) {
         _classCallCheck(this, B1030);
         return _possibleConstructorReturn(this, _getPrototypeOf(B1030).call(this, buffTemplate, target, power))
     }
-
     _createClass(B1030, [{
-        key: "onTick", value: function onTick() {
+        key: "onTick",
+        value: function onTick() {
             this.target.takeDamage(this.power * this.stacks)
         }
     }, {
-        key: "isLifeTapped", value: function isLifeTapped() {
+        key: "isLifeTapped",
+        value: function isLifeTapped() {
             return true
         }
     }]);
@@ -7374,9 +8388,9 @@ var B1042 = function (_Buff17) {
         _classCallCheck(this, B1042);
         return _possibleConstructorReturn(this, _getPrototypeOf(B1042).call(this, buffTemplate, target, power))
     }
-
     _createClass(B1042, [{
-        key: "onTick", value: function onTick() {
+        key: "onTick",
+        value: function onTick() {
             this.target.heal(this.power)
         }
     }]);
@@ -7389,9 +8403,9 @@ var B2010 = function (_Buff18) {
         _classCallCheck(this, B2010);
         return _possibleConstructorReturn(this, _getPrototypeOf(B2010).call(this, buffTemplate, target, power))
     }
-
     _createClass(B2010, [{
-        key: "maxHP", value: function maxHP() {
+        key: "maxHP",
+        value: function maxHP() {
             return this.power * this.stacks
         }
     }]);
@@ -7404,9 +8418,9 @@ var B2010A = function (_Buff19) {
         _classCallCheck(this, B2010A);
         return _possibleConstructorReturn(this, _getPrototypeOf(B2010A).call(this, buffTemplate, target, power))
     }
-
     _createClass(B2010A, [{
-        key: "maxHP", value: function maxHP() {
+        key: "maxHP",
+        value: function maxHP() {
             return this.power * this.stacks
         }
     }]);
@@ -7419,9 +8433,9 @@ var B2011 = function (_Buff20) {
         _classCallCheck(this, B2011);
         return _possibleConstructorReturn(this, _getPrototypeOf(B2011).call(this, buffTemplate, target, power))
     }
-
     _createClass(B2011, [{
-        key: "getPow", value: function getPow() {
+        key: "getPow",
+        value: function getPow() {
             return this.power * this.stacks
         }
     }]);
@@ -7434,9 +8448,9 @@ var B2011A = function (_Buff21) {
         _classCallCheck(this, B2011A);
         return _possibleConstructorReturn(this, _getPrototypeOf(B2011A).call(this, buffTemplate, target, power))
     }
-
     _createClass(B2011A, [{
-        key: "getPow", value: function getPow() {
+        key: "getPow",
+        value: function getPow() {
             return this.power * this.stacks
         }
     }]);
@@ -7449,9 +8463,9 @@ var B2012 = function (_Buff22) {
         _classCallCheck(this, B2012);
         return _possibleConstructorReturn(this, _getPrototypeOf(B2012).call(this, buffTemplate, target, power))
     }
-
     _createClass(B2012, [{
-        key: "getVulnerability", value: function getVulnerability() {
+        key: "getVulnerability",
+        value: function getVulnerability() {
             return 1
         }
     }]);
@@ -7464,9 +8478,9 @@ var B2012A = function (_Buff23) {
         _classCallCheck(this, B2012A);
         return _possibleConstructorReturn(this, _getPrototypeOf(B2012A).call(this, buffTemplate, target, power))
     }
-
     _createClass(B2012A, [{
-        key: "getVulnerability", value: function getVulnerability() {
+        key: "getVulnerability",
+        value: function getVulnerability() {
             return 1
         }
     }]);
@@ -7479,9 +8493,9 @@ var B2040 = function (_Buff24) {
         _classCallCheck(this, B2040);
         return _possibleConstructorReturn(this, _getPrototypeOf(B2040).call(this, buffTemplate, target, power))
     }
-
     _createClass(B2040, [{
-        key: "mark", value: function mark() {
+        key: "mark",
+        value: function mark() {
             return true
         }
     }]);
@@ -7494,9 +8508,9 @@ var BM102 = function (_Buff25) {
         _classCallCheck(this, BM102);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM102).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM102, [{
-        key: "isWilt", value: function isWilt() {
+        key: "isWilt",
+        value: function isWilt() {
             return true
         }
     }]);
@@ -7509,9 +8523,9 @@ var BM200 = function (_Buff26) {
         _classCallCheck(this, BM200);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM200).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM200, [{
-        key: "getProtection", value: function getProtection() {
+        key: "getProtection",
+        value: function getProtection() {
             return 1
         }
     }]);
@@ -7524,9 +8538,9 @@ var BM205 = function (_Buff27) {
         _classCallCheck(this, BM205);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM205).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM205, [{
-        key: "getProtection", value: function getProtection() {
+        key: "getProtection",
+        value: function getProtection() {
             return 1
         }
     }]);
@@ -7539,9 +8553,9 @@ var BM208 = function (_Buff28) {
         _classCallCheck(this, BM208);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM208).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM208, [{
-        key: "getProtection", value: function getProtection() {
+        key: "getProtection",
+        value: function getProtection() {
             return 1
         }
     }]);
@@ -7554,9 +8568,9 @@ var BM304 = function (_Buff29) {
         _classCallCheck(this, BM304);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM304).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM304, [{
-        key: "getPow", value: function getPow() {
+        key: "getPow",
+        value: function getPow() {
             return this.power * this.stacks
         }
     }]);
@@ -7569,9 +8583,9 @@ var BM305 = function (_Buff30) {
         _classCallCheck(this, BM305);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM305).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM305, [{
-        key: "getProtection", value: function getProtection() {
+        key: "getProtection",
+        value: function getProtection() {
             return .25
         }
     }]);
@@ -7584,9 +8598,9 @@ var BM902 = function (_Buff31) {
         _classCallCheck(this, BM902);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM902).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM902, [{
-        key: "thorns", value: function thorns() {
+        key: "thorns",
+        value: function thorns() {
             return this.power
         }
     }]);
@@ -7599,13 +8613,14 @@ var BM904A = function (_Buff32) {
         _classCallCheck(this, BM904A);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM904A).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM904A, [{
-        key: "getProtection", value: function getProtection() {
+        key: "getProtection",
+        value: function getProtection() {
             return 1
         }
     }, {
-        key: "debuffImmune", value: function debuffImmune() {
+        key: "debuffImmune",
+        value: function debuffImmune() {
             return true
         }
     }]);
@@ -7618,9 +8633,9 @@ var BM905A = function (_Buff33) {
         _classCallCheck(this, BM905A);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM905A).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM905A, [{
-        key: "getVulnerability", value: function getVulnerability(attacker) {
+        key: "getVulnerability",
+        value: function getVulnerability(attacker) {
             if (attacker.type === "Might") return 1;
             return 0
         }
@@ -7634,9 +8649,9 @@ var BM905B = function (_Buff34) {
         _classCallCheck(this, BM905B);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM905B).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM905B, [{
-        key: "getVulnerability", value: function getVulnerability(attacker) {
+        key: "getVulnerability",
+        value: function getVulnerability(attacker) {
             if (attacker.type === "Mind") return 1;
             return 0
         }
@@ -7650,9 +8665,9 @@ var BM905C = function (_Buff35) {
         _classCallCheck(this, BM905C);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM905C).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM905C, [{
-        key: "getVulnerability", value: function getVulnerability(attacker) {
+        key: "getVulnerability",
+        value: function getVulnerability(attacker) {
             if (attacker.type === "Moxie") return 1;
             return 0
         }
@@ -7666,9 +8681,9 @@ var BM905D = function (_Buff36) {
         _classCallCheck(this, BM905D);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM905D).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM905D, [{
-        key: "getProtection", value: function getProtection() {
+        key: "getProtection",
+        value: function getProtection() {
             return this.stacks * .1
         }
     }]);
@@ -7681,7 +8696,6 @@ var BM905E = function (_Buff37) {
         _classCallCheck(this, BM905E);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM905E).call(this, buffTemplate, target, power))
     }
-
     return BM905E
 }(Buff);
 var BM905F = function (_Buff38) {
@@ -7691,9 +8705,9 @@ var BM905F = function (_Buff38) {
         _classCallCheck(this, BM905F);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM905F).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM905F, [{
-        key: "getVulnerability", value: function getVulnerability() {
+        key: "getVulnerability",
+        value: function getVulnerability() {
             return this.stacks * .2
         }
     }]);
@@ -7706,9 +8720,9 @@ var BM906 = function (_Buff39) {
         _classCallCheck(this, BM906);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM906).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM906, [{
-        key: "onHitting", value: function onHitting() {
+        key: "onHitting",
+        value: function onHitting() {
             this.target.takeDamage(this.power * this.stacks)
         }
     }]);
@@ -7721,9 +8735,9 @@ var BM906A = function (_Buff40) {
         _classCallCheck(this, BM906A);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM906A).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM906A, [{
-        key: "getProtection", value: function getProtection() {
+        key: "getProtection",
+        value: function getProtection() {
             return .75
         }
     }]);
@@ -7736,9 +8750,9 @@ var BM906B = function (_Buff41) {
         _classCallCheck(this, BM906B);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM906B).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM906B, [{
-        key: "maxHP", value: function maxHP() {
+        key: "maxHP",
+        value: function maxHP() {
             return -Math.floor(this.target.hpmax / 10) * this.stacks
         }
     }]);
@@ -7751,7 +8765,6 @@ var BM907 = function (_Buff42) {
         _classCallCheck(this, BM907);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM907).call(this, buffTemplate, target, power))
     }
-
     return BM907
 }(Buff);
 var BM907A = function (_Buff43) {
@@ -7761,13 +8774,14 @@ var BM907A = function (_Buff43) {
         _classCallCheck(this, BM907A);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM907A).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM907A, [{
-        key: "getProtection", value: function getProtection() {
+        key: "getProtection",
+        value: function getProtection() {
             return 1
         }
     }, {
-        key: "onHit", value: function onHit() {
+        key: "onHit",
+        value: function onHit() {
             this.target.takeDamage(1, true)
         }
     }]);
@@ -7780,7 +8794,6 @@ var BM907B = function (_Buff44) {
         _classCallCheck(this, BM907B);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM907B).call(this, buffTemplate, target, power))
     }
-
     return BM907B
 }(Buff);
 var BM907C = function (_Buff45) {
@@ -7790,13 +8803,14 @@ var BM907C = function (_Buff45) {
         _classCallCheck(this, BM907C);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM907C).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM907C, [{
-        key: "getProtection", value: function getProtection() {
+        key: "getProtection",
+        value: function getProtection() {
             return 1
         }
     }, {
-        key: "expire", value: function expire() {
+        key: "expire",
+        value: function expire() {
             this.target.passiveCheck("treeBuffGone")
         }
     }]);
@@ -7809,9 +8823,9 @@ var BM908A = function (_Buff46) {
         _classCallCheck(this, BM908A);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM908A).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM908A, [{
-        key: "confusion", value: function confusion() {
+        key: "confusion",
+        value: function confusion() {
             return true
         }
     }]);
@@ -7824,13 +8838,14 @@ var BM908B = function (_Buff47) {
         _classCallCheck(this, BM908B);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM908B).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM908B, [{
-        key: "getProtection", value: function getProtection() {
+        key: "getProtection",
+        value: function getProtection() {
             return 1
         }
     }, {
-        key: "onHit", value: function onHit(attack) {
+        key: "onHit",
+        value: function onHit(attack) {
             this.target.heal(Math.floor(attack.power * this.power))
         }
     }]);
@@ -7843,7 +8858,6 @@ var BM909 = function (_Buff48) {
         _classCallCheck(this, BM909);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM909).call(this, buffTemplate, target, power))
     }
-
     return BM909
 }(Buff);
 var BM909A1 = function (_Buff49) {
@@ -7853,23 +8867,25 @@ var BM909A1 = function (_Buff49) {
         _classCallCheck(this, BM909A1);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM909A1).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM909A1, [{
-        key: "parry", value: function parry() {
+        key: "parry",
+        value: function parry() {
             if (this.stacks === 1) {
                 return this.power
             }
             return 0
         }
     }, {
-        key: "getProtection", value: function getProtection() {
+        key: "getProtection",
+        value: function getProtection() {
             if (this.stacks === 1) {
                 return 1
             }
             return 0
         }
     }, {
-        key: "onHit", value: function onHit() {
+        key: "onHit",
+        value: function onHit() {
             if (this.stacks === 1) {
                 BuffManager.generateBuff("BM909A1", this.target, 1)
             }
@@ -7884,9 +8900,9 @@ var BM909B1 = function (_Buff50) {
         _classCallCheck(this, BM909B1);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM909B1).call(this, buffTemplate, target, power, power2))
     }
-
     _createClass(BM909B1, [{
-        key: "onTick", value: function onTick() {
+        key: "onTick",
+        value: function onTick() {
             this.target.healPercent(this.power2)
         }
     }]);
@@ -7899,7 +8915,6 @@ var BM909C1 = function (_Buff51) {
         _classCallCheck(this, BM909C1);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM909C1).call(this, buffTemplate, target, power))
     }
-
     return BM909C1
 }(Buff);
 var BM909A2 = function (_Buff52) {
@@ -7909,13 +8924,14 @@ var BM909A2 = function (_Buff52) {
         _classCallCheck(this, BM909A2);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM909A2).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM909A2, [{
-        key: "mark", value: function mark(type) {
+        key: "mark",
+        value: function mark(type) {
             return type === "Might"
         }
     }, {
-        key: "phase", value: function phase(type) {
+        key: "phase",
+        value: function phase(type) {
             return type !== "Might"
         }
     }]);
@@ -7928,13 +8944,14 @@ var BM909B2 = function (_Buff53) {
         _classCallCheck(this, BM909B2);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM909B2).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM909B2, [{
-        key: "mark", value: function mark(type) {
+        key: "mark",
+        value: function mark(type) {
             return type === "Mind"
         }
     }, {
-        key: "phase", value: function phase(type) {
+        key: "phase",
+        value: function phase(type) {
             return type !== "Mind"
         }
     }]);
@@ -7947,13 +8964,14 @@ var BM909C2 = function (_Buff54) {
         _classCallCheck(this, BM909C2);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM909C2).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM909C2, [{
-        key: "mark", value: function mark(type) {
+        key: "mark",
+        value: function mark(type) {
             return type === "Moxie"
         }
     }, {
-        key: "phase", value: function phase(type) {
+        key: "phase",
+        value: function phase(type) {
             return type !== "Moxie"
         }
     }]);
@@ -7966,9 +8984,9 @@ var BM909C3 = function (_Buff55) {
         _classCallCheck(this, BM909C3);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM909C3).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM909C3, [{
-        key: "getVulnerability", value: function getVulnerability() {
+        key: "getVulnerability",
+        value: function getVulnerability() {
             return 1
         }
     }]);
@@ -7981,7 +8999,6 @@ var BM910 = function (_Buff56) {
         _classCallCheck(this, BM910);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM910).call(this, buffTemplate, target, power))
     }
-
     return BM910
 }(Buff);
 var BM910A = function (_Buff57) {
@@ -7991,9 +9008,9 @@ var BM910A = function (_Buff57) {
         _classCallCheck(this, BM910A);
         return _possibleConstructorReturn(this, _getPrototypeOf(BM910A).call(this, buffTemplate, target, power))
     }
-
     _createClass(BM910A, [{
-        key: "reverse", value: function reverse() {
+        key: "reverse",
+        value: function reverse() {
             return true
         }
     }]);
@@ -8137,8 +9154,11 @@ function _setPrototypeOf(o, p) {
     };
     return _setPrototypeOf(o, p)
 }
-
-var HeroState = Object.freeze({IDLE: "Idle", DUNGEON: "In Dungeon", QUEST: "In Quest"});
+var HeroState = Object.freeze({
+    IDLE: "Idle",
+    DUNGEON: "In Dungeon",
+    QUEST: "In Quest"
+});
 var Hero = function (_Combatant) {
     _inherits(Hero, _Combatant);
 
@@ -8162,9 +9182,9 @@ var Hero = function (_Combatant) {
         _this.trophySlot = null;
         return _this
     }
-
     _createClass(Hero, [{
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
             save.id = this.id;
             save.hp = this.hp;
@@ -8182,7 +9202,8 @@ var Hero = function (_Combatant) {
             return save
         }
     }, {
-        key: "loadSave", value: function loadSave(save) {
+        key: "loadSave",
+        value: function loadSave(save) {
             var _this2 = this;
             this.hp = save.hp;
             save.gearSlots.forEach(function (gearSlot, i) {
@@ -8202,7 +9223,8 @@ var Hero = function (_Combatant) {
             if (save.trophySlot !== undefined) this.trophySlot = save.trophySlot
         }
     }, {
-        key: "clearProgress", value: function clearProgress() {
+        key: "clearProgress",
+        value: function clearProgress() {
             this.buffs = [];
             this.hp = this.initialHP;
             this.pow = this.initialPow;
@@ -8213,7 +9235,8 @@ var Hero = function (_Combatant) {
             this.trophySlot = null
         }
     }, {
-        key: "populateGearSlots", value: function populateGearSlots() {
+        key: "populateGearSlots",
+        value: function populateGearSlots() {
             var gearslots = [];
             for (var i = 1; i < 8; i++) {
                 var agearSlot = new gearSlot(this["slot".concat(i, "Type")]);
@@ -8223,7 +9246,8 @@ var Hero = function (_Combatant) {
             return gearslots
         }
     }, {
-        key: "getPow", value: function getPow(noBuff, skillID) {
+        key: "getPow",
+        value: function getPow(noBuff, skillID) {
             var trophyBuff = this.trophySlot !== null ? DungeonManager.idToTrophy(this.trophySlot).powSkill(skillID) : 0;
             var firePow = this.getRuneCount(RuneType.FIRE) >= 2 ? 1.1 : 1;
             if (skillID !== undefined && skillID !== "S0000" && this.getRuneCount(RuneType.THUNDER) >= 2) firePow * 1.1;
@@ -8240,7 +9264,8 @@ var Hero = function (_Combatant) {
             return Math.max(1, Math.floor(pow * (1 + this.getBuffPowerPercent())))
         }
     }, {
-        key: "maxHP", value: function maxHP(noBuff) {
+        key: "maxHP",
+        value: function maxHP(noBuff) {
             var trophyBuff = this.trophySlot !== null ? DungeonManager.idToTrophy(this.trophySlot).hp() : 0;
             var waterHP = this.getRuneCount(RuneType.WATER) >= 2 ? 1.1 : 1;
             if (noBuff) return Math.floor(Math.max(1, this.initialHP + trophyBuff + this.gearSlots.map(function (g) {
@@ -8256,21 +9281,25 @@ var Hero = function (_Combatant) {
             return Math.max(1, Math.floor(hp * (1 + this.getBuffMaxHPPercent())))
         }
     }, {
-        key: "getAdjPow", value: function getAdjPow() {
+        key: "getAdjPow",
+        value: function getAdjPow() {
             return Math.floor(this.getPow())
         }
     }, {
-        key: "getEquipSlots", value: function getEquipSlots(nonblank) {
+        key: "getEquipSlots",
+        value: function getEquipSlots(nonblank) {
             if (nonblank) return this.gearSlots.map(function (g) {
                 return g.gear
             }).filter(function (s) {
                 return s !== null
-            }); else return this.gearSlots.map(function (g) {
+            });
+            else return this.gearSlots.map(function (g) {
                 return g.gear
             })
         }
     }, {
-        key: "equip", value: function equip(container) {
+        key: "equip",
+        value: function equip(container) {
             var gearSlot = this.getSlot(container.type);
             if (gearSlot === undefined) return;
             if (gearSlot.gear !== null) {
@@ -8280,49 +9309,58 @@ var Hero = function (_Combatant) {
             gearSlot.setGear(container)
         }
     }, {
-        key: "remove", value: function remove(type) {
+        key: "remove",
+        value: function remove(type) {
             var gearSlot = this.getSlot(type);
             if (gearSlot !== undefined) gearSlot.removeGear()
         }
     }, {
-        key: "slotEmpty", value: function slotEmpty(type) {
+        key: "slotEmpty",
+        value: function slotEmpty(type) {
             var gearSlot = this.getSlot(type);
             if (gearSlot === undefined) return true;
             return gearSlot.empty()
         }
     }, {
-        key: "getSlot", value: function getSlot(type) {
+        key: "getSlot",
+        value: function getSlot(type) {
             return this.gearSlots.find(function (g) {
                 return g.type === type
             })
         }
     }, {
-        key: "unequip", value: function unequip(type) {
+        key: "unequip",
+        value: function unequip(type) {
             var item = this.getSlot(type);
             if (item === undefined) return;
             Inventory.addToInventory(item.gear.uniqueID(), 1, true);
             this.remove(type)
         }
     }, {
-        key: "hasEquip", value: function hasEquip(type) {
+        key: "hasEquip",
+        value: function hasEquip(type) {
             var gearSlot = this.getSlot(type);
             if (gearSlot === undefined) return false;
             return !gearSlot.empty()
         }
     }, {
-        key: "canEquipType", value: function canEquipType(type) {
+        key: "canEquipType",
+        value: function canEquipType(type) {
             return this.getSlot(type) !== undefined
         }
     }, {
-        key: "trinket", value: function trinket() {
+        key: "trinket",
+        value: function trinket() {
             return this.gearSlots[6]
         }
     }, {
-        key: "trophy", value: function trophy() {
+        key: "trophy",
+        value: function trophy() {
             return this.trophySlot
         }
     }, {
-        key: "totalUpgrades", value: function totalUpgrades() {
+        key: "totalUpgrades",
+        value: function totalUpgrades() {
             var upgrades = this.gearSlots.map(function (g) {
                 return g.lvl
             });
@@ -8331,15 +9369,18 @@ var Hero = function (_Combatant) {
             })
         }
     }, {
-        key: "changePlaybook", value: function changePlaybook(playbookID) {
+        key: "changePlaybook",
+        value: function changePlaybook(playbookID) {
             this.playbook = PlaybookManager.generatePlayBook(playbookID)
         }
     }, {
-        key: "swapPlaybook", value: function swapPlaybook(pbid) {
+        key: "swapPlaybook",
+        value: function swapPlaybook(pbid) {
             this.playbook = PlaybookManager.generatePlayBook(pbid)
         }
     }, {
-        key: "fullyEquipped", value: function fullyEquipped() {
+        key: "fullyEquipped",
+        value: function fullyEquipped() {
             return this.gearSlots.filter(function (g) {
                 return g.type !== "Trinkets"
             }).every(function (gs) {
@@ -8347,13 +9388,15 @@ var Hero = function (_Combatant) {
             })
         }
     }, {
-        key: "state", value: function state() {
+        key: "state",
+        value: function state() {
             if (DungeonManager.heroLocked(this.id)) return HeroState.DUNGEON;
             if (ExpeditionManager.heroLocked(this.id)) return HeroState.QUEST;
             return HeroState.IDLE
         }
     }, {
-        key: "getRuneCount", value: function getRuneCount(runeType) {
+        key: "getRuneCount",
+        value: function getRuneCount(runeType) {
             return this.gearSlots.map(function (f) {
                 return f.hasRuneType(runeType)
             }).reduce(function (a, b) {
@@ -8361,27 +9404,32 @@ var Hero = function (_Combatant) {
             }, 0)
         }
     }, {
-        key: "getPassiveProtection", value: function getPassiveProtection() {
+        key: "getPassiveProtection",
+        value: function getPassiveProtection() {
             if (this.id === "H001" && this.passive) return .25;
             return 0
         }
     }, {
-        key: "getPassivePow", value: function getPassivePow() {
+        key: "getPassivePow",
+        value: function getPassivePow() {
             if (this.id === "H0002" && this.passive) return Math.floor(this.pow * .1);
             return 0
         }
     }, {
-        key: "gearTypes", value: function gearTypes() {
+        key: "gearTypes",
+        value: function gearTypes() {
             return [this.slot1Type, this.slot2Type, this.slot3Type, this.slot4Type, this.slot5Type, this.slot6Type]
         }
     }, {
-        key: "isUpgrade", value: function isUpgrade(container) {
+        key: "isUpgrade",
+        value: function isUpgrade(container) {
             var equippedItem = this.getSlot(container.type).gear;
             if (!equippedItem) return true;
             return container.pow() > equippedItem.pow() || container.hp() > equippedItem.hp()
         }
     }, {
-        key: "getGear", value: function getGear() {
+        key: "getGear",
+        value: function getGear() {
             return this.gearSlots.slice(0, 6).map(function (g) {
                 return g.gear
             })
@@ -8395,15 +9443,17 @@ var gearSlot = function () {
         this.gear = null;
         this.type = type
     }
-
     _createClass(gearSlot, [{
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
-            if (this.gear !== null) save.gear = this.gear.createSave(); else save.gear = null;
+            if (this.gear !== null) save.gear = this.gear.createSave();
+            else save.gear = null;
             return save
         }
     }, {
-        key: "loadSave", value: function loadSave(save) {
+        key: "loadSave",
+        value: function loadSave(save) {
             if (save.gear !== null) {
                 var newGear = new itemContainer(save.gear.id, save.gear.rarity);
                 newGear.loadSave(save.gear);
@@ -8411,29 +9461,35 @@ var gearSlot = function () {
             }
         }
     }, {
-        key: "setGear", value: function setGear(container) {
+        key: "setGear",
+        value: function setGear(container) {
             this.gear = container
         }
     }, {
-        key: "removeGear", value: function removeGear() {
+        key: "removeGear",
+        value: function removeGear() {
             this.gear = null
         }
     }, {
-        key: "pow", value: function pow() {
+        key: "pow",
+        value: function pow() {
             if (this.gear === null) return 0;
             return this.gear.pow()
         }
     }, {
-        key: "hp", value: function hp() {
+        key: "hp",
+        value: function hp() {
             if (this.gear === null) return 0;
             return this.gear.hp()
         }
     }, {
-        key: "empty", value: function empty() {
+        key: "empty",
+        value: function empty() {
             return this.gear === null
         }
     }, {
-        key: "hasRuneType", value: function hasRuneType(runeType) {
+        key: "hasRuneType",
+        value: function hasRuneType(runeType) {
             if (this.gear === null) return 0;
             if (this.gear.rune === runeType) return 1;
             return 0
@@ -8636,7 +9692,6 @@ function _iterableToArrayLimit(arr, i) {
 function _arrayWithHoles(arr) {
     if (Array.isArray(arr)) return arr
 }
-
 var $heroInspectBox = $(".heroInspectBox");
 var $heroList = $("#heroList");
 var $overviewContainer = $("#overviewContainer");
@@ -8683,8 +9738,8 @@ function initializeHeroList() {
         if (!hero.owned) d.hide()
     });
     if (HeroManager.heroes.filter(function (h) {
-        return !h.owned
-    }).length > 0) {
+            return !h.owned
+        }).length > 0) {
         var d = $("<div/>").addClass("heroOwnedCard emptyHeroSlot").appendTo($heroList);
         $("<div/>").addClass("heroOwnedImage").html(miscIcons.emptySlot).appendTo(d);
         $("<div/>").addClass("heroOwnedName").html("More Heroes?").appendTo(d);
@@ -8693,7 +9748,6 @@ function initializeHeroList() {
         $("<div/>").addClass("actionButtonTextRight").html("View Market").appendTo(marketButton)
     }
 }
-
 var overviewType = "Might";
 
 function refreshHeroOverviewScreen() {
@@ -8794,7 +9848,6 @@ function commitHeroGearSort() {
         $(".buttpow" + hero.id).html(hero.getPow()).hide().show(0)
     })
 }
-
 $heroOverview.on("click", ".heroOverviewOption", function (e) {
     e.preventDefault();
     $(".heroOverviewOption").removeClass("highlighted");
@@ -8805,7 +9858,9 @@ $heroOverview.on("click", ".heroOverviewOption", function (e) {
 
 function generateGearOverview(container, heroid) {
     if (container === null) {
-        var a = $("<div/>").addClass("itemContainer").attr({"data-id": "EMPTY"});
+        var a = $("<div/>").addClass("itemContainer").attr({
+            "data-id": "EMPTY"
+        });
         $("<div/>").addClass("itemName").html("No Gear Equipped").appendTo(a);
         return a
     }
@@ -8816,10 +9871,13 @@ function generateGearOverview(container, heroid) {
     });
     $("<div/>").addClass("itemName").html(container.picName(false)).appendTo(itemdiv);
     $("<div/>").addClass("itemLevel").html(container.item.itemLevel()).appendTo(itemdiv);
-    $("<div/>").addClass("itemRarity RT".concat(container.rarity, " tooltip")).attr({"data-tooltip": "rarity_".concat(rarities[container.rarity].toLowerCase())}).html(miscIcons.rarity).appendTo(itemdiv);
+    $("<div/>").addClass("itemRarity RT".concat(container.rarity, " tooltip")).attr({
+        "data-tooltip": "rarity_".concat(rarities[container.rarity].toLowerCase())
+    }).html(miscIcons.rarity).appendTo(itemdiv);
     var equipStats = $("<div/>").addClass("equipStats").appendTo(itemdiv);
     for (var _i = 0, _Object$entries = Object.entries(container.itemStat(false)); _i < _Object$entries.length; _i++) {
-        var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2), stat = _Object$entries$_i[0],
+        var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+            stat = _Object$entries$_i[0],
             val = _Object$entries$_i[1];
         if (val === 0) continue;
         var ed = $("<div/>").addClass("gearStat").appendTo(equipStats);
@@ -8829,7 +9887,6 @@ function generateGearOverview(container, heroid) {
     itemdiv.addClass("R" + container.rarity).addClass("ctrlClickItem").data("rid", container.id);
     return itemdiv
 }
-
 $heroOverview.on("click", ".itemContainer", function (e) {
     e.preventDefault();
     if (!e.shiftKey) return;
@@ -8884,7 +9941,8 @@ function cyclePreviewHeroPrevious() {
         return hero.id === ID
     });
     var newHeroIndex = 0;
-    if (heroIndex > 0) newHeroIndex = heroIndex - 1; else newHeroIndex = heroesList.length - 1;
+    if (heroIndex > 0) newHeroIndex = heroIndex - 1;
+    else newHeroIndex = heroesList.length - 1;
     HeroManager.heroView = heroesList[newHeroIndex].id
 }
 
@@ -8900,7 +9958,6 @@ function cyclePreviewHeroNext() {
     if (heroIndex < heroesList.length - 1) newHeroIndex = heroIndex + 1;
     HeroManager.heroView = heroesList[newHeroIndex].id
 }
-
 var $previewCardPrevious = $(".previewCardPrevious");
 var $previewCardNext = $(".previewCardNext");
 $previewCardPrevious.on("click", function (e) {
@@ -8923,9 +9980,12 @@ function showHeroDetails() {
     $heroExaminePlaybooks.empty();
     generateHeroPlaybooks(hero).appendTo($heroExaminePlaybooks);
     if (hero.passive) {
-        $("<div/>").addClass("heroPassiveUnlocked tooltip").attr({"data-tooltip": "passive_desc_" + hero.id}).html(displayText("passive_activated")).appendTo($heroExaminePlaybooks)
+        $("<div/>").addClass("heroPassiveUnlocked tooltip").attr({
+            "data-tooltip": "passive_desc_" + hero.id
+        }).html(displayText("passive_activated")).appendTo($heroExaminePlaybooks)
     }
-    if (!HeroManager.runesUnlocked()) $heroRuneSection.hide(); else {
+    if (!HeroManager.runesUnlocked()) $heroRuneSection.hide();
+    else {
         $heroRuneSection.show();
         $heroExamineRunes.empty();
         var d = $("<div/>").addClass("heroRunesContainer").appendTo($heroExamineRunes);
@@ -8969,7 +10029,9 @@ function generateHeroPlaybooks(hero, pbSelected) {
             playbook.toggleSeen()
         }
         if (!playbook.unlocked) {
-            d.addClass("playbookLocked tooltip").attr({"data-tooltip": "feature_locked"});
+            d.addClass("playbookLocked tooltip").attr({
+                "data-tooltip": "feature_locked"
+            });
             $("<div/>").addClass("playbookName").html(displayText("playbook_locked")).appendTo(d);
             var pbSkillsContainer = $("<div/>").addClass("playbookSkillsContainer").appendTo(d);
             for (var i = 0; i < 4; i++) {
@@ -8977,7 +10039,10 @@ function generateHeroPlaybooks(hero, pbSelected) {
             }
             return
         }
-        d.addClass("playbookSelectable").data({pbid: playbookID, hid: hero.id});
+        d.addClass("playbookSelectable").data({
+            pbid: playbookID,
+            hid: hero.id
+        });
         $("<div/>").addClass("playbookName").html(playbook.name).appendTo(d);
         var d1 = $("<div/>").addClass("playbookSkillsContainer").appendTo(d);
         if (playbookID === pbSelected) d.addClass("playbookSelected");
@@ -8991,7 +10056,6 @@ function generateHeroPlaybooks(hero, pbSelected) {
     });
     return dd
 }
-
 $(document).on("click", ".playbookSelectable", function (e) {
     e.preventDefault();
     var hid = $(e.currentTarget).data("hid");
@@ -9029,7 +10093,6 @@ function showHeroGear() {
     });
     examineHeroPossibleEquip(hero.id)
 }
-
 $heroGearSlotList.on("click", ".heroExamineEquipmentEquip", function (e) {
     e.preventDefault();
     if (!e.shiftKey) return;
@@ -9076,7 +10139,9 @@ function generateHeroTrinket(hero) {
     }).appendTo($heroEquipTrinket);
     var head = $("<div/>").addClass("heroExamineEquipmentSlot").html(displayText("type_Trinkets")).appendTo(d);
     if (TownManager.idToBuilding("TB006").status < 2) {
-        head.addClass("tooltip").attr({"data-tooltip": "trinket_locked"}).html("".concat(miscIcons.locked, " ").concat(displayText("type_locked")))
+        head.addClass("tooltip").attr({
+            "data-tooltip": "trinket_locked"
+        }).html("".concat(miscIcons.locked, " ").concat(displayText("type_locked")))
     }
     if (gear === null) {
         var _d2 = $("<div/>").addClass("heroExamineEquipmentEquip emptyGearSlot").appendTo(d);
@@ -9095,17 +10160,24 @@ function generateHeroTrinket(hero) {
     var d2 = $("<div/>").addClass("itemLevel").appendTo(d1);
     $("<div/>").addClass("level_text").html("LVL").appendTo(d2);
     $("<div/>").addClass("level_integer").html("".concat(gear.lvl)).appendTo(d2);
-    $("<div/>").addClass("itemRarity").addClass("RT".concat(gear.rarity, " tooltip")).attr({"data-tooltip": "rarity_".concat(rarities[gear.rarity].toLowerCase())}).html(miscIcons.rarity).appendTo(d1);
+    $("<div/>").addClass("itemRarity").addClass("RT".concat(gear.rarity, " tooltip")).attr({
+        "data-tooltip": "rarity_".concat(rarities[gear.rarity].toLowerCase())
+    }).html(miscIcons.rarity).appendTo(d1);
     var equipStats = $("<div/>").addClass("equipStats").appendTo(d1);
     for (var _i2 = 0, _Object$entries2 = Object.entries(gear.itemStat()); _i2 < _Object$entries2.length; _i2++) {
-        var _Object$entries2$_i = _slicedToArray(_Object$entries2[_i2], 2), stat = _Object$entries2$_i[0],
+        var _Object$entries2$_i = _slicedToArray(_Object$entries2[_i2], 2),
+            stat = _Object$entries2$_i[0],
             val = _Object$entries2$_i[1];
         if (val === 0) continue;
-        var _ed = $("<div/>").addClass("gearStat tooltip").attr({"data-tooltip": stat}).appendTo(equipStats);
+        var _ed = $("<div/>").addClass("gearStat tooltip").attr({
+            "data-tooltip": stat
+        }).appendTo(equipStats);
         $("<div/>").addClass("".concat(stat, "_img")).html(miscIcons[stat]).appendTo(_ed);
         $("<div/>").addClass("".concat(stat, "_integer statValue")).html(val).appendTo(_ed)
     }
-    $("<div/>").attr({"data-tooltip": "equipment_remove"}).addClass("heroUnequipSlot tooltip").data({
+    $("<div/>").attr({
+        "data-tooltip": "equipment_remove"
+    }).addClass("heroUnequipSlot tooltip").data({
         heroID: hero.id,
         gearType: "Trinkets"
     }).html('<i class="fas fa-times"></i>').appendTo(d);
@@ -9135,7 +10207,6 @@ function generateHeroTrophy(hero) {
         }).html(miscIcons.info).appendTo(d2)
     }
 }
-
 var $trophyEquip = $("#trophyEquip");
 
 function equipTrophies() {
@@ -9153,7 +10224,9 @@ function equipTrophies() {
         var d1 = $("<div/>").addClass("trophyDiv equipTrophyDiv").appendTo(d);
         if (trophy.locked()) {
             trophy.updateTooltipValues();
-            $("<div/>").addClass("trophyName tooltip").attr({"data-tooltip": trophy.id}).html("".concat(displayText("universal_locked"))).appendTo(d1);
+            $("<div/>").addClass("trophyName tooltip").attr({
+                "data-tooltip": trophy.id
+            }).html("".concat(displayText("universal_locked"))).appendTo(d1);
             $("<div/>").addClass("trophyImage").html("".concat(miscIcons.locked)).appendTo(d1);
             $("<div/>").addClass("trophyDesc").html("".concat(displayText("trophy_locked_desc"))).appendTo(d1)
         } else {
@@ -9165,18 +10238,19 @@ function equipTrophies() {
             }).html(miscIcons.info).appendTo(d1);
             var d2 = $("<div/>").addClass("trophyEquipHero").appendTo(d1);
             var hero = HeroManager.whoHasTrophy(trophy.id);
-            if (hero === undefined) $("<div/>").addClass("trophyEquipNone").html(displayText("trophy_equip_none")).appendTo(d2); else {
+            if (hero === undefined) $("<div/>").addClass("trophyEquipNone").html(displayText("trophy_equip_none")).appendTo(d2);
+            else {
                 $("<div/>").addClass("trophyEquipHeroHead").html(hero.head).appendTo(d2);
                 $("<div/>").addClass("trophyEquipHeroName").html(hero.name).appendTo(d2)
             }
             var trophyHero = HeroManager.whoHasTrophy(trophy.id);
-            if (trophyHero !== undefined && trophyHero.id === HeroManager.heroView) $("<div/>").addClass("trophyEquipButton actionButton").data("tid", trophy.id).html(displayText("trophy_unequip_button")).appendTo(d1); else $("<div/>").addClass("trophyEquipButton actionButton").data("tid", trophy.id).html(displayText("trophy_equip_button")).appendTo(d1)
+            if (trophyHero !== undefined && trophyHero.id === HeroManager.heroView) $("<div/>").addClass("trophyEquipButton actionButton").data("tid", trophy.id).html(displayText("trophy_unequip_button")).appendTo(d1);
+            else $("<div/>").addClass("trophyEquipButton actionButton").data("tid", trophy.id).html(displayText("trophy_equip_button")).appendTo(d1)
         }
     });
     $(".tabcontent").hide();
     $trophyEquip.show()
 }
-
 $trophyEquip.on("click", ".trophyEquipButton", function (e) {
     e.preventDefault();
     var tid = $(e.currentTarget).data("tid");
@@ -9196,7 +10270,9 @@ function heroCurrentGearEquip(hero, gearSlot) {
     var type = gearSlot.type;
     var gear = gearSlot.gear;
     var d = $("<div/>").addClass("heroExamineEquipment");
-    if (gear !== null) d.data({uid: gear.uniqueID()});
+    if (gear !== null) d.data({
+        uid: gear.uniqueID()
+    });
     var slotTypeName = $("<div/>").addClass("heroExamineEquipmentSlot").html(displayText("type_".concat(type))).appendTo(d);
     $("<div/>").addClass("questionTooltip tooltip").attr("data-tooltip", "shift_blacksmith").html(miscIcons.keyboard).appendTo(slotTypeName);
     if (gear === null) {
@@ -9219,17 +10295,24 @@ function heroCurrentGearEquip(hero, gearSlot) {
     var d2 = $("<div/>").addClass("itemLevel").appendTo(d1);
     $("<div/>").addClass("level_text").html("LVL").appendTo(d2);
     $("<div/>").addClass("level_integer").html("".concat(gear.lvl)).appendTo(d2);
-    $("<div/>").addClass("itemRarity").addClass("RT".concat(gear.rarity, " tooltip")).attr({"data-tooltip": "rarity_".concat(rarities[gear.rarity].toLowerCase())}).html(miscIcons.rarity).appendTo(d1);
+    $("<div/>").addClass("itemRarity").addClass("RT".concat(gear.rarity, " tooltip")).attr({
+        "data-tooltip": "rarity_".concat(rarities[gear.rarity].toLowerCase())
+    }).html(miscIcons.rarity).appendTo(d1);
     var equipStats = $("<div/>").addClass("equipStats").appendTo(d1);
     for (var _i3 = 0, _Object$entries3 = Object.entries(gear.itemStat()); _i3 < _Object$entries3.length; _i3++) {
-        var _Object$entries3$_i = _slicedToArray(_Object$entries3[_i3], 2), stat = _Object$entries3$_i[0],
+        var _Object$entries3$_i = _slicedToArray(_Object$entries3[_i3], 2),
+            stat = _Object$entries3$_i[0],
             val = _Object$entries3$_i[1];
         if (val === 0) continue;
-        var _ed2 = $("<div/>").addClass("gearStat tooltip").attr({"data-tooltip": stat}).appendTo(equipStats);
+        var _ed2 = $("<div/>").addClass("gearStat tooltip").attr({
+            "data-tooltip": stat
+        }).appendTo(equipStats);
         $("<div/>").addClass("".concat(stat, "_img")).html(miscIcons[stat]).appendTo(_ed2);
         $("<div/>").addClass("".concat(stat, "_integer statValue")).html(val).appendTo(_ed2)
     }
-    $("<div/>").attr({"data-tooltip": "equipment_remove"}).addClass("heroUnequipSlot tooltip").data({
+    $("<div/>").attr({
+        "data-tooltip": "equipment_remove"
+    }).addClass("heroUnequipSlot tooltip").data({
         heroID: hero.id,
         gearType: type
     }).html('<i class="fas fa-times"></i>').appendTo(d);
@@ -9251,7 +10334,8 @@ function examineHeroPossibleEquip(heroID, skipAnimation) {
     $("<div/>").addClass("headingTitle").html(displayText("equipment_select_title")).appendTo(d1);
     $("<div/>").addClass("headingDescription").html(displayText("equipment_select_desc")).appendTo(d1);
     var headerActions = $("<div/>").addClass("headerActions").appendTo(d);
-    if (HeroManager.onlyImprove) $("<div/>").addClass("onlyImprovement enabled").attr("id", "onlyImprovToggle").html("".concat(miscIcons.toggleOn, " ").concat(displayText("show_only_improve"))).appendTo(headerActions); else $("<div/>").addClass("onlyImprovement").attr("id", "onlyImprovToggle").html("".concat(miscIcons.toggleOff, " ").concat(displayText("show_only_improve"))).appendTo(headerActions);
+    if (HeroManager.onlyImprove) $("<div/>").addClass("onlyImprovement enabled").attr("id", "onlyImprovToggle").html("".concat(miscIcons.toggleOn, " ").concat(displayText("show_only_improve"))).appendTo(headerActions);
+    else $("<div/>").addClass("onlyImprovement").attr("id", "onlyImprovToggle").html("".concat(miscIcons.toggleOff, " ").concat(displayText("show_only_improve"))).appendTo(headerActions);
     $("<div/>").addClass("heroEquipRecipes actionButton").attr("id", "heroEquipRecipes").data("hid", heroID).html(displayText("hero_equip_recipes")).appendTo(headerActions);
     var equipCardsContainer = $("<div/>").addClass("equipCardsContainer").appendTo($heroEquipmentList);
     var gearFromInventory = [];
@@ -9298,7 +10382,6 @@ function equipRecipeCard(recipe) {
     $("<div/>").addClass("recipeCraft").data("rid", recipe.id).html('<i class="fas fa-hammer"></i><span>Craft</span>').appendTo(d1);
     return d
 }
-
 $heroEquipmentList.on("click", ".recipeCraft", function (e) {
     e.preventDefault();
     var rid = $(e.currentTarget).data("rid");
@@ -9313,12 +10396,17 @@ function heroEquipCard(hero, itemContainer, skipAnimation) {
     });
     $("<div/>").addClass("itemName").html(itemContainer.picName()).appendTo(card);
     $("<div/>").addClass("itemLevel").html(itemContainer.itemLevel()).appendTo(card);
-    if (skipAnimation) card.css({animation: "none"});
-    $("<div/>").addClass("itemRarity").addClass("RT".concat(itemContainer.rarity, " tooltip")).attr({"data-tooltip": "rarity_".concat(rarities[itemContainer.rarity].toLowerCase())}).html(miscIcons.rarity).appendTo(card);
+    if (skipAnimation) card.css({
+        animation: "none"
+    });
+    $("<div/>").addClass("itemRarity").addClass("RT".concat(itemContainer.rarity, " tooltip")).attr({
+        "data-tooltip": "rarity_".concat(rarities[itemContainer.rarity].toLowerCase())
+    }).html(miscIcons.rarity).appendTo(card);
     var equippedStats = equippedItem ? equippedItem.itemStat() : blankItemStat;
     var d3 = $("<div/>").addClass("equipStats").appendTo(card);
     for (var _i4 = 0, _Object$entries4 = Object.entries(itemContainer.itemStat()); _i4 < _Object$entries4.length; _i4++) {
-        var _Object$entries4$_i = _slicedToArray(_Object$entries4[_i4], 2), stat = _Object$entries4$_i[0],
+        var _Object$entries4$_i = _slicedToArray(_Object$entries4[_i4], 2),
+            stat = _Object$entries4$_i[0],
             val = _Object$entries4$_i[1];
         var deltaStat = val - equippedStats[stat];
         if (deltaStat === 0 && val === 0) continue;
@@ -9344,7 +10432,8 @@ function heroEquipCard(hero, itemContainer, skipAnimation) {
 function unequipSlot(heroID, type) {
     var hero = HeroManager.idToHero(heroID);
     hero.unequip(type);
-    if (type === "Trinkets") showHeroExtra(); else showHeroGear()
+    if (type === "Trinkets") showHeroExtra();
+    else showHeroGear()
 }
 
 function updateHeroStats() {
@@ -9368,7 +10457,6 @@ function equipHeroRecipesButton(e) {
     $(".recipeSelect").removeClass("selectedRecipeFilter");
     $("#rf".concat(type)).addClass("selectedRecipeFilter")
 }
-
 $heroEquipmentList.on("click", ".equipRecipeButton", function (e) {
     e.preventDefault();
     equipHeroRecipesButton(e)
@@ -9376,7 +10464,8 @@ $heroEquipmentList.on("click", ".equipRecipeButton", function (e) {
 var $heroBackButton = $(".heroBackButton");
 $heroBackButton.on("click", function (e) {
     e.preventDefault();
-    if (heroOverviewLast) openTab("heroes_overview"); else openTab("heroes_compare")
+    if (heroOverviewLast) openTab("heroes_overview");
+    else openTab("heroes_compare")
 });
 $heroList.on("click", ".emptyHeroSlotMarket", function (e) {
     e.preventDefault();
@@ -9396,14 +10485,13 @@ function showHero(ID) {
     inspectHeroPreview(HeroManager.idToHero(ID));
     showTab(HeroManager.tabSelected)
 }
-
 var $heroTabClass = $(".heroTab");
 $heroTabClass.on("click", function (e) {
     e.preventDefault();
     if ($(e.currentTarget).hasClass("heroTabLocked")) return;
     $(".heroTab").removeClass("selected");
     $(e.currentTarget).addClass("selected");
-        var tabType = $(e.currentTarget).attr("data-herotabid");
+    var tabType = $(e.currentTarget).attr("data-herotabid");
     if (HeroManager.tabSelected === tabType) return;
     showTab(tabType)
 });
@@ -9414,7 +10502,6 @@ function showTab(tabName) {
     if (tabName === "Equipment") showHeroGear();
     if (tabName === "Extra") showHeroExtra()
 }
-
 var $heroTabContent = $(".heroTabContent");
 $heroTabContent.on("click", "div.gearItem", function (e) {
     e.preventDefault();
@@ -9441,7 +10528,8 @@ $heroEquipTrophy.on("click", ".equipTrophy", function (e) {
 });
 $heroOverall.on("click", function (e) {
     e.preventDefault();
-    if (heroOverviewLast) openTab("heroes_compare"); else openTab("heroes_overview")
+    if (heroOverviewLast) openTab("heroes_compare");
+    else openTab("heroes_overview")
 });
 $heroEquipmentList.on("click", "#onlyImprovToggle", function (e) {
     e.preventDefault();
@@ -9537,18 +10625,22 @@ function _createClass(Constructor, protoProps, staticProps) {
     if (staticProps) _defineProperties(Constructor, staticProps);
     return Constructor
 }
-
 var MobManager = {
-    monsterDB: [], idCount: 0, addMob: function addMob(mob) {
+    monsterDB: [],
+    idCount: 0,
+    addMob: function addMob(mob) {
         this.monsterDB.push(mob)
-    }, idToMob: function idToMob(id) {
+    },
+    idToMob: function idToMob(id) {
         return this.monsterDB.find(function (mob) {
             return mob.id === id
         })
-    }, getUniqueID: function getUniqueID() {
+    },
+    getUniqueID: function getUniqueID() {
         this.idCount += 1;
         return this.idCount
-    }, generateMob: function generateMob(mobID, dungeon) {
+    },
+    generateMob: function generateMob(mobID, dungeon) {
         disableEventLayers();
         var mobTemplate = this.monsterDB.find(function (m) {
             return m.id === mobID
@@ -9570,13 +10662,14 @@ var MobTemplate = function () {
         this.image = '<img src="assets/images/enemies/' + this.id + '.gif">';
         this.head = '<img src="assets/images/enemies/heads/' + this.id + '.png">'
     }
-
     _createClass(MobTemplate, [{
-        key: "getSkillIDs", value: function getSkillIDs() {
+        key: "getSkillIDs",
+        value: function getSkillIDs() {
             return [this.skill1, this.skill2, this.skill3, this.skill4]
         }
     }, {
-        key: "getSkillIcons", value: function getSkillIcons() {
+        key: "getSkillIcons",
+        value: function getSkillIcons() {
             return [SkillManager.idToSkill(this.skill1).icon, SkillManager.idToSkill(this.skill2).icon, SkillManager.idToSkill(this.skill3).icon, SkillManager.idToSkill(this.skill4).icon]
         }
     }]);
@@ -9604,9 +10697,9 @@ var Mob = function (_Combatant) {
         _this.passive = SkillManager.idToSkill(_this.passiveSkill);
         return _this
     }
-
     _createClass(Mob, [{
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
             save.id = this.id;
             save.uniqueid = this.uniqueid;
@@ -9622,7 +10715,8 @@ var Mob = function (_Combatant) {
             return save
         }
     }, {
-        key: "loadSave", value: function loadSave(save) {
+        key: "loadSave",
+        value: function loadSave(save) {
             var _this2 = this;
             this.uniqueid = save.uniqueid;
             this.pow = save.pow;
@@ -9649,7 +10743,6 @@ function adjustState(mob) {
         mob.playbook = PlaybookManager.generatePlayBookFromSkills("SM902A", "SM902A", "SM902A", "SM902B")
     }
 }
-
 "use strict";
 
 function _classCallCheck(instance, Constructor) {
@@ -9673,8 +10766,12 @@ function _createClass(Constructor, protoProps, staticProps) {
     if (staticProps) _defineProperties(Constructor, staticProps);
     return Constructor
 }
-
-var DungeonStatus = Object.freeze({EMPTY: 0, ADVENTURING: 1, SUCCESS: 2, FAILURE: 3});
+var DungeonStatus = Object.freeze({
+    EMPTY: 0,
+    ADVENTURING: 1,
+    SUCCESS: 2,
+    FAILURE: 3
+});
 var TurnOrder = function () {
     function TurnOrder(heroes, mobs) {
         _classCallCheck(this, TurnOrder);
@@ -9684,47 +10781,55 @@ var TurnOrder = function () {
         this.position = 0;
         this.nextNotDead()
     }
-
     _createClass(TurnOrder, [{
-        key: "nextNotDead", value: function nextNotDead() {
+        key: "nextNotDead",
+        value: function nextNotDead() {
             while (this.order[this.position].dead()) {
                 this.position += 1
             }
         }
     }, {
-        key: "getOrder", value: function getOrder() {
+        key: "getOrder",
+        value: function getOrder() {
             return this.order
         }
     }, {
-        key: "nextTurn", value: function nextTurn() {
+        key: "nextTurn",
+        value: function nextTurn() {
             return this.order[this.position]
         }
     }, {
-        key: "nextPosition", value: function nextPosition() {
+        key: "nextPosition",
+        value: function nextPosition() {
             this.position += 1;
             if (this.position === this.order.length) this.position = 0;
             if (this.order[this.position].dead()) this.nextPosition()
         }
     }, {
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
             save.position = this.position;
             return save
         }
     }, {
-        key: "loadSave", value: function loadSave(save) {
+        key: "loadSave",
+        value: function loadSave(save) {
             this.position = save.position
         }
     }, {
-        key: "getCurrentID", value: function getCurrentID() {
+        key: "getCurrentID",
+        value: function getCurrentID() {
             return this.currentTurn().uniqueid
         }
     }, {
-        key: "currentTurn", value: function currentTurn() {
+        key: "currentTurn",
+        value: function currentTurn() {
             return this.order[this.position]
         }
     }, {
-        key: "adjustOrder", value: function adjustOrder(heroes, mobs) {
+        key: "adjustOrder",
+        value: function adjustOrder(heroes, mobs) {
             var uniqueid = this.getCurrentID();
             this.heroes = heroes;
             this.mobs = mobs;
@@ -9734,7 +10839,8 @@ var TurnOrder = function () {
             })
         }
     }, {
-        key: "positionInParty", value: function positionInParty() {
+        key: "positionInParty",
+        value: function positionInParty() {
             var uniqueid = this.order[this.position].uniqueid;
             var huid = this.heroes.map(function (h) {
                 return h.uniqueid
@@ -9759,82 +10865,94 @@ var Area = function () {
         this.dungeons = [];
         this.lastVisitedDungeon = null
     }
-
     _createClass(Area, [{
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
             save.lastVisitedDungeon = this.lastVisitedDungeon;
             return save
         }
     }, {
-        key: "loadSave", value: function loadSave(save) {
+        key: "loadSave",
+        value: function loadSave(save) {
             if (save.lastVisitedDungeon !== undefined) this.lastVisitedDungeon = save.lastVisitedDungeon;
             return
         }
     }, {
-        key: "clearProgress", value: function clearProgress() {
+        key: "clearProgress",
+        value: function clearProgress() {
             this.lastVisitedDungeon = null
         }
     }, {
-        key: "unlocked", value: function unlocked() {
+        key: "unlocked",
+        value: function unlocked() {
             return this.dungeons.some(function (d) {
                 return d.unlocked()
             })
         }
     }, {
-        key: "addDungeon", value: function addDungeon(dungeon) {
+        key: "addDungeon",
+        value: function addDungeon(dungeon) {
             dungeon.area = this.id;
             this.dungeons.push(dungeon)
         }
     }, {
-        key: "status", value: function status() {
+        key: "status",
+        value: function status() {
             if (this.dungeons.some(function (d) {
-                return d.status === DungeonStatus.ADVENTURING
-            })) return DungeonStatus.ADVENTURING;
+                    return d.status === DungeonStatus.ADVENTURING
+                })) return DungeonStatus.ADVENTURING;
             if (this.dungeons.some(function (d) {
-                return d.status === DungeonStatus.SUCCESS
-            })) return DungeonStatus.SUCCESS;
+                    return d.status === DungeonStatus.SUCCESS
+                })) return DungeonStatus.SUCCESS;
             if (this.dungeons.some(function (d) {
-                return d.status === DungeonStatus.FAILURE
-            })) return DungeonStatus.FAILURE;
+                    return d.status === DungeonStatus.FAILURE
+                })) return DungeonStatus.FAILURE;
             return DungeonStatus.EMPTY
         }
     }, {
-        key: "activeParty", value: function activeParty() {
+        key: "activeParty",
+        value: function activeParty() {
             var dungeon = this.dungeons.find(function (d) {
                 return d.status === DungeonStatus.ADVENTURING || d.status === DungeonStatus.SUCCESS || d.status === DungeonStatus.FAILURE
             });
             return dungeon.party
         }
     }, {
-        key: "activeDungeonID", value: function activeDungeonID() {
+        key: "activeDungeonID",
+        value: function activeDungeonID() {
             var dungeon = this.activeDungeon();
             return dungeon ? dungeon.id : dungeon
         }
     }, {
-        key: "activeDungeon", value: function activeDungeon() {
+        key: "activeDungeon",
+        value: function activeDungeon() {
             var dungeon = this.dungeons.find(function (d) {
                 return d.status === DungeonStatus.ADVENTURING || d.status === DungeonStatus.SUCCESS || d.status === DungeonStatus.FAILURE
             });
             return dungeon ? dungeon : null
         }
     }, {
-        key: "activeDungeonName", value: function activeDungeonName() {
+        key: "activeDungeonName",
+        value: function activeDungeonName() {
             return this.activeDungeon().name
         }
     }, {
-        key: "lastOpen", value: function lastOpen() {
+        key: "lastOpen",
+        value: function lastOpen() {
             var dungeons = this.dungeons.filter(function (d) {
                 return d.unlocked()
             });
             return dungeons[dungeons.length - 1]
         }
     }, {
-        key: "setLastDungeon", value: function setLastDungeon(dungeonID) {
+        key: "setLastDungeon",
+        value: function setLastDungeon(dungeonID) {
             this.lastVisitedDungeon = dungeonID
         }
     }, {
-        key: "allBuffs", value: function allBuffs() {
+        key: "allBuffs",
+        value: function allBuffs() {
             return this.dungeons.map(function (a) {
                 return a.allBuffs()
             })
@@ -9843,33 +10961,41 @@ var Area = function () {
     return Area
 }();
 var AreaManager = {
-    areas: [], areaView: null, addArea: function addArea(area) {
+    areas: [],
+    areaView: null,
+    addArea: function addArea(area) {
         this.areas.push(area)
-    }, createSave: function createSave() {
+    },
+    createSave: function createSave() {
         var save = {};
         save.areas = [];
         this.areas.forEach(function (area) {
             return save.areas.push(area.createSave())
         })
-    }, loadSave: function loadSave(save) {
+    },
+    loadSave: function loadSave(save) {
         var _this = this;
         save.areas.forEach(function (areaSave) {
             var area = _this.idToArea(areaSave.id);
             area.loadSave(areaSave)
         })
-    }, clearProgress: function clearProgress() {
+    },
+    clearProgress: function clearProgress() {
         this.areaView = null;
         this.areas.forEach(function (a) {
             return a.clearProgress()
         })
-    }, idToArea: function idToArea(areaID) {
+    },
+    idToArea: function idToArea(areaID) {
         return this.areas.find(function (a) {
             return a.id === areaID
         })
-    }, addDungeon: function addDungeon(dungeon) {
+    },
+    addDungeon: function addDungeon(dungeon) {
         var area = this.idToArea(dungeon.area);
         area.addDungeon(dungeon)
-    }, allBuffs: function allBuffs() {
+    },
+    allBuffs: function allBuffs() {
         return this.areas.map(function (a) {
             return a.allBuffs()
         }).flat().flat().flat()
@@ -9895,12 +11021,13 @@ var Dungeon = function () {
         this.rewardTimeRate = 0;
         this.rewardTimeRateRound = 0
     }
-
     _createClass(Dungeon, [{
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
             save.id = this.id;
-            if (this.party !== null) save.party = this.party.createSave(); else save.party = null;
+            if (this.party !== null) save.party = this.party.createSave();
+            else save.party = null;
             save.mobs = [];
             this.mobs.forEach(function (mob) {
                 save.mobs.push(mob.createSave())
@@ -9908,7 +11035,8 @@ var Dungeon = function () {
             save.maxFloor = this.maxFloor;
             save.floor = this.floor;
             save.floorClear = this.floorClear;
-            if (this.order !== null) save.order = this.order.createSave(); else save.order = null;
+            if (this.order !== null) save.order = this.order.createSave();
+            else save.order = null;
             save.status = this.status;
             save.lastParty = this.lastParty;
             save.lastPlaybook = this.lastPlaybook;
@@ -9917,7 +11045,8 @@ var Dungeon = function () {
             return save
         }
     }, {
-        key: "loadSave", value: function loadSave(save) {
+        key: "loadSave",
+        value: function loadSave(save) {
             var _this2 = this;
             if (save.party) this.party = new Party(save.party.heroID);
             if (save.mobs) save.mobs.forEach(function (mobSave) {
@@ -9940,7 +11069,8 @@ var Dungeon = function () {
             if (save.rewardTimeRate) this.rewardTimeRate = save.rewardTimeRate
         }
     }, {
-        key: "clearProgress", value: function clearProgress() {
+        key: "clearProgress",
+        value: function clearProgress() {
             this.party = null;
             this.mobs = [];
             this.setMobIDs();
@@ -9957,7 +11087,8 @@ var Dungeon = function () {
             this.rewardTimeRateRound = 0
         }
     }, {
-        key: "addTime", value: function addTime(t) {
+        key: "addTime",
+        value: function addTime(t) {
             if (this.status !== DungeonStatus.ADVENTURING) return;
             this.dungeonTime += Math.min(t, 36e5);
             var dungeonWaitTime = DungeonManager.speed;
@@ -9971,8 +11102,8 @@ var Dungeon = function () {
                 this.buffTick("onTurn", refreshLater);
                 this.passiveCheck("onTurn", refreshLater);
                 if (this.mobs.every(function (m) {
-                    return m.dead()
-                })) {
+                        return m.dead()
+                    })) {
                     this.nextFloor(refreshLater);
                     return
                 } else if (this.party.isDead()) {
@@ -9983,8 +11114,8 @@ var Dungeon = function () {
                 if (attacker.alive()) CombatManager.executeTurn(this);
                 if (!refreshLater && DungeonManager.dungeonView === this.id) refreshTurnOrder(this.id);
                 if (this.mobs.every(function (m) {
-                    return m.dead()
-                })) {
+                        return m.dead()
+                    })) {
                     this.nextFloor(refreshLater)
                 } else if (this.party.isDead()) {
                     this.previousFloor(refreshLater, true)
@@ -9998,7 +11129,8 @@ var Dungeon = function () {
             if (DungeonManager.dungeonView === this.id) refreshBeatBar(this.order.getCurrentID(), this.dungeonTime)
         }
     }, {
-        key: "setMobIDs", value: function setMobIDs() {
+        key: "setMobIDs",
+        value: function setMobIDs() {
             this.mobIDs = [];
             this.mobIDs.push(this.mob1);
             if (this.mob2 !== null) this.mobIDs.push(this.mob2);
@@ -10006,7 +11138,8 @@ var Dungeon = function () {
             if (this.mob4 !== null) this.mobIDs.push(this.mob4)
         }
     }, {
-        key: "addDungeonReward", value: function addDungeonReward(time, skipAnimation) {
+        key: "addDungeonReward",
+        value: function addDungeonReward(time, skipAnimation) {
             if (this.type === "boss" || this.floorClear === 0) return;
             this.rewardTime += time;
             while (this.rewardTime > this.rewardTimeRate) {
@@ -10016,7 +11149,8 @@ var Dungeon = function () {
             if (!skipAnimation) refreshDungeonMatBar(this.id)
         }
     }, {
-        key: "setRewardRate", value: function setRewardRate(floor) {
+        key: "setRewardRate",
+        value: function setRewardRate(floor) {
             this.floorClear = Math.max(floor, this.floorClear);
             this.rewardAmt = Math.ceil(floor / 4);
             var rewardRate = Math.floor(floor - 1) * .25 + 1;
@@ -10024,13 +11158,15 @@ var Dungeon = function () {
             this.rewardTimeRateRound = (this.rewardTimeRate / 1e3).toFixed(1)
         }
     }, {
-        key: "initializeParty", value: function initializeParty(party) {
+        key: "initializeParty",
+        value: function initializeParty(party) {
             this.party = party;
             this.lastParty = party.heroID;
             this.lastPlaybook = party.playbooks
         }
     }, {
-        key: "resetDungeon", value: function resetDungeon(noScreen) {
+        key: "resetDungeon",
+        value: function resetDungeon(noScreen) {
             if (this.status !== DungeonStatus.ADVENTURING && this.status !== DungeonStatus.SUCCESS && this.status !== DungeonStatus.FAILURE) return;
             this.party.heroes.forEach(function (h) {
                 h.hp = h.maxHP();
@@ -10055,13 +11191,15 @@ var Dungeon = function () {
             return
         }
     }, {
-        key: "previousFloor", value: function previousFloor(refreshLater) {
+        key: "previousFloor",
+        value: function previousFloor(refreshLater) {
             if (this.type === "boss") return this.status = DungeonStatus.FAILURE;
             this.floor = Math.max(1, this.floor - 1);
             this.resetFloor(refreshLater)
         }
     }, {
-        key: "nextFloor", value: function nextFloor(refreshLater) {
+        key: "nextFloor",
+        value: function nextFloor(refreshLater) {
             if (this.type === "boss") {
                 this.maxFloor += 1;
                 if (this.id === "D410" && this.maxFloor === 1) setDialogOpen(DialogManager.findDialog("end_commendation"));
@@ -10080,7 +11218,8 @@ var Dungeon = function () {
             this.resetFloor(refreshLater)
         }
     }, {
-        key: "resetFloor", value: function resetFloor(refreshLater) {
+        key: "resetFloor",
+        value: function resetFloor(refreshLater) {
             var _this3 = this;
             this.mobs = [];
             this.setMobIDs();
@@ -10104,7 +11243,8 @@ var Dungeon = function () {
             if (DungeonManager.dungeonView === this.id) initiateDungeonFloor(this.id)
         }
     }, {
-        key: "bossHPStyling", value: function bossHPStyling() {
+        key: "bossHPStyling",
+        value: function bossHPStyling() {
             if (this.type !== "boss") return "0 (0%)";
             var boss = this.mobs.find(function (m) {
                 return m.event === "boss"
@@ -10112,12 +11252,14 @@ var Dungeon = function () {
             return "".concat(formatToUnits(boss.hp, 2), " (").concat(Math.round(100 * boss.hp / boss.maxHP()) + "%", ")")
         }
     }, {
-        key: "difficulty", value: function difficulty() {
+        key: "difficulty",
+        value: function difficulty() {
             if (this.type === "regular") return 0;
             return this.maxFloor
         }
     }, {
-        key: "buffTick", value: function buffTick(type, refreshLater) {
+        key: "buffTick",
+        value: function buffTick(type, refreshLater) {
             this.party.heroes.forEach(function (hero) {
                 hero.buffTick(type, null, refreshLater)
             });
@@ -10126,7 +11268,8 @@ var Dungeon = function () {
             })
         }
     }, {
-        key: "passiveCheck", value: function passiveCheck(type, refreshLater) {
+        key: "passiveCheck",
+        value: function passiveCheck(type, refreshLater) {
             this.party.heroes.forEach(function (hero) {
                 hero.passiveCheck(type, null, refreshLater)
             });
@@ -10135,11 +11278,13 @@ var Dungeon = function () {
             })
         }
     }, {
-        key: "getRewards", value: function getRewards() {
+        key: "getRewards",
+        value: function getRewards() {
             return new idAmt(this.mat, this.rewardAmt)
         }
     }, {
-        key: "unlocked", value: function unlocked() {
+        key: "unlocked",
+        value: function unlocked() {
             if (this.unlockedBy === null) return true;
             if (this.unlockedBy === "locked") return false;
             if (this.unlockedBy.charAt(0) === "A") return Shop.alreadyPurchased(this.unlockedBy);
@@ -10148,11 +11293,13 @@ var Dungeon = function () {
             return bossDungeon.beaten()
         }
     }, {
-        key: "beaten", value: function beaten() {
+        key: "beaten",
+        value: function beaten() {
             return this.maxFloor > 0
         }
     }, {
-        key: "addMob", value: function addMob(mobID, first) {
+        key: "addMob",
+        value: function addMob(mobID, first) {
             var refreshLater = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
             var mob = MobManager.generateMob(mobID, this);
             mob.dungeonid = this.id;
@@ -10168,7 +11315,8 @@ var Dungeon = function () {
             if (!refreshLater && DungeonManager.dungeonView === this.id) initiateDungeonFloor(this.id)
         }
     }, {
-        key: "removeMob", value: function removeMob(uniqueid) {
+        key: "removeMob",
+        value: function removeMob(uniqueid) {
             var refreshLater = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
             this.mobs = this.mobs.filter(function (m) {
                 return m.uniqueid !== uniqueid
@@ -10180,11 +11328,13 @@ var Dungeon = function () {
             if (!refreshLater && DungeonManager.dungeonView === this.id) initiateDungeonFloor(this.id)
         }
     }, {
-        key: "refreshDungeon", value: function refreshDungeon() {
+        key: "refreshDungeon",
+        value: function refreshDungeon() {
             if (DungeonManager.dungeonView === this.id) initiateDungeonFloor(this.id)
         }
     }, {
-        key: "allBuffs", value: function allBuffs() {
+        key: "allBuffs",
+        value: function allBuffs() {
             if (!this.party) return [];
             return this.party.heroes.map(function (h) {
                 return h.buffs
@@ -10193,7 +11343,8 @@ var Dungeon = function () {
             }))
         }
     }, {
-        key: "hasMember", value: function hasMember(heroID) {
+        key: "hasMember",
+        value: function hasMember(heroID) {
             if (this.party === null) return false;
             return this.party.hasMember(heroID)
         }
@@ -10201,7 +11352,12 @@ var Dungeon = function () {
     return Dungeon
 }();
 var DungeonManager = {
-    dungeons: [], trophies: [], dungeonView: null, speed: 1500, speedText: 1, createSave: function createSave() {
+    dungeons: [],
+    trophies: [],
+    dungeonView: null,
+    speed: 1500,
+    speedText: 1,
+    createSave: function createSave() {
         var save = {};
         save.dungeons = [];
         this.dungeons.forEach(function (d) {
@@ -10210,36 +11366,44 @@ var DungeonManager = {
         save.speed = this.speed;
         save.speedText = this.speedText;
         return save
-    }, loadSave: function loadSave(save) {
+    },
+    loadSave: function loadSave(save) {
         save.dungeons.forEach(function (d) {
             var dungeon = DungeonManager.dungeonByID(d.id);
             dungeon.loadSave(d)
         });
         if (save.speed !== undefined) this.speed = save.speed;
         if (save.speedText !== undefined) this.speedText = save.speedText
-    }, clearProgress: function clearProgress() {
+    },
+    clearProgress: function clearProgress() {
         this.dungeonView = null;
         this.dungeons.forEach(function (d) {
             return d.clearProgress()
         })
-    }, addDungeon: function addDungeon(dungeon) {
+    },
+    addDungeon: function addDungeon(dungeon) {
         this.dungeons.push(dungeon);
         AreaManager.addDungeon(dungeon)
-    }, addTrophy: function addTrophy(trophy) {
+    },
+    addTrophy: function addTrophy(trophy) {
         this.trophies.push(trophy)
-    }, idToTrophy: function idToTrophy(trophyID) {
+    },
+    idToTrophy: function idToTrophy(trophyID) {
         return this.trophies.find(function (t) {
             return t.id === trophyID
         })
-    }, addTime: function addTime(t) {
+    },
+    addTime: function addTime(t) {
         this.dungeons.forEach(function (dungeon) {
             dungeon.addTime(t)
         })
-    }, dungeonStatus: function dungeonStatus(dungeonID) {
+    },
+    dungeonStatus: function dungeonStatus(dungeonID) {
         return this.dungeons.find(function (d) {
             return d.id === dungeonID
         }).status
-    }, createDungeon: function createDungeon(dungeonID, floorSkip) {
+    },
+    createDungeon: function createDungeon(dungeonID, floorSkip) {
         var party = PartyCreator.lockParty();
         var dungeon = this.dungeonByID(dungeonID);
         dungeon.floor = floorSkip ? Math.max(1, dungeon.maxFloor) : 1;
@@ -10250,22 +11414,27 @@ var DungeonManager = {
         dungeon.initializeParty(party);
         dungeon.resetFloor();
         initializeSideBarDungeon()
-    }, dungeonByID: function dungeonByID(dungeonID) {
+    },
+    dungeonByID: function dungeonByID(dungeonID) {
         return this.dungeons.find(function (d) {
             return d.id === dungeonID
         })
-    }, dungeonByMat: function dungeonByMat(matID) {
+    },
+    dungeonByMat: function dungeonByMat(matID) {
         return this.dungeons.find(function (d) {
             return d.mat === matID
         })
-    }, abandonCurrentDungeon: function abandonCurrentDungeon() {
+    },
+    abandonCurrentDungeon: function abandonCurrentDungeon() {
         var dungeon = this.dungeonByID(this.dungeonView);
         dungeon.resetDungeon()
-    }, abandonAllDungeons: function abandonAllDungeons() {
+    },
+    abandonAllDungeons: function abandonAllDungeons() {
         this.dungeons.forEach(function (dungeon) {
             dungeon.resetDungeon()
         })
-    }, abandonDungeon: function abandonDungeon(areaID) {
+    },
+    abandonDungeon: function abandonDungeon(areaID) {
         var dungeon = this.dungeons.find(function (d) {
             return d.status === DungeonStatus.ADVENTURING && d.area === areaID
         });
@@ -10274,21 +11443,24 @@ var DungeonManager = {
             return true
         }
         return false
-    }, bossCount: function bossCount() {
+    },
+    bossCount: function bossCount() {
         var bossDung = this.dungeons.filter(function (d) {
             return d.type === "boss"
         });
         return bossDung.filter(function (d) {
             return d.maxFloor > 0
         }).length
-    }, bossRefightPerformed: function bossRefightPerformed() {
+    },
+    bossRefightPerformed: function bossRefightPerformed() {
         var bossDung = this.dungeons.filter(function (d) {
             return d.type === "boss"
         });
         return bossDung.some(function (d) {
             return d.maxFloor >= 2
         })
-    }, availableUpgrades: function availableUpgrades() {
+    },
+    availableUpgrades: function availableUpgrades() {
         var bossDung = this.dungeons.filter(function (d) {
             return d.type === "boss"
         }).map(function (d) {
@@ -10297,27 +11469,33 @@ var DungeonManager = {
         return bossDung.reduce(function (a, b) {
             return a + b
         })
-    }, beaten: function beaten(dungeonID) {
+    },
+    beaten: function beaten(dungeonID) {
         var dungeon = this.dungeonByID(dungeonID);
         return dungeon.beaten()
-    }, bossRefightUnlocked: function bossRefightUnlocked() {
+    },
+    bossRefightUnlocked: function bossRefightUnlocked() {
         return Shop.alreadyPurchased("AL3007")
-    }, heroLocked: function heroLocked(heroID) {
+    },
+    heroLocked: function heroLocked(heroID) {
         return this.dungeons.some(function (d) {
             return d.hasMember(heroID)
         })
-    }, availableSpeeds: function availableSpeeds() {
+    },
+    availableSpeeds: function availableSpeeds() {
         var speeds = [1];
         if (Shop.alreadyPurchased("AL2048")) speeds.push(2);
         if (Shop.alreadyPurchased("AL2049")) speeds.push(4);
         if (Shop.alreadyPurchased("AL2050")) speeds.push(8);
         return speeds
-    }, setSpeed: function setSpeed(spd) {
+    },
+    setSpeed: function setSpeed(spd) {
         var dungeon = this.dungeonByID(this.dungeonView);
         dungeon.dungeonTime = Math.floor(dungeon.dungeonTime / this.speed * Math.floor(1500 / spd));
         this.speedText = spd;
         this.speed = Math.floor(1500 / spd)
-    }, releaseHero: function releaseHero(heroid) {
+    },
+    releaseHero: function releaseHero(heroid) {
         var dungeon = this.dungeons.find(function (d) {
             return d.hasMember(heroid)
         });
@@ -10329,13 +11507,12 @@ function refreshDungeonDead(uniqueid) {
     if (!DungeonManager.dungeonView) return;
     var dungeon = DungeonManager.dungeonByID(DungeonManager.dungeonView);
     if (dungeon.mobs.map(function (m) {
-        return m.uniqueid
-    }).includes(uniqueid)) $("#dfm" + uniqueid).addClass("mobDead");
+            return m.uniqueid
+        }).includes(uniqueid)) $("#dfm" + uniqueid).addClass("mobDead");
     if (dungeon.party.heroes.map(function (h) {
-        return h.uniqueid
-    }).includes(uniqueid)) $("#dfc" + uniqueid).addClass("heroDead")
+            return h.uniqueid
+        }).includes(uniqueid)) $("#dfc" + uniqueid).addClass("heroDead")
 }
-
 var Trophy = function () {
     function Trophy(props) {
         _classCallCheck(this, Trophy);
@@ -10343,17 +11520,19 @@ var Trophy = function () {
         this.image = "<img src='assets/images/recipes/Trophies/" + this.id + ".png'>";
         this.dungeonRef = DungeonManager.dungeonByID(this.dungeon)
     }
-
     _createClass(Trophy, [{
-        key: "lvl", value: function lvl() {
+        key: "lvl",
+        value: function lvl() {
             return this.dungeonRef.maxFloor
         }
     }, {
-        key: "locked", value: function locked() {
+        key: "locked",
+        value: function locked() {
             return this.dungeonRef.maxFloor === 0
         }
     }, {
-        key: "updateTooltipValues", value: function updateTooltipValues() {
+        key: "updateTooltipValues",
+        value: function updateTooltipValues() {
             this.levelText = this.lvl().toString();
             this.trophyTooltip = displayText("trophy_desc_" + this.id);
             this.trophyTooltip = this.trophyTooltip.replace("{pow}", this.pow());
@@ -10364,28 +11543,33 @@ var Trophy = function () {
             this.trophyTooltip = this.trophyTooltip.replace("{hpIcon}", miscIcons.hp)
         }
     }, {
-        key: "pow", value: function pow() {
+        key: "pow",
+        value: function pow() {
             if (this.powScale === null) return 0;
             return Math.floor(this.powScale * this.powMod * Math.pow(1.3, this.lvl()))
         }
     }, {
-        key: "powSkill", value: function powSkill(skillID) {
+        key: "powSkill",
+        value: function powSkill(skillID) {
             if (skillID === undefined) return this.pow();
             if (skillID === "S0000") return this.pow() + this.normal();
             return this.pow() + this.special()
         }
     }, {
-        key: "hp", value: function hp() {
+        key: "hp",
+        value: function hp() {
             if (this.hpScale === null) return 0;
             return Math.floor(this.hpScale * this.hpMod * Math.pow(1.3, this.lvl()))
         }
     }, {
-        key: "normal", value: function normal() {
+        key: "normal",
+        value: function normal() {
             if (this.norScale === null) return 0;
             return Math.floor(this.norScale * this.norMod * Math.pow(1.3, this.lvl()))
         }
     }, {
-        key: "special", value: function special() {
+        key: "special",
+        value: function special() {
             if (this.speScale === null) return 0;
             return Math.floor(this.speScale * this.speMod * Math.pow(1.3, this.lvl()))
         }
@@ -10419,8 +11603,12 @@ function initializeAreaSelect() {
     var d = $("<div/>").addClass("headingTitle").html(displayText("header_adventure_areas_title")).appendTo(headingDetails);
     $("<div/>").addClass("questionTooltip tooltip").attr("data-tooltip", "shift_other_dungeon_overview").html(miscIcons.keyboard).appendTo(d);
     $("<div/>").addClass("headingDescription").html(displayText("header_adventure_areas_desc")).appendTo(headingDetails);
-    $("<div/>").addClass("dungeonAbandonAll actionButton").attr({id: "dAbandonAll"}).html(displayText("adventure_dungeon_abandon_all")).appendTo(adventureAreaHeaderContainer);
-    $("<div/>").addClass("areaListings").attr({id: "areaListings"}).appendTo($areaSelect)
+    $("<div/>").addClass("dungeonAbandonAll actionButton").attr({
+        id: "dAbandonAll"
+    }).html(displayText("adventure_dungeon_abandon_all")).appendTo(adventureAreaHeaderContainer);
+    $("<div/>").addClass("areaListings").attr({
+        id: "areaListings"
+    }).appendTo($areaSelect)
 }
 
 function refreshAreaSelect() {
@@ -10449,13 +11637,13 @@ function createAreaBlock(area) {
     });
     return d
 }
-
 $areaSelect.on("click", ".areaContainer", function (e) {
     e.preventDefault();
     var areaID = $(e.currentTarget).data("areaID");
     var openDungeon = true;
     if (e.shiftKey) openDungeon = !DungeonManager.abandonDungeon(areaID);
-    if (openDungeon) openTab("dungeons_" + areaID); else {
+    if (openDungeon) openTab("dungeons_" + areaID);
+    else {
         initializeSideBarDungeon();
         refreshAreaSelect()
     }
@@ -10486,7 +11674,6 @@ function showDungeon(dungeonID) {
     $dungeonRun.show();
     initiateDungeonFloor(dungeonID)
 }
-
 $dungeonAbandon.on("click", function (e) {
     e.preventDefault();
     DungeonManager.abandonCurrentDungeon();
@@ -10504,10 +11691,13 @@ var $combatFloorHelp = $("#combatFloorHelp");
 
 function initiateDungeonFloor(dungeonID) {
     if (DungeonManager.dungeonView !== dungeonID) return;
-    if (Tutorial.lvl === 30 && dungeonID === "D101") $(".dungeonAbandon").addClass("hasEvent"); else $("#dungeonAbandon").removeClass("hasEvent");
+    if (Tutorial.lvl === 30 && dungeonID === "D101") $(".dungeonAbandon").addClass("hasEvent");
+    else $("#dungeonAbandon").removeClass("hasEvent");
     var dungeon = DungeonManager.dungeonByID(DungeonManager.dungeonView);
     $dungeonRun.removeClass().addClass(dungeon.id);
-    $combatBackgroundContainer.css({backgroundImage: "url(assets/images/dungeonBackgrounds/".concat(dungeon.area, ".jpg)")});
+    $combatBackgroundContainer.css({
+        backgroundImage: "url(assets/images/dungeonBackgrounds/".concat(dungeon.area, ".jpg)")
+    });
     if (dungeon.type === "boss") {
         $dungeonRun.addClass("DBoss");
         $floorID.hide()
@@ -10550,7 +11740,6 @@ function initiateDungeonFloor(dungeonID) {
     showSpeedButtons();
     BuffRefreshManager.hardRefreshBuff()
 }
-
 var $dungeonSpeed = $("#dungeonSpeed");
 
 function showSpeedButtons() {
@@ -10560,7 +11749,6 @@ function showSpeedButtons() {
         if (DungeonManager.speedText === speed) d.addClass("highlight")
     })
 }
-
 $dungeonSpeed.on("click", ".dungeonSpeedButton", function (e) {
     e.preventDefault();
     var spd = $(e.currentTarget).data("spd");
@@ -10634,7 +11822,6 @@ function generatePassiveSkill(unit) {
     }).html(SkillManager.idToSkill(passiveID).icon).appendTo(d1);
     return d1
 }
-
 var $dungeonTab = $("#dungeonTab");
 
 function initializeSideBarDungeon() {
@@ -10720,7 +11907,6 @@ function createDungeonSidebarReward(dungeon) {
     };
     return d.append(generateProgressBar(options))
 }
-
 $dungeonBackButton.on("click", function (e) {
     e.preventDefault();
     openTab("dungeons_overview")
@@ -10748,7 +11934,6 @@ function _createClass(Constructor, protoProps, staticProps) {
     if (staticProps) _defineProperties(Constructor, staticProps);
     return Constructor
 }
-
 var $dtsHeader = $("#dtsHeader");
 var $dtsMobsCollection = $("#dtsMobsCollection");
 var $dtsDungeons = $("#dtsDungeons");
@@ -10766,41 +11951,47 @@ var Party = function () {
             return h.playbook.id
         })
     }
-
     _createClass(Party, [{
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
             save.heroID = this.heroID;
             return save
         }
     }, {
-        key: "hasMember", value: function hasMember(heroID) {
+        key: "hasMember",
+        value: function hasMember(heroID) {
             return this.heroID.includes(heroID)
         }
     }, {
-        key: "size", value: function size() {
+        key: "size",
+        value: function size() {
             return this.heroes.length
         }
     }, {
-        key: "alive", value: function alive() {
+        key: "alive",
+        value: function alive() {
             return this.heroes.some(function (hero) {
                 return !hero.dead()
             })
         }
     }, {
-        key: "isDead", value: function isDead() {
+        key: "isDead",
+        value: function isDead() {
             return this.heroes.every(function (hero) {
                 return hero.dead()
             })
         }
     }, {
-        key: "addTime", value: function addTime(t) {
+        key: "addTime",
+        value: function addTime(t) {
             this.heroes.forEach(function (h) {
                 h.addTime(t, dungeonID)
             })
         }
     }, {
-        key: "reset", value: function reset() {
+        key: "reset",
+        value: function reset() {
             this.heroes.forEach(function (hero) {
                 hero.removeBuffs();
                 hero.hp = hero.maxHP();
@@ -10839,8 +12030,8 @@ var PartyCreator = {
     },
     validTeam: function validTeam() {
         if (this.heroes.filter(function (h) {
-            return h !== null
-        }).length === 0) return false;
+                return h !== null
+            }).length === 0) return false;
         var heroesReal = this.heroes.filter(function (h) {
             return h !== null
         }).map(function (hid) {
@@ -10904,7 +12095,8 @@ var PartyCreator = {
 function startPartyCreation(partyStarted) {
     var area = PartyCreator.areaSelect;
     if (PartyCreator.dungeonSelect === null) {
-        if (area.lastVisitedDungeon === null) PartyCreator.setDungeon(area.lastOpen().id); else PartyCreator.setDungeon(area.lastVisitedDungeon)
+        if (area.lastVisitedDungeon === null) PartyCreator.setDungeon(area.lastOpen().id);
+        else PartyCreator.setDungeon(area.lastVisitedDungeon)
     }
     var dungeon = DungeonManager.dungeonByID(PartyCreator.dungeonSelect);
     if (!partyStarted) {
@@ -10918,7 +12110,11 @@ function startPartyCreation(partyStarted) {
         $("<div/>").addClass("dungeonAreaBanner").css("background", "url(assets/images/dungeonpreviews/".concat(area.id, ".jpg)")).appendTo($dtsHeader);
         $("<div/>").addClass("dungeonAreaTitle").html(dungeon.name).appendTo($dtsHeader);
         var partyLaunch = $("<div/>").addClass("partyLaunchButtonContainer").appendTo($dtsHeader);
-        if (dungeon.type === "boss" && !dungeon.beaten()) $("<div/>").attr("id", "dungeonTeamButtonBoss").addClass("dungeonTeamButton actionButton").html(displayText("adventure_launch_floor_boss")).appendTo(partyLaunch); else if (dungeon.type === "boss" && !DungeonManager.bossRefightUnlocked()) $("<div/>").addClass("dungeonTeamButtonLocked tooltip").attr({"data-tooltip": "boss_defeated"}).html("".concat(miscIcons.skull, " ").concat(displayText("adventure_launch_floor_boss_defeated"))).appendTo(partyLaunch); else if (dungeon.type === "boss" && DungeonManager.bossRefightUnlocked()) {
+        if (dungeon.type === "boss" && !dungeon.beaten()) $("<div/>").attr("id", "dungeonTeamButtonBoss").addClass("dungeonTeamButton actionButton").html(displayText("adventure_launch_floor_boss")).appendTo(partyLaunch);
+        else if (dungeon.type === "boss" && !DungeonManager.bossRefightUnlocked()) $("<div/>").addClass("dungeonTeamButtonLocked tooltip").attr({
+            "data-tooltip": "boss_defeated"
+        }).html("".concat(miscIcons.skull, " ").concat(displayText("adventure_launch_floor_boss_defeated"))).appendTo(partyLaunch);
+        else if (dungeon.type === "boss" && DungeonManager.bossRefightUnlocked()) {
             var button = $("<div/>").addClass("dungeonTeamButton actionButton tooltip").attr({
                 id: "dungeonTeamButtonBoss",
                 "data-tooltip": "boss_refight"
@@ -10937,8 +12133,12 @@ function startPartyCreation(partyStarted) {
     $dtsDungeons.empty();
     area.dungeons.forEach(function (dungeon) {
         if (!dungeon.unlocked()) {
-            var e = $("<div/>").addClass("dtsDungeon dtsLocked tooltip").attr({"data-tooltip": "dungeon_locked"}).appendTo($dtsDungeons);
-            if (dungeon.type === "boss") e.attr({"data-tooltip": "dungeon_locked_boss"});
+            var e = $("<div/>").addClass("dtsDungeon dtsLocked tooltip").attr({
+                "data-tooltip": "dungeon_locked"
+            }).appendTo($dtsDungeons);
+            if (dungeon.type === "boss") e.attr({
+                "data-tooltip": "dungeon_locked_boss"
+            });
             $("<div/>").addClass("dtsMaterial").html(miscIcons.locked).appendTo(e);
             $("<div/>").addClass("dtsDungeonName").html("".concat(displayText("universal_locked"))).appendTo(e);
             return
@@ -11006,7 +12206,6 @@ function toggleMobsPreview() {
         PartyCreator.mobPartyHidden = true
     }
 }
-
 $mobsToggleButton.on("click", function (e) {
     e.preventDefault();
     toggleMobsPreview()
@@ -11097,15 +12296,21 @@ function characterCard(hero, isShadow, partySelector) {
     powStatValue.html("".concat(hero.getPow())).appendTo(powStat);
     heroStatsContainer.appendTo(d3);
     if (hero.state() === HeroState.DUNGEON) {
-        $("<div/>").addClass("heroStatus tooltip statusDungeon").attr({"data-tooltip": "hero_in_combat"}).html('<i class="fas fa-swords"></i>').appendTo(dclick);
+        $("<div/>").addClass("heroStatus tooltip statusDungeon").attr({
+            "data-tooltip": "hero_in_combat"
+        }).html('<i class="fas fa-swords"></i>').appendTo(dclick);
         d.addClass("partyNoClick")
     }
     if (PartyCreator.heroes.includes(hero.uniqueid) && !partySelector) {
-        $("<div/>").addClass("heroStatus tooltip statusParty").attr({"data-tooltip": "hero_in_party"}).html('<i class="fas fa-check"></i>').appendTo(dclick);
+        $("<div/>").addClass("heroStatus tooltip statusParty").attr({
+            "data-tooltip": "hero_in_party"
+        }).html('<i class="fas fa-check"></i>').appendTo(dclick);
         d.addClass("partyNoClick")
     }
     if (hero.state() === HeroState.QUEST) {
-        $("<div/>").addClass("heroStatus tooltip statusQuest").attr({"data-tooltip": "hero_in_quest"}).html("".concat(miscIcons.quest)).appendTo(dclick);
+        $("<div/>").addClass("heroStatus tooltip statusQuest").attr({
+            "data-tooltip": "hero_in_quest"
+        }).html("".concat(miscIcons.quest)).appendTo(dclick);
         d.addClass("partyNoClick")
     }
     return d
@@ -11120,7 +12325,9 @@ function renderHeroDialogActions(hero) {
 
 function setHeroDialogOpen(heroID) {
     var hero = HeroManager.idToHero(heroID);
-    var dialogContainer = $("<div/>").attr({id: "dialogContainer"}).addClass("dialogContainer").appendTo(document.body);
+    var dialogContainer = $("<div/>").attr({
+        id: "dialogContainer"
+    }).addClass("dialogContainer").appendTo(document.body);
     var dialogBoxContainer = $("<div/>").addClass("heroPlaybookDialog dialogContent dialogOpening").appendTo(dialogContainer);
     var dialogClose = $("<div/>").attr({
         role: "button",
@@ -11137,7 +12344,6 @@ function setHeroDialogOpen(heroID) {
     settings.dialogStatus = 1;
     saveSettings()
 }
-
 $areaTeamSelect.on("click", ".heroPlaybook", function (e) {
     e.stopPropagation();
     var id = $(e.currentTarget).attr("data-dialog-id");
@@ -11154,7 +12360,6 @@ function mobCard(mobID) {
     generatePassiveSkill(mob).appendTo(d);
     return d
 }
-
 "use strict";
 
 function _slicedToArray(arr, i) {
@@ -11194,32 +12399,43 @@ function _iterableToArrayLimit(arr, i) {
 function _arrayWithHoles(arr) {
     if (Array.isArray(arr)) return arr
 }
-
-var WorkerType = Object.freeze({COG: "COG", WEAPON: "WEAPON", ARMOR: "ARMOR", JEWEL: "JEWEL"});
+var WorkerType = Object.freeze({
+    COG: "COG",
+    WEAPON: "WEAPON",
+    ARMOR: "ARMOR",
+    JEWEL: "JEWEL"
+});
 var WorkerManager = {
-    canProduceBucket: {}, workersUnlocked: function workersUnlocked(type) {
+    canProduceBucket: {},
+    workersUnlocked: function workersUnlocked(type) {
         var extra = type === WorkerType.COG ? 1 : 0;
         return Shop.boughtPerkSubtype(type).length + extra
-    }, workersFree: function workersFree(type) {
+    },
+    workersFree: function workersFree(type) {
         var usage = actionSlotManager.workersUsed(type);
         return this.workersUnlocked(type) - usage
-    }, couldCraft: function couldCraft(item) {
+    },
+    couldCraft: function couldCraft(item) {
         var needBucket = groupArray(item.gcost);
         for (var _i = 0, _Object$entries = Object.entries(needBucket); _i < _Object$entries.length; _i++) {
-            var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2), type = _Object$entries$_i[0],
+            var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+                type = _Object$entries$_i[0],
                 amt = _Object$entries$_i[1];
             if (this.workersUnlocked(type) < amt) return false
         }
         return true
-    }, canCurrentlyCraft: function canCurrentlyCraft(item) {
+    },
+    canCurrentlyCraft: function canCurrentlyCraft(item) {
         var needBucket = groupArray(item.gcost);
         for (var _i2 = 0, _Object$entries2 = Object.entries(needBucket); _i2 < _Object$entries2.length; _i2++) {
-            var _Object$entries2$_i = _slicedToArray(_Object$entries2[_i2], 2), type = _Object$entries2$_i[0],
+            var _Object$entries2$_i = _slicedToArray(_Object$entries2[_i2], 2),
+                type = _Object$entries2$_i[0],
                 amt = _Object$entries2$_i[1];
             if (this.workersFree(type) < amt) return false
         }
         return true
-    }, freeWorkers: function freeWorkers() {
+    },
+    freeWorkers: function freeWorkers() {
         return {
             COG: this.workersFree(WorkerType.COG),
             JEWEL: this.workersFree(WorkerType.JEWEL),
@@ -11246,16 +12462,23 @@ function refreshSideWorkers() {
     $WeaponWorkerFree.html(weaponFree);
     $ArmorWorkerFree.html(armorFree);
     $JewelWorkerFree.html(jewelFree);
-    if (cogFree > 0) $CogWorkersSide.removeClass("noWorkersAvailable"); else $CogWorkersSide.addClass("noWorkersAvailable");
-    if (weaponFree > 0) $WeaponWorkersSide.removeClass("noWorkersAvailable"); else $WeaponWorkersSide.addClass("noWorkersAvailable");
-    if (armorFree > 0) $ArmorWorkersSide.removeClass("noWorkersAvailable"); else $ArmorWorkersSide.addClass("noWorkersAvailable");
-    if (jewelFree > 0) $JewelWorkersSide.removeClass("noWorkersAvailable"); else $JewelWorkersSide.addClass("noWorkersAvailable");
-    if (WorkerManager.workersUnlocked(WorkerType.COG) > 0) $CogWorkersSide.show(); else $CogWorkersSide.hide();
-    if (WorkerManager.workersUnlocked(WorkerType.WEAPON) > 0) $WeaponWorkersSide.show(); else $WeaponWorkersSide.hide();
-    if (WorkerManager.workersUnlocked(WorkerType.ARMOR) > 0) $ArmorWorkersSide.show(); else $ArmorWorkersSide.hide();
-    if (WorkerManager.workersUnlocked(WorkerType.JEWEL) > 0) $JewelWorkersSide.show(); else $JewelWorkersSide.hide()
+    if (cogFree > 0) $CogWorkersSide.removeClass("noWorkersAvailable");
+    else $CogWorkersSide.addClass("noWorkersAvailable");
+    if (weaponFree > 0) $WeaponWorkersSide.removeClass("noWorkersAvailable");
+    else $WeaponWorkersSide.addClass("noWorkersAvailable");
+    if (armorFree > 0) $ArmorWorkersSide.removeClass("noWorkersAvailable");
+    else $ArmorWorkersSide.addClass("noWorkersAvailable");
+    if (jewelFree > 0) $JewelWorkersSide.removeClass("noWorkersAvailable");
+    else $JewelWorkersSide.addClass("noWorkersAvailable");
+    if (WorkerManager.workersUnlocked(WorkerType.COG) > 0) $CogWorkersSide.show();
+    else $CogWorkersSide.hide();
+    if (WorkerManager.workersUnlocked(WorkerType.WEAPON) > 0) $WeaponWorkersSide.show();
+    else $WeaponWorkersSide.hide();
+    if (WorkerManager.workersUnlocked(WorkerType.ARMOR) > 0) $ArmorWorkersSide.show();
+    else $ArmorWorkersSide.hide();
+    if (WorkerManager.workersUnlocked(WorkerType.JEWEL) > 0) $JewelWorkersSide.show();
+    else $JewelWorkersSide.hide()
 }
-
 "use strict";
 
 function _classCallCheck(instance, Constructor) {
@@ -11279,28 +12502,32 @@ function _createClass(Constructor, protoProps, staticProps) {
     if (staticProps) _defineProperties(Constructor, staticProps);
     return Constructor
 }
-
 var EnchantManager = {
-    enchants: [], createSave: function createSave() {
+    enchants: [],
+    createSave: function createSave() {
         var save = {};
         save.enchants = [];
         this.enchants.forEach(function (e) {
             return save.enchants.push(e.createSave())
         });
         return save
-    }, loadSave: function loadSave(save) {
+    },
+    loadSave: function loadSave(save) {
         var _this = this;
         save.enchants.forEach(function (enchantSave) {
             var enchant = _this.idToEnchant(enchantSave.id);
             enchant.loadSave(enchantSave)
         })
-    }, addEnchant: function addEnchant(enchant) {
+    },
+    addEnchant: function addEnchant(enchant) {
         this.enchants.push(enchant)
-    }, idToEnchant: function idToEnchant(id) {
+    },
+    idToEnchant: function idToEnchant(id) {
         return this.enchants.find(function (e) {
             return e.id === id
         })
-    }, enchantItem: function enchantItem(container, eid) {
+    },
+    enchantItem: function enchantItem(container, eid) {
         var enchant = this.idToEnchant(eid);
         if (!enchant.types.includes(container.type)) return;
         var amt = enchant.enchantCost[container.lvl];
@@ -11317,24 +12544,27 @@ var Enchantment = function () {
         this.enchantCost = [this.t1, this.t2, this.t3, this.t4, this.t5, this.t6, this.t7, this.t8, this.t9, this.t10];
         this.element = this.elementConvert(this.elementName)
     }
-
     _createClass(Enchantment, [{
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
             save.id = this.id;
             save.owned = this.owned;
             return save
         }
     }, {
-        key: "loadSave", value: function loadSave(save) {
+        key: "loadSave",
+        value: function loadSave(save) {
             this.owned = save.owned
         }
     }, {
-        key: "own", value: function own() {
+        key: "own",
+        value: function own() {
             this.owned = true
         }
     }, {
-        key: "elementConvert", value: function elementConvert(name) {
+        key: "elementConvert",
+        value: function elementConvert(name) {
             if (name === "sugar") return EnchantType.TYPE1;
             if (name === "spice") return EnchantType.TYPE2;
             if (name === "everything") return EnchantType.TYPE3;
@@ -11426,8 +12656,12 @@ function _createClass(Constructor, protoProps, staticProps) {
     if (staticProps) _defineProperties(Constructor, staticProps);
     return Constructor
 }
-
-var RuneType = Object.freeze({NONE: 0, FIRE: 1, WATER: 2, THUNDER: 3});
+var RuneType = Object.freeze({
+    NONE: 0,
+    FIRE: 1,
+    WATER: 2,
+    THUNDER: 3
+});
 var equipContainerTarget = null;
 var $ietEquip = $("#ietEquip");
 var $ietHero = $("#ietHero");
@@ -11475,14 +12709,15 @@ var itemContainer = function () {
         Inventory.containernum += 1;
         this.refreshTooltipValues()
     }
-
     _createClass(itemContainer, [{
-        key: "uniqueID", value: function uniqueID() {
+        key: "uniqueID",
+        value: function uniqueID() {
             var result = this.id + "_" + this.rarity + "_" + this.sharp + "_" + this.rune + "_" + this.isTransformed();
             return result
         }
     }, {
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
             save.id = this.id;
             save.rarity = this.rarity;
@@ -11495,7 +12730,8 @@ var itemContainer = function () {
             return save
         }
     }, {
-        key: "loadSave", value: function loadSave(save) {
+        key: "loadSave",
+        value: function loadSave(save) {
             this.sharp = Math.min(save.sharp, bloopSmith.maxSharp());
             if (save.scale !== undefined) this.scale = save.scale;
             if (save.powRatio !== undefined) this.powRatio = save.powRatio;
@@ -11504,7 +12740,8 @@ var itemContainer = function () {
             if (save.qty !== undefined) this.qty = save.qty
         }
     }, {
-        key: "picName", value: function picName(skipPic) {
+        key: "picName",
+        value: function picName(skipPic) {
             var shortName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
             var itemNameContainer = $("<div/>").addClass("itemNameContainer");
             if (!skipPic) $("<div/>").addClass("itemImage").html(this.item.itemPic()).appendTo(itemNameContainer);
@@ -11513,74 +12750,92 @@ var itemContainer = function () {
             if (this.getRunePrefix()) $("<div/>").addClass("itemPrefix runePrefix").html(this.getRunePrefix()).appendTo(itemPrefixContainer);
             if (this.prefix()) $("<div/>").addClass("itemPrefix statPrefix").html(this.prefix()).appendTo(itemPrefixContainer);
             var itemName = $("<div/>").addClass("itemNameTitle").appendTo(itemNameContainer);
-            if (shortName) itemName.html(shortenName(this.item.name, 10)); else itemName.html(this.item.name);
+            if (shortName) itemName.html(shortenName(this.item.name, 10));
+            else itemName.html(this.item.name);
             return itemNameContainer
         }
     }, {
-        key: "getRunePrefix", value: function getRunePrefix() {
+        key: "getRunePrefix",
+        value: function getRunePrefix() {
             if (this.rune === RuneType.FIRE) return '<span class="item-prefix">'.concat(miscIcons.fireRune, "</span>");
             if (this.rune === RuneType.WATER) return '<span class="item-prefix">'.concat(miscIcons.waterRune, "</span>");
             if (this.rune === RuneType.THUNDER) return '<span class="item-prefix">'.concat(miscIcons.thunderRune, "</span>");
             return ""
         }
     }, {
-        key: "picNamePlus", value: function picNamePlus(skipPic) {
+        key: "picNamePlus",
+        value: function picNamePlus(skipPic) {
             var shortName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
             var itemNameContainer = $("<div/>").addClass("itemNameContainer");
             if (!skipPic) $("<div/>").addClass("itemImage").html(this.item.itemPic()).appendTo(itemNameContainer);
             var itemPrefixContainer = $("<div/>").addClass("itemPrefixContainer").appendTo(itemNameContainer);
-            if (bloopSmith.smithType === SmithType.ENHANCE) $("<div/>").addClass("itemPrefix sharpnessPrefix").html("".concat(miscIcons.enhancement).concat(this.sharp + 1)).appendTo(itemPrefixContainer); else if (this.sharp > 0) $("<div/>").addClass("itemPrefix sharpnessPrefix").html("".concat(miscIcons.enhancement).concat(this.sharp)).appendTo(itemPrefixContainer);
-            if (bloopSmith.smithType === SmithType.FIRE) $("<div/>").addClass("itemPrefix runePrefix").html(miscIcons.fireRune).appendTo(itemPrefixContainer); else if (bloopSmith.smithType === SmithType.WATER) $("<div/>").addClass("itemPrefix runePrefix").html(miscIcons.waterRune).appendTo(itemPrefixContainer); else if (bloopSmith.smithType === SmithType.THUNDER) $("<div/>").addClass("itemPrefix runePrefix").html(miscIcons.thunderRune).appendTo(itemPrefixContainer); else if (this.getRunePrefix()) $("<div/>").addClass("itemPrefix runePrefix").html(this.getRunePrefix()).appendTo(itemPrefixContainer);
+            if (bloopSmith.smithType === SmithType.ENHANCE) $("<div/>").addClass("itemPrefix sharpnessPrefix").html("".concat(miscIcons.enhancement).concat(this.sharp + 1)).appendTo(itemPrefixContainer);
+            else if (this.sharp > 0) $("<div/>").addClass("itemPrefix sharpnessPrefix").html("".concat(miscIcons.enhancement).concat(this.sharp)).appendTo(itemPrefixContainer);
+            if (bloopSmith.smithType === SmithType.FIRE) $("<div/>").addClass("itemPrefix runePrefix").html(miscIcons.fireRune).appendTo(itemPrefixContainer);
+            else if (bloopSmith.smithType === SmithType.WATER) $("<div/>").addClass("itemPrefix runePrefix").html(miscIcons.waterRune).appendTo(itemPrefixContainer);
+            else if (bloopSmith.smithType === SmithType.THUNDER) $("<div/>").addClass("itemPrefix runePrefix").html(miscIcons.thunderRune).appendTo(itemPrefixContainer);
+            else if (this.getRunePrefix()) $("<div/>").addClass("itemPrefix runePrefix").html(this.getRunePrefix()).appendTo(itemPrefixContainer);
             if (this.prefix()) $("<div/>").addClass("itemPrefix statPrefix").html(this.prefix()).appendTo(itemPrefixContainer);
             var itemName = $("<div/>").addClass("itemNameTitle").appendTo(itemNameContainer);
-            if (shortName) itemName.html(shortenName(this.item.name, 10)); else itemName.html(this.item.name);
+            if (shortName) itemName.html(shortenName(this.item.name, 10));
+            else itemName.html(this.item.name);
             return itemNameContainer
         }
     }, {
-        key: "itemLevel", value: function itemLevel() {
+        key: "itemLevel",
+        value: function itemLevel() {
             if (this.scale > 0) return '<div class="level_text">'.concat(miscIcons.star, '</div><div class="level_integer">').concat(this.scale, "</div>");
             return '<div class="level_text">LVL</div><div class="level_integer">'.concat(this.lvl, "</div>")
         }
     }, {
-        key: "pow", value: function pow() {
+        key: "pow",
+        value: function pow() {
             var sharpIncrease = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
             var ratioMod = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
             return this.statCalc(Math.max(0, this.powRatio + ratioMod) * this.pts, sharpIncrease)
         }
     }, {
-        key: "hp", value: function hp() {
+        key: "hp",
+        value: function hp() {
             var sharpIncrease = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
             var ratioMod = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
             return this.statCalc(Math.max(0, 9 * (this.hpRatio + ratioMod)) * this.pts, sharpIncrease)
         }
     }, {
-        key: "statCalc", value: function statCalc(flat, sharpIncrease) {
+        key: "statCalc",
+        value: function statCalc(flat, sharpIncrease) {
             var sharpAdd = sharpIncrease ? 1 : 0;
             return Math.floor(flat * miscLoadedValues.rarityMod[this.rarity] * (1 + .05 * (this.sharp + sharpAdd)))
         }
     }, {
-        key: "goldValueFormatted", value: function goldValueFormatted() {
+        key: "goldValueFormatted",
+        value: function goldValueFormatted() {
             return "".concat(ResourceManager.materialIcon("M001"), ' <span class="goldValue">').concat(formatToUnits(this.goldValue(), 2), "</span>")
         }
     }, {
-        key: "goldValue", value: function goldValue() {
+        key: "goldValue",
+        value: function goldValue() {
             return Math.round(this.item.value * (this.rarity + 1) * (1 + this.sharp * .1))
         }
     }, {
-        key: "material", value: function material() {
+        key: "material",
+        value: function material() {
             if (!this.item.mcost) return "M201";
             return Object.keys(this.item.mcost)[0]
         }
     }, {
-        key: "fortuneMaterial", value: function fortuneMaterial() {
+        key: "fortuneMaterial",
+        value: function fortuneMaterial() {
             return this.item.smithCost
         }
     }, {
-        key: "deconType", value: function deconType() {
+        key: "deconType",
+        value: function deconType() {
             return this.item.deconType
         }
     }, {
-        key: "itemStat", value: function itemStat() {
+        key: "itemStat",
+        value: function itemStat() {
             var sharpIncrease = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
             var powRatio = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
             var hpRatio = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
@@ -11590,12 +12845,14 @@ var itemContainer = function () {
             return stats
         }
     }, {
-        key: "prefix", value: function prefix() {
+        key: "prefix",
+        value: function prefix() {
             if (this.powRatio === this.item.pow && this.hpRatio === this.item.hp) return null;
             return "".concat(adjective[this.powRatio.toString() + this.hpRatio.toString()], " ")
         }
     }, {
-        key: "transform", value: function transform() {
+        key: "transform",
+        value: function transform() {
             if (this.powRatio === 3) {
                 this.powRatio = 0;
                 this.hpRatio = 3
@@ -11605,20 +12862,24 @@ var itemContainer = function () {
             }
         }
     }, {
-        key: "isTransformed", value: function isTransformed() {
+        key: "isTransformed",
+        value: function isTransformed() {
             if (this.powRatio === this.item.pow && this.hpRatio === this.item.hp) return "0";
             return "1"
         }
     }, {
-        key: "hasRune", value: function hasRune() {
+        key: "hasRune",
+        value: function hasRune() {
             return this.rune !== RuneType.NONE
         }
     }, {
-        key: "changeQty", value: function changeQty(amt) {
+        key: "changeQty",
+        value: function changeQty(amt) {
             this.qty += amt
         }
     }, {
-        key: "refreshTooltipValues", value: function refreshTooltipValues() {
+        key: "refreshTooltipValues",
+        value: function refreshTooltipValues() {
             var _this$prefix;
             this.powIcon = miscIcons.pow;
             this.hpIcon = miscIcons.hp;
@@ -11630,7 +12891,8 @@ var itemContainer = function () {
             this.rarityTT = rarities[this.rarity];
             if (this.type === "Trinkets") return;
             this.desynth = Math.floor(this.item.craftTime / 4e3 * miscLoadedValues.fuelGainRate[this.rarity - 1]);
-            if (this.rarity === 0) this.resynth = Math.max(1, Math.floor(this.item.craftTime / 4e3 * .5)); else Math.floor(this.item.craftTime / 4e3 * miscLoadedValues.fuelGainRate[this.rarity - 1]);
+            if (this.rarity === 0) this.resynth = Math.max(1, Math.floor(this.item.craftTime / 4e3 * .5));
+            else Math.floor(this.item.craftTime / 4e3 * miscLoadedValues.fuelGainRate[this.rarity - 1]);
             var forgeparams = bloopSmith.getSmithCost(this, SmithType.ENHANCE);
             this.forge_gold = "".concat(miscIcons.gold, "&nbsp;").concat(formatToUnits(forgeparams.gold, 2));
             this.forge_material = "".concat(ResourceManager.idToMaterial(this.item.smithCost).img, "&nbsp;").concat(forgeparams.resAmt);
@@ -11642,17 +12904,33 @@ var itemContainer = function () {
     }]);
     return itemContainer
 }();
-var adjective = {30: "Powerful", "03": "Bulky"};
-var rarities = {0: "Common", 1: "Good", 2: "Great", 3: "Epic"};
-var blankItemStat = {pow: 0, hp: 0};
+var adjective = {
+    30: "Powerful",
+    "03": "Bulky"
+};
+var rarities = {
+    0: "Common",
+    1: "Good",
+    2: "Great",
+    3: "Epic"
+};
+var blankItemStat = {
+    pow: 0,
+    hp: 0
+};
 var Inventory = {
-    inv: [], autosort: false, containernum: 0, sideInvTabPref: "info", createSave: function createSave() {
+    inv: [],
+    autosort: false,
+    containernum: 0,
+    sideInvTabPref: "info",
+    createSave: function createSave() {
         var save = [];
         this.inv.forEach(function (i) {
             save.push(i.createSave())
         });
         return save
-    }, loadSave: function loadSave(save) {
+    },
+    loadSave: function loadSave(save) {
         var _this = this;
         save.forEach(function (item) {
             if (item === null) return;
@@ -11660,14 +12938,17 @@ var Inventory = {
             container.loadSave(item);
             _this.inv.push(container)
         })
-    }, clearProgress: function clearProgress() {
+    },
+    clearProgress: function clearProgress() {
         this.inv = []
-    }, invMax: function invMax() {
+    },
+    invMax: function invMax() {
         if (!Shop.alreadyPurchased("AL3004")) return 10;
         if (!Shop.alreadyPurchased("AL3008")) return 13;
         if (!Shop.alreadyPurchased("AL3017")) return 16;
         return 20
-    }, addToInventory: function addToInventory(uniqueID) {
+    },
+    addToInventory: function addToInventory(uniqueID) {
         var amt = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
         var skipAnimation = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
         if (Merchant.canContribute(uniqueID)) {
@@ -11687,7 +12968,8 @@ var Inventory = {
         if (this.autosort) this.sortInventory();
         if (!skipAnimation) refreshInventoryPlaces(uniqueID);
         return container
-    }, craftRecipe: function craftRecipe(id, skipAnimation) {
+    },
+    craftRecipe: function craftRecipe(id, skipAnimation) {
         if (TownManager.buildingRecipes().includes(id)) return TownManager.unlockBldg(id);
         var item = recipeList.idToItem(id);
         var isTrinket = item.type === "Trinkets";
@@ -11696,7 +12978,13 @@ var Inventory = {
             refreshCraftedCount(item)
         }
         var roll = Math.floor(Math.random() * 1e4);
-        var sellToggleChart = {None: 0, Common: 1, Good: 2, Great: 3, Epic: 4};
+        var sellToggleChart = {
+            None: 0,
+            Common: 1,
+            Good: 2,
+            Great: 3,
+            Epic: 4
+        };
         var sellToggle = sellToggleChart[item.autoSell];
         var procRate = this.craftChance(item);
         if (item.type === "Trinkets") roll = 0;
@@ -11727,7 +13015,8 @@ var Inventory = {
             } else this.sellByUID("".concat(id, "_0_0_0_0"), skipAnimation);
             achievementStats.craftedItem("Common", skipAnimation)
         }
-    }, craftChance: function craftChance(item) {
+    },
+    craftChance: function craftChance(item) {
         var masterMod = item.isMastered() ? 2 : 1;
         var fortuneMod = FortuneManager.getProcModifier(item.type, item.lvl);
         var mods = {};
@@ -11735,7 +13024,8 @@ var Inventory = {
         mods.great = miscLoadedValues.qualityCheck[2] * Museum.greatChance(item.id) * masterMod * fortuneMod[1];
         mods.epic = miscLoadedValues.qualityCheck[3] * Museum.epicChance(item.id) * masterMod * fortuneMod[2];
         return mods
-    }, grabFromInventory: function grabFromInventory(uniqueID, qty, skipAnimation) {
+    },
+    grabFromInventory: function grabFromInventory(uniqueID, qty, skipAnimation) {
         var container = this.findContainer(uniqueID);
         if (container === undefined) return undefined;
         if (container.qty > qty) {
@@ -11751,7 +13041,8 @@ var Inventory = {
         if (this.autosort) this.sortInventory();
         if (!skipAnimation) refreshInventoryPlaces(uniqueID);
         return container
-    }, removeFromInventory: function removeFromInventory(uniqueID, qty, skipAnimation) {
+    },
+    removeFromInventory: function removeFromInventory(uniqueID, qty, skipAnimation) {
         var container = this.findContainer(uniqueID);
         if (container === undefined) return;
         if (container.qty > qty) {
@@ -11764,11 +13055,13 @@ var Inventory = {
         });
         if (this.autosort) this.sortInventory();
         if (!skipAnimation) refreshInventoryPlaces(uniqueID)
-    }, findContainer: function findContainer(uniqueID) {
+    },
+    findContainer: function findContainer(uniqueID) {
         return this.inv.find(function (c) {
             return c.uniqueID() === uniqueID
         })
-    }, sellByUID: function sellByUID(uniqueID, skipAnimation) {
+    },
+    sellByUID: function sellByUID(uniqueID, skipAnimation) {
         if (Merchant.canContribute(uniqueID)) {
             Merchant.autoContribute(uniqueID);
             return
@@ -11781,7 +13074,8 @@ var Inventory = {
         }
         achievementStats.gold(gold, skipAnimation);
         ResourceManager.addMaterial("M001", gold, skipAnimation)
-    }, sellQty: function sellQty(q) {
+    },
+    sellQty: function sellQty(q) {
         var container = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Inventory.sideInspect;
         var qty = Math.min(q, container.qty);
         var gold = container.goldValue();
@@ -11792,25 +13086,31 @@ var Inventory = {
         }
         achievementStats.gold(gold * qty);
         ResourceManager.addMaterial("M001", gold * qty)
-    }, sellAll: function sellAll(uniqueID) {
+    },
+    sellAll: function sellAll(uniqueID) {
         var container = this.findContainer(uniqueID);
         this.sellQty(container.qty, container)
-    }, equipHero: function equipHero(heroID) {
+    },
+    equipHero: function equipHero(heroID) {
         var uniqueID = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Inventory.sideInspect.uniqueID();
         var container = this.grabFromInventory(uniqueID, 1, false);
         HeroManager.equipItem(heroID, container)
-    }, listbyType: function listbyType(type) {
+    },
+    listbyType: function listbyType(type) {
         return this.inv.filter(function (r) {
             return r.type === type
         })
-    }, inventoryCount: function inventoryCount() {
+    },
+    inventoryCount: function inventoryCount() {
         return this.inv.length
-    }, sortInventory: function sortInventory() {
+    },
+    sortInventory: function sortInventory() {
         this.inv.sort(function (a, b) {
             return inventorySort(a, b)
         });
         refreshInventoryPlaces()
-    }, getMaxPowByType: function getMaxPowByType(type) {
+    },
+    getMaxPowByType: function getMaxPowByType(type) {
         var pows = this.inv.filter(function (i) {
             return i.type === type
         }).map(function (p) {
@@ -11818,7 +13118,8 @@ var Inventory = {
         });
         if (pows.length === 0) return 0;
         return Math.max.apply(Math, _toConsumableArray(pows))
-    }, getMaxHPByType: function getMaxHPByType(type) {
+    },
+    getMaxHPByType: function getMaxHPByType(type) {
         var hps = this.inv.filter(function (i) {
             return i.type === type
         }).map(function (p) {
@@ -11826,7 +13127,8 @@ var Inventory = {
         });
         if (hps.length === 0) return 0;
         return Math.max.apply(Math, _toConsumableArray(hps))
-    }, sellCommons: function sellCommons() {
+    },
+    sellCommons: function sellCommons() {
         var _this2 = this;
         var commonContainers = this.inv.filter(function (c) {
             return c.rarity === 0 && c.item.recipeType === "normal"
@@ -11835,24 +13137,29 @@ var Inventory = {
             return _this2.sellQty(container.qty, container)
         });
         refreshInventoryPlaces()
-    }, getFusePossibilities: function getFusePossibilities() {
+    },
+    getFusePossibilities: function getFusePossibilities() {
         return this.inv.filter(function (container) {
             return container.item.type === "normal" && container.qty >= 3
         })
-    }, itemCount: function itemCount(uniqueID) {
+    },
+    itemCount: function itemCount(uniqueID) {
         var container = this.findContainer(uniqueID);
         if (container === undefined) return 0;
         return this.findContainer(uniqueID).qty
-    }, fortuneTargets: function fortuneTargets() {
+    },
+    fortuneTargets: function fortuneTargets() {
         return this.inv.filter(function (i) {
             return i.rarity < 3 && i.item.recipeType === "normal"
         })
-    }, betterThan: function betterThan(uniqueID) {
+    },
+    betterThan: function betterThan(uniqueID) {
         var props = createContainerFromUniqueID(uniqueID);
         return this.inv.filter(function (o) {
             return o.id === props.id && o.rarity >= props.rarity && o.sharp >= props.sharp
         })
-    }, cycleAC: function cycleAC(uniqueID) {
+    },
+    cycleAC: function cycleAC(uniqueID) {
         for (var i = 0; i < this.inv.length; i++) {
             var container = this.inv[i];
             if (container === null) continue;
@@ -11861,7 +13168,8 @@ var Inventory = {
             Merchant.autoContribute(container)
         }
         if (this.autosort) this.sortInventory()
-    }, toggleAutoSort: function toggleAutoSort() {
+    },
+    toggleAutoSort: function toggleAutoSort() {
         this.autosort = !this.autosort;
         return this.autosort
     }
@@ -11884,9 +13192,15 @@ function refreshInventory() {
     Inventory.inv.forEach(function (item) {
         $inventory.append(inventoryItemCard(item, true, false, true))
     });
-    $inventory.sortable({group: "list", animation: 200, ghostClass: "ghost", onUpdate: commitInventorySort});
+    $inventory.sortable({
+        group: "list",
+        animation: 200,
+        ghostClass: "ghost",
+        onUpdate: commitInventorySort
+    });
     if (!Inventory.sideInspect) return;
-    if (FusionManager.canFuseTooltip(Inventory.sideInspect)) $("#sidebarFuse").removeClass("otherDisabled").addClass("tooltip"); else $("#sidebarFuse").addClass("otherDisabled").removeClass("tooltip")
+    if (FusionManager.canFuseTooltip(Inventory.sideInspect)) $("#sidebarFuse").removeClass("otherDisabled").addClass("tooltip");
+    else $("#sidebarFuse").addClass("otherDisabled").removeClass("tooltip")
 }
 
 function refreshAutoSortToggle() {
@@ -11912,14 +13226,14 @@ function refreshInventoryPlaces(uniqueID) {
     if (openedTabEquals("town_museum")) refreshMuseumInv();
     if (isHeroScreen()) examineHeroPossibleEquip(HeroManager.heroView, true);
     $sideInventoryAmt.html("".concat(Inventory.inventoryCount(), "/").concat(Inventory.invMax()));
-    if (Inventory.inventoryCount() >= Inventory.invMax()) $sideInventory.addClass("inventoryFullSide"); else $sideInventory.removeClass("inventoryFullSide");
+    if (Inventory.inventoryCount() >= Inventory.invMax()) $sideInventory.addClass("inventoryFullSide");
+    else $sideInventory.removeClass("inventoryFullSide");
     checkGuildOrderDisable(uniqueID)
 }
-
 $(document).on("click", ".ctrlClickItem", function (e) {
     e.preventDefault();
     var recipeID = $(e.currentTarget).data("rid");
-    museumInspect(recipeID);
+    if (lastMuseum !== recipeID) museumInspect(recipeID);
     if (!e.ctrlKey) return;
     actionSlotManager.addSlot(recipeID);
     e.stopPropagation()
@@ -11943,7 +13257,6 @@ function commitInventorySort() {
     });
     Inventory.inv = newInv
 }
-
 $inventory.on("click", ".inventoryItem", function (e) {
     e.preventDefault();
     var uniqueID = $(e.currentTarget).attr("data-id");
@@ -11985,7 +13298,9 @@ function inspectItemSideDetail() {
         "data-tooltip": "herogear_container",
         "data-tooltip-value": container.uniqueID()
     }).html(container.picName()).appendTo($itemInspectSide);
-    $("<div/>").addClass("itemRarity RT".concat(container.rarity, " tooltip")).attr({"data-tooltip": "rarity_".concat(rarities[container.rarity].toLowerCase())}).html(miscIcons.rarity).appendTo(itemSideInspectItem);
+    $("<div/>").addClass("itemRarity RT".concat(container.rarity, " tooltip")).attr({
+        "data-tooltip": "rarity_".concat(rarities[container.rarity].toLowerCase())
+    }).html(miscIcons.rarity).appendTo(itemSideInspectItem);
     $("<div/>").addClass("itemLevel").html(container.itemLevel()).appendTo(itemSideInspectItem);
     if (Inventory.sideInvTabPref === "info") {
         var d = $("<div/>").addClass("itemSideDiv").appendTo($itemInspectSide);
@@ -12063,7 +13378,8 @@ function inspectItemSideDetail() {
         var e = $("<div/>").addClass("itemSideDiv").appendTo($itemInspectSide);
         $("<div/>").addClass("itemSideHeader").html(displayText("equip_options")).appendTo(e);
         var heroes = HeroManager.heroesThatCanEquip(container);
-        if (heroes.length === 0) $("<div/>").addClass("itemSideText").html(displayText("no_other_hero_equip")).appendTo(e); else heroes.forEach(function (hero) {
+        if (heroes.length === 0) $("<div/>").addClass("itemSideText").html(displayText("no_other_hero_equip")).appendTo(e);
+        else heroes.forEach(function (hero) {
             return e.append(createHeroEquip(hero, container))
         })
     }
@@ -12088,7 +13404,6 @@ function resetMasteryButton(item) {
 function lockedSideItem() {
     return $("<div/>").addClass("itemSideOption tooltip itemSideLocked").attr("data-tooltip", "feature_locked").html("".concat(miscIcons.locked, "&nbsp;").concat(displayText("universal_locked")))
 }
-
 $itemInspectSide.on("click", ".closeItemSideInspect", function (e) {
     $(".inventoryItem").removeClass("inspectHighlight");
     $materialSide.show();
@@ -12126,7 +13441,11 @@ $itemInspectSide.on("click", "#sidebarMaster", function (e) {
 });
 $itemInspectSide.on("click", "#sidebarDesynth", function (e) {
     e.preventDefault();
-    SynthManager.desynthItem(Inventory.sideInspect);
+    var newcontainer = SynthManager.desynthItem(Inventory.sideInspect, e.shiftKey);
+    if (e.shiftKey && Inventory.sideInspect === null) {
+        Inventory.sideInspect = newcontainer;
+        inspectItemSideDetail()
+    }
     refreshInventory()
 });
 $itemInspectSide.on("click", "#sidebarResynth", function (e) {
@@ -12164,9 +13483,10 @@ $itemInspectSide.on("click", "#sidebarFortune", function (e) {
 });
 $itemInspectSide.on("click", "#sidebarMuseum", function (e) {
     e.preventDefault();
-    Museum.donate(Inventory.sideInspect.uniqueID());
+    if (e.shiftKey) Museum.donateUp(Inventory.sideInspect.uniqueID());
+    else Museum.donate(Inventory.sideInspect.uniqueID());
     refreshInventory();
-    if (Inventory.sideInspect && Museum.checkSubmit(Inventory.sideInspect)) $(e.currentTarget).addClass("otherDisabled").removeClass("tooltip")
+    if (Inventory.sideInspect && Museum.checkSubmit(Inventory.sideInspect, false)) $(e.currentTarget).addClass("otherDisabled").removeClass("tooltip")
 });
 $itemInspectSide.on("click", "#itemSideGeneral", function (e) {
     e.preventDefault();
@@ -12177,6 +13497,13 @@ $itemInspectSide.on("click", "#itemSideHeroes", function (e) {
     e.preventDefault();
     Inventory.sideInvTabPref = "heroes";
     inspectItemSideDetail()
+});
+$museumSidebar.on("click", ".museumRecipe", function (e) {
+    e.preventDefault();
+    var recipe = $(e.currentTarget).data("recipe");
+    var rarity = $(e.currentTarget).data("rarity");
+    var sharp = $(e.currentTarget).data("sharp");
+    Museum.forceDonate(recipe, rarity, sharp)
 });
 
 function createHeroEquip(hero, container) {
@@ -12193,7 +13520,8 @@ function createHeroEquip(hero, container) {
     var f2 = $("<div/>").addClass("heroSideEquipStat heroStat").appendTo(f);
     var same = true;
     for (var _i = 0, _Object$entries = Object.entries(newStats); _i < _Object$entries.length; _i++) {
-        var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2), stat = _Object$entries$_i[0],
+        var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+            stat = _Object$entries$_i[0],
             val = _Object$entries$_i[1];
         var deltaStat = val - currentStats[stat];
         if (deltaStat === 0) continue;
@@ -12222,22 +13550,30 @@ function inventoryItemCard(item, showUpgrade, showUpgradeMaterial, isInventory) 
     }).html(ResourceManager.materialIcon(item.smithCost)).appendTo(itemdiv);
     item.refreshTooltipValues();
     itemdiv.addClass("R" + item.rarity).addClass("ctrlClickItem").data("rid", item.id);
-    itemName.addClass("itemName").attr({id: item.id, r: item.rarity}).html(item.picName());
-    itemRarity.addClass("RT".concat(item.rarity, " tooltip")).attr({"data-tooltip": "rarity_".concat(rarities[item.rarity].toLowerCase())}).html(miscIcons.rarity);
+    itemName.addClass("itemName").attr({
+        id: item.id,
+        r: item.rarity
+    }).html(item.picName());
+    itemRarity.addClass("RT".concat(item.rarity, " tooltip")).attr({
+        "data-tooltip": "rarity_".concat(rarities[item.rarity].toLowerCase())
+    }).html(miscIcons.rarity);
     if (item.lvl === 0 && item.scale === 0) {
         itemLevel.hide()
     }
     if (HeroManager.isGearUpgrade(item) && showUpgrade) {
-        $("<div/>").addClass("itemUpgrade tooltip").attr({"data-tooltip": "equipment_upgrade"}).html('<i class="fas fa-arrow-up"></i>').appendTo(itemName)
+        $("<div/>").addClass("itemUpgrade tooltip").attr({
+            "data-tooltip": "equipment_upgrade"
+        }).html('<i class="fas fa-arrow-up"></i>').appendTo(itemName)
     }
     if (item.item.recipeType === "trinket") {
-        itemLevel.attr({"data-tooltip": "star_rating"});
+        itemLevel.attr({
+            "data-tooltip": "star_rating"
+        });
         itemRarity.hide()
     }
     itemdiv.append(itemName, itemLevel, itemRarity, itemQuantity);
     return itemdiv
 }
-
 var SingularType = {
     Staves: "Staff",
     Knives: "Knife",
@@ -12341,8 +13677,10 @@ function _createClass(Constructor, protoProps, staticProps) {
     if (staticProps) _defineProperties(Constructor, staticProps);
     return Constructor
 }
-
-var slotState = Object.freeze({NEEDMATERIAL: 0, CRAFTING: 1});
+var slotState = Object.freeze({
+    NEEDMATERIAL: 0,
+    CRAFTING: 1
+});
 var $actionSlots = $("#actionSlots");
 $actionSlots.on("click", ".ASCancel", function (e) {
     e.preventDefault();
@@ -12372,9 +13710,9 @@ var actionSlot = function () {
         this.status = slotState.NEEDMATERIAL;
         this.slotNum = slotNum
     }
-
     _createClass(actionSlot, [{
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
             save.itemid = this.itemid;
             save.craftTime = this.craftTime;
@@ -12383,17 +13721,20 @@ var actionSlot = function () {
             return save
         }
     }, {
-        key: "loadSave", value: function loadSave(save) {
+        key: "loadSave",
+        value: function loadSave(save) {
             this.craftTime = save.craftTime;
             this.status = save.status;
             this.slotNum = save.slotNum
         }
     }, {
-        key: "itemPicName", value: function itemPicName() {
+        key: "itemPicName",
+        value: function itemPicName() {
             return this.item.itemPicName()
         }
     }, {
-        key: "addTime", value: function addTime(t, skipAnimation) {
+        key: "addTime",
+        value: function addTime(t, skipAnimation) {
             if (this.status === slotState.NEEDMATERIAL) this.attemptStart(skipAnimation);
             if (this.status !== slotState.CRAFTING) {
                 this.craftTime = 0;
@@ -12414,15 +13755,18 @@ var actionSlot = function () {
             if (!skipAnimation) this.progress = (this.craftTime / this.maxCraft()).toFixed(3) * 100 + "%"
         }
     }, {
-        key: "maxCraft", value: function maxCraft() {
+        key: "maxCraft",
+        value: function maxCraft() {
             return Math.floor(this.item.craftTime * Museum.craftTime(this.item.id))
         }
     }, {
-        key: "timeRemaining", value: function timeRemaining() {
+        key: "timeRemaining",
+        value: function timeRemaining() {
             return this.maxCraft() - this.craftTime
         }
     }, {
-        key: "attemptStart", value: function attemptStart(skipAnimation) {
+        key: "attemptStart",
+        value: function attemptStart(skipAnimation) {
             if (this.item.isMastered()) {
                 this.status = slotState.CRAFTING;
                 return
@@ -12432,38 +13776,49 @@ var actionSlot = function () {
             this.status = slotState.CRAFTING
         }
     }, {
-        key: "autoSellToggle", value: function autoSellToggle() {
+        key: "autoSellToggle",
+        value: function autoSellToggle() {
             return this.item.autoSellToggle()
         }
     }, {
-        key: "autoSell", value: function autoSell() {
+        key: "autoSell",
+        value: function autoSell() {
             return this.item.autoSell
         }
     }, {
-        key: "refundMaterial", value: function refundMaterial() {
+        key: "refundMaterial",
+        value: function refundMaterial() {
             if (this.status !== slotState.CRAFTING || this.item.isMastered()) return;
             ResourceManager.refundMaterial(this.item)
         }
     }, {
-        key: "isMastered", value: function isMastered() {
+        key: "isMastered",
+        value: function isMastered() {
             return this.item.isMastered()
         }
     }, {
-        key: "isBuildingMaterial", value: function isBuildingMaterial() {
+        key: "isBuildingMaterial",
+        value: function isBuildingMaterial() {
             return this.item.recipeType !== "normal"
         }
     }, {
-        key: "resList", value: function resList() {
+        key: "resList",
+        value: function resList() {
             return this.item.gcost
         }
     }, {
-        key: "matList", value: function matList() {
+        key: "matList",
+        value: function matList() {
             var array = [];
             if (!this.item.mcost) return array;
             for (var _i = 0, _Object$entries = Object.entries(this.item.mcost); _i < _Object$entries.length; _i++) {
-                var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2), key = _Object$entries$_i[0],
+                var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+                    key = _Object$entries$_i[0],
                     value = _Object$entries$_i[1];
-                array.push({id: key, amt: value})
+                array.push({
+                    id: key,
+                    amt: value
+                })
             }
             return array
         }
@@ -12472,7 +13827,10 @@ var actionSlot = function () {
 }();
 var craftCount = 0;
 var actionSlotManager = {
-    maxSlots: 1, slots: [], minTime: 0, createSave: function createSave() {
+    maxSlots: 1,
+    slots: [],
+    minTime: 0,
+    createSave: function createSave() {
         var save = {};
         save.maxSlots = this.maxSlots;
         save.slots = [];
@@ -12481,7 +13839,8 @@ var actionSlotManager = {
         });
         save.minTime = this.minTime;
         return save
-    }, loadSave: function loadSave(save) {
+    },
+    loadSave: function loadSave(save) {
         var _this = this;
         this.maxSlots = save.maxSlots;
         save.slots.forEach(function (s) {
@@ -12490,11 +13849,13 @@ var actionSlotManager = {
             _this.slots.push(slot)
         });
         this.minTime = save.minTime
-    }, clearProgress: function clearProgress() {
+    },
+    clearProgress: function clearProgress() {
         this.maxSlots = 1;
         this.slots = [];
         this.minTime = 0
-    }, addSlot: function addSlot(itemid) {
+    },
+    addSlot: function addSlot(itemid) {
         if (this.slots.length >= this.maxSlots) {
             ToastManager.renderToast("slots_full");
             return
@@ -12515,7 +13876,8 @@ var actionSlotManager = {
         refreshSideWorkers();
         recipeList.canCraft();
         checkCraftableStatus()
-    }, adjustMinTime: function adjustMinTime() {
+    },
+    adjustMinTime: function adjustMinTime() {
         if (this.slots.length === 0) {
             this.minTime = 0;
             return
@@ -12523,7 +13885,8 @@ var actionSlotManager = {
         this.minTime = Math.min.apply(Math, _toConsumableArray(this.slots.map(function (s) {
             return s.maxCraft()
         })))
-    }, removeSlot: function removeSlot(slot) {
+    },
+    removeSlot: function removeSlot(slot) {
         this.slots[slot].refundMaterial();
         this.slots.splice(slot, 1);
         this.slots.forEach(function (s, i) {
@@ -12533,11 +13896,13 @@ var actionSlotManager = {
         refreshSideWorkers();
         recipeList.canCraft();
         checkCraftableStatus()
-    }, isAlreadySlotted: function isAlreadySlotted(id) {
+    },
+    isAlreadySlotted: function isAlreadySlotted(id) {
         return this.slots.map(function (s) {
             return s.itemid
         }).includes(id)
-    }, addTime: function addTime(t) {
+    },
+    addTime: function addTime(t) {
         var _this2 = this;
         if (this.slots.length === 0) return;
         var skipAnimation = t >= this.minTime;
@@ -12559,17 +13924,21 @@ var actionSlotManager = {
             _loop()
         }
         refreshInventoryAndMaterialPlaces()
-    }, upgradeSlot: function upgradeSlot() {
+    },
+    upgradeSlot: function upgradeSlot() {
         if (this.maxSlots === 5) return;
         this.maxSlots += 1;
         recipeList.canCraft();
         checkCraftableStatus()
-    }, autoSell: function autoSell(i) {
+    },
+    autoSell: function autoSell(i) {
         if (this.slots.length <= i) return "";
         return this.slots[i].autoSell()
-    }, toggleAuto: function toggleAuto(i) {
+    },
+    toggleAuto: function toggleAuto(i) {
         return this.slots[i].autoSellToggle()
-    }, workersUsed: function workersUsed(type) {
+    },
+    workersUsed: function workersUsed(type) {
         var workers = this.slots.map(function (s) {
             return s.item.gcost
         });
@@ -12577,15 +13946,18 @@ var actionSlotManager = {
         return workerFlat.filter(function (w) {
             return w === type
         }).length
-    }, materialUsage: function materialUsage() {
+    },
+    materialUsage: function materialUsage() {
         var mats = flattenArray.apply(void 0, [this.slots.map(function (s) {
             return s.item.material()
         })]);
         var uniqueMats = _toConsumableArray(new Set(mats));
         return uniqueMats
-    }, freeSlots: function freeSlots() {
+    },
+    freeSlots: function freeSlots() {
         return this.maxSlots - this.slots.length
-    }, purgeSlot: function purgeSlot(recipeID) {
+    },
+    purgeSlot: function purgeSlot(recipeID) {
         var slot = this.slots.findIndex(function (s) {
             return s.itemid === recipeID
         });
@@ -12597,11 +13969,13 @@ var actionSlotManager = {
         refreshSideWorkers();
         recipeList.canCraft();
         checkCraftableStatus()
-    }, showAutoSell: function showAutoSell() {
+    },
+    showAutoSell: function showAutoSell() {
         this.slots.forEach(function (slot) {
             if (slot.item.recipeType === "normal") $("#asAuto".concat(slot.slotNum)).show()
         })
-    }, anyAutoSell: function anyAutoSell() {
+    },
+    anyAutoSell: function anyAutoSell() {
         return this.slots.some(function (as) {
             return as.autoSell() != "None"
         })
@@ -12614,9 +13988,9 @@ var actionSlotVisualSlotTracking = function () {
         this.status = status;
         this.mastered = mastered
     }
-
     _createClass(actionSlotVisualSlotTracking, [{
-        key: "addReference", value: function addReference(i) {
+        key: "addReference",
+        value: function addReference(i) {
             this.timeRef = $("#ASBar".concat(i, " .ASProgressBarTimer"));
             this.progressRef = $("#ASBarFill".concat(i))
         }
@@ -12628,10 +14002,14 @@ function newActionSlot(slot) {
     var d = $("<div/>").addClass("ASBlock").attr("data-id", slot.slotNum);
     $("<div/>").addClass("ASName").attr("id", "asSlotName" + slot.slotNum).html(slot.itemPicName()).appendTo(d);
     var d2 = $("<div/>").addClass("ASCancel").data("slotNum", slot.slotNum).appendTo(d);
-    $("<div/>").addClass("ASCancelText tooltip").attr({"data-tooltip": "cancel_craft"}).data("slotNum", slot.slotNum).html("".concat(miscIcons.cancelSlot)).appendTo(d2);
+    $("<div/>").addClass("ASCancelText tooltip").attr({
+        "data-tooltip": "cancel_craft"
+    }).data("slotNum", slot.slotNum).html("".concat(miscIcons.cancelSlot)).appendTo(d2);
     var d3 = $("<div/>").addClass("ASProgressBar").attr("id", "ASBar" + slot.slotNum).appendTo(d);
     var d3a = $("<div/>").addClass("ASProgressBarTimer tooltip").appendTo(d3);
-    if (slot.status === slotState.NEEDMATERIAL) d3a.addClass("matsNeeded").attr({"data-tooltip": "materials_needed"}).html(miscIcons.alert);
+    if (slot.status === slotState.NEEDMATERIAL) d3a.addClass("matsNeeded").attr({
+        "data-tooltip": "materials_needed"
+    }).html(miscIcons.alert);
     var s3 = $("<span/>").addClass("ProgressBarFill").attr("id", "ASBarFill" + slot.slotNum).appendTo(d3);
     if (slot.isMastered()) s3.addClass("ProgressBarFillMaster");
     var d4 = $("<div/>").addClass("ASauto tooltip").attr("data-tooltip", "autosell_".concat(slot.autoSell().toLowerCase())).attr("id", "asAuto" + slot.slotNum).data("slotNum", slot.slotNum).html(miscIcons.autoSell).appendTo(d);
@@ -12640,7 +14018,9 @@ function newActionSlot(slot) {
     if (!slot.resList) return d;
     var d5 = $("<div/>").addClass("asRes").attr("id", "asRes" + slot.slotNum).appendTo(d);
     slot.resList().forEach(function (type) {
-        $("<div/>").addClass("asResIcon tooltip").attr({"data-tooltip": "".concat(type, "_worker")}).html(miscIcons[type]).appendTo(d5)
+        $("<div/>").addClass("asResIcon tooltip").attr({
+            "data-tooltip": "".concat(type, "_worker")
+        }).html(miscIcons[type]).appendTo(d5)
     });
     if (slot.item.recipeType === "normal") {
         slot.matList().forEach(function (m) {
@@ -12666,9 +14046,12 @@ function newEmptyActionSlot() {
     $("<div/>").addClass("ASEmptyText").html("Empty Slot").appendTo(d1);
     return d
 }
-
 var actionSlotVisualManager = {
-    slots: [], materials: [], slotCount: 0, disableRefresh: false, updateSlots: function updateSlots() {
+    slots: [],
+    materials: [],
+    slotCount: 0,
+    disableRefresh: false,
+    updateSlots: function updateSlots() {
         var _this3 = this;
         if (this.disableRefresh) return;
         if (this.slots.length !== actionSlotManager.slots.length || this.slotCount !== actionSlotManager.maxSlots) {
@@ -12691,16 +14074,22 @@ var actionSlotVisualManager = {
         actionSlotManager.slots.forEach(function (slot, i) {
             var compareSlot = _this3.slots[i];
             if (compareSlot.status === slotState.NEEDMATERIAL && slot.status === slotState.CRAFTING) {
-                compareSlot.timeRef.removeClass("matsNeeded").attr({"data-tooltip": "remaining_time"}).html(miscIcons.time + msToTime(slot.timeRemaining()));
+                compareSlot.timeRef.removeClass("matsNeeded").attr({
+                    "data-tooltip": "remaining_time"
+                }).html(miscIcons.time + msToTime(slot.timeRemaining()));
                 compareSlot.status = slotState.CRAFTING
             } else if (compareSlot.status === slotState.CRAFTING && slot.status === slotState.NEEDMATERIAL) {
-                compareSlot.timeRef.addClass("matsNeeded").attr({"data-tooltip": "materials_needed"}).html(miscIcons.alert);
+                compareSlot.timeRef.addClass("matsNeeded").attr({
+                    "data-tooltip": "materials_needed"
+                }).html(miscIcons.alert);
                 compareSlot.progressRef.css("width", "0%");
                 compareSlot.status = slotState.NEEDMATERIAL
             }
             if (compareSlot.status === slotState.CRAFTING) {
                 compareSlot.progressRef.css("width", slot.progress);
-                compareSlot.timeRef.attr({"data-tooltip": "remaining_time"}).html(miscIcons.time + msToTime(slot.timeRemaining()))
+                compareSlot.timeRef.attr({
+                    "data-tooltip": "remaining_time"
+                }).html(miscIcons.time + msToTime(slot.timeRemaining()))
             }
             if (slot.isMastered() && !compareSlot.mastered) {
                 compareSlot.mastered = true;
@@ -12709,7 +14098,8 @@ var actionSlotVisualManager = {
             }
         });
         refreshASMaterials()
-    }, updateAutoSell: function updateAutoSell() {
+    },
+    updateAutoSell: function updateAutoSell() {
         $(".ASauto").removeClass("ASautoEnabledCommon ASautoEnabledGood ASautoEnabledGreat ASautoEnabledEpic");
         actionSlotManager.slots.forEach(function (slot) {
             var rarity = slot.autoSell();
@@ -12724,7 +14114,6 @@ function refreshInventoryAndMaterialPlaces() {
         refreshMaterial(matID)
     })
 }
-
 var $materialQuick = $("#materialQuick");
 var $materialQuick2 = $("#materialQuick2");
 
@@ -12752,7 +14141,11 @@ function intializeASMaterials() {
         if (!dungeon.mat) return;
         if (!materials.includes(dungeon.mat)) {
             materials.push(dungeon.mat);
-            actionSlotVisualManager.materials.push({mid: dungeon.mat, text: null, textFill: null})
+            actionSlotVisualManager.materials.push({
+                mid: dungeon.mat,
+                text: null,
+                textFill: null
+            })
         }
     });
     actionSlotVisualManager.materials.forEach(function (materialObject) {
@@ -12798,7 +14191,6 @@ function refreshASMaterials() {
         materialObject["textFill1"].css("width", w)
     })
 }
-
 "use strict";
 
 function _classCallCheck(instance, Constructor) {
@@ -12822,7 +14214,6 @@ function _createClass(Constructor, protoProps, staticProps) {
     if (staticProps) _defineProperties(Constructor, staticProps);
     return Constructor
 }
-
 var $fuseBuilding = $("#fuseBuilding");
 var fuse = function () {
     function fuse(uniqueID) {
@@ -12835,9 +14226,9 @@ var fuse = function () {
         this.fuseID = FusionManager.fuseNum;
         FusionManager.fuseNum += 1
     }
-
     _createClass(fuse, [{
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
             save.uniqueID = this.uniqueID();
             save.fuseTime = this.fuseTime;
@@ -12845,66 +14236,79 @@ var fuse = function () {
             return save
         }
     }, {
-        key: "loadSave", value: function loadSave(save) {
+        key: "loadSave",
+        value: function loadSave(save) {
             if (save.fuseTime !== undefined) this.fuseTime = save.fuseTime;
             if (save.started !== undefined) this.started = save.started
         }
     }, {
-        key: "addTime", value: function addTime(ms) {
+        key: "addTime",
+        value: function addTime(ms) {
             if (this.fuseTime >= this.getMaxFuse() || this.notStarted()) return;
             this.fuseTime = Math.min(this.fuseTime + ms, this.getMaxFuse());
             if (this.fuseComplete()) {
-                ToastManager.renderToast("fusion_completed", rarities[this.container.rarity].toLowerCase(), recipeList.idToItem(this.id).name);
-                refreshTownHasEvents()
+                ToastManager.renderToast("fusion_completed", rarities[this.container.rarity].toLowerCase(), recipeList.idToItem(this.id).name)
             }
         }
     }, {
-        key: "getMaxFuse", value: function getMaxFuse() {
+        key: "getMaxFuse",
+        value: function getMaxFuse() {
             return Math.floor(this.recipe.craftTime * this.container.rarity * Museum.craftTime(this.id))
         }
     }, {
-        key: "timeRemaining", value: function timeRemaining() {
+        key: "timeRemaining",
+        value: function timeRemaining() {
             return this.getMaxFuse() - this.fuseTime
         }
     }, {
-        key: "fuseComplete", value: function fuseComplete() {
+        key: "fuseComplete",
+        value: function fuseComplete() {
             if (this.notStarted()) return false;
             return this.fuseTime >= this.getMaxFuse()
         }
     }, {
-        key: "increaseRarity", value: function increaseRarity() {
+        key: "increaseRarity",
+        value: function increaseRarity() {
             this.container.rarity += 1
         }
     }, {
-        key: "notStarted", value: function notStarted() {
+        key: "notStarted",
+        value: function notStarted() {
             return !this.started
         }
     }, {
-        key: "uniqueID", value: function uniqueID() {
+        key: "uniqueID",
+        value: function uniqueID() {
             return this.container.uniqueID()
         }
     }]);
     return fuse
 }();
 var FusionManager = {
-    slots: [], lvl: 1, fuseNum: 0, createSave: function createSave() {
+    slots: [],
+    lvl: 1,
+    fuseNum: 0,
+    createSave: function createSave() {
         var save = {};
         save.slots = [];
         this.slots.forEach(function (slot) {
             save.slots.push(slot.createSave())
         });
         return save
-    }, loadSave: function loadSave(save) {
+    },
+    loadSave: function loadSave(save) {
         var _this = this;
         save.slots.forEach(function (s) {
             var slot = new fuse(s.uniqueID);
             slot.loadSave(s);
             _this.slots.push(slot)
         })
-    }, clearProgress: function clearProgress() {
+    },
+    clearProgress: function clearProgress() {
         this.slots = [];
         this.fuseNum = 0
-    }, addFuse: function addFuse(uniqueid) {
+    },
+    addFuse: function addFuse(uniqueid) {
         if (this.slots.length === this.maxSlots()) return ToastManager.renderToast("cant_fuse_noslot");
         var container = Inventory.findContainer(uniqueid);
         if (container.rarity > 2) return ToastManager.renderToast("cant_fuse_rarity");
@@ -12917,17 +14321,20 @@ var FusionManager = {
         refreshFuseSlots();
         refreshPossibleFuse();
         return newFuse.fuseID
-    }, fuseByID: function fuseByID(fuseID) {
+    },
+    fuseByID: function fuseByID(fuseID) {
         return this.slots.find(function (f) {
             return f.fuseID === fuseID
         })
-    }, startFuse: function startFuse(fuseid) {
+    },
+    startFuse: function startFuse(fuseid) {
         var fuse = this.fuseByID(fuseid);
         fuse.increaseRarity();
         fuse.started = true;
         refreshFuseSlots();
         refreshInventoryPlaces()
-    }, cancelFuse: function cancelFuse(fuseid) {
+    },
+    cancelFuse: function cancelFuse(fuseid) {
         var fuse = this.fuseByID(fuseid);
         if (fuse.notStarted()) {
             ResourceManager.addMaterial("M001", this.getFuseCost(fuse.container, 1));
@@ -12941,22 +14348,29 @@ var FusionManager = {
         });
         refreshFuseSlots();
         refreshPossibleFuse()
-    }, addTime: function addTime(ms) {
+    },
+    addTime: function addTime(ms) {
+        var _this2 = this;
         this.slots.forEach(function (fuse) {
-            if (fuse.started) fuse.addTime(ms)
+            if (fuse.started) fuse.addTime(ms);
+            if (fuse.fuseComplete()) _this2.collectFuse(fuse.fuseID)
         });
         if (openedTabEquals("town_fusion")) refreshFuseBars();
         if (sidebarToggleTracker === 2) refreshFuseSidebarText()
-    }, getFuseCost: function getFuseCost(container) {
+    },
+    getFuseCost: function getFuseCost(container) {
         var rarityBoost = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
         return 4 * container.item.value * (container.rarity + rarityBoost)
-    }, getFuseInventoryCost: function getFuseInventoryCost(container) {
+    },
+    getFuseInventoryCost: function getFuseInventoryCost(container) {
         return 4 * container.item.value * (container.rarity + 1)
-    }, aFuseIsDone: function aFuseIsDone() {
+    },
+    aFuseIsDone: function aFuseIsDone() {
         return this.slots.some(function (f) {
             return f.fuseComplete()
         })
-    }, collectFuse: function collectFuse(fuseID) {
+    },
+    collectFuse: function collectFuse(fuseID) {
         var slot = this.slots.find(function (f) {
             return f.fuseID === fuseID
         });
@@ -12967,22 +14381,26 @@ var FusionManager = {
         });
         achievementStats.fusePerformed();
         refreshFuseSlots();
-        refreshTownHasEvents()
-    }, maxSlots: function maxSlots() {
+        refreshFuseSidebar()
+    },
+    maxSlots: function maxSlots() {
         if (!Shop.alreadyPurchased("AL3006")) return 2;
         if (!Shop.alreadyPurchased("AL3012")) return 3;
         return 4
-    }, getMaxFuse: function getMaxFuse(uniqueID) {
+    },
+    getMaxFuse: function getMaxFuse(uniqueID) {
         var container = createContainerFromUniqueID(uniqueID);
         container.rarity += 1;
         return container.item.craftTime * container.rarity * Museum.craftTime(container.id)
-    }, canFuseTooltip: function canFuseTooltip(container) {
+    },
+    canFuseTooltip: function canFuseTooltip(container) {
         if (container.rarity >= 3) return false;
         if (this.slots.length >= this.maxSlots()) return false;
         if (ResourceManager.materialAvailable("M001") < this.getFuseCost(container, 1)) return false;
         if (container.qty < 3) return false;
         return true
-    }, findContainer: function findContainer(uniqueID) {
+    },
+    findContainer: function findContainer(uniqueID) {
         return this.slots.map(function (s) {
             return s.container
         }).find(function (c) {
@@ -13027,7 +14445,6 @@ function refreshFuseBars() {
         fuse.ff.css("width", fuseWidth)
     })
 }
-
 var $fuseSlots = $("#fuseSlots");
 var $fuseHeader = $("#fuseHeader");
 var $fuseList = $("#fuseList");
@@ -13055,18 +14472,24 @@ function refreshFuseSlots() {
             fuseid: slot.fuseID
         }).html('<i class="fas fa-times"></i>').appendTo(d7);
         var d8 = $("<div/>").addClass("fuseRarityContainer");
-        $("<div/>").addClass("fuseRarity RT".concat(slot.container.rarity, " tooltip")).attr({"data-tooltip": "rarity_".concat(rarities[slot.container.rarity].toLowerCase())}).html(miscIcons.rarity).appendTo(d8);
+        $("<div/>").addClass("fuseRarity RT".concat(slot.container.rarity, " tooltip")).attr({
+            "data-tooltip": "rarity_".concat(rarities[slot.container.rarity].toLowerCase())
+        }).html(miscIcons.rarity).appendTo(d8);
         if (slot.fuseComplete()) {
             d4.hide();
             d5.show();
             d7.hide()
         }
-        if (slot.started) d7a.attr({"data-tooltip": "fusion_active_remove"});
+        if (slot.started) d7a.attr({
+            "data-tooltip": "fusion_active_remove"
+        });
         if (slot.notStarted()) {
             d4.hide();
             d6.show();
             $("<div/>").addClass("fuseRaritySeparator").html('<i class="fas fa-arrow-right"></i>').appendTo(d8);
-            $("<div/>").addClass("fuseRarity RT".concat(slot.container.rarity + 1, " tooltip")).attr({"data-tooltip": "rarity_".concat(rarities[slot.container.rarity + 1].toLowerCase())}).html(miscIcons.rarity).appendTo(d8)
+            $("<div/>").addClass("fuseRarity RT".concat(slot.container.rarity + 1, " tooltip")).attr({
+                "data-tooltip": "rarity_".concat(rarities[slot.container.rarity + 1].toLowerCase())
+            }).html(miscIcons.rarity).appendTo(d8)
         }
         d1.append(d2, d3, d8, d4, d5, d6, d7);
         fusionCardsContainer.append(d1)
@@ -13118,7 +14541,9 @@ function refreshPossibleFuse() {
             "data-tooltip-value": container.uniqueID()
         }).html(container.picName()).appendTo(fuseSelect);
         $("<div/>").addClass("possibleFuse itemLevel").html(recipeList.idToItem(container.id).itemLevel()).appendTo(fuseSelect);
-        $("<div/>").addClass("possibleFuse itemRarity").addClass("RT".concat(container.rarity, " tooltip")).attr({"data-tooltip": "".concat(rarities[container.rarity].toLowerCase())}).html(miscIcons.rarity).appendTo(fuseSelect);
+        $("<div/>").addClass("possibleFuse itemRarity").addClass("RT".concat(container.rarity, " tooltip")).attr({
+            "data-tooltip": "".concat(rarities[container.rarity].toLowerCase())
+        }).html(miscIcons.rarity).appendTo(fuseSelect);
         var d2 = $("<div/>").addClass("gearStat tooltip").attr("data-tooltip", "fuse_time").html('<i class="fas fa-clock"></i>').appendTo(fuseSelect);
         $("<div/>").addClass("statValue").html(msToTime(FusionManager.getMaxFuse(container.uniqueID()))).appendTo(d2);
         var d3 = $("<div/>").addClass("fuseStart actionButtonCardCost").attr("uniqueid", container.uniqueID()).appendTo(fuseSelect);
@@ -13129,7 +14554,6 @@ function refreshPossibleFuse() {
         }).html("".concat(ResourceManager.materialIcon("M001")).concat(formatToUnits(FusionManager.getFuseCost(container, 1), 2))).appendTo(d3)
     })
 }
-
 $fuseList.on("click", ".fuseStart", function (e) {
     e.preventDefault();
     destroyTooltip();
@@ -13197,62 +14621,75 @@ function _iterableToArrayLimit(arr, i) {
 function _arrayWithHoles(arr) {
     if (Array.isArray(arr)) return arr
 }
-
 var $bankInvSlots = $("#bankInvSlots");
 var $bankBankSlots = $("#bankBankSlots");
 var $bankBuilding = $("#bankBuilding");
 var $bankNavigation = $("#bankNavigation");
 var BankManager = {
-    slots: [], lvl: 1, tab: "inv", createSave: function createSave() {
+    slots: [],
+    lvl: 1,
+    tab: "inv",
+    createSave: function createSave() {
         var save = {};
         save.slots = [];
         this.slots.forEach(function (slot) {
             save.slots.push(slot.createSave())
         });
         return save
-    }, loadSave: function loadSave(save) {
+    },
+    loadSave: function loadSave(save) {
         var _this = this;
         save.slots.forEach(function (item) {
             var container = new itemContainer(item.id, item.rarity);
             container.loadSave(item);
             _this.slots.push(container)
         })
-    }, clearProgress: function clearProgress() {
+    },
+    clearProgress: function clearProgress() {
         this.slots = [];
         this.tab = "inv"
-    }, maxSlots: function maxSlots() {
+    },
+    maxSlots: function maxSlots() {
         return 100
-    }, full: function full() {
+    },
+    full: function full() {
         return this.slots.length === this.maxSlots()
-    }, containerToItem: function containerToItem(containerID) {
+    },
+    containerToItem: function containerToItem(containerID) {
         return this.slots.find(function (s) {
             return s.containerID === containerID
         })
-    }, addFromInventory: function addFromInventory(containerID) {
+    },
+    addFromInventory: function addFromInventory(containerID) {
         if (this.full()) return;
         var container = Inventory.containerToItem(containerID);
         Inventory.removeContainerFromInventory(containerID);
         this.addContainer(container);
         refreshBankCounts()
-    }, removeContainer: function removeContainer(containerID) {
+    },
+    removeContainer: function removeContainer(containerID) {
         this.slots = this.slots.filter(function (c) {
             return c.containerID !== containerID
         });
         refreshBankBank()
-    }, sortBank: function sortBank() {
+    },
+    sortBank: function sortBank() {
         this.slots.sort(function (a, b) {
             return inventorySort(a, b)
         });
         refreshBankBank()
-    }, addContainer: function addContainer(container) {
+    },
+    addContainer: function addContainer(container) {
         this.slots.push(container)
-    }, removeFromBank: function removeFromBank(containerID) {
+    },
+    removeFromBank: function removeFromBank(containerID) {
         if (Inventory.full()) return;
         var container = this.containerToItem(containerID);
         this.removeContainer(containerID);
         Inventory.addToInventory(container, false);
         refreshBankCounts()
-    }, addLevel: function addLevel() {
+    },
+    addLevel: function addLevel() {
         refreshBankBank();
         refreshBankInventory()
     }
@@ -13261,10 +14698,18 @@ var BankManager = {
 function initiateBankBldg() {
     $bankBuilding.show();
     $bankNavigation.empty();
-    var invTab = $("<div/>").addClass("bankTabNavigation").attr({id: "bankNavInventory"}).html(displayText("bank_nav_inventory")).appendTo($bankNavigation);
-    var bankTab = $("<div/>").addClass("bankTabNavigation").attr({id: "bankNavStorage"}).html(displayText("bank_nav_storage")).appendTo($bankNavigation);
-    $("<div/>").addClass("bankTabCount").attr({id: "bankNavInvCount"}).html("(".concat(Inventory.nonblank().length, "/").concat(Inventory.invMax(), ")")).appendTo(invTab);
-    $("<div/>").addClass("bankTabCount").attr({id: "bankNavStorageCount"}).html("(".concat(BankManager.slots.length, "/").concat(BankManager.maxSlots(), ")")).appendTo(bankTab);
+    var invTab = $("<div/>").addClass("bankTabNavigation").attr({
+        id: "bankNavInventory"
+    }).html(displayText("bank_nav_inventory")).appendTo($bankNavigation);
+    var bankTab = $("<div/>").addClass("bankTabNavigation").attr({
+        id: "bankNavStorage"
+    }).html(displayText("bank_nav_storage")).appendTo($bankNavigation);
+    $("<div/>").addClass("bankTabCount").attr({
+        id: "bankNavInvCount"
+    }).html("(".concat(Inventory.nonblank().length, "/").concat(Inventory.invMax(), ")")).appendTo(invTab);
+    $("<div/>").addClass("bankTabCount").attr({
+        id: "bankNavStorageCount"
+    }).html("(".concat(BankManager.slots.length, "/").concat(BankManager.maxSlots(), ")")).appendTo(bankTab);
     $("#bankNavStorage").removeClass("selected");
     $("#bankNavInventory").addClass("selected");
     BankManager.tab = "inv";
@@ -13290,7 +14735,9 @@ function refreshBankInventory() {
         "data-tooltip": "sort_inventory"
     }).html('<i class="fas fa-sort-size-up-alt"></i>').appendTo(bankInventoryHeaderContainer);
     $("<span/>").addClass("actionButtonTextRight").html(displayText("bank_sort_inventory_button")).appendTo(sortInventoryBtn);
-    var bankInventoryCardsContainer = $("<div/>").addClass("bankInventoryCardsContainer").attr({id: "bankInventoryCardsContainer"}).appendTo($bankInvSlots);
+    var bankInventoryCardsContainer = $("<div/>").addClass("bankInventoryCardsContainer").attr({
+        id: "bankInventoryCardsContainer"
+    }).appendTo($bankInvSlots);
     if (Inventory.nonblank().length === 0) $("<div/>").addClass("emptyContentMessage").html(displayText("bank_inventory_empty")).appendTo($bankInvSlots);
     Inventory.nonblank().forEach(function (item) {
         bankInventoryCardsContainer.append(itemCard(item, false))
@@ -13312,7 +14759,9 @@ function refreshBankBank() {
         "data-tooltip": "sort_bank"
     }).html('<i class="fas fa-sort-size-up-alt"></i>').appendTo(bankStorageHeaderContainer);
     $("<span/>").addClass("actionButtonTextRight").html(displayText("bank_sort_bank_button")).appendTo(sortBankBtn);
-    var bankStorageCardsContainer = $("<div/>").addClass("bankStorageCardsContainer").attr({id: "bankStorageCardsContainer"}).appendTo($bankBankSlots);
+    var bankStorageCardsContainer = $("<div/>").addClass("bankStorageCardsContainer").attr({
+        id: "bankStorageCardsContainer"
+    }).appendTo($bankBankSlots);
     if (BankManager.slots.length === 0) $("<div/>").addClass("emptyContentMessage").html(displayText("bank_storage_empty")).appendTo($bankBankSlots);
     BankManager.slots.forEach(function (item) {
         bankStorageCardsContainer.append(itemCard(item, true))
@@ -13324,20 +14773,26 @@ function itemCard(item, inBank) {
     var itemdiv = $("<div/>").addClass("bankItem").addClass("R" + item.rarity).addClass("ctrlClickItem").data("rid", item.id);
     var itemName = $("<div/>").addClass("itemName").html(item.picName());
     var itemLevel = $("<div/>").addClass("itemLevel").html(item.itemLevel());
-    var itemRarity = $("<div/>").addClass("itemRarity").addClass("RT".concat(item.rarity, " tooltip")).attr({"data-tooltip": "rarity_".concat(rarities[item.rarity].toLowerCase())}).html(miscIcons.rarity);
+    var itemRarity = $("<div/>").addClass("itemRarity").addClass("RT".concat(item.rarity, " tooltip")).attr({
+        "data-tooltip": "rarity_".concat(rarities[item.rarity].toLowerCase())
+    }).html(miscIcons.rarity);
     if (item.item.recipeType === "building") itemLevel.hide();
     var equipStats = $("<div/>").addClass("equipStats");
     for (var _i = 0, _Object$entries = Object.entries(item.itemStat(false)); _i < _Object$entries.length; _i++) {
-        var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2), stat = _Object$entries$_i[0],
+        var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+            stat = _Object$entries$_i[0],
             val = _Object$entries$_i[1];
         if (val === 0) continue;
-        var ed = $("<div/>").addClass("gearStat tooltip").attr({"data-tooltip": stat}).appendTo(equipStats);
+        var ed = $("<div/>").addClass("gearStat tooltip").attr({
+            "data-tooltip": stat
+        }).appendTo(equipStats);
         $("<div/>").addClass("".concat(stat, "_img")).html(miscIcons[stat]).appendTo(ed);
         $("<div/>").addClass("".concat(stat, "_integer statValue")).html(val).appendTo(ed)
     }
     var bankActionButtons = $("<div/>").addClass("bankActionsButtons");
     var locationButton = $("<div/>").attr("containerID", item.containerID).appendTo(bankActionButtons);
-    if (inBank) locationButton.addClass("actionButtonCard bankTake").html(displayText("bank_remove_item_button")); else locationButton.addClass("actionButtonCard bankStow").html(displayText("bank_stow_item_button"));
+    if (inBank) locationButton.addClass("actionButtonCard bankTake").html(displayText("bank_remove_item_button"));
+    else locationButton.addClass("actionButtonCard bankStow").html(displayText("bank_stow_item_button"));
     return itemdiv.append(itemName, itemLevel, itemRarity, equipStats, bankActionButtons)
 }
 
@@ -13345,7 +14800,6 @@ function refreshBankPage() {
     if (BankManager.tab === "inv") refreshBankInventory();
     if (BankManager.tab === "bank") refreshBankBank()
 }
-
 $bankBankSlots.on("click", ".bankTake", function (e) {
     e.preventDefault();
     var containerID = parseInt($(e.target).attr("containerID"));
@@ -13392,7 +14846,6 @@ function showBankStorage() {
     $("#bankNavStorage").addClass("selected");
     refreshBankBank()
 }
-
 "use strict";
 
 function _slicedToArray(arr, i) {
@@ -13432,7 +14885,6 @@ function _iterableToArrayLimit(arr, i) {
 function _arrayWithHoles(arr) {
     if (Array.isArray(arr)) return arr
 }
-
 var $smithBuilding = $("#smithBuilding");
 var $smithInvSlots = $("#smithInvSlots");
 var $smithOriginal = $("#smithOriginal");
@@ -13446,7 +14898,12 @@ var $smithHeroSlots = $("#smithHeroSlots");
 var $smithSlots = $(".smithSlots");
 var $smithAssign = $(".smithAssign");
 var $smithActions = $("#smithActions");
-var SmithType = Object.freeze({ENHANCE: 0, FIRE: 1, WATER: 2, THUNDER: 3});
+var SmithType = Object.freeze({
+    ENHANCE: 0,
+    FIRE: 1,
+    WATER: 2,
+    THUNDER: 3
+});
 var bloopSmith = {
     smithStage: null,
     smithLocation: null,
@@ -13503,7 +14960,11 @@ var bloopSmith = {
     },
     getSmithCostMulti: function getSmithCostMulti(item, finalSharp) {
         var amt = [25, 50, 75, 100, 150, 200, 250, 300, 400, 500];
-        var result = {gold: 0, resType: item.smithCost, resAmt: 0};
+        var result = {
+            gold: 0,
+            resType: item.smithCost,
+            resAmt: 0
+        };
         var currentSharp = item.sharp;
         while (currentSharp < finalSharp) {
             result["gold"] += Math.floor(item.goldValue() * miscLoadedValues.smithChance[currentSharp]);
@@ -13531,7 +14992,8 @@ var bloopSmith = {
         ResourceManager.addMaterial(params.resType, -params.resAmt);
         var name = this.smithStage.name;
         this.smithStage = this.enhanceSmith();
-        if (this.smithStage !== null) ToastManager.renderToast("smith_success", this.smithStage.name); else ToastManager.renderToast("forge_autocontribute", name);
+        if (this.smithStage !== null) ToastManager.renderToast("smith_success", this.smithStage.name);
+        else ToastManager.renderToast("forge_autocontribute", name);
         refreshSmithInventory();
         refreshSmithStage()
     },
@@ -13542,10 +15004,15 @@ var bloopSmith = {
             if (bloopSmith.smithType === SmithType.ENHANCE) {
                 if (container.sharp >= bloopSmith.maxSharp()) return ToastManager.renderToast("cant_smith_max");
                 container.sharp += 1
-            } else if (bloopSmith.smithType === SmithType.FIRE) container.rune = RuneType.FIRE; else if (bloopSmith.smithType === SmithType.WATER) container.rune = RuneType.WATER; else if (bloopSmith.smithType === SmithType.THUNDER) container.rune = RuneType.THUNDER;
+            } else if (bloopSmith.smithType === SmithType.FIRE) container.rune = RuneType.FIRE;
+            else if (bloopSmith.smithType === SmithType.WATER) container.rune = RuneType.WATER;
+            else if (bloopSmith.smithType === SmithType.THUNDER) container.rune = RuneType.THUNDER;
             this.smithStage = Inventory.addToInventory(container.uniqueID(), 1, false)
         } else {
-            if (bloopSmith.smithType === SmithType.ENHANCE) this.smithStage.sharp += 1; else if (bloopSmith.smithType === SmithType.FIRE) this.smithStage.rune = RuneType.FIRE; else if (bloopSmith.smithType === SmithType.WATER) this.smithStage.rune = RuneType.WATER; else if (bloopSmith.smithType === SmithType.THUNDER) this.smithStage.rune = RuneType.THUNDER
+            if (bloopSmith.smithType === SmithType.ENHANCE) this.smithStage.sharp += 1;
+            else if (bloopSmith.smithType === SmithType.FIRE) this.smithStage.rune = RuneType.FIRE;
+            else if (bloopSmith.smithType === SmithType.WATER) this.smithStage.rune = RuneType.WATER;
+            else if (bloopSmith.smithType === SmithType.THUNDER) this.smithStage.rune = RuneType.THUNDER
         }
         achievementStats.forgePerformed();
         return this.smithStage
@@ -13569,7 +15036,10 @@ var bloopSmith = {
         ResourceManager.deductMoney(params.gold);
         ResourceManager.addMaterial(params.resType, -params.resAmt);
         var newContainer = inPlace ? container : Inventory.grabFromInventory(container.uniqueID(), 1, false);
-        if (type === SmithType.ENHANCE) newContainer.sharp += 1; else if (type === SmithType.FIRE) newContainer.rune = RuneType.FIRE; else if (type === SmithType.WATER) newContainer.rune = RuneType.WATER; else if (type === SmithType.THUNDER) newContainer.rune = RuneType.THUNDER;
+        if (type === SmithType.ENHANCE) newContainer.sharp += 1;
+        else if (type === SmithType.FIRE) newContainer.rune = RuneType.FIRE;
+        else if (type === SmithType.WATER) newContainer.rune = RuneType.WATER;
+        else if (type === SmithType.THUNDER) newContainer.rune = RuneType.THUNDER;
         if (!inPlace) Inventory.addToInventory(newContainer.uniqueID());
         achievementStats.forgePerformed();
         return newContainer.uniqueID()
@@ -13653,7 +15123,9 @@ function refreshSmithInventory() {
 function smithHeroesInventory(skipAnimation) {
     $smithHeroSlots.empty();
     var forgeHeroesHeader = $("<div/>").addClass("contentHeader").appendTo($smithHeroSlots);
-    if (skipAnimation) forgeHeroesHeader.css({animation: "none"});
+    if (skipAnimation) forgeHeroesHeader.css({
+        animation: "none"
+    });
     var forgeHeroesHeadingDetails = $("<div/>").addClass("headingDetails").appendTo(forgeHeroesHeader);
     $("<div/>").addClass("headingTitle").html(displayText("header_forge_heroes_title")).appendTo(forgeHeroesHeadingDetails);
     $("<div/>").addClass("headingDescription").html(displayText("header_forge_heroes_desc")).appendTo(forgeHeroesHeadingDetails);
@@ -13679,8 +15151,12 @@ function smithHeroesInventory(skipAnimation) {
         $("<div/>").addClass("heroBrowseName").html(hero.name).appendTo(heroBrowseCard);
         $("<div/>").addClass("smithHeroCycle smithHeroCycleRight").html('<i class="fas fa-arrow-right"></i>').appendTo(smithHeroBrowsing);
         if (skipAnimation) {
-            smithBackButton.css({animation: "none"});
-            smithHeroBrowsing.css({animation: "none"})
+            smithBackButton.css({
+                animation: "none"
+            });
+            smithHeroBrowsing.css({
+                animation: "none"
+            })
         }
         if (hero.getEquipSlots(true).length === 0) {
             $("<div/>").addClass("emptyContentMessage").html(displayText("forge_heroes_empty")).appendTo($smithHeroSlots)
@@ -13700,7 +15176,8 @@ function heroCycleLeft(currentID) {
         return hero.id === currentID
     });
     var newHero = 0;
-    if (currentHero > 0) newHero = currentHero - 1; else newHero = heroes.length - 1;
+    if (currentHero > 0) newHero = currentHero - 1;
+    else newHero = heroes.length - 1;
     return heroes[newHero].id
 }
 
@@ -13715,7 +15192,6 @@ function heroCycleRight(currentID) {
     if (currentHero < heroes.length - 1) newHero = currentHero + 1;
     return heroes[newHero].id
 }
-
 $smithHeroSlots.on("click", ".smithHeroCycleLeft", function (e) {
     bloopSmith.heroView = heroCycleLeft(bloopSmith.heroView);
     smithHeroesInventory(true)
@@ -13779,27 +15255,34 @@ function itemStageCardSmith(slot, upgrade) {
     if (slot === null) return;
     var itemdiv = $("<div/>").addClass("smithItem").addClass("R" + slot.rarity).addClass("ctrlClickItem").data("rid", slot.id);
     var itemName = $("<div/>").addClass("itemName");
-    if (upgrade) itemName.html(slot.picNamePlus()); else itemName.html(slot.picName());
+    if (upgrade) itemName.html(slot.picNamePlus());
+    else itemName.html(slot.picName());
     var itemLevel = $("<div/>").addClass("itemLevel").html(slot.itemLevel());
-    var itemRarity = $("<div/>").addClass("itemRarity RT".concat(slot.rarity, " tooltip")).attr({"data-tooltip": "rarity_".concat(rarities[slot.rarity].toLowerCase())}).html(miscIcons.rarity);
+    var itemRarity = $("<div/>").addClass("itemRarity RT".concat(slot.rarity, " tooltip")).attr({
+        "data-tooltip": "rarity_".concat(rarities[slot.rarity].toLowerCase())
+    }).html(miscIcons.rarity);
     var itemMaterial = $("<div/>").addClass("smithItemMaterial tooltip").attr({
         "data-tooltip": "material_desc",
         "data-tooltip-value": slot.smithCost
     }).html(ResourceManager.materialIcon(slot.smithCost));
-    var smithClose = $("<div/>").addClass("smithClose tooltip").attr({"data-tooltip": "forge_remove"}).html('<i class="fas fa-times"></i>');
+    var smithClose = $("<div/>").addClass("smithClose tooltip").attr({
+        "data-tooltip": "forge_remove"
+    }).html('<i class="fas fa-times"></i>');
     if (upgrade) smithClose.hide();
     var equipStats = $("<div/>").addClass("equipStats");
     for (var _i = 0, _Object$entries = Object.entries(slot.itemStat(upgrade)); _i < _Object$entries.length; _i++) {
-        var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2), stat = _Object$entries$_i[0],
+        var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+            stat = _Object$entries$_i[0],
             val = _Object$entries$_i[1];
         if (val === 0) continue;
-        var ed = $("<div/>").addClass("gearStat tooltip").attr({"data-tooltip": stat}).appendTo(equipStats);
+        var ed = $("<div/>").addClass("gearStat tooltip").attr({
+            "data-tooltip": stat
+        }).appendTo(equipStats);
         $("<div/>").addClass("".concat(stat, "_img")).html(miscIcons[stat]).appendTo(ed);
         $("<div/>").addClass("".concat(stat, "_integer statValue")).html(val).appendTo(ed)
     }
     return itemdiv.append(itemName, itemLevel, itemRarity, itemMaterial, smithClose, equipStats)
 }
-
 $smithAssign.on("click", ".inventoryItem", function (e) {
     e.preventDefault();
     var uniqueid = $(e.currentTarget).attr("data-id");
@@ -13867,7 +15350,6 @@ function _createClass(Constructor, protoProps, staticProps) {
     if (staticProps) _defineProperties(Constructor, staticProps);
     return Constructor
 }
-
 var $fortuneBuilding = $("#fortuneBuilding");
 var fortuneSlotid = 0;
 var fortuneSlot = function () {
@@ -13882,35 +15364,42 @@ var fortuneSlot = function () {
         this.slotid = fortuneSlotid;
         fortuneSlotid += 1
     }
-
     _createClass(fortuneSlot, [{
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
             save.id = this.id;
             save.rarity = this.rarity;
             return save
         }
     }, {
-        key: "loadSave", value: function loadSave(save) {
+        key: "loadSave",
+        value: function loadSave(save) {
             this.rarity = save.rarity
         }
     }, {
-        key: "picName", value: function picName() {
+        key: "picName",
+        value: function picName() {
             return "<img src='assets/images/recipes/" + this.type + "/" + this.id + ".png'>" + "<div class='item-name'>" + this.name + "</div>"
         }
     }, {
-        key: "material", value: function material() {
+        key: "material",
+        value: function material() {
             return this.item.smithCost
         }
     }, {
-        key: "itemLevel", value: function itemLevel() {
+        key: "itemLevel",
+        value: function itemLevel() {
             return this.item.itemLevel()
         }
     }]);
     return fortuneSlot
 }();
 var FortuneManager = {
-    slots: [], lvl: 1, stage: null, createSave: function createSave() {
+    slots: [],
+    lvl: 1,
+    stage: null,
+    createSave: function createSave() {
         var save = {};
         save.slots = [];
         this.slots.forEach(function (slot) {
@@ -13918,7 +15407,8 @@ var FortuneManager = {
             save.slots.push(saveSlot)
         });
         return save
-    }, loadSave: function loadSave(save) {
+    },
+    loadSave: function loadSave(save) {
         var _this = this;
         save.slots.forEach(function (slot) {
             var container = new itemContainer(slot.id, slot.rarity);
@@ -13926,10 +15416,12 @@ var FortuneManager = {
             saveSlot.loadSave(slot);
             _this.slots.push(saveSlot)
         })
-    }, clearProgress: function clearProgress() {
+    },
+    clearProgress: function clearProgress() {
         this.slots = [];
         this.stage = null
-    }, stageItem: function stageItem(uniqueID, checkMaterial) {
+    },
+    stageItem: function stageItem(uniqueID, checkMaterial) {
         if (this.slots.length >= this.maxSlot()) {
             ToastManager.renderToast("fortune_no_slot");
             return
@@ -13938,23 +15430,28 @@ var FortuneManager = {
         if (container.rarity > 2) return ToastManager.renderToast("cant_fortune_rarity");
         var cost = FortuneManager.getMaterialCost(container);
         if (checkMaterial && !ResourceManager.available(cost.id, cost.amt)) return ToastManager.renderToast("cant_fortune_material");
+        if (this.hasFortune(container.id, container.rarity)) return ToastManager.renderToast("cant_fortune_unique");
         this.stage = uniqueID;
         refreshFortuneSlots()
-    }, fortuneByID: function fortuneByID(fortuneID) {
+    },
+    fortuneByID: function fortuneByID(fortuneID) {
         return this.slots.find(function (f) {
             return f.slotid == fortuneID
         })
-    }, removeFortune: function removeFortune() {
+    },
+    removeFortune: function removeFortune() {
         FortuneManager.stage = null;
         refreshFortuneGear();
         refreshFortuneSlots()
-    }, removeLockedFortune: function removeLockedFortune(fortuneID) {
+    },
+    removeLockedFortune: function removeLockedFortune(fortuneID) {
         this.slots = this.slots.filter(function (f) {
             return f.slotid !== fortuneID
         });
         refreshFortuneGear();
         refreshFortuneSlots()
-    }, lockFortune: function lockFortune() {
+    },
+    lockFortune: function lockFortune() {
         if (this.stage === null) return;
         var container = Inventory.findContainer(this.stage);
         var cost = FortuneManager.getMaterialCost(container);
@@ -13966,13 +15463,19 @@ var FortuneManager = {
         this.stage = null;
         refreshFortuneGear();
         refreshFortuneSlots()
-    }, emptySlotCount: function emptySlotCount() {
+    },
+    emptySlotCount: function emptySlotCount() {
         if (this.stage === null) return this.maxSlot() - this.slots.length;
         return this.maxSlot() - this.slots.length - 1
-    }, getMaterialCost: function getMaterialCost(container) {
+    },
+    getMaterialCost: function getMaterialCost(container) {
         if (container === null) return null;
-        return {id: container.fortuneMaterial(), amt: 20}
-    }, getProcModifier: function getProcModifier(line, tier) {
+        return {
+            id: container.fortuneMaterial(),
+            amt: 20
+        }
+    },
+    getProcModifier: function getProcModifier(line, tier) {
         var modifier = [1, 1, 1];
         var mods = this.slots.filter(function (s) {
             return s.type === line && s.lvl === tier
@@ -13982,17 +15485,19 @@ var FortuneManager = {
         });
         refreshFortuneSlots();
         return modifier
-    }, maxSlot: function maxSlot() {
+    },
+    maxSlot: function maxSlot() {
         if (!Shop.alreadyPurchased("AL3014")) return 1;
         if (!Shop.alreadyPurchased("AL3019")) return 2;
         return 3
-    }, purgeDone: function purgeDone(id, rarity, skipAnimation) {
+    },
+    purgeDone: function purgeDone(id, rarity, skipAnimation) {
         if (this.slots.some(function (f) {
-            return f.id === id && f.rarity === rarity
-        })) achievementStats.fortunePerformed();
+                return f.id === id && f.rarity === rarity
+            })) achievementStats.fortunePerformed();
         if (!skipAnimation && this.slots.some(function (f) {
-            return f.id === id && f.rarity === rarity
-        })) ToastManager.renderToast("fortune_expired", rarities[rarity].toLowerCase(), recipeList.idToItem(id).name);
+                return f.id === id && f.rarity === rarity
+            })) ToastManager.renderToast("fortune_expired", rarities[rarity].toLowerCase(), recipeList.idToItem(id).name);
         this.slots = this.slots.filter(function (f) {
             return f.id !== id || f.rarity !== rarity
         });
@@ -14000,7 +15505,8 @@ var FortuneManager = {
             refreshFortuneSlots();
             refreshFortuneGear()
         }
-    }, hasFortune: function hasFortune(id, rarity) {
+    },
+    hasFortune: function hasFortune(id, rarity) {
         var result = false;
         this.slots.forEach(function (slot) {
             if (slot.id === id && slot.rarity === rarity + 1) {
@@ -14008,9 +15514,11 @@ var FortuneManager = {
             }
         });
         return result
-    }, canFortuneTooltip: function canFortuneTooltip(container) {
+    },
+    canFortuneTooltip: function canFortuneTooltip(container) {
         if (container.rarity > 2) return false;
         if (this.emptySlotCount() === 0) return false;
+        if (this.hasFortune(container.id, container.rarity)) return false;
         var cost = FortuneManager.getMaterialCost(container);
         if (!ResourceManager.available(cost.id, cost.amt)) return false;
         return true
@@ -14033,7 +15541,9 @@ function generateFortuneHeader() {
     var fortuneOfferingsHeader = $("<div/>").addClass("contentHeader").appendTo($fortuneHeading);
     var headingDetails = $("<div/>").addClass("headingDetails").appendTo(fortuneOfferingsHeader);
     var headingTitle = $("<div/>").addClass("headingTitle").html(displayText("header_fortune_possible_title")).appendTo(headingDetails);
-    $("<div/>").addClass("questionTooltip tooltip").attr({"data-tooltip": "more_info_fortune"}).html(miscIcons.question).appendTo(headingTitle);
+    $("<div/>").addClass("questionTooltip tooltip").attr({
+        "data-tooltip": "more_info_fortune"
+    }).html(miscIcons.question).appendTo(headingTitle);
     $("<div/>").addClass("questionTooltip tooltip").attr("data-tooltip", "shift_fortune").html(miscIcons.keyboard).appendTo(headingTitle);
     $("<div/>").addClass("headingDescription").html(displayText("header_fortune_possible_desc")).appendTo(headingDetails)
 }
@@ -14042,7 +15552,8 @@ function refreshFortuneSlots() {
     if (!openedTabEquals("town_fortune")) return;
     var $fortuneCount = $("#fortuneBldg .buildingNameIndicator");
     $fortuneCount.html(FortuneManager.emptySlotCount());
-    if (FortuneManager.emptySlotCount() > 0) $fortuneCount.addClass("available"); else $fortuneCount.removeClass("available");
+    if (FortuneManager.emptySlotCount() > 0) $fortuneCount.addClass("available");
+    else $fortuneCount.removeClass("available");
     if (!openedTabEquals("town_fortune")) return;
     $fortuneStage.empty();
     FortuneManager.slots.forEach(function (slot) {
@@ -14077,7 +15588,9 @@ function createFortuneCard(uniqueid) {
     var name = "<img src='assets/images/recipes/" + container.type + "/" + container.id + ".png'>" + "<div class='item-name'>" + container.name + "</div>";
     $("<div/>").addClass("itemName").html(name).appendTo(itemdiv);
     $("<div/>").addClass("itemLevel").html(container.itemLevel()).appendTo(itemdiv);
-    $("<div/>").addClass("itemRarity RT".concat(container.rarity + 1, " tooltip")).attr({"data-tooltip": "rarity_".concat(rarities[container.rarity + 1].toLowerCase())}).html(miscIcons.rarity).appendTo(itemdiv);
+    $("<div/>").addClass("itemRarity RT".concat(container.rarity + 1, " tooltip")).attr({
+        "data-tooltip": "rarity_".concat(rarities[container.rarity + 1].toLowerCase())
+    }).html(miscIcons.rarity).appendTo(itemdiv);
     var rarityBonus = displayText("fortune_slot_rarity_chance").replace("{0}", "100%").replace("{1}", rarity[container.rarity + 1]);
     $("<div/>").addClass("fortuneItemDesc").html(rarityBonus).appendTo(itemdiv);
     var cost = FortuneManager.getMaterialCost(container);
@@ -14087,7 +15600,9 @@ function createFortuneCard(uniqueid) {
         "data-tooltip": "material_desc",
         "data-tooltip-value": cost.id
     }).html("".concat(ResourceManager.idToMaterial(cost.id).img, " ").concat(cost.amt)).appendTo(sacContainer);
-    $("<div/>").addClass("fortuneItemClose tooltip").attr({"data-tooltip": "offering_remove"}).html('<i class="fas fa-times"></i>').appendTo(itemdiv);
+    $("<div/>").addClass("fortuneItemClose tooltip").attr({
+        "data-tooltip": "offering_remove"
+    }).html('<i class="fas fa-times"></i>').appendTo(itemdiv);
     return itemdiv
 }
 
@@ -14096,11 +15611,15 @@ function createFortuneCardLocked(slot) {
     var itemdiv = $("<div/>").addClass("fortuneSlot").addClass("R" + slot.rarity).addClass("ctrlClickItem").data("rid", slot.id);
     $("<div/>").addClass("itemName").html(slot.picName()).appendTo(itemdiv);
     $("<div/>").addClass("itemLevel").html(slot.itemLevel()).appendTo(itemdiv);
-    $("<div/>").addClass("itemRarity RT".concat(slot.rarity, " tooltip")).attr({"data-tooltip": "rarity_".concat(rarities[slot.rarity].toLowerCase())}).html(miscIcons.rarity).appendTo(itemdiv);
+    $("<div/>").addClass("itemRarity RT".concat(slot.rarity, " tooltip")).attr({
+        "data-tooltip": "rarity_".concat(rarities[slot.rarity].toLowerCase())
+    }).html(miscIcons.rarity).appendTo(itemdiv);
     var rarityBonus = displayText("fortune_slot_rarity_chance").replace("{0}", "100%").replace("{1}", rarity[slot.rarity]);
     $("<div/>").addClass("fortuneItemDesc").html(rarityBonus).appendTo(itemdiv);
     $("<div/>").addClass("fortuneItemAmt").html(displayText("fortune_slot_fortune_remaining").replace("{0}", rarity[slot.rarity]).replace("{1}", slot.name)).appendTo(itemdiv);
-    $("<div/>").addClass("fortuneItemSetClose tooltip").attr({"data-tooltip": "fortune_remove"}).data("fortuneID", slot.slotid).html('<i class="fas fa-times"></i>').appendTo(itemdiv);
+    $("<div/>").addClass("fortuneItemSetClose tooltip").attr({
+        "data-tooltip": "fortune_remove"
+    }).data("fortuneID", slot.slotid).html('<i class="fas fa-times"></i>').appendTo(itemdiv);
     return itemdiv
 }
 
@@ -14116,7 +15635,6 @@ function createFortuneBlank() {
     $("<div/>").addClass("actionButtonCardValue").appendTo(actionButton);
     return itemdiv
 }
-
 $fortuneGear.on("click", ".inventoryItem", function (e) {
     e.preventDefault();
     var uniqueid = $(e.currentTarget).attr("data-id");
@@ -14182,8 +15700,10 @@ function _iterableToArrayLimit(arr, i) {
 function _arrayWithHoles(arr) {
     if (Array.isArray(arr)) return arr
 }
-
-var synthToggle = Object.freeze({DESYNTH: 0, RESYNTH: 1});
+var synthToggle = Object.freeze({
+    DESYNTH: 0,
+    RESYNTH: 1
+});
 var $synthSide = $("#synthSide");
 var SynthManager = {
     slot: null,
@@ -14271,24 +15791,27 @@ var SynthManager = {
         var container = Inventory.grabFromInventory(this.slot.uniqueID(), 1, false);
         container.rarity -= 1;
         Inventory.addToInventory(container.uniqueID(), 1);
-        if (container.rarity === 0) this.slot = null; else this.slot = Inventory.findContainer(container.uniqueID());
+        if (container.rarity === 0) this.slot = null;
+        else this.slot = Inventory.findContainer(container.uniqueID());
         refreshSynthBoost(true);
         synthSidebarRefresh();
         refreshSynthStage();
         refreshSynthInventory()
     },
-    desynthItem: function desynthItem(container) {
+    desynthItem: function desynthItem(container, all) {
         if (container.rarity === 0) {
             ToastManager.renderToast("desynth_common");
             return
         }
-        this.fuel += this.amt(container, synthToggle.DESYNTH);
-        ToastManager.renderToast("synth_collect", this.amt(container));
-        var newcontainer = Inventory.grabFromInventory(container.uniqueID(), 1, false);
+        var qty = all ? container.qty : 1;
+        this.fuel += this.amt(container, synthToggle.DESYNTH) * qty;
+        ToastManager.renderToast("synth_collect", this.amt(container) * qty);
+        var newcontainer = Inventory.grabFromInventory(container.uniqueID(), qty, false);
         newcontainer.rarity -= 1;
-        Inventory.addToInventory(newcontainer.uniqueID(), 1);
+        Inventory.addToInventory(newcontainer.uniqueID(), qty);
         generateSynthBoost();
-        synthSidebarRefresh()
+        synthSidebarRefresh();
+        return Inventory.findContainer(newcontainer.uniqueID())
     },
     resynth: function resynth() {
         if (this.slot === null) return;
@@ -14346,11 +15869,20 @@ function synthSidebarRefresh() {
         return
     }
     if (SynthManager.boostEnable) {
-        $synthButton.show().removeClass("disabled").html("".concat(miscIcons.essence, " Enabled (").concat(msToTime(SynthManager.fuel * 1e3), ")"))
+        $synthButton.show().removeClass("disabled").html(miscIcons.essence);
+        var synthInfo = $("<div>").addClass("synthInfo").appendTo($synthButton);
+        $("<div>").addClass("synthName").html("Enabled").appendTo(synthInfo);
+        $("<div>").addClass("synthTime").html(msToTime(SynthManager.fuel * 1e3)).appendTo(synthInfo)
     } else {
-        $synthButton.show().addClass("disabled").html("".concat(miscIcons.essence, " Boost (").concat(msToTime(SynthManager.fuel * 1e3), ")"))
+        $synthButton.show().addClass("disabled").html(miscIcons.essence);
+        var _synthInfo = $("<div>").addClass("synthInfo").appendTo($synthButton);
+        $("<div>").addClass("synthName").html("Boost").appendTo(_synthInfo);
+        $("<div>").addClass("synthTime").html(msToTime(SynthManager.fuel * 1e3)).appendTo(_synthInfo)
     }
-    $synthButton.addClass("tooltip").attr({"data-tooltip": "synth_boost", "data-tooltip-value": "req"})
+    $synthButton.addClass("tooltip").attr({
+        "data-tooltip": "synth_boost",
+        "data-tooltip-value": "req"
+    })
 }
 
 function initiateSynthBldg() {
@@ -14386,9 +15918,15 @@ function generateSynthStageActions() {
     var synthSettings = $("<div/>").addClass("synthSettingsContainer").appendTo($synthSide);
     var synthSettingOptions = $("<div/>").addClass("synthSettingsOptions").appendTo(synthSettings);
     $("<div/>").addClass("synthRewardHeader").html(displayText("synthesizer_settings_title")).appendTo(synthSettingOptions);
-    $("<div/>").addClass("synthPowerSetting actionButton actionButtonAnimDisabled").attr({id: "synthPowerDesynthesis"}).html(displayText("synthesizer_desynth_setting")).appendTo(synthSettingOptions);
-    $("<div/>").addClass("synthPowerSetting synthPowerSettingLocked actionButton actionButtonAnimDisabled").attr({id: "synthPowerResynthesis"}).html("<i class='fas fa-lock-alt'></i>".concat(displayText("universal_locked"))).appendTo(synthSettingOptions);
-    $("<div/>").addClass("synthSlot").attr({id: "synthSlot"}).appendTo($synthSide);
+    $("<div/>").addClass("synthPowerSetting actionButton actionButtonAnimDisabled").attr({
+        id: "synthPowerDesynthesis"
+    }).html(displayText("synthesizer_desynth_setting")).appendTo(synthSettingOptions);
+    $("<div/>").addClass("synthPowerSetting synthPowerSettingLocked actionButton actionButtonAnimDisabled").attr({
+        id: "synthPowerResynthesis"
+    }).html("<i class='fas fa-lock-alt'></i>".concat(displayText("universal_locked"))).appendTo(synthSettingOptions);
+    $("<div/>").addClass("synthSlot").attr({
+        id: "synthSlot"
+    }).appendTo($synthSide);
     var synthTutorial = $("<div/>").addClass("desynthRewards").appendTo($synthSide);
     $("<div/>").addClass("synthTutHeader").html(displayText("synthesizer_tutorial_head_title")).appendTo(synthTutorial);
     $("<div/>").addClass("synthTutDesc").attr("id", "resynthTut").html(displayText("synthesizer_tutorial_resynth_desc")).appendTo(synthTutorial);
@@ -14399,9 +15937,12 @@ function generateSynthBoost() {
     $synthBoost.empty();
     var header = $("<div/>").addClass("synthBoostHeaderContainer").appendTo($synthBoost);
     $("<div/>").addClass("synthBoostHeader").html(displayText("synthesizer_boost_header")).appendTo(header);
-    $("<div/>").addClass("questionTooltip tooltip").attr({"data-tooltip": "synth_boost"}).html(miscIcons.question).appendTo(header);
+    $("<div/>").addClass("questionTooltip tooltip").attr({
+        "data-tooltip": "synth_boost"
+    }).html(miscIcons.question).appendTo(header);
     var actions = $("<div/>").addClass("synthBoostActionsContainer").appendTo($synthBoost);
-    if (SynthManager.boostEnable) $("<div/>").addClass("synthBoostDesc synthBoostEnable").attr("id", "synthBoostDesc").html(displayText("synthesizer_boost_disable")).appendTo(actions); else $("<div/>").addClass("synthBoostDesc synthBoostDisable").attr("id", "synthBoostDesc").html(displayText("synthesizer_boost_enable")).appendTo(actions);
+    if (SynthManager.boostEnable) $("<div/>").addClass("synthBoostDesc synthBoostEnable").attr("id", "synthBoostDesc").html(displayText("synthesizer_boost_disable")).appendTo(actions);
+    else $("<div/>").addClass("synthBoostDesc synthBoostDisable").attr("id", "synthBoostDesc").html(displayText("synthesizer_boost_enable")).appendTo(actions);
     $("<div/>").addClass("synthBoostCount").attr({
         id: "synthBoostRemaining",
         "data-tooltip-value": "req"
@@ -14410,12 +15951,18 @@ function generateSynthBoost() {
 
 function refreshSynthBoost(manual) {
     if (!SynthManager.boostEnable && !manual) return;
-    if (SynthManager.boostEnable) $synthButton.html("".concat(miscIcons.essence, " Enabled (").concat(msToTime(SynthManager.fuel * 1e3), ")"));
+    if (SynthManager.boostEnable) {
+        $synthButton.html(miscIcons.essence);
+        var synthInfo = $("<div>").addClass("synthInfo").appendTo($synthButton);
+        $("<div>").addClass("synthName").html("Enabled").appendTo(synthInfo);
+        $("<div>").addClass("synthTime").html(msToTime(SynthManager.fuel * 1e3)).appendTo(synthInfo)
+    }
     $("#synthBoostRemaining").html("".concat(miscIcons.essence, " ").concat(formatToUnits(SynthManager.fuel, 2), " Remaining"))
 }
 
 function toggleSynthBoost() {
-    if (SynthManager.boostEnable) $("#synthBoostDesc").removeClass("synthBoostDisable").addClass("synthBoostEnable").html(displayText("synthesizer_boost_disable")); else $("#synthBoostDesc").removeClass("synthBoostEnable").addClass("synthBoostDisable").html(displayText("synthesizer_boost_enable"))
+    if (SynthManager.boostEnable) $("#synthBoostDesc").removeClass("synthBoostDisable").addClass("synthBoostEnable").html(displayText("synthesizer_boost_disable"));
+    else $("#synthBoostDesc").removeClass("synthBoostEnable").addClass("synthBoostDisable").html(displayText("synthesizer_boost_enable"))
 }
 
 function refreshSynthInventory() {
@@ -14471,7 +16018,6 @@ function refreshResynth() {
 function refreshSynthButtons() {
     if (SynthManager.canSynth()) $("#synthPowerResynthesis").removeClass("synthPowerSettingLocked").html(displayText("synthesizer_synth_setting"))
 }
-
 $synthListContainer.on("click", ".inventoryItem", function (e) {
     e.preventDefault();
     var id = $(e.currentTarget).attr("data-id");
@@ -14522,11 +16068,14 @@ function createSynthStageCard(container) {
         r: container.rarity
     }).html(container.picName());
     var itemLevel = $("<div/>").addClass("itemLevel").html(container.itemLevel());
-    var itemRarity = $("<div/>").addClass("itemRarity RT".concat(container.rarity, " tooltip")).attr({"data-tooltip": "rarity_".concat(rarities[container.rarity].toLowerCase())}).html(miscIcons.rarity);
+    var itemRarity = $("<div/>").addClass("itemRarity RT".concat(container.rarity, " tooltip")).attr({
+        "data-tooltip": "rarity_".concat(rarities[container.rarity].toLowerCase())
+    }).html(miscIcons.rarity);
     var itemProps = $("<div/>").addClass("equipStats");
     var stageRemove = $("<div/>").addClass("synthRemove").attr("id", "synthRemove").html('<i class="fas fa-times"></i>');
     for (var _i = 0, _Object$entries = Object.entries(container.itemStat(false)); _i < _Object$entries.length; _i++) {
-        var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2), stat = _Object$entries$_i[0],
+        var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+            stat = _Object$entries$_i[0],
             val = _Object$entries$_i[1];
         if (val === 0) continue;
         var ed = $("<div/>").addClass("gearStat tooltip").attr("data-tooltip", stat).appendTo(itemProps);
@@ -14537,16 +16086,19 @@ function createSynthStageCard(container) {
     if (SynthManager.setting === synthToggle.RESYNTH) {
         synthButton.addClass("actionButtonCardCost");
         $("<div/>").addClass("actionButtonCardText").html(displayText("synthesizer_synth_assign_button")).appendTo(synthButton);
-        $("<div/>").addClass("actionButtonCardValue tooltip").attr({"data-tooltip": "synth_essence"}).html("".concat(miscIcons.essence, " ").concat(SynthManager.amt())).appendTo(synthButton)
+        $("<div/>").addClass("actionButtonCardValue tooltip").attr({
+            "data-tooltip": "synth_essence"
+        }).html("".concat(miscIcons.essence, " ").concat(SynthManager.amt())).appendTo(synthButton)
     }
     if (SynthManager.setting === synthToggle.DESYNTH) {
         synthButton.addClass("actionButtonCardCost");
         $("<div/>").addClass("actionButtonCardText").html(displayText("synthesizer_desynth_assign_button")).appendTo(synthButton);
-        $("<div/>").addClass("actionButtonCardValue tooltip").attr({"data-tooltip": "synth_essence"}).html("".concat(miscIcons.essence, " ").concat(SynthManager.amt())).appendTo(synthButton)
+        $("<div/>").addClass("actionButtonCardValue tooltip").attr({
+            "data-tooltip": "synth_essence"
+        }).html("".concat(miscIcons.essence, " ").concat(SynthManager.amt())).appendTo(synthButton)
     }
     return itemdiv.append(itemName, itemLevel, itemRarity, itemProps, stageRemove, synthButton)
 }
-
 $synthListContainer.on("click", "#sortSynthInventory", function (e) {
     e.preventDefault();
     Inventory.sortInventory()
@@ -14574,7 +16126,6 @@ function _createClass(Constructor, protoProps, staticProps) {
     if (staticProps) _defineProperties(Constructor, staticProps);
     return Constructor
 }
-
 var $tinkerBuilding = $("#tinkerBuilding");
 var $tinkerCommands = $("#tinkerCommands");
 var $tinkerTopContainer = $("#tinkerTopContainer");
@@ -14591,9 +16142,9 @@ var tinkerCommand = function () {
         this.enabled = false;
         this.paidGold = false
     }
-
     _createClass(tinkerCommand, [{
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
             save.id = this.id;
             save.time = this.time;
@@ -14604,7 +16155,8 @@ var tinkerCommand = function () {
             return save
         }
     }, {
-        key: "loadSave", value: function loadSave(save) {
+        key: "loadSave",
+        value: function loadSave(save) {
             this.time = save.time;
             this.progress = save.progress;
             this.lvl = save.lvl;
@@ -14612,7 +16164,8 @@ var tinkerCommand = function () {
             this.paidGold = save.paidGold
         }
     }, {
-        key: "clearProgress", value: function clearProgress() {
+        key: "clearProgress",
+        value: function clearProgress() {
             this.time = 0;
             this.progress = 0;
             this.progressMax = 1e3;
@@ -14621,7 +16174,8 @@ var tinkerCommand = function () {
             this.paidGold = false
         }
     }, {
-        key: "addTime", value: function addTime(ms) {
+        key: "addTime",
+        value: function addTime(ms) {
             if (!this.enabled) return;
             if (this.time === 0) this.attemptStart();
             if (!this.paidGold) {
@@ -14655,14 +16209,16 @@ var tinkerCommand = function () {
             }
         }
     }, {
-        key: "attemptStart", value: function attemptStart() {
+        key: "attemptStart",
+        value: function attemptStart() {
             if (this.paidGold) return;
             if (!ResourceManager.available("M001", this.paidGoldAmt())) return;
             ResourceManager.addMaterial("M001", -this.paidGoldAmt());
             this.paidGold = true
         }
     }, {
-        key: "act", value: function act() {
+        key: "act",
+        value: function act() {
             this.paidGold = false;
             this.progress += 1;
             if (this.progress === 1e3) {
@@ -14673,24 +16229,29 @@ var tinkerCommand = function () {
             }
         }
     }, {
-        key: "toggle", value: function toggle() {
+        key: "toggle",
+        value: function toggle() {
             this.enabled = !this.enabled
         }
     }, {
-        key: "getTime", value: function getTime() {
+        key: "getTime",
+        value: function getTime() {
             return this.timeCost[this.lvl]
         }
     }, {
-        key: "paidGoldAmt", value: function paidGoldAmt() {
+        key: "paidGoldAmt",
+        value: function paidGoldAmt() {
             if (this.lvl === 10) return 0;
             return this.goldCost[this.lvl]
         }
     }, {
-        key: "completeCost", value: function completeCost() {
+        key: "completeCost",
+        value: function completeCost() {
             return 10 * (this.progressMax - this.progress) * this.paidGoldAmt()
         }
     }, {
-        key: "completeResearch", value: function completeResearch() {
+        key: "completeResearch",
+        value: function completeResearch() {
             if (!ResourceManager.available("M001", this.completeCost())) return ToastManager.renderToast("tinker_research");
             ResourceManager.addMaterial("M001", -this.completeCost());
             var recipeID = this.recipeUnlock[this.lvl];
@@ -14711,7 +16272,9 @@ var tinkerCommand = function () {
     return tinkerCommand
 }();
 var TinkerManager = {
-    commands: [], lvl: 0, createSave: function createSave() {
+    commands: [],
+    lvl: 0,
+    createSave: function createSave() {
         var save = {};
         save.lvl = this.lvl;
         save.commands = [];
@@ -14719,44 +16282,54 @@ var TinkerManager = {
             return save.commands.push(c.createSave())
         });
         return save
-    }, loadSave: function loadSave(save) {
+    },
+    loadSave: function loadSave(save) {
         var _this = this;
         save.commands.forEach(function (c) {
             var command = _this.idToCommand(c.id);
             command.loadSave(c)
         });
         this.lvl = save.lvl
-    }, clearProgress: function clearProgress() {
+    },
+    clearProgress: function clearProgress() {
         this.lvl = 0;
         this.commands.forEach(function (c) {
             return c.clearProgress()
         })
-    }, addTime: function addTime(ms) {
+    },
+    addTime: function addTime(ms) {
         this.commands.forEach(function (command) {
             return command.addTime(ms)
         })
-    }, idToCommand: function idToCommand(id) {
+    },
+    idToCommand: function idToCommand(id) {
         return this.commands.find(function (a) {
             return a.id === id
         })
-    }, addCommand: function addCommand(action) {
+    },
+    addCommand: function addCommand(action) {
         this.commands.push(action)
-    }, toggle: function toggle(commandID) {
+    },
+    toggle: function toggle(commandID) {
         var command = this.idToCommand(commandID);
         command.toggle()
-    }, completeResearch: function completeResearch(commandID) {
+    },
+    completeResearch: function completeResearch(commandID) {
         var command = this.idToCommand(commandID);
         command.completeResearch()
-    }, unlocked: function unlocked() {
+    },
+    unlocked: function unlocked() {
         return TownManager.idToBuilding("TB006").status === 2
-    }, addLevel: function addLevel() {
+    },
+    addLevel: function addLevel() {
         return
-    }, progressedOnce: function progressedOnce() {
+    },
+    progressedOnce: function progressedOnce() {
         if (this.commands.map(function (p) {
-            return p.lvl
-        }).some(function (a) {
-            return a > 0
-        })) return true;
+                return p.lvl
+            }).some(function (a) {
+                return a > 0
+            })) return true;
         return this.commands.map(function (p) {
             return p.progress
         }).some(function (p) {
@@ -14782,7 +16355,9 @@ function generateTinkerHeader() {
     var tinkerHeader = $("<div/>").addClass("contentHeader tinkerHeader").appendTo($tinkerTopContainer);
     var headingDetails = $("<div/>").addClass("headingDetails").appendTo(tinkerHeader);
     var headingTitle = $("<div/>").addClass("headingTitle").html(displayText("header_tinker_research_title")).appendTo(headingDetails);
-    $("<div/>").addClass("questionTooltip tooltip").attr({"data-tooltip": "more_info_tinker"}).html(miscIcons.question).appendTo(headingTitle);
+    $("<div/>").addClass("questionTooltip tooltip").attr({
+        "data-tooltip": "more_info_tinker"
+    }).html(miscIcons.question).appendTo(headingTitle);
     $("<div/>").addClass("headingDescription").html(displayText("header_tinker_research_desc")).appendTo(headingDetails)
 }
 
@@ -14890,7 +16465,6 @@ function initiateTinkerBldg() {
     refreshTinkerCommands();
     refreshTinkerRecipes()
 }
-
 $tinkerCommands.on("click", ".tinkerCommandInline", function (e) {
     e.preventDefault();
     var commandID = $(e.currentTarget).data("cid");
@@ -14933,7 +16507,6 @@ function refreshTinkerRecipes() {
         $tinkerScreenRecipes.prepend(recipeCardContainer)
     })
 }
-
 $tinkerScreenRecipes.on("click", ".recipeCraft", function (e) {
     e.preventDefault();
     var itemID = $(e.currentTarget).attr("id");
@@ -14962,8 +16535,12 @@ function _createClass(Constructor, protoProps, staticProps) {
     if (staticProps) _defineProperties(Constructor, staticProps);
     return Constructor
 }
-
-var BuildingState = Object.freeze({hidden: -1, unseen: 0, seen: 1, built: 2});
+var BuildingState = Object.freeze({
+    hidden: -1,
+    unseen: 0,
+    seen: 1,
+    built: 2
+});
 var $buildingList = $("#buildingList");
 var $buildingHeader = $("#buildingHeader");
 var $buildingRecipes = $("#buildingRecipes");
@@ -14973,96 +16550,116 @@ var Building = function () {
         Object.assign(this, props);
         this.status = BuildingState.hidden
     }
-
     _createClass(Building, [{
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
             save.status = this.status;
             save.id = this.id;
             return save
         }
     }, {
-        key: "loadSave", value: function loadSave(save) {
+        key: "loadSave",
+        value: function loadSave(save) {
             this.status = save.status
         }
     }, {
-        key: "clearProgress", value: function clearProgress() {
+        key: "clearProgress",
+        value: function clearProgress() {
             this.status = BuildingState.hidden
         }
     }, {
-        key: "getStatus", value: function getStatus() {
+        key: "getStatus",
+        value: function getStatus() {
             return this.status
         }
     }, {
-        key: "unlocked", value: function unlocked() {
+        key: "unlocked",
+        value: function unlocked() {
             return this.status > 0
         }
     }, {
-        key: "setStatus", value: function setStatus(status) {
+        key: "setStatus",
+        value: function setStatus(status) {
             this.status = status
         }
     }]);
     return Building
 }();
 var TownManager = {
-    buildings: [], addBuilding: function addBuilding(building) {
+    buildings: [],
+    addBuilding: function addBuilding(building) {
         this.buildings.push(building)
-    }, createSave: function createSave() {
+    },
+    createSave: function createSave() {
         var save = {};
         save.buildings = [];
         this.buildings.forEach(function (b) {
             save.buildings.push(b.createSave())
         });
         return save
-    }, loadSave: function loadSave(save) {
+    },
+    loadSave: function loadSave(save) {
         var _this = this;
         if (save.buildings === undefined) return;
         save.buildings.forEach(function (bsave) {
             var building = _this.idToBuilding(bsave.id);
             if (building !== undefined) building.loadSave(bsave)
         })
-    }, clearProgress: function clearProgress() {
+    },
+    clearProgress: function clearProgress() {
         this.buildings.forEach(function (b) {
             return b.clearProgress()
         })
-    }, idToBuilding: function idToBuilding(id) {
+    },
+    idToBuilding: function idToBuilding(id) {
         return this.buildings.find(function (b) {
             return b.id === id
         })
-    }, typeToBuilding: function typeToBuilding(type) {
+    },
+    typeToBuilding: function typeToBuilding(type) {
         return this.buildings.find(function (b) {
             return b.shorthand === type
         })
-    }, recipeIDToBuilding: function recipeIDToBuilding(recipeID) {
+    },
+    recipeIDToBuilding: function recipeIDToBuilding(recipeID) {
         return this.buildings.find(function (b) {
             return b.recipeID === recipeID
         })
-    }, buildingStatus: function buildingStatus() {
+    },
+    buildingStatus: function buildingStatus() {
         return this.buildings.map(function (b) {
             return b.getStatus()
         })
-    }, buildingRecipes: function buildingRecipes() {
+    },
+    buildingRecipes: function buildingRecipes() {
         return this.buildings.map(function (b) {
             return b.recipeID
         })
-    }, unseenLeft: function unseenLeft() {
+    },
+    unseenLeft: function unseenLeft() {
         return this.buildingStatus().includes(BuildingState.unseen)
-    }, buildingPerk: function buildingPerk(type) {
+    },
+    buildingPerk: function buildingPerk(type) {
         var building = this.typeToBuilding(type);
         building.setStatus(BuildingState.unseen);
         recipeList.idToItem(building.recipeID).owned = true;
         refreshSideTown()
-    }, buildingsOwned: function buildingsOwned() {
+    },
+    buildingsOwned: function buildingsOwned() {
         return this.buildings.some(function (building) {
             return building.getStatus() !== BuildingState.hidden
         })
-    }, status: function status(type) {
+    },
+    status: function status(type) {
         var building = this.typeToBuilding(type);
         return building.getStatus()
-    }, setStatus: function setStatus(type, value) {
+    },
+    setStatus: function setStatus(type, value) {
         var building = this.typeToBuilding(type);
         building.setStatus(value)
-    }, unlockBldg: function unlockBldg(recipeID) {
+    },
+    unlockBldg: function unlockBldg(recipeID) {
         var building = this.recipeIDToBuilding(recipeID);
         var type = building.shorthand;
         building.setStatus(BuildingState.built);
@@ -15071,7 +16668,10 @@ var TownManager = {
         $("#".concat(building.shorthand, "Bldg")).addClass("selected");
         refreshSideTown();
         showBldg(type);
-        showSidebarHeadings()
+        showSidebarHeadings();
+        recipeList.recipes.forEach(function (recipe) {
+            return refreshMuseumRecipeCard(recipe)
+        })
     }
 };
 var $emptyTown = $("#emptyTown");
@@ -15093,15 +16693,17 @@ function refreshSideTown() {
             $("<span/>").addClass("buildingNameIcon").html(building.icon).appendTo(d);
             $("<span/>").addClass("buildingNameText").html(building.name).appendTo(d);
             if (building.shorthand === "fortune" && building.getStatus() === 2) {
-                var d1 = $("<div/>").addClass("buildingNameIndicator tooltip").attr({"data-tooltip": "fortune_slots_available"}).html(FortuneManager.emptySlotCount()).appendTo(d);
-                if (FortuneManager.emptySlotCount() > 0) d1.addClass("available"); else d1.removeClass("available")
+                var d1 = $("<div/>").addClass("buildingNameIndicator tooltip").attr({
+                    "data-tooltip": "fortune_slots_available"
+                }).html(FortuneManager.emptySlotCount()).appendTo(d);
+                if (FortuneManager.emptySlotCount() > 0) d1.addClass("available");
+                else d1.removeClass("available")
             }
             if (building.getStatus() === BuildingState.unseen) d.addClass("hasEvent")
         }
     });
     refreshTownHasEvents()
 }
-
 var $buildBuilding = $("#buildBuilding");
 
 function showBldg(type) {
@@ -15124,13 +16726,13 @@ function showBldg(type) {
         return c.toUpperCase()
     });
     var buildingText = "initiate".concat(upper, "Bldg");
-    if (building.getStatus() === BuildingState.built) window[buildingText](); else {
+    if (building.getStatus() === BuildingState.built) window[buildingText]();
+    else {
         $buildBuilding.show();
         buildScreen(building.shorthand)
     }
     recipeCanCraft()
 }
-
 $buildingList.on("click", ".buildingName", function (e) {
     e.preventDefault();
     var type = $(e.currentTarget).data("bldgType");
@@ -15159,28 +16761,27 @@ function refreshTownHasEvents() {
     $("#expeditionBldg").removeClass("hasEvent");
     $townTab.removeClass("hasEvent");
     if (FusionManager.slots.some(function (f) {
-        return f.fuseComplete()
-    })) {
+            return f.fuseComplete()
+        })) {
         $("#fusionBldg").addClass("hasEvent");
         $townTab.addClass("hasEvent")
     }
     if (ExpeditionManager.quests.some(function (q) {
-        return q.finished()
-    })) {
+            return q.finished()
+        })) {
         $("#expeditionBldg").addClass("hasEvent");
         $townTab.addClass("hasEvent")
     }
     if (TownManager.unseenLeft()) $townTab.addClass("hasEvent");
     if (ExpeditionManager.expeditions.some(function (e) {
-        return e.reachedOptimal()
-    }) || ExpeditionManager.quests.some(function (q) {
-        return q.finished()
-    })) {
+            return e.reachedOptimal()
+        }) || ExpeditionManager.quests.some(function (q) {
+            return q.finished()
+        })) {
         $("#expeditionBldg").addClass("hasEvent");
         $townTab.addClass("hasEvent")
     }
 }
-
 "use strict";
 
 function _defineProperties(target, props) {
@@ -15204,13 +16805,16 @@ function _classCallCheck(instance, Constructor) {
         throw new TypeError("Cannot call a class as a function")
     }
 }
-
 var $closeShopOrder = $("#closeShopOrder");
 var $merchantOrderLocations = $(".merchantOrderLocations");
 var $merchantOrders = $("#merchantOrders");
 var $merchantMastery = $("#merchantMastery");
 var Merchant = {
-    tabView: "Order", orders: [], orderConfig: [], acDefault: false, createSave: function createSave() {
+    tabView: "Order",
+    orders: [],
+    orderConfig: [],
+    acDefault: false,
+    createSave: function createSave() {
         var save = {};
         save.orders = [];
         this.orders.forEach(function (order) {
@@ -15218,7 +16822,8 @@ var Merchant = {
         });
         save.acDefault = this.acDefault;
         return save
-    }, loadSave: function loadSave(save) {
+    },
+    loadSave: function loadSave(save) {
         save.orders.forEach(function (order) {
             var newOrder = new orderItem(order.id);
             newOrder.loadSave(order);
@@ -15226,18 +16831,24 @@ var Merchant = {
         });
         if (save.acDefault !== undefined) this.acDefault = save.acDefault;
         return
-    }, clearProgress: function clearProgress() {
+    },
+    clearProgress: function clearProgress() {
         this.orders = [];
         this.tabView = "Order"
-    }, addOrderConfig: function addOrderConfig(order) {
+    },
+    addOrderConfig: function addOrderConfig(order) {
         this.orderConfig.push(order)
-    }, maxOrders: function maxOrders() {
+    },
+    maxOrders: function maxOrders() {
         return Shop.slotsPurchased()
-    }, emptyOrders: function emptyOrders() {
+    },
+    emptyOrders: function emptyOrders() {
         return this.maxOrders() - this.orders.length
-    }, canBuyRecipe: function canBuyRecipe() {
+    },
+    canBuyRecipe: function canBuyRecipe() {
         return this.orders.length < this.maxOrders()
-    }, nextRecipes: function nextRecipes() {
+    },
+    nextRecipes: function nextRecipes() {
         var recipes = recipeList.availablePurchase();
         if (!Shop.alreadyPurchased("AL1026")) return [recipes.sort(function (a, b) {
             return a.unlockOrder - b.unlockOrder
@@ -15258,20 +16869,22 @@ var Merchant = {
             return a.unlockOrder - b.unlockOrder
         });
         return [r1List[0], r2List[0], r3List[0]]
-    }, gainRecipe: function gainRecipe(recipeID) {
+    },
+    gainRecipe: function gainRecipe(recipeID) {
         var recipe = recipeList.idToItem(recipeID);
         if (recipe.owned) return;
         recipe.owned = true;
         this.orders.push(new orderItem(recipeID))
-    }, submitItem: function submitItem(uniqueID) {
+    },
+    submitItem: function submitItem(uniqueID) {
         var order = this.orders.find(function (o) {
             return o.uniqueID() === uniqueID
         });
         if (Inventory.itemCount(uniqueID) === 0) return ToastManager.renderToast("shop_order_no_item");
         order.submit(uniqueID);
         if (this.orders.every(function (o) {
-            return !o.complete()
-        })) return;
+                return !o.complete()
+            })) return;
         this.orders.forEach(function (o) {
             return o.increasePart()
         });
@@ -15279,18 +16892,22 @@ var Merchant = {
             return o.part < o.totalParts()
         });
         refreshShopOrder()
-    }, orderByUid: function orderByUid(uid) {
+    },
+    orderByUid: function orderByUid(uid) {
         return this.orders.find(function (o) {
             return o.uniqueID() === uid
         })
-    }, orderProp: function orderProp(lvl) {
+    },
+    orderProp: function orderProp(lvl) {
         var count = recipeList.ownedByLvl(lvl);
         return this.orderConfig.find(function (o) {
             return o.lvl === lvl && o.order === count
         })
-    }, canChooseRecipe: function canChooseRecipe() {
+    },
+    canChooseRecipe: function canChooseRecipe() {
         return Shop.alreadyPurchased("AL1026")
-    }, toggleAC: function toggleAC(uniqueID) {
+    },
+    toggleAC: function toggleAC(uniqueID) {
         var order = this.orderByUid(uniqueID);
         var ac = order.toggleAC();
         if (!ac) return;
@@ -15308,12 +16925,14 @@ var Merchant = {
         });
         refreshShopOrder();
         return ac
-    }, canContribute: function canContribute(uniqueID) {
+    },
+    canContribute: function canContribute(uniqueID) {
         var fit = this.orders.find(function (o) {
             return o.uniqueID() === uniqueID && o.autoContribute && !o.complete()
         });
         return fit !== undefined
-    }, autoContribute: function autoContribute(uniqueID) {
+    },
+    autoContribute: function autoContribute(uniqueID) {
         var fit = this.orders.find(function (o) {
             return o.uniqueID() === uniqueID && o.autoContribute && !o.complete()
         });
@@ -15327,7 +16946,8 @@ var Merchant = {
             refreshShopOrder()
         }
         if (openedTabEquals("merchant_order")) refreshOrderRemaining(uniqueID)
-    }, manualSubmit: function manualSubmit(uniqueID) {
+    },
+    manualSubmit: function manualSubmit(uniqueID) {
         var manualSubmit = Inventory.findContainer(uniqueID);
         var order = this.orders.find(function (o) {
             return o.id === manualSubmit.id
@@ -15335,8 +16955,8 @@ var Merchant = {
         order.submitContainer(uniqueID);
         var finishedOrder = order.complete();
         if (this.orders.every(function (o) {
-            return !o.complete()
-        })) return;
+                return !o.complete()
+            })) return;
         this.orders.forEach(function (o) {
             return o.increasePart()
         });
@@ -15344,13 +16964,15 @@ var Merchant = {
             return o.part < o.totalParts()
         });
         return finishedOrder
-    }, actualUID: function actualUID(uid) {
+    },
+    actualUID: function actualUID(uid) {
         var props = createContainerFromUniqueID(uid);
         var order = this.orders.find(function (o) {
             return o.id === props.id
         });
         return order.uniqueID()
-    }, attemptForge: function attemptForge(uniqueID) {
+    },
+    attemptForge: function attemptForge(uniqueID) {
         var order = this.orders.find(function (o) {
             return o.uniqueID() === uniqueID
         });
@@ -15379,8 +17001,8 @@ var Merchant = {
         Inventory.removeFromInventory(container.uniqueID(), 1);
         order.autoSubmit(1);
         if (this.orders.some(function (o) {
-            return o.complete()
-        })) {
+                return o.complete()
+            })) {
             this.orders.forEach(function (o) {
                 return o.increasePart()
             });
@@ -15390,7 +17012,8 @@ var Merchant = {
             refreshShopOrder()
         }
         if (openedTabEquals("merchant_order")) refreshOrderRemaining(uniqueID)
-    }, orderBypass: function orderBypass(uniqueID) {
+    },
+    orderBypass: function orderBypass(uniqueID) {
         var order = this.orders.find(function (o) {
             return o.uniqueID() === uniqueID
         });
@@ -15419,9 +17042,9 @@ var orderItem = function () {
         this.part = 0;
         this.autoContribute = Merchant.acDefault
     }
-
     _createClass(orderItem, [{
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
             save.id = this.id;
             save.rarity = this.rarity;
@@ -15433,7 +17056,8 @@ var orderItem = function () {
             return save
         }
     }, {
-        key: "loadSave", value: function loadSave(save) {
+        key: "loadSave",
+        value: function loadSave(save) {
             this.amt = save.amt;
             this.rarity = save.rarity;
             this.sharp = save.sharp;
@@ -15443,29 +17067,35 @@ var orderItem = function () {
             this.autoContribute = save.autoContribute
         }
     }, {
-        key: "complete", value: function complete() {
+        key: "complete",
+        value: function complete() {
             return this.fufilled >= this.getAmt()
         }
     }, {
-        key: "totalParts", value: function totalParts() {
+        key: "totalParts",
+        value: function totalParts() {
             return this.amt.length
         }
     }, {
-        key: "left", value: function left() {
+        key: "left",
+        value: function left() {
             return this.getAmt() - this.fufilled
         }
     }, {
-        key: "generateName", value: function generateName() {
+        key: "generateName",
+        value: function generateName() {
             if (this.getSharp() > 0) return '<span><span class="item-prefix tooltip" data-tooltip="forge_level">'.concat(miscIcons.enhancement).concat(this.getSharp(), "</span>").concat(this.item.name, "</span>");
             return "".concat(this.item.name)
         }
     }, {
-        key: "uniqueID", value: function uniqueID(flatOrder) {
+        key: "uniqueID",
+        value: function uniqueID(flatOrder) {
             if (flatOrder) return this.id + "_" + this.getRarity() + "_0_0_0";
             return this.id + "_" + this.getRarity() + "_" + this.getSharp() + "_" + this.getRune() + "_" + this.getTransform()
         }
     }, {
-        key: "submit", value: function submit(uniqueID) {
+        key: "submit",
+        value: function submit(uniqueID) {
             if (this.uniqueID() !== uniqueID) return;
             if (Inventory.findContainer(uniqueID) === undefined) return;
             Inventory.removeFromInventory(this.uniqueID(), 1, false);
@@ -15473,23 +17103,27 @@ var orderItem = function () {
             this.fufilled += 1
         }
     }, {
-        key: "submitContainer", value: function submitContainer(uniqueID) {
+        key: "submitContainer",
+        value: function submitContainer(uniqueID) {
             Inventory.removeFromInventory(uniqueID, 1, false);
             ResourceManager.addMaterial("M001", this.goldValue());
             this.fufilled += 1
         }
     }, {
-        key: "autoSubmit", value: function autoSubmit() {
+        key: "autoSubmit",
+        value: function autoSubmit() {
             var amt = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
             ResourceManager.addMaterial("M001", this.goldValue() * amt);
             this.fufilled += amt
         }
     }, {
-        key: "goldValue", value: function goldValue() {
+        key: "goldValue",
+        value: function goldValue() {
             return Math.round(2 * this.item.value * (this.getRarity() + 1) * (1 + this.getSharp() * .1))
         }
     }, {
-        key: "increasePart", value: function increasePart() {
+        key: "increasePart",
+        value: function increasePart() {
             if (!this.complete()) return;
             this.fufilled = 0;
             this.part += 1;
@@ -15502,36 +17136,44 @@ var orderItem = function () {
             }
         }
     }, {
-        key: "getAmt", value: function getAmt() {
+        key: "getAmt",
+        value: function getAmt() {
             return this.amt[this.part]
         }
     }, {
-        key: "getRarity", value: function getRarity() {
+        key: "getRarity",
+        value: function getRarity() {
             return this.rarity[this.part]
         }
     }, {
-        key: "getSharp", value: function getSharp() {
+        key: "getSharp",
+        value: function getSharp() {
             return this.sharp[this.part]
         }
     }, {
-        key: "getSynth", value: function getSynth() {
+        key: "getSynth",
+        value: function getSynth() {
             return this.synth[this.part]
         }
     }, {
-        key: "getRune", value: function getRune() {
+        key: "getRune",
+        value: function getRune() {
             return "0"
         }
     }, {
-        key: "getTransform", value: function getTransform() {
+        key: "getTransform",
+        value: function getTransform() {
             return "0"
         }
     }, {
-        key: "toggleAC", value: function toggleAC() {
+        key: "toggleAC",
+        value: function toggleAC() {
             this.autoContribute = !this.autoContribute;
             return this.autoContribute
         }
     }, {
-        key: "bypass", value: function bypass() {
+        key: "bypass",
+        value: function bypass() {
             this.part = this.totalParts();
             this.fufilled = 0
         }
@@ -15584,7 +17226,9 @@ function refreshRecipeMastery() {
     var contentHeader = $("<div/>").addClass("contentHeader").appendTo($merchantMastery);
     var headingDetails = $("<div/>").addClass("headingDetails").appendTo(contentHeader);
     var headingTitle = $("<div/>").addClass("headingTitle").html(displayText("merchant_recipe_mastery_header_title")).appendTo(headingDetails);
-    $("<div/>").addClass("questionTooltip tooltip").attr({"data-tooltip": "more_info_mastery"}).html(miscIcons.question).appendTo(headingTitle);
+    $("<div/>").addClass("questionTooltip tooltip").attr({
+        "data-tooltip": "more_info_mastery"
+    }).html(miscIcons.question).appendTo(headingTitle);
     $("<div/>").addClass("headingDescription").html(displayText("merchant_recipe_mastery_header_desc")).appendTo(headingDetails);
     if (recipes.length === 0) {
         $("<div/>").addClass("noMasteryRecipes").html(displayText("merchant_recipe_mastery_none")).appendTo($merchantMastery);
@@ -15604,14 +17248,18 @@ function createOrderCard(item, manual) {
     $("<div/>").addClass("orderIcon").html(ResourceManager.materialIcon(item.id)).appendTo(d1);
     $("<div/>").addClass("orderName itemName").html(item.generateName()).appendTo(d1);
     $("<div/>").addClass("itemLevel").html(item.item.itemLevel()).appendTo(d1);
-    $("<div/>").addClass("itemRarity RT".concat(item.getRarity(), " tooltip")).attr({"data-tooltip": "rarity_".concat(rarities[item.getRarity()].toLowerCase())}).html(miscIcons.rarity).appendTo(d1);
+    $("<div/>").addClass("itemRarity RT".concat(item.getRarity(), " tooltip")).attr({
+        "data-tooltip": "rarity_".concat(rarities[item.getRarity()].toLowerCase())
+    }).html(miscIcons.rarity).appendTo(d1);
     $("<div/>").addClass("itemToSac tooltip").attr({
         "data-tooltip": "recipe_desc",
         "data-tooltip-value": item.id
     }).appendTo(d1);
     var d2 = $("<div/>").addClass("orderMaterials").appendTo(d1);
     item.item.gcost.forEach(function (g) {
-        $("<div/>").addClass("orderWorker tooltip").attr({"data-tooltip": "".concat(g, "_worker")}).html(miscIcons[g]).appendTo(d2)
+        $("<div/>").addClass("orderWorker tooltip").attr({
+            "data-tooltip": "".concat(g, "_worker")
+        }).html(miscIcons[g]).appendTo(d2)
     });
     if (item.item.mcost) {
         Object.keys(item.item.mcost).forEach(function (mat, i) {
@@ -15636,7 +17284,9 @@ function createOrderCard(item, manual) {
     $("<div/>").addClass("rewardValue").html(formatToUnits(item.goldValue(), 2)).appendTo(goldReward);
     if (manual) return d1;
     var orderActions = $("<div/>").addClass("orderActions").appendTo(d1);
-    $("<div/>").addClass("orderManual tooltip").attr({"data-tooltip": "manual_contribute"}).data("uid", item.uniqueID()).html(miscIcons.manualSubmit).appendTo(orderActions);
+    $("<div/>").addClass("orderManual tooltip").attr({
+        "data-tooltip": "manual_contribute"
+    }).data("uid", item.uniqueID()).html(miscIcons.manualSubmit).appendTo(orderActions);
     $("<div/>").attr("id", item.id).addClass("orderCraft").html('<i class="fas fa-hammer"></i> Craft').appendTo(orderActions);
     if (item.getSharp() > 0) {
         var d1a = $("<div/>").addClass("orderForge tooltip").attr({
@@ -15645,13 +17295,17 @@ function createOrderCard(item, manual) {
         }).data("uid", item.uniqueID()).html(displayText("forge_item")).appendTo(d1);
         if (Inventory.itemCount(item.uniqueID(true)) === 0) d1a.addClass("disabled")
     }
-    var d4 = $("<div/>").addClass("orderAC orderACToggle tooltip").attr({"data-tooltip": "auto_contribute"}).data("uid", item.uniqueID()).appendTo(d1);
+    var d4 = $("<div/>").addClass("orderAC orderACToggle tooltip").attr({
+        "data-tooltip": "auto_contribute"
+    }).data("uid", item.uniqueID()).appendTo(d1);
     if (item.autoContribute) {
         d4.addClass("acEnable");
         $("<div/>").html(miscIcons.toggleOn).appendTo(d4)
     } else $("<div/>").html(miscIcons.toggleOff).appendTo(d4);
     $("<span/>").addClass("orderACtext").html(displayText("merchant_order_auto_contribute")).appendTo(d4);
-    if (DungeonManager.bossCount() >= item.lvl) $("<div/>").addClass("orderBypass actionButton tooltip").attr({"data-tooltip": "order_bypass"}).data("uid", item.uniqueID()).html(displayText("order_bypass")).appendTo(d1);
+    if (DungeonManager.bossCount() >= item.lvl) $("<div/>").addClass("orderBypass actionButton tooltip").attr({
+        "data-tooltip": "order_bypass"
+    }).data("uid", item.uniqueID()).html(displayText("order_bypass")).appendTo(d1);
     $("<div/>").addClass("orderParts").attr("id", "op" + item.uniqueID()).html("Part ".concat(item.part + 1, " of ").concat(item.totalParts())).appendTo(d1);
     return d1
 }
@@ -15661,7 +17315,8 @@ function checkGuildOrderDisable(uniqueID) {
     if (uniqueID === undefined) {
         Merchant.orders.forEach(function (order) {
             var orderUniqueID = order.uniqueID(true);
-            if (Inventory.itemCount(orderUniqueID === 0)) $("#of" + order.item.id).addClass("disabled"); else $("#of" + order.item.id).removeClass("disabled")
+            if (Inventory.itemCount(orderUniqueID === 0)) $("#of" + order.item.id).addClass("disabled");
+            else $("#of" + order.item.id).removeClass("disabled")
         });
         return
     }
@@ -15669,9 +17324,9 @@ function checkGuildOrderDisable(uniqueID) {
         return o.uniqueID(true) === uniqueID
     });
     if (order === undefined) return;
-    if (Inventory.itemCount(order.uniqueID(true) === 0)) $("#of" + order.item.id).addClass("disabled"); else $("#of" + order.item.id).removeClass("disabled")
+    if (Inventory.itemCount(order.uniqueID(true) === 0)) $("#of" + order.item.id).addClass("disabled");
+    else $("#of" + order.item.id).removeClass("disabled")
 }
-
 $merchantOrders.on("click", ".orderBypass", function (e) {
     e.preventDefault();
     var uid = $(e.currentTarget).data("uid");
@@ -15689,7 +17344,9 @@ function createRecipeBuy() {
     var contentHeader = $("<div/>").addClass("contentHeader").appendTo(d);
     var headingDetails = $("<div/>").addClass("headingDetails").appendTo(contentHeader);
     var headingTitle = $("<div/>").addClass("headingTitle").html(displayText("merchant_recipe_buy_header_title")).appendTo(headingDetails);
-    $("<div/>").addClass("questionTooltip tooltip").attr({"data-tooltip": "more_info_shop_recipes"}).html(miscIcons.question).appendTo(headingTitle);
+    $("<div/>").addClass("questionTooltip tooltip").attr({
+        "data-tooltip": "more_info_shop_recipes"
+    }).html(miscIcons.question).appendTo(headingTitle);
     $("<div/>").addClass("headingDescription").html(displayText("merchant_recipe_buy_header_desc")).appendTo(headingDetails);
     if (Merchant.emptyOrders() === 0) {
         $("<div/>").addClass("orderRecipeNoBuy emptyContentMessage").html(displayText("merchant_recipe_no_buy")).appendTo(d);
@@ -15715,7 +17372,9 @@ function createRecipeBuy() {
         }).html(ResourceManager.idToMaterial(recipe.material()).img).appendTo(recipeBuy);
         var itemWorkers = $("<div/>").addClass("itemWorkers").appendTo(recipeBuy);
         recipe.gcost.forEach(function (type) {
-            $("<div/>").addClass("indvCost tooltip").attr({"data-tooltip": "".concat(type, "_worker")}).html(miscIcons[type]).appendTo(itemWorkers)
+            $("<div/>").addClass("indvCost tooltip").attr({
+                "data-tooltip": "".concat(type, "_worker")
+            }).html(miscIcons[type]).appendTo(itemWorkers)
         });
         var d2 = $("<div/>").addClass("itemType").appendTo(recipeBuy);
         $("<div/>").addClass("recipeHeroTypeHeader").html("Hero Type").appendTo(d2);
@@ -15732,7 +17391,8 @@ function refreshOrderInvCount() {
         var $this = $(this);
         var uniqueID = $this.data("uid");
         var invCount = Inventory.itemCountSpecific(uniqueID);
-        if (invCount > 0) $this.addClass("canContribute").html('<i class="fas fa-cube"></i> '.concat(invCount)); else $this.removeClass("canContribute").html('<i class="fas fa-cube"></i> '.concat(invCount))
+        if (invCount > 0) $this.addClass("canContribute").html('<i class="fas fa-cube"></i> '.concat(invCount));
+        else $this.removeClass("canContribute").html('<i class="fas fa-cube"></i> '.concat(invCount))
     })
 }
 
@@ -15740,7 +17400,9 @@ function createRecipeMasteryCard(recipe) {
     var d1 = $("<div/>").addClass("recipeMasteryGuildCard").addClass("ctrlClickItem").data("rid", recipe.id);
     $("<div/>").addClass("itemName").html(recipe.itemPicName()).appendTo(d1);
     $("<div/>").addClass("itemLevel").html(recipe.itemLevel()).appendTo(d1);
-    $("<div/>").addClass("recipeMasteryViewButton actionButton tooltip").attr({"data-tooltip": "guild_mastery_recipe"}).data("rid", recipe.id).html('<i class="fas fa-book"></i>').appendTo(d1);
+    $("<div/>").addClass("recipeMasteryViewButton actionButton tooltip").attr({
+        "data-tooltip": "guild_mastery_recipe"
+    }).data("rid", recipe.id).html('<i class="fas fa-book"></i>').appendTo(d1);
     var d2 = $("<div/>").addClass("recipeMasteryRemaining").attr("id", "rmr" + recipe.id).html(displayText("merchant_recipe_mastery_craft_remaining").replace("{0}", recipe.canMaster())).appendTo(d1);
     if (recipe.canMaster() === 0) d2.hide();
     var masteryCost = recipe.masteryCost();
@@ -15767,7 +17429,6 @@ function refreshRecipeMasteryAmt(recipe) {
     $("#rmb" + recipe.id).hide();
     $("#rmr" + recipe.id).html(displayText("merchant_recipe_mastery_craft_remaining").replace("{0}", recipe.canMaster()))
 }
-
 var $moType = $("#moType");
 var $moOptions = $("#moOptions");
 var $manualOrderTab = $("#manualOrderTab");
@@ -15789,13 +17450,14 @@ function manualOrder() {
 function createManualTurnin(container) {
     var d = $("<div/>").addClass("merchantManualItem").addClass("R" + container.rarity);
     $("<div/>").addClass("itemName").html(container.picName()).appendTo(d);
-    $("<div/>").addClass("itemRarity RT".concat(container.rarity, " tooltip")).attr({"data-tooltip": "rarity_".concat(rarities[container.rarity].toLowerCase())}).html(miscIcons.rarity).appendTo(d);
+    $("<div/>").addClass("itemRarity RT".concat(container.rarity, " tooltip")).attr({
+        "data-tooltip": "rarity_".concat(rarities[container.rarity].toLowerCase())
+    }).html(miscIcons.rarity).appendTo(d);
     $("<div/>").addClass("itemLevel").html(container.itemLevel()).appendTo(d);
     var d1 = $("<div/>").addClass("manualOrderButtons").appendTo(d);
     $("<div/>").addClass("manualOrderSubmit actionButtonCard").data("cid", container.uniqueID()).html("Submit").appendTo(d1);
     return d
 }
-
 $closeShopOrder.on("click", function (e) {
     e.preventDefault();
     $tabcontent.hide();
@@ -15813,7 +17475,8 @@ $moOptions.on("click", ".manualOrderSubmit", function (e) {
     e.preventDefault();
     var cid = $(e.currentTarget).data("cid");
     var finishedOrder = Merchant.manualSubmit(cid);
-    if (finishedOrder) openTab("merchant_order"); else manualOrder()
+    if (finishedOrder) openTab("merchant_order");
+    else manualOrder()
 });
 $merchantList.on("click", "#merchantOrderTab", function (e) {
     e.preventDefault();
@@ -15858,7 +17521,6 @@ function refreshOrderRemaining(uid) {
     if (order === undefined) return;
     $("#itsr" + uid).html("".concat(formatToUnits(order.left(), 2), " Left"))
 }
-
 $merchantOrderLocations.on("click", ".orderCraft", function (e) {
     e.preventDefault();
     e.stopPropagation();
@@ -15872,7 +17534,8 @@ $merchantOrderLocations.on("click", ".orderACToggle", function (e) {
     var uniqueID = $(e.currentTarget).data("uid");
     var toggle = Merchant.toggleAC(uniqueID);
     Merchant.acDefault = toggle;
-    if (toggle) $(e.currentTarget).addClass("acEnable").html(miscIcons.toggleOn); else $(e.currentTarget).removeClass("acEnable").html(miscIcons.toggleOff);
+    if (toggle) $(e.currentTarget).addClass("acEnable").html(miscIcons.toggleOn);
+    else $(e.currentTarget).removeClass("acEnable").html(miscIcons.toggleOff);
     $("<span/>").addClass("orderACtext").html(displayText("merchant_order_auto_contribute")).appendTo($(e.currentTarget));
     refreshOrderInvCount();
     refreshInventoryPlaces()
@@ -15906,18 +17569,20 @@ function _createClass(Constructor, protoProps, staticProps) {
     if (staticProps) _defineProperties(Constructor, staticProps);
     return Constructor
 }
-
 var Shop = {
-    perks: [], addPerk: function addPerk(reward) {
+    perks: [],
+    addPerk: function addPerk(reward) {
         this.perks.push(reward)
-    }, createSave: function createSave() {
+    },
+    createSave: function createSave() {
         var save = {};
         save.perks = [];
         this.perks.forEach(function (p) {
             return save.perks.push(p.createSave())
         });
         return save
-    }, loadSave: function loadSave(save) {
+    },
+    loadSave: function loadSave(save) {
         var _this = this;
         if (save.perks === undefined) return;
         save.perks.forEach(function (perk) {
@@ -15925,15 +17590,18 @@ var Shop = {
             if (perka === undefined) return;
             perka.loadSave(perk)
         })
-    }, clearProgress: function clearProgress() {
+    },
+    clearProgress: function clearProgress() {
         this.perks.forEach(function (p) {
             return p.clearProgress()
         })
-    }, idToPerk: function idToPerk(id) {
+    },
+    idToPerk: function idToPerk(id) {
         return this.perks.find(function (r) {
             return r.id === id
         })
-    }, buyPerk: function buyPerk(id) {
+    },
+    buyPerk: function buyPerk(id) {
         var perk = this.idToPerk(id);
         if (ResourceManager.materialAvailable("M001") < perk.goldCost) {
             ToastManager.renderToast("perk_cost");
@@ -15944,37 +17612,48 @@ var Shop = {
         refreshShop();
         refreshProgress();
         tabHide()
-    }, perkCount: function perkCount() {
+    },
+    perkCount: function perkCount() {
         return this.perks.filter(function (p) {
             return p.purchased
         }).length
-    }, perkMaxCount: function perkMaxCount() {
+    },
+    perkMaxCount: function perkMaxCount() {
         return this.perks.length
-    }, perksByType: function perksByType(type) {
+    },
+    perksByType: function perksByType(type) {
         return this.perks.filter(function (p) {
             return p.category === type
         }).sort(function (a, b) {
             return a.order - b.order
         })
-    }, nextUnlocks: function nextUnlocks(type) {
+    },
+    nextUnlocks: function nextUnlocks(type) {
         var notPurchased = this.perks.filter(function (p) {
             return p.category === type && !p.purchased && p.availableThisRun()
         }).sort(function (a, b) {
             return a.order - b.order
         });
-        return {canPurchase: notPurchased[0], nextUp: notPurchased[1]}
-    }, boughtPerks: function boughtPerks() {
+        return {
+            canPurchase: notPurchased[0],
+            nextUp: notPurchased[1]
+        }
+    },
+    boughtPerks: function boughtPerks() {
         return this.perks.filter(function (p) {
             return p.purchased
         })
-    }, alreadyPurchased: function alreadyPurchased(perkID) {
+    },
+    alreadyPurchased: function alreadyPurchased(perkID) {
         var perk = this.idToPerk(perkID);
         return perk.alreadyPurchased()
-    }, boughtPerkSubtype: function boughtPerkSubtype(subtype) {
+    },
+    boughtPerkSubtype: function boughtPerkSubtype(subtype) {
         return this.perks.filter(function (p) {
             return p.purchased && p.subtype === subtype
         })
-    }, slotsPurchased: function slotsPurchased() {
+    },
+    slotsPurchased: function slotsPurchased() {
         return 1 + this.perks.filter(function (p) {
             return p.purchased && p.type === "order"
         }).length
@@ -15986,13 +17665,14 @@ var Perk = function () {
         Object.assign(this, props);
         this.purchased = false
     }
-
     _createClass(Perk, [{
-        key: "canBuy", value: function canBuy() {
+        key: "canBuy",
+        value: function canBuy() {
             return ResourceManager.materialAvailable("M001") >= this.goldCost
         }
     }, {
-        key: "purchase", value: function purchase() {
+        key: "purchase",
+        value: function purchase() {
             this.purchased = true;
             if (this.type === "hero") HeroManager.gainHero(this.subtype);
             if (this.type === "worker") {
@@ -16016,31 +17696,37 @@ var Perk = function () {
             if (this.type === "bank") refreshInventoryPlaces()
         }
     }, {
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
             save.id = this.id;
             save.purchased = this.purchased;
             return save
         }
     }, {
-        key: "loadSave", value: function loadSave(save) {
+        key: "loadSave",
+        value: function loadSave(save) {
             this.purchased = save.purchased
         }
     }, {
-        key: "clearProgress", value: function clearProgress() {
+        key: "clearProgress",
+        value: function clearProgress() {
             this.purchased = false
         }
     }, {
-        key: "alreadyPurchased", value: function alreadyPurchased() {
+        key: "alreadyPurchased",
+        value: function alreadyPurchased() {
             return this.purchased
         }
     }, {
-        key: "availableForPurchase", value: function availableForPurchase() {
+        key: "availableForPurchase",
+        value: function availableForPurchase() {
             if (this.unlockReq === null) return true;
             return DungeonManager.beaten(this.unlockReq)
         }
     }, {
-        key: "availableThisRun", value: function availableThisRun() {
+        key: "availableThisRun",
+        value: function availableThisRun() {
             return true
         }
     }]);
@@ -16086,7 +17772,9 @@ function createALperk(perk, name) {
     $("<div/>").addClass("alTitle").html(perk.title).appendTo(d1);
     $("<div/>").addClass("alSection").html("".concat(name, " Perk")).appendTo(d1);
     var perkImage = $("<div/>").addClass("alImage").html(perk.icon).appendTo(d1);
-    if (perkCount > 1) $("<div/>").addClass("alPerkCount tooltip").attr({"data-tooltip": "perks_remaining"}).html("+".concat(perkCount - 1)).appendTo(perkImage);
+    if (perkCount > 1) $("<div/>").addClass("alPerkCount tooltip").attr({
+        "data-tooltip": "perks_remaining"
+    }).html("+".concat(perkCount - 1)).appendTo(perkImage);
     $("<div/>").addClass("alDesc").html(perk.description).appendTo(d1);
     if (perk.purchased) {
         return d1.addClass("perkPurchased")
@@ -16100,7 +17788,8 @@ function createALperk(perk, name) {
         return d1
     }
     var d5 = $("<div/>").addClass("alPerkBuy actionButtonCardCost").data("pid", perk.id).appendTo(d1);
-    if (!perk.canBuy()) d5.addClass("cannotAfford"); else d5.removeClass("cannotAfford");
+    if (!perk.canBuy()) d5.addClass("cannotAfford");
+    else d5.removeClass("cannotAfford");
     $("<div/>").addClass("actionButtonCardText").html(displayText("market_perk_purchase_button")).appendTo(d5);
     $("<div/>").addClass("actionButtonCardValue tooltip").attr({
         "data-tooltip": "gold_value",
@@ -16119,7 +17808,6 @@ function createPurchasedperk(perk) {
     $("<div/>").addClass("purchasedPerkImage").html(perk.icon).appendTo(d1);
     return d1
 }
-
 $purchasePerks.on("click", ".alPerkBuy", function (e) {
     e.preventDefault();
     destroyTooltip();
@@ -16165,7 +17853,6 @@ function _iterableToArrayLimit(arr, i) {
 function _arrayWithHoles(arr) {
     if (Array.isArray(arr)) return arr
 }
-
 var $museumBuilding = $("#museumBuilding");
 var $museumRecipeTypes = $("#museumRecipeTypes");
 var $museumRecipeContributions = $("#museumRecipeContributions");
@@ -16173,45 +17860,97 @@ var $museumRewards = $("#museumRewards");
 var $museumInv = $("#museumInv");
 var $museumTop = $(".museumTop");
 var Museum = {
-    lvl: 1, tabView: null, itemInspect: null, createSave: function createSave() {
+    lvl: 1,
+    tabView: null,
+    itemInspect: null,
+    createSave: function createSave() {
         var save = {};
         return save
-    }, loadSave: function loadSave(save) {
-    }, checkSubmit: function checkSubmit(container) {
+    },
+    loadSave: function loadSave(save) {},
+    checkSubmit: function checkSubmit(container, multipleTiers) {
         if (container.isTransformed() === "1" || container.hasRune()) return true;
         var item = recipeList.idToItem(container.id);
-        return item.museum[container.rarity][container.sharp]
-    }, possibleInventoryDonations: function possibleInventoryDonations() {
+        if (!multipleTiers) return item.museum[container.rarity][container.sharp];
+        for (var i = 0; i < 10 - container.sharp; i++) {
+            if (item.museum[container.rarity][container.sharp + 1]) continue;
+            var needed = bloopSmith.getSmithCostMulti(container, container.sharp + 1);
+            return ResourceManager.materialAvailable("M001") < needed.gold || ResourceManager.materialAvailable(needed.resType) < needed.resAmt
+        }
+        return true
+    },
+    possibleInventoryDonations: function possibleInventoryDonations() {
         var _this = this;
         return Inventory.inv.filter(function (i) {
             return i.item.type !== "Trinkets"
         }).filter(function (i) {
             return !_this.checkSubmit(i)
         })
-    }, completeByType: function completeByType(type) {
+    },
+    completeByType: function completeByType(type) {
         var museumData = recipeList.filterByType(type).map(function (r) {
             return r.museum
         });
         return museumData.flat().flat().filter(Boolean).length
-    }, donationCount: function donationCount() {
+    },
+    donationCount: function donationCount() {
         return recipeList.recipes.filter(function (r) {
             return r.recipeType === "normal" && r.type !== "Trinkets"
         }).map(function (r) {
             return r.museum
         }).flat().flat().filter(Boolean).length
-    }, donationMax: function donationMax() {
+    },
+    donationMax: function donationMax() {
         return recipeList.recipes.filter(function (r) {
             return r.recipeType === "normal" && r.type !== "Trinkets"
         }).length * 11 * 4
-    }, museumData: function museumData(itemID) {
+    },
+    museumData: function museumData(itemID) {
         return recipeList.idToItem(itemID).museum
-    }, isCompleted: function isCompleted(itemID) {
+    },
+    isCompleted: function isCompleted(itemID) {
         return Museum.museumData(itemID).every(function (rarity) {
             return rarity.every(function (turnin) {
                 return turnin === true
             })
         })
-    }, donate: function donate(uniqueid) {
+    },
+    forceDonate: function forceDonate(recipeID, rarity, sharp) {
+        if (recipeList.idToItem(recipeID).museum[rarity][sharp]) return;
+        var firstContainer = Inventory.findContainer(recipeID + "_" + rarity + "_" + sharp + "_0_0");
+        if (firstContainer !== undefined) {
+            var container = Inventory.grabFromInventory(recipeID + "_" + rarity + "_" + sharp + "_0_0", 1, true);
+            recipeList.idToItem(container.id).museum[container.rarity][container.sharp] = true;
+            refreshCraftTimes();
+            refreshMuseumRecipeCard(recipeList.idToItem(recipeID));
+            museumInspect();
+            return
+        }
+        if (sharp === "0") return;
+        for (var i = parseInt(sharp) - 1; i >= 0; i--) {
+            var uniqueid = recipeID + "_" + rarity + "_" + i + "_0_0";
+            var _container = Inventory.findContainer(uniqueid);
+            if (_container === undefined) continue;
+            var needed = bloopSmith.getSmithCostMulti(_container, parseInt(sharp));
+            var params = bloopSmith.getSmithCost(_container, SmithType.ENHANCE);
+            if (ResourceManager.materialAvailable("M001") < needed.gold) {
+                ToastManager.renderToast("cant_afford_smith_gold");
+                return
+            }
+            if (ResourceManager.materialAvailable(needed.resType) < needed.resAmt) {
+                ToastManager.renderToast("cant_afford_smith_material", ResourceManager.idToMaterial(params.resType).name, needed.resAmt - ResourceManager.materialAvailable(params.resType));
+                return
+            }
+            ResourceManager.deductMoney(needed.gold);
+            ResourceManager.addMaterial(needed.resType, -needed.resAmt);
+            Inventory.grabFromInventory(uniqueid, 1, false);
+            recipeList.idToItem(recipeID).museum[parseInt(rarity)][parseInt(sharp)] = true;
+            refreshCraftTimes();
+            refreshMuseumRecipeCard(recipeList.idToItem(recipeID));
+            museumInspect()
+        }
+    },
+    donate: function donate(uniqueid) {
         var check = Inventory.findContainer(uniqueid);
         if (check === undefined || this.checkSubmit(check)) {
             ToastManager.renderToast("already_donated_museum");
@@ -16220,8 +17959,45 @@ var Museum = {
         var container = Inventory.grabFromInventory(uniqueid, 1, true);
         recipeList.idToItem(container.id).museum[container.rarity][container.sharp] = true;
         refreshCraftTimes();
+        refreshMuseumRecipeCard(recipeList.idToItem(container.id));
         museumInspect()
-    }, commonCount: function commonCount(recipeID) {
+    },
+    donateUp: function donateUp(uniqueID) {
+        var check = Inventory.findContainer(uniqueID);
+        var container = Inventory.findContainer(uniqueID);
+        if (!this.checkSubmit(check)) {
+            Inventory.grabFromInventory(uniqueID, 1, true);
+            recipeList.idToItem(container.id).museum[container.rarity][container.sharp] = true;
+            refreshCraftTimes();
+            refreshMuseumRecipeCard(recipeList.idToItem(container.id));
+            museumInspect();
+            return
+        }
+        for (var i = container.sharp; i < 10; i++) {
+            if (!recipeList.idToItem(container.id).museum[container.rarity][i]) {
+                var needed = bloopSmith.getSmithCostMulti(container, +i);
+                var params = bloopSmith.getSmithCost(container, SmithType.ENHANCE);
+                if (ResourceManager.materialAvailable("M001") < needed.gold) {
+                    ToastManager.renderToast("cant_afford_smith_gold");
+                    return
+                }
+                if (ResourceManager.materialAvailable(needed.resType) < needed.resAmt) {
+                    ToastManager.renderToast("cant_afford_smith_material", ResourceManager.idToMaterial(params.resType).name, needed.resAmt - ResourceManager.materialAvailable(params.resType));
+                    return
+                }
+                ResourceManager.deductMoney(needed.gold);
+                ResourceManager.addMaterial(needed.resType, -needed.resAmt);
+                Inventory.grabFromInventory(uniqueID, 1, true);
+                recipeList.idToItem(container.id).museum[container.rarity][i] = true;
+                refreshCraftTimes();
+                refreshMuseumRecipeCard(recipeList.idToItem(container.id));
+                museumInspect();
+                return
+            }
+        }
+        ToastManager.renderToast("already_donated_museum")
+    },
+    commonCount: function commonCount(recipeID) {
         var type = ItemType.includes(recipeID) ? recipeID : recipeList.idToItem(recipeID).type;
         var items = recipeList.filterByType(type);
         return flattenArray(items.map(function (i) {
@@ -16229,7 +18005,8 @@ var Museum = {
         })).filter(function (i) {
             return i
         }).length
-    }, goodCount: function goodCount(recipeID) {
+    },
+    goodCount: function goodCount(recipeID) {
         var type = ItemType.includes(recipeID) ? recipeID : recipeList.idToItem(recipeID).type;
         var items = recipeList.filterByType(type);
         return flattenArray(items.map(function (i) {
@@ -16237,7 +18014,8 @@ var Museum = {
         })).filter(function (i) {
             return i
         }).length
-    }, greatCount: function greatCount(recipeID) {
+    },
+    greatCount: function greatCount(recipeID) {
         var type = ItemType.includes(recipeID) ? recipeID : recipeList.idToItem(recipeID).type;
         var items = recipeList.filterByType(type);
         return flattenArray(items.map(function (i) {
@@ -16245,7 +18023,8 @@ var Museum = {
         })).filter(function (i) {
             return i
         }).length
-    }, epicCount: function epicCount(recipeID) {
+    },
+    epicCount: function epicCount(recipeID) {
         var type = ItemType.includes(recipeID) ? recipeID : recipeList.idToItem(recipeID).type;
         var items = recipeList.filterByType(type);
         return flattenArray(items.map(function (i) {
@@ -16253,16 +18032,20 @@ var Museum = {
         })).filter(function (i) {
             return i
         }).length
-    }, craftTime: function craftTime(recipeID) {
+    },
+    craftTime: function craftTime(recipeID) {
         var completes = Math.floor(this.commonCount(recipeID) / 11);
         return 1 - .04 * completes
-    }, goodChance: function goodChance(recipeID) {
+    },
+    goodChance: function goodChance(recipeID) {
         var completes = Math.floor(this.goodCount(recipeID) / 11);
         return 1 + .2 * completes
-    }, greatChance: function greatChance(recipeID) {
+    },
+    greatChance: function greatChance(recipeID) {
         var completes = Math.floor(this.greatCount(recipeID) / 11);
         return 1 + .2 * completes
-    }, epicChance: function epicChance(recipeID) {
+    },
+    epicChance: function epicChance(recipeID) {
         var completes = Math.floor(this.epicCount(recipeID) / 11);
         return 1 + .2 * completes
     }
@@ -16270,7 +18053,8 @@ var Museum = {
 
 function initiateMuseumBldg() {
     $museumBuilding.show();
-    if (Museum.tabView === null) refreshMuseumTop(); else showMuseumType(Museum.tabView);
+    if (Museum.tabView === null) refreshMuseumTop();
+    else showMuseumType(Museum.tabView);
     refreshMuseumInv()
 }
 
@@ -16343,7 +18127,8 @@ function showMuseumType(type, skipAnimation) {
             return r
         }).length;
         var progress = $("<div/>").addClass("museumRecipeProgress").appendTo(d);
-        if (current !== total) $("<div/>").addClass("museumRecipeProgressText").html("".concat(current, " / ").concat(total, " Contributed")).appendTo(progress); else {
+        if (current !== total) $("<div/>").addClass("museumRecipeProgressText").html("".concat(current, " / ").concat(total, " Contributed")).appendTo(progress);
+        else {
             progress.addClass("museumRecipeCompleted");
             $("<div/>").addClass("museumRecipeProgressIcon").html(miscIcons.checkmark).appendTo(progress);
             $("<div/>").addClass("museumRecipeProgressText").html(displayText("museum_contribution_completed_title")).appendTo(progress)
@@ -16385,19 +18170,42 @@ function generateMuseumSpecificDonation(recipe, skipAnimation) {
     var d1 = $("<div/>").addClass("museumRecipeCon").appendTo(d);
     recipe.museum.forEach(function (rarity, j) {
         var d1a = $("<div/>").addClass("museumRecipeConItem").appendTo(d1);
-        $("<div/>").addClass("museumRecipeRarity RT".concat(j, " tooltip")).attr({"data-tooltip": "museum_rarity_".concat(rarities[j].toLowerCase())}).html(miscIcons.rarity).appendTo(d1a);
+        $("<div/>").addClass("museumRecipeRarity RT".concat(j, " tooltip")).attr({
+            "data-tooltip": "museum_rarity_".concat(rarities[j].toLowerCase())
+        }).html(miscIcons.rarity).appendTo(d1a);
         rarity.forEach(function (sharp, i) {
-            var d2 = $("<div/>").addClass("museumRecipe R".concat(j)).appendTo(d1a);
-            if (sharp) d2.addClass("museumRecipeEntryComplete").html(miscIcons.checkmark); else d2.html("<span>".concat(miscIcons.enhancement, "</span> ").concat(i))
+            var d2 = $("<div/>").addClass("museumRecipe R".concat(j)).data({
+                recipe: recipe.id,
+                rarity: j,
+                sharp: i
+            }).appendTo(d1a);
+            if (sharp) d2.addClass("museumRecipeEntryComplete").html(miscIcons.checkmark);
+            else d2.html("<span>".concat(miscIcons.enhancement, "</span> ").concat(i))
         })
     });
     return museumContributionsList
 }
-
 $museumRecipeContributions.on("click", ".museumRecipeSelection", function (e) {
     var id = $(e.currentTarget).data("recipeID");
     var recipe = recipeList.idToItem(id);
     generateContributionsList(recipe)
+});
+$museumRecipeContributions.on("click", ".museumRecipe", function (e) {
+    e.preventDefault();
+    var recipe = $(e.currentTarget).data("recipe");
+    var rarity = $(e.currentTarget).data("rarity");
+    var sharp = $(e.currentTarget).data("sharp");
+    Museum.forceDonate(recipe, rarity, sharp)
+});
+$museumRecipeContributions.on("click", ".museumRecipe", function (e) {
+    e.preventDefault();
+    var recipe = $(e.currentTarget).data("recipe");
+    var rarity = $(e.currentTarget).data("rarity");
+    var sharp = $(e.currentTarget).data("sharp");
+    Museum.forceDonate(recipe, rarity, sharp);
+    var recipeItem = recipeList.idToItem(recipe);
+    if (recipeItem === undefined) return;
+    generateContributionsList(recipeItem, true)
 });
 
 function museumRecipeCycleLeft() {
@@ -16410,7 +18218,8 @@ function museumRecipeCycleLeft() {
         return r === Museum.itemInspect
     });
     var newIndex = 0;
-    if (currentIndex > 0) newIndex = currentIndex - 1; else newIndex = items.length - 1;
+    if (currentIndex > 0) newIndex = currentIndex - 1;
+    else newIndex = items.length - 1;
     Museum.itemInspect = items[newIndex]
 }
 
@@ -16427,7 +18236,6 @@ function museumRecipeCycleRight() {
     if (currentIndex < items.length - 1) newIndex = currentIndex + 1;
     Museum.itemInspect = items[newIndex]
 }
-
 $museumRecipeContributions.on("click", ".museumRecipeCycleLeft", function (e) {
     museumRecipeCycleLeft();
     generateContributionsList(Museum.itemInspect, true)
@@ -16445,7 +18253,8 @@ function museumTypeCycleLeft() {
         return type === Museum.view
     });
     var newIndex = 0;
-    if (currentIndex > 0) newIndex = currentIndex - 1; else newIndex = ItemTypes.length - 1;
+    if (currentIndex > 0) newIndex = currentIndex - 1;
+    else newIndex = ItemTypes.length - 1;
     Museum.view = ItemTypes[newIndex]
 }
 
@@ -16460,7 +18269,6 @@ function museumTypeCycleRight() {
     if (currentIndex < ItemTypes.length - 1) newIndex = currentIndex + 1;
     Museum.view = ItemTypes[newIndex]
 }
-
 $museumRecipeContributions.on("click", ".museumTypeCycleLeft", function (e) {
     museumTypeCycleLeft();
     showMuseumType(Museum.view, true)
@@ -16490,11 +18298,14 @@ function refreshMuseumInv() {
 function createMuseumCard(container) {
     var d = $("<div/>").addClass("museumItem").addClass("R" + container.rarity);
     $("<div/>").addClass("itemName").html(container.picName()).appendTo(d);
-    $("<div/>").addClass("itemRarity RT".concat(container.rarity, " tooltip")).attr({"data-tooltip": "rarity_".concat(rarities[container.rarity].toLowerCase())}).html(miscIcons.rarity).appendTo(d);
+    $("<div/>").addClass("itemRarity RT".concat(container.rarity, " tooltip")).attr({
+        "data-tooltip": "rarity_".concat(rarities[container.rarity].toLowerCase())
+    }).html(miscIcons.rarity).appendTo(d);
     $("<div/>").addClass("itemLevel").html(container.itemLevel()).appendTo(d);
     var itemProps = $("<div/>").addClass("equipStats").appendTo(d);
     for (var _i = 0, _Object$entries = Object.entries(container.itemStat(false)); _i < _Object$entries.length; _i++) {
-        var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2), stat = _Object$entries$_i[0],
+        var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+            stat = _Object$entries$_i[0],
             val = _Object$entries$_i[1];
         if (val === 0) continue;
         $("<div/>").addClass("gearStat tooltip").attr("data-tooltip", stat).html("".concat(miscIcons[stat], ' <span class="statValue">').concat(val, "</span>")).appendTo(itemProps)
@@ -16503,7 +18314,6 @@ function createMuseumCard(container) {
     $("<div/>").addClass("actionButtonCard museumDonate").data("uid", container.uniqueID()).html(displayText("museum_donations_donate_button")).appendTo(actionBtns);
     return d
 }
-
 $museumRecipeTypes.on("click", ".museumTypeDiv", function (e) {
     e.preventDefault();
     var type = $(e.currentTarget).data("recipeType");
@@ -16523,7 +18333,10 @@ $museumRecipeContributions.on("click", ".museumRecipeBackButton", function (e) {
 $museumInv.on("click", ".museumDonate", function (e) {
     var uniqueid = $(e.target).data("uid");
     Museum.donate(uniqueid);
-    if (Museum.view === "main") refreshMuseumTop(); else if (Museum.view === "rewards") showMuseumRewards(); else if (Museum.view === "itemInspect") generateContributionsList(Museum.itemInspect, true); else showMuseumType(Museum.view);
+    if (Museum.view === "main") refreshMuseumTop();
+    else if (Museum.view === "rewards") showMuseumRewards();
+    else if (Museum.view === "itemInspect") generateContributionsList(Museum.itemInspect, true);
+    else showMuseumType(Museum.view);
     refreshMuseumInv()
 });
 "use strict";
@@ -16549,7 +18362,6 @@ function _createClass(Constructor, protoProps, staticProps) {
     if (staticProps) _defineProperties(Constructor, staticProps);
     return Constructor
 }
-
 var ExpeditionManager = {
     expeditions: [],
     quests: [],
@@ -16623,17 +18435,17 @@ var ExpeditionManager = {
     },
     heroLocked: function heroLocked(heroID) {
         if (this.expeditions.map(function (e) {
-            return e.party
-        }).some(function (e) {
-            return e.includes(heroID)
-        })) return true;
+                return e.party
+            }).some(function (e) {
+                return e.includes(heroID)
+            })) return true;
         if (this.quests.map(function (e) {
-            return e.party
-        }).filter(function (a) {
-            return a !== null
-        }).some(function (e) {
-            return e.includes(heroID)
-        })) return true;
+                return e.party
+            }).filter(function (a) {
+                return a !== null
+            }).some(function (e) {
+                return e.includes(heroID)
+            })) return true;
         return false
     },
     addMember: function addMember(heroID) {
@@ -16641,7 +18453,8 @@ var ExpeditionManager = {
         if (hero.state() !== HeroState.IDLE) return;
         if (this.partyBuild.includes(heroID)) this.partyBuild = this.partyBuild.filter(function (h) {
             return h !== heroID
-        }); else this.partyBuild.push(heroID)
+        });
+        else this.partyBuild.push(heroID)
     },
     clearMembers: function clearMembers() {
         this.partyBuild = []
@@ -16701,7 +18514,11 @@ var ExpeditionManager = {
         refreshExpeditionParty()
     },
     optimalEnd: function optimalEnd() {
-        if (this.partyBuild.length === 0) return {landmark: 0, time: 0, gold: 0};
+        if (this.partyBuild.length === 0) return {
+            landmark: 0,
+            time: 0,
+            gold: 0
+        };
         var party = this.partyBuild.map(function (h) {
             return HeroManager.idToHero(h)
         });
@@ -16734,7 +18551,11 @@ var ExpeditionManager = {
                 bestLandmark = goal
             }
         }
-        return {landmark: bestLandmark, time: msToTime(bestTime, true), gold: bestGold}
+        return {
+            landmark: bestLandmark,
+            time: msToTime(bestTime, true),
+            gold: bestGold
+        }
     },
     activeQuests: function activeQuests() {
         return this.quests.filter(function (q) {
@@ -16768,9 +18589,9 @@ var Quest = function () {
         this.oneshot = false;
         this.type = "quest"
     }
-
     _createClass(Quest, [{
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
             save.id = this.id;
             save.party = this.party;
@@ -16781,7 +18602,8 @@ var Quest = function () {
             return save
         }
     }, {
-        key: "loadSave", value: function loadSave(save) {
+        key: "loadSave",
+        value: function loadSave(save) {
             if (save.party !== undefined) this.party = save.party;
             if (save.time !== undefined) this.time = save.time;
             if (save.distance !== undefined) this.distance = save.distance;
@@ -16789,7 +18611,8 @@ var Quest = function () {
             if (save.rate !== undefined) this.rate = save.rate
         }
     }, {
-        key: "addTime", value: function addTime(ms) {
+        key: "addTime",
+        value: function addTime(ms) {
             if (this.nextGoal === 0) return;
             if (this.distance >= this.nextGoal) return;
             this.time += ms;
@@ -16806,23 +18629,28 @@ var Quest = function () {
             }
         }
     }, {
-        key: "complete", value: function complete() {
+        key: "complete",
+        value: function complete() {
             return PlaybookManager.playbookUnlocked(this.reward)
         }
     }, {
-        key: "unlocked", value: function unlocked() {
+        key: "unlocked",
+        value: function unlocked() {
             return Shop.alreadyPurchased(this.unlockReq)
         }
     }, {
-        key: "active", value: function active() {
+        key: "active",
+        value: function active() {
             return this.nextGoal > 0
         }
     }, {
-        key: "finished", value: function finished() {
+        key: "finished",
+        value: function finished() {
             return this.active() && this.distance === this.nextGoal
         }
     }, {
-        key: "clear", value: function clear() {
+        key: "clear",
+        value: function clear() {
             this.distance = 0;
             this.nextGoal = 0;
             this.time = 0;
@@ -16830,7 +18658,8 @@ var Quest = function () {
             this.party = null
         }
     }, {
-        key: "heroes", value: function heroes() {
+        key: "heroes",
+        value: function heroes() {
             return [this.hero1, this.hero2, this.hero3, this.hero4].filter(function (h) {
                 return h !== null
             }).map(function (h) {
@@ -16838,16 +18667,19 @@ var Quest = function () {
             })
         }
     }, {
-        key: "distanceRemaining", value: function distanceRemaining() {
+        key: "distanceRemaining",
+        value: function distanceRemaining() {
             return this.nextGoal - this.distance
         }
     }, {
-        key: "timeRemaining", value: function timeRemaining() {
+        key: "timeRemaining",
+        value: function timeRemaining() {
             var timeRemaining = this.distanceRemaining() / this.rate * 1e3;
             return msToTime(timeRemaining)
         }
     }, {
-        key: "estimateTime", value: function estimateTime() {
+        key: "estimateTime",
+        value: function estimateTime() {
             var hp = this.heroes().map(function (h) {
                 return h.maxHP(true)
             }).reduce(function (a, b) {
@@ -16864,11 +18696,12 @@ var Quest = function () {
             return msToTime(nextGoalFake / rateFake * 1e3)
         }
     }, {
-        key: "interact", value: function interact() {
+        key: "interact",
+        value: function interact() {
             if (!this.active()) {
                 if (this.heroes().some(function (h) {
-                    return h.state() !== HeroState.IDLE
-                })) {
+                        return h.state() !== HeroState.IDLE
+                    })) {
                     ToastManager.renderToast("hero_quest_unavailable");
                     return true
                 }
@@ -16904,7 +18737,8 @@ var Quest = function () {
             this.clear()
         }
     }, {
-        key: "releaseHero", value: function releaseHero(heroid) {
+        key: "releaseHero",
+        value: function releaseHero(heroid) {
             if (this.party === null) return;
             if (this.party.includes(heroid)) this.interact()
         }
@@ -16923,9 +18757,9 @@ var Expedition = function () {
         this.displayDistance = 0;
         this.type = "expedition"
     }
-
     _createClass(Expedition, [{
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
             save.party = this.party;
             save.nextGoal = this.nextGoal;
@@ -16938,7 +18772,8 @@ var Expedition = function () {
             return save
         }
     }, {
-        key: "loadSave", value: function loadSave(save) {
+        key: "loadSave",
+        value: function loadSave(save) {
             this.party = save.party;
             this.nextGoal = save.nextGoal;
             this.distance = save.distance;
@@ -16965,14 +18800,16 @@ var Expedition = function () {
             this.hpDiff = miscLoadedValues.expHP[this.goal]
         }
     }, {
-        key: "heroes", value: function heroes() {
+        key: "heroes",
+        value: function heroes() {
             if (this.party === null) return [];
             return this.party.map(function (h) {
                 return HeroManager.idToHero(h)
             })
         }
     }, {
-        key: "assignParty", value: function assignParty(arrayOfHeroes) {
+        key: "assignParty",
+        value: function assignParty(arrayOfHeroes) {
             this.party = arrayOfHeroes;
             this.hp = this.heroes().map(function (h) {
                 return h.maxHP(true)
@@ -16988,7 +18825,8 @@ var Expedition = function () {
             this.assignNextGoal()
         }
     }, {
-        key: "assignNextGoal", value: function assignNextGoal() {
+        key: "assignNextGoal",
+        value: function assignNextGoal() {
             this.nextGoal = Math.ceil(Math.pow(miscLoadedValues.expHP[this.goal], 2) / (this.hp * this.efficiency));
             this.hp = this.heroes().map(function (h) {
                 return h.maxHP(true)
@@ -17021,16 +18859,19 @@ var Expedition = function () {
             updateLandmarkSidebar(this.id)
         }
     }, {
-        key: "distanceRemaining", value: function distanceRemaining() {
+        key: "distanceRemaining",
+        value: function distanceRemaining() {
             return this.nextGoal - this.distance
         }
     }, {
-        key: "timeRemaining", value: function timeRemaining() {
+        key: "timeRemaining",
+        value: function timeRemaining() {
             var timeRemaining = this.distanceRemaining() / this.rate * 1e3;
             return msToTime(timeRemaining)
         }
     }, {
-        key: "addTime", value: function addTime(ms) {
+        key: "addTime",
+        value: function addTime(ms) {
             if (this.party === null || this.goal === 25) return;
             this.time += ms;
             this.displayDistance += ms;
@@ -17046,20 +18887,23 @@ var Expedition = function () {
             }
         }
     }, {
-        key: "goldReward", value: function goldReward(next) {
+        key: "goldReward",
+        value: function goldReward(next) {
             if (next) return miscLoadedValues.expGold[this.goal];
             if (this.goal === 0) return 0;
             return miscLoadedValues.expGold[this.goal - 1]
         }
     }, {
-        key: "collect", value: function collect() {
+        key: "collect",
+        value: function collect() {
             ResourceManager.addGold(this.goldReward());
             if (this.goldReward() > 0) achievementStats.expeditionsPerformed();
             refreshExpeditionOptimalEnd();
             refreshTownHasEvents()
         }
     }, {
-        key: "landmarks", value: function landmarks() {
+        key: "landmarks",
+        value: function landmarks() {
             var results = [];
             for (var i = 0; i < 25; i++) {
                 var landmark = {};
@@ -17079,7 +18923,8 @@ var Expedition = function () {
             return results
         }
     }, {
-        key: "optimal", value: function optimal() {
+        key: "optimal",
+        value: function optimal() {
             var hp = this.heroes().map(function (h) {
                 return h.maxHP(true)
             }).reduce(function (a, b) {
@@ -17108,11 +18953,13 @@ var Expedition = function () {
             return bestLandmark
         }
     }, {
-        key: "reachedOptimal", value: function reachedOptimal() {
+        key: "reachedOptimal",
+        value: function reachedOptimal() {
             return this.goal >= this.optimal()
         }
     }, {
-        key: "hasMember", value: function hasMember(heroid) {
+        key: "hasMember",
+        value: function hasMember(heroid) {
             return this.party.includes(heroid)
         }
     }]);
@@ -17140,7 +18987,9 @@ function refreshExpeditionList() {
     var contentHeader = $("<div/>").addClass("contentHeader").appendTo($expeditionList);
     var headingDetails = $("<div/>").addClass("headingDetails").appendTo(contentHeader);
     var headingTitle = $("<div/>").addClass("headingTitle").html(displayText("expedition_header_name")).appendTo(headingDetails);
-    $("<div/>").addClass("questionTooltip tooltip").attr({"data-tooltip": "more_info_expedition"}).html(miscIcons.question).appendTo(headingTitle);
+    $("<div/>").addClass("questionTooltip tooltip").attr({
+        "data-tooltip": "more_info_expedition"
+    }).html(miscIcons.question).appendTo(headingTitle);
     $("<div/>").addClass("headingDescription").html(displayText("expedition_header_desc")).appendTo(headingDetails);
     var body = $("<div/>").addClass("expeditionBody").appendTo($expeditionList);
     createNewExpeditionListing().appendTo(body);
@@ -17164,7 +19013,9 @@ function refreshExpeditionParty() {
     var contentHeader = $("<div/>").addClass("contentHeader").appendTo($expeditionParty);
     var headingDetails = $("<div/>").addClass("headingDetails").appendTo(contentHeader);
     var headingTitle = $("<div/>").addClass("headingTitle").html(displayText("expedition_party_heading")).appendTo(headingDetails);
-    $("<div/>").addClass("questionTooltip tooltip").attr({"data-tooltip": "more_info_expedition_party"}).html(miscIcons.question).appendTo(headingTitle);
+    $("<div/>").addClass("questionTooltip tooltip").attr({
+        "data-tooltip": "more_info_expedition_party"
+    }).html(miscIcons.question).appendTo(headingTitle);
     var expeditionStats = $("<div/>").addClass("expeditionStatsContainer").appendTo($expeditionParty);
     $("<div/>").addClass("expeditionPartyStats").attr("id", "expeditionPartyStats").appendTo(expeditionStats);
     $("<div/>").addClass("expeditionOptimal").attr("id", "expOptimalStats").appendTo(expeditionStats);
@@ -17198,7 +19049,6 @@ function refreshSpecificExpedition(eid) {
         $("<div/>").addClass("expLandGold").html("".concat(miscIcons.gold, " ").concat(formatToUnits(landmark.gold, 2))).appendTo(landmarkContainer)
     })
 }
-
 $expeditionSpecific.on("click", "#expBack", function (e) {
     e.preventDefault();
     initiateExpeditionBldg()
@@ -17242,8 +19092,15 @@ function createHeroExpeditionCard(hero) {
     $("<div/>").addClass("statValue").html("".concat(hero.maxHP(true))).appendTo(hpStat);
     var powStat = $("<div/>").addClass("heroStat expeditionPow tooltip").attr("data-tooltip", "pow").html("".concat(miscIcons.pow)).appendTo(d2);
     $("<div/>").addClass("statValue").html("".concat(hero.getPow(true))).appendTo(powStat);
-    if (hero.state() === HeroState.DUNGEON) $("<div/>").addClass("heroStatus tooltip statusDungeon").attr({"data-tooltip": "hero_in_combat"}).html('<i class="fas fa-swords"></i>').appendTo(d); else if (hero.state() === HeroState.QUEST) $("<div/>").addClass("heroStatus tooltip statusQuest").attr({"data-tooltip": "hero_in_quest"}).html("".concat(miscIcons.quest)).appendTo(d);
-    var d3 = $("<div/>").attr("id", "exph" + hero.id).addClass("heroStatus tooltip statusParty").attr({"data-tooltip": "hero_in_party"}).html('<i class="fas fa-check"></i>').appendTo(d).hide();
+    if (hero.state() === HeroState.DUNGEON) $("<div/>").addClass("heroStatus tooltip statusDungeon").attr({
+        "data-tooltip": "hero_in_combat"
+    }).html('<i class="fas fa-swords"></i>').appendTo(d);
+    else if (hero.state() === HeroState.QUEST) $("<div/>").addClass("heroStatus tooltip statusQuest").attr({
+        "data-tooltip": "hero_in_quest"
+    }).html("".concat(miscIcons.quest)).appendTo(d);
+    var d3 = $("<div/>").attr("id", "exph" + hero.id).addClass("heroStatus tooltip statusParty").attr({
+        "data-tooltip": "hero_in_party"
+    }).html('<i class="fas fa-check"></i>').appendTo(d).hide();
     if (ExpeditionManager.partyBuild.includes(hero.id)) d3.show();
     return d
 }
@@ -17292,7 +19149,9 @@ function createNewQuestListing(quest) {
     });
     createAdventureBar(quest, !quest.active()).appendTo(d);
     var barText = "";
-    if (quest.finished()) barText = displayText("complete_quest"); else if (quest.active()) barText = displayText("cancel_quest"); else barText = displayText("start_quest");
+    if (quest.finished()) barText = displayText("complete_quest");
+    else if (quest.active()) barText = displayText("cancel_quest");
+    else barText = displayText("start_quest");
     $("<div/>").addClass("questCollect").attr("id", "expcollectreward" + quest.id).data("qid", quest.id).html(barText).appendTo(d);
     return d
 }
@@ -17344,7 +19203,8 @@ function refreshQuestStatus(quest) {
     var barText = "".concat(formatToUnits(quest.distance, 1), "/").concat(formatToUnits(quest.nextGoal, 1), " (").concat(quest.timeRemaining(), " left)");
     $("#expedition" + quest.id).html(barText);
     $("#expeditionFill" + quest.id).css("width", width);
-    if (quest.finished()) $("#expcollectreward" + quest.id).html(displayText("complete_quest")); else $("#expcollectreward" + quest.id).html(displayText("cancel_quest"))
+    if (quest.finished()) $("#expcollectreward" + quest.id).html(displayText("complete_quest"));
+    else $("#expcollectreward" + quest.id).html(displayText("cancel_quest"))
 }
 
 function refreshExpeditionSpecific(eid) {
@@ -17420,14 +19280,13 @@ function generateSlotClass(type) {
 
 function refreshExpeditionOptimalEnd() {
     if (ExpeditionManager.expeditions.some(function (e) {
-        return e.reachedOptimal()
-    }) || ExpeditionManager.quests.some(function (q) {
-        return q.finished()
-    })) {
+            return e.reachedOptimal()
+        }) || ExpeditionManager.quests.some(function (q) {
+            return q.finished()
+        })) {
         $adventureSidebarToggle.addClass("hasEvent")
     } else $adventureSidebarToggle.removeClass("hasEvent")
 }
-
 $expeditionList.on("click", ".expeditionCollect", function (e) {
     e.preventDefault();
     e.stopPropagation();
@@ -17456,7 +19315,8 @@ $expeditionParty.on("click", ".heroExpedition", function (e) {
     var hid = $(e.currentTarget).data("hid");
     ExpeditionManager.addMember(hid);
     refreshExpeditionPartyStats();
-    if (ExpeditionManager.partyBuild.includes(hid)) $("#exph" + hid).show(); else $("#exph" + hid).hide()
+    if (ExpeditionManager.partyBuild.includes(hid)) $("#exph" + hid).show();
+    else $("#exph" + hid).hide()
 });
 $expeditionParty.on("click", ".expeditionEmbark", function (e) {
     e.preventDefault();
@@ -17485,15 +19345,16 @@ function _classCallCheck(instance, Constructor) {
         throw new TypeError("Cannot call a class as a function")
     }
 }
-
 var Dialog = function Dialog(props) {
     _classCallCheck(this, Dialog);
     Object.assign(this, props)
 };
 var DialogManager = {
-    dialogs: [], addDialog: function addDialog(dialog) {
+    dialogs: [],
+    addDialog: function addDialog(dialog) {
         this.dialogs.push(dialog)
-    }, findDialog: function findDialog(id) {
+    },
+    findDialog: function findDialog(id) {
         return this.dialogs.find(function (dialog) {
             return id === dialog.id
         })
@@ -17530,7 +19391,9 @@ function renderDialogActions(id) {
             id: "exportSaveCopy",
             tabindex: 4
         }).addClass("exportSaveCopy actionButton").html("Copy to Clipboard").appendTo(exportSaveActions);
-        $("<div/>").attr({id: "exportStatus"}).addClass("exportStatus").appendTo(exportSaveActions);
+        $("<div/>").attr({
+            id: "exportStatus"
+        }).addClass("exportStatus").appendTo(exportSaveActions);
         return dialogActions
     }
     if (id === "import_save") {
@@ -17548,13 +19411,17 @@ function renderDialogActions(id) {
         return dialogActions
     }
     if (id === "playfab") {
-        var accountContainer = $("<div/>").attr({id: "cloudSaveDialog"}).addClass("cloudSaveDialog").appendTo(dialogActions);
+        var accountContainer = $("<div/>").attr({
+            id: "cloudSaveDialog"
+        }).addClass("cloudSaveDialog").appendTo(dialogActions);
         $("<div/>").addClass("cloudSaveLogo").prependTo(dialogActions);
         var accountForm = $("<form/>").attr({
             id: "pfLoginRegister",
             autocomplete: "on"
         }).addClass("pfAccountForm").appendTo(accountContainer);
-        var accountEmail = $("<div/>").attr({id: "pfEmail"}).addClass("pfEmailContainer").appendTo(accountForm);
+        var accountEmail = $("<div/>").attr({
+            id: "pfEmail"
+        }).addClass("pfEmailContainer").appendTo(accountForm);
         $("<div/>").addClass("pfHeader").html("Email Address").appendTo(accountEmail);
         $("<input/>").attr({
             id: "email",
@@ -17564,7 +19431,9 @@ function renderDialogActions(id) {
             autocomplete: "email",
             placeholder: "Enter your email address..."
         }).addClass("pfText").appendTo(accountEmail);
-        var accountPassword = $("<div/>").attr({id: "pfPassword"}).addClass("pfPasswordContainer").appendTo(accountForm);
+        var accountPassword = $("<div/>").attr({
+            id: "pfPassword"
+        }).addClass("pfPasswordContainer").appendTo(accountForm);
         $("<div/>").addClass("pfHeader").html("Password").appendTo(accountPassword);
         $("<input/>").attr({
             id: "password",
@@ -17574,7 +19443,9 @@ function renderDialogActions(id) {
             autocomplete: "current-password",
             placeholder: "Enter your password..."
         }).addClass("pfText").appendTo(accountPassword);
-        var accountActions = $("<div/>").attr({id: "pfButtons"}).addClass("pfButtonsContainer").appendTo(accountForm);
+        var accountActions = $("<div/>").attr({
+            id: "pfButtons"
+        }).addClass("pfButtonsContainer").appendTo(accountForm);
         $("<input/>").attr({
             id: "login",
             tabindex: 4,
@@ -17596,9 +19467,15 @@ function renderDialogActions(id) {
             name: "reset",
             value: "Reset Password"
         }).addClass("actionButton").appendTo(accountActions);
-        var statusMessage = $("<div/>").attr({id: "pfStatusSection"}).addClass("pfStatusContainer").appendTo(accountForm);
-        $("<div/>").attr({id: "pfStatus"}).addClass("pfStatus").appendTo(statusMessage);
-        var accountImportExport = $("<div/>").attr({id: "pfImportExport"}).addClass("pfImportExportContainer").appendTo(accountContainer).hide();
+        var statusMessage = $("<div/>").attr({
+            id: "pfStatusSection"
+        }).addClass("pfStatusContainer").appendTo(accountForm);
+        $("<div/>").attr({
+            id: "pfStatus"
+        }).addClass("pfStatus").appendTo(statusMessage);
+        var accountImportExport = $("<div/>").attr({
+            id: "pfImportExport"
+        }).addClass("pfImportExportContainer").appendTo(accountContainer).hide();
         $("<input/>").attr({
             id: "pfSave",
             tabindex: 2,
@@ -17625,10 +19502,16 @@ function renderDialogActions(id) {
             tabindex: 5
         }).html("".concat(miscIcons.toggleOff, "&nbsp;&nbsp;Autosave every 5 mins")).addClass("actionButton").appendTo(accountImportExport);
         if (playFabAutoSaveEnabled) d.addClass("highlight");
-        $("<div/>").attr({id: "pfStatusSave"}).addClass("pfStatusSave").appendTo(accountImportExport);
-        var loadFromCloud = $("<div/>").attr({id: "loadSure"}).addClass("loadSure").appendTo(accountContainer).hide();
+        $("<div/>").attr({
+            id: "pfStatusSave"
+        }).addClass("pfStatusSave").appendTo(accountImportExport);
+        var loadFromCloud = $("<div/>").attr({
+            id: "loadSure"
+        }).addClass("loadSure").appendTo(accountContainer).hide();
         $("<div/>").addClass("loadSureDescription").html("Are you sure you would like to load this cloud save data? This action is irreversible!").appendTo(loadFromCloud);
-        var loadFromCloudActions = $("<div/>").attr({id: "pfLoadButtons"}).addClass("pfLoadButtons").appendTo(loadFromCloud);
+        var loadFromCloudActions = $("<div/>").attr({
+            id: "pfLoadButtons"
+        }).addClass("pfLoadButtons").appendTo(loadFromCloud);
         $("<input/>").attr({
             id: "pfloadYes",
             tabindex: 2,
@@ -17661,14 +19544,31 @@ function renderDialogActions(id) {
     }
     if (id === "settings") {
         var settingsTabsContainer = $("<div/>").addClass("settingsTabContainer").appendTo(dialogActions);
-        $("<div/>").addClass("settingsTab selected").attr({id: "settingTabGeneral"}).html("General").appendTo(settingsTabsContainer);
-        $("<div/>").addClass("settingsTab").attr({id: "settingTabNotifications"}).html("Notifications").appendTo(settingsTabsContainer);
-        $("<div/>").addClass("settingsTab").attr({id: "settingTabHotkeys"}).html("Hotkeys").appendTo(settingsTabsContainer);
-        var tabGeneral = $("<div/>").addClass("settingTabContent selected settings-grid").attr({id: "settingContentGeneral"}).appendTo(dialogActions);
-        var tabNotifications = $("<div/>").addClass("settingTabContent settings-grid").attr({id: "settingContentNotifcations"}).appendTo(dialogActions);
-        var tabHotkeys = $("<div/>").addClass("settingTabContent settings-grid").attr({id: "settingContentHotkeys"}).appendTo(dialogActions);
-        var hotkeyPref = $("<div/>").attr({id: "settings_hotkeyPref"}).addClass("setting-container").appendTo(tabHotkeys);
-        var hotkeyPref_details = {title: "Hotkeys", description: "Choose whether hotkeys are triggered."};
+        $("<div/>").addClass("settingsTab selected").attr({
+            id: "settingTabGeneral"
+        }).html("General").appendTo(settingsTabsContainer);
+        $("<div/>").addClass("settingsTab").attr({
+            id: "settingTabNotifications"
+        }).html("Notifications").appendTo(settingsTabsContainer);
+        $("<div/>").addClass("settingsTab").attr({
+            id: "settingTabHotkeys"
+        }).html("Hotkeys").appendTo(settingsTabsContainer);
+        var tabGeneral = $("<div/>").addClass("settingTabContent selected settings-grid").attr({
+            id: "settingContentGeneral"
+        }).appendTo(dialogActions);
+        var tabNotifications = $("<div/>").addClass("settingTabContent settings-grid").attr({
+            id: "settingContentNotifcations"
+        }).appendTo(dialogActions);
+        var tabHotkeys = $("<div/>").addClass("settingTabContent settings-grid").attr({
+            id: "settingContentHotkeys"
+        }).appendTo(dialogActions);
+        var hotkeyPref = $("<div/>").attr({
+            id: "settings_hotkeyPref"
+        }).addClass("setting-container").appendTo(tabHotkeys);
+        var hotkeyPref_details = {
+            title: "Hotkeys",
+            description: "Choose whether hotkeys are triggered."
+        };
         settingsBoilerplate(hotkeyPref_details, false).appendTo(hotkeyPref);
         var hotkeyPrefGrid = $("<div/>").addClass("selections-grid").appendTo(hotkeyPref);
         var hotkeyPrefOptions = [0, 1];
@@ -17683,9 +19583,15 @@ function renderDialogActions(id) {
             $("<span/>").addClass("selection").appendTo(label);
             label.appendTo(hotkeyPrefGrid)
         });
-        $("<div/>").addClass("hotkeyAllDefault actionButton").attr({id: "hotkeyAllDefault"}).appendTo(tabHotkeys);
-        $("<div/>").addClass("hotkeyList").attr({id: "hotkeyList"}).appendTo(tabHotkeys);
-        var notificationPref = $("<div/>").attr({id: "settings_notificationPref"}).addClass("setting-container").appendTo(tabNotifications);
+        $("<div/>").addClass("hotkeyAllDefault actionButton").attr({
+            id: "hotkeyAllDefault"
+        }).appendTo(tabHotkeys);
+        $("<div/>").addClass("hotkeyList").attr({
+            id: "hotkeyList"
+        }).appendTo(tabHotkeys);
+        var notificationPref = $("<div/>").attr({
+            id: "settings_notificationPref"
+        }).addClass("setting-container").appendTo(tabNotifications);
         var notificationPref_details = {
             title: "Notifications",
             description: "Choose whether notifications are rendered."
@@ -17704,7 +19610,9 @@ function renderDialogActions(id) {
             $("<span/>").addClass("selection").appendTo(label);
             label.appendTo(notificationPrefGrid)
         });
-        var notificationSize = $("<div/>").attr({id: "settings_notificationSize"}).addClass("setting-container").appendTo(tabNotifications);
+        var notificationSize = $("<div/>").attr({
+            id: "settings_notificationSize"
+        }).addClass("setting-container").appendTo(tabNotifications);
         var notificationSize_details = {
             title: "Notification Size",
             description: "Choose between a spacious sizing for notifications or a more compact sizing."
@@ -17723,7 +19631,9 @@ function renderDialogActions(id) {
             $("<span/>").addClass("selection").appendTo(label);
             label.appendTo(notificationSizeGrid)
         });
-        var notificationDuration = $("<div/>").attr({id: "settings_notificationDuration"}).addClass("setting-container").appendTo(tabNotifications);
+        var notificationDuration = $("<div/>").attr({
+            id: "settings_notificationDuration"
+        }).addClass("setting-container").appendTo(tabNotifications);
         var notificationDuration_details = {
             title: "Notification Duration",
             description: "Designates the duration a notification will remain present on the screen."
@@ -17743,7 +19653,9 @@ function renderDialogActions(id) {
             $("<span/>").addClass("selection").appendTo(label);
             label.appendTo(notificationDurationGrid)
         });
-        var notificationLocation = $("<div/>").attr({id: "settings_notificationLocation"}).addClass("setting-container").appendTo(tabNotifications);
+        var notificationLocation = $("<div/>").attr({
+            id: "settings_notificationLocation"
+        }).addClass("setting-container").appendTo(tabNotifications);
         var notificationLocation_details = {
             title: "Notification Location",
             description: "Designates where the notifications for various events (such as exceptional crafts) will appear."
@@ -17762,7 +19674,9 @@ function renderDialogActions(id) {
             $("<span/>").addClass("selection").appendTo(label);
             label.appendTo(selectionsGrid)
         });
-        var tooltipPref = $("<div/>").attr({id: "settings_tooltipPref"}).addClass("setting-container").appendTo(tabGeneral);
+        var tooltipPref = $("<div/>").attr({
+            id: "settings_tooltipPref"
+        }).addClass("setting-container").appendTo(tabGeneral);
         var tooltipPref_details = {
             title: "Tooltips",
             description: "Choose whether tooltips are rendered when hovering over tooltip-enabled content."
@@ -17781,7 +19695,9 @@ function renderDialogActions(id) {
             $("<span/>").addClass("selection").appendTo(label);
             label.appendTo(tooltipPrefGrid)
         });
-        var leaveSite = $("<div/>").attr({id: "settings_leaveSite"}).addClass("setting-container").appendTo(tabGeneral);
+        var leaveSite = $("<div/>").attr({
+            id: "settings_leaveSite"
+        }).addClass("setting-container").appendTo(tabGeneral);
         var leaveSite_details = {
             title: "End Session Confirmation",
             description: "Will prompt you with a confirmation before closing the window or tab. Changes will take affect on next session."
@@ -17800,7 +19716,9 @@ function renderDialogActions(id) {
             $("<span/>").addClass("selection").appendTo(label);
             label.appendTo(leaveSiteGrid)
         });
-        var animPref = $("<div/>").attr({id: "settings_animPref"}).addClass("setting-container").appendTo(tabGeneral);
+        var animPref = $("<div/>").attr({
+            id: "settings_animPref"
+        }).addClass("setting-container").appendTo(tabGeneral);
         var animPref_details = {
             title: "Animations",
             description: "Choose whether animations are played when navigating through content."
@@ -17819,7 +19737,9 @@ function renderDialogActions(id) {
             $("<span/>").addClass("selection").appendTo(label);
             label.appendTo(animPrefGrid)
         });
-        var gpuEffectsPref = $("<div/>").attr({id: "settings_gpuEffectsPref"}).addClass("setting-container").appendTo(tabGeneral);
+        var gpuEffectsPref = $("<div/>").attr({
+            id: "settings_gpuEffectsPref"
+        }).addClass("setting-container").appendTo(tabGeneral);
         var gpuEffectsPref_details = {
             title: "GPU Effects",
             description: "Choose whether some GPU-intensive effects like background blurs are utilized."
@@ -17838,27 +19758,41 @@ function renderDialogActions(id) {
             $("<span/>").addClass("selection").appendTo(label);
             label.appendTo(gpuEffectsPrefGrid)
         });
-        var clearSettings = $("<div/>").attr({id: "settings_clearSettings"}).addClass("setting-container").appendTo(tabGeneral);
+        var clearSettings = $("<div/>").attr({
+            id: "settings_clearSettings"
+        }).addClass("setting-container").appendTo(tabGeneral);
         var clearSettings_details = {
             title: "Reset All Settings",
             description: "Reset your settings to default values for this browser only. This will reload the game but your progress will not be reset."
         };
         settingsBoilerplate(clearSettings_details).appendTo(clearSettings);
-        $("<button/>").attr({id: "clearSettings"}).addClass("actionButton").html("Reset All Settings").appendTo(clearSettings);
+        $("<button/>").attr({
+            id: "clearSettings"
+        }).addClass("actionButton").html("Reset All Settings").appendTo(clearSettings);
         return dialogActions
     }
     if (id === "patch_notes") {
-        var patchListContainer = $("<div/>").attr({id: "patchList"}).addClass("patchListContainer").appendTo(dialogActions);
+        var patchListContainer = $("<div/>").attr({
+            id: "patchList"
+        }).addClass("patchListContainer").appendTo(dialogActions);
         $("<div/>").attr({
             id: "descPatch",
             tabindex: 1
         }).addClass("descPatch").html("You are running the latest version of Forge & Fortune.").appendTo(patchListContainer);
-        var patchListFooter = $("<div/>").attr({id: "patchListFooter"}).addClass("patchListFooter").appendTo(dialogActions);
-        var updateTrigger = $("<div/>").attr({id: "updateTrigger"}).addClass("updateTriggerContainer").appendTo(patchListFooter);
+        var patchListFooter = $("<div/>").attr({
+            id: "patchListFooter"
+        }).addClass("patchListFooter").appendTo(dialogActions);
+        var updateTrigger = $("<div/>").attr({
+            id: "updateTrigger"
+        }).addClass("updateTriggerContainer").appendTo(patchListFooter);
         $("<div/>").addClass("updateNotice").html(displayText("update_notice_desc")).appendTo(updateTrigger);
         var updateActions = $("<div/>").addClass("updateActions").appendTo(updateTrigger);
-        $("<div/>").attr({id: "updateDownloadSave"}).addClass("actionButton").html(displayText("update_notice_download")).appendTo(updateActions);
-        $("<div/>").attr({id: "updateRefresh"}).addClass("actionButton").html(displayText("update_notice_update")).appendTo(updateActions);
+        $("<div/>").attr({
+            id: "updateDownloadSave"
+        }).addClass("actionButton").html(displayText("update_notice_download")).appendTo(updateActions);
+        $("<div/>").attr({
+            id: "updateRefresh"
+        }).addClass("actionButton").html(displayText("update_notice_update")).appendTo(updateActions);
         return dialogActions
     }
     if (id === "offline_stats") {
@@ -17876,13 +19810,17 @@ function renderDialogActions(id) {
 function settingsBoilerplate(settingDetails, isBeta) {
     var detailsContainer = $("<div/>").addClass("settings-details");
     var title = $("<div/>").addClass("settings-title").html(settingDetails.title).appendTo(detailsContainer);
-    if (isBeta) $("<span/>").addClass("beta-tag tooltip").attr({"data-tooltip": "beta_feature"}).html("Beta").appendTo(title);
+    if (isBeta) $("<span/>").addClass("beta-tag tooltip").attr({
+        "data-tooltip": "beta_feature"
+    }).html("Beta").appendTo(title);
     $("<div/>").addClass("settings-description").html(settingDetails.description).appendTo(detailsContainer);
     return detailsContainer
 }
 
 function setDialogOpen(props) {
-    var dialogContainer = $("<div/>").attr({id: "dialogContainer"}).addClass("dialogContainer").appendTo(document.body);
+    var dialogContainer = $("<div/>").attr({
+        id: "dialogContainer"
+    }).addClass("dialogContainer").appendTo(document.body);
     var dialogBoxContainer = $("<div/>").addClass("dialogContent dialogOpening").appendTo(dialogContainer);
     if (props.id === "settings") $(dialogBoxContainer).addClass("isSettingsDialog");
     if (props.id === "patch_notes") $(dialogBoxContainer).addClass("isPatchDialog");
@@ -17909,7 +19847,6 @@ function setDialogClose() {
     $("#dialogContainer").addClass("dialogInactive");
     $(".dialogContent").removeClass("dialogOpening").addClass("dialogClosing")
 }
-
 $(document).on("transitionend", ".dialogContent", function (e) {
     if (e.target === e.currentTarget) $("#dialogContainer").remove()
 });
@@ -17978,52 +19915,68 @@ function _createClass(Constructor, protoProps, staticProps) {
     if (staticProps) _defineProperties(Constructor, staticProps);
     return Constructor
 }
-
 var SkillManager = {
-    skills: [], skillEffects: [], addSkill: function addSkill(skill) {
+    skills: [],
+    skillEffects: [],
+    addSkill: function addSkill(skill) {
         this.skills.push(skill)
-    }, idToSkill: function idToSkill(id) {
+    },
+    idToSkill: function idToSkill(id) {
         return this.skills.find(function (skill) {
             return skill.id === id
         })
     }
 };
 var PlaybookManager = {
-    playbookDB: [], addPlaybookTemplate: function addPlaybookTemplate(pb) {
+    playbookDB: [],
+    addPlaybookTemplate: function addPlaybookTemplate(pb) {
         this.playbookDB.push(pb)
-    }, idToPlaybook: function idToPlaybook(id) {
+    },
+    idToPlaybook: function idToPlaybook(id) {
         return this.playbookDB.find(function (playbook) {
             return playbook.id === id
         })
-    }, createSave: function createSave() {
+    },
+    createSave: function createSave() {
         var save = {};
         save.playbookDB = [];
         this.playbookDB.forEach(function (playbook) {
             save.playbookDB.push(playbook.createSave())
         });
         return save
-    }, loadSave: function loadSave(save) {
+    },
+    loadSave: function loadSave(save) {
         var _this = this;
         save.playbookDB.forEach(function (playbookSave) {
             var playbook = _this.idToPlaybook(playbookSave.id);
             playbook.loadSave(playbookSave)
         })
-    }, clearProgress: function clearProgress() {
+    },
+    clearProgress: function clearProgress() {
         this.playbookDB.forEach(function (pb) {
             return pb.clearProgress()
         })
-    }, generatePlayBook: function generatePlayBook(playbookID) {
+    },
+    generatePlayBook: function generatePlayBook(playbookID) {
         var playbookTemplate = this.idToPlaybook(playbookID);
         return new Playbook(playbookTemplate)
-    }, generatePlayBookFromSkills: function generatePlayBookFromSkills(s1, s2, s3, s4) {
-        var skills = {skill1: s1, skill2: s2, skill3: s3, skill4: s4};
+    },
+    generatePlayBookFromSkills: function generatePlayBookFromSkills(s1, s2, s3, s4) {
+        var skills = {
+            skill1: s1,
+            skill2: s2,
+            skill3: s3,
+            skill4: s4
+        };
         return new Playbook(skills)
-    }, unlockPlaybook: function unlockPlaybook(playbookID) {
+    },
+    unlockPlaybook: function unlockPlaybook(playbookID) {
         var playbook = this.idToPlaybook(playbookID);
         playbook.unlock();
         playbook.toggleSeen();
         $("#heroTab").addClass("hasEvent")
-    }, playbookUnlocked: function playbookUnlocked(playbookID) {
+    },
+    playbookUnlocked: function playbookUnlocked(playbookID) {
         var unlocked = this.playbookDB.filter(function (pb) {
             return pb.unlocked
         }).map(function (pb) {
@@ -18039,37 +19992,43 @@ var playBookTemplate = function () {
         this.unlocked = false;
         this.seen = true
     }
-
     _createClass(playBookTemplate, [{
-        key: "skillIDs", value: function skillIDs() {
+        key: "skillIDs",
+        value: function skillIDs() {
             return [this.skill1, this.skill2, this.skill3, this.skill4]
         }
     }, {
-        key: "createSave", value: function createSave() {
+        key: "createSave",
+        value: function createSave() {
             var save = {};
             save.id = this.id;
             save.unlocked = this.unlocked;
             return save
         }
     }, {
-        key: "loadSave", value: function loadSave(save) {
+        key: "loadSave",
+        value: function loadSave(save) {
             this.unlocked = save.unlocked
         }
     }, {
-        key: "clearProgress", value: function clearProgress() {
+        key: "clearProgress",
+        value: function clearProgress() {
             this.unlocked = false;
             this.seen = true
         }
     }, {
-        key: "unlock", value: function unlock() {
+        key: "unlock",
+        value: function unlock() {
             this.unlocked = true
         }
     }, {
-        key: "toggleSeen", value: function toggleSeen() {
+        key: "toggleSeen",
+        value: function toggleSeen() {
             this.seen = !this.seen
         }
     }, {
-        key: "icon", value: function icon() {
+        key: "icon",
+        value: function icon() {
             return SkillManager.idToSkill(this.playbookIcon).icon
         }
     }]);
@@ -18081,9 +20040,9 @@ var Skill = function () {
         Object.assign(this, props);
         this.POWICON = miscIcons.pow
     }
-
     _createClass(Skill, [{
-        key: "passiveCheck", value: function passiveCheck(type, target, attack) {
+        key: "passiveCheck",
+        value: function passiveCheck(type, target, attack) {
             SkillManager.skillEffects[this.id](type, target, attack, this)
         }
     }]);
@@ -18096,21 +20055,24 @@ var Playbook = function () {
         this.skills = [SkillManager.idToSkill(pbTemplate.skill1), SkillManager.idToSkill(pbTemplate.skill2), SkillManager.idToSkill(pbTemplate.skill3), SkillManager.idToSkill(pbTemplate.skill4)];
         this.position = 0
     }
-
     _createClass(Playbook, [{
-        key: "reset", value: function reset() {
+        key: "reset",
+        value: function reset() {
             this.position = 0
         }
     }, {
-        key: "nextSkill", value: function nextSkill(reverse) {
+        key: "nextSkill",
+        value: function nextSkill(reverse) {
             var skill = this.skills[this.position];
-            if (reverse) this.position -= 1; else this.position += 1;
+            if (reverse) this.position -= 1;
+            else this.position += 1;
             if (this.position > 3) this.position = 0;
             if (this.position < 0) this.position = 3;
             return skill
         }
     }, {
-        key: "previousSkill", value: function previousSkill(reverse) {
+        key: "previousSkill",
+        value: function previousSkill(reverse) {
             if (reverse) {
                 this.position += 1;
                 if (this.position > 3) this.position = 0;
@@ -18120,23 +20082,27 @@ var Playbook = function () {
             if (this.position < 0) this.position = 3
         }
     }, {
-        key: "getSkillIcons", value: function getSkillIcons() {
+        key: "getSkillIcons",
+        value: function getSkillIcons() {
             return this.skills.map(function (s) {
                 return s.icon
             })
         }
     }, {
-        key: "getSkillIDs", value: function getSkillIDs() {
+        key: "getSkillIDs",
+        value: function getSkillIDs() {
             return this.skills.map(function (s) {
                 return s.id
             })
         }
     }, {
-        key: "skillCount", value: function skillCount() {
+        key: "skillCount",
+        value: function skillCount() {
             return this.position
         }
     }, {
-        key: "untilNextSpecial", value: function untilNextSpecial(reverse) {
+        key: "untilNextSpecial",
+        value: function untilNextSpecial(reverse) {
             var count = 0;
             if (reverse) {
                 for (var i = this.position; i > this.position - 4; i--) {
@@ -18154,7 +20120,8 @@ var Playbook = function () {
             return count
         }
     }, {
-        key: "icon", value: function icon() {
+        key: "icon",
+        value: function icon() {
             return SkillManager.idToSkill(this.playbookIcon).icon
         }
     }]);
@@ -18313,7 +20280,8 @@ SkillManager.skillEffects["S1010"] = function (combatParams) {
     var targets = combatParams.getTarget(TargetType.ALL, SideType.ENEMIES);
     targets.forEach(function (target) {
         target.takeAttack(combatParams);
-        if (combatParams.attacker.passive) BuffManager.generateBuff("B1011", target, Math.floor(combatParams.power * combatParams.attack.mod1 * 1.25)); else BuffManager.generateBuff("B1010", target, Math.floor(combatParams.power * combatParams.attack.mod1))
+        if (combatParams.attacker.passive) BuffManager.generateBuff("B1011", target, Math.floor(combatParams.power * combatParams.attack.mod1 * 1.25));
+        else BuffManager.generateBuff("B1010", target, Math.floor(combatParams.power * combatParams.attack.mod1))
     });
     if (combatParams.attacker.getRuneCount(RuneType.FIRE) < 6) return;
     var allEnemies = combatParams.getTarget(TargetType.ALL, SideType.ENEMIES);
@@ -18326,7 +20294,8 @@ SkillManager.skillEffects["S1011"] = function (combatParams) {
     var targets = combatParams.getTarget(TargetType.FIRST, SideType.ENEMIES);
     targets.forEach(function (target) {
         target.takeAttack(combatParams);
-        if (combatParams.attacker.passive) BuffManager.generateBuff("B1011", target, Math.floor(combatParams.power * combatParams.attack.mod1 * 1.25)); else BuffManager.generateBuff("B1010", target, Math.floor(combatParams.power * combatParams.attack.mod1))
+        if (combatParams.attacker.passive) BuffManager.generateBuff("B1011", target, Math.floor(combatParams.power * combatParams.attack.mod1 * 1.25));
+        else BuffManager.generateBuff("B1010", target, Math.floor(combatParams.power * combatParams.attack.mod1))
     });
     if (combatParams.attacker.getRuneCount(RuneType.FIRE) < 6) return;
     var allEnemies = combatParams.getTarget(TargetType.ALL, SideType.ENEMIES);
@@ -18362,7 +20331,8 @@ SkillManager.skillEffects["S1020"] = function (combatParams) {
             target.takeAttack(combatParams)
         } else {
             target.takeAttack(combatParams);
-            if (combatParams.attacker.id === "H102" && combatParams.attacker.passive) BuffManager.generateBuff("B1021", target, 0); else BuffManager.generateBuff("B1020", target, 0)
+            if (combatParams.attacker.id === "H102" && combatParams.attacker.passive) BuffManager.generateBuff("B1021", target, 0);
+            else BuffManager.generateBuff("B1020", target, 0)
         }
     });
     if (combatParams.attacker.getRuneCount(RuneType.FIRE) < 6) return;
@@ -18376,7 +20346,8 @@ SkillManager.skillEffects["S1021"] = function (combatParams) {
     var targets = combatParams.getTarget(TargetType.ALL, SideType.ENEMIES);
     targets.forEach(function (target) {
         target.takeAttack(combatParams);
-        if (combatParams.attacker.id === "H102" && combatParams.attacker.passive) BuffManager.generateBuff("B1021", target, 0); else BuffManager.generateBuff("B1020", target, 0)
+        if (combatParams.attacker.id === "H102" && combatParams.attacker.passive) BuffManager.generateBuff("B1021", target, 0);
+        else BuffManager.generateBuff("B1020", target, 0)
     });
     if (combatParams.attacker.getRuneCount(RuneType.FIRE) < 6) return;
     var allEnemies = combatParams.getTarget(TargetType.ALL, SideType.ENEMIES);
@@ -18443,7 +20414,8 @@ SkillManager.skillEffects["S1032"] = function (combatParams) {
         var lifeDrainAllies = combatParams.getTarget(TargetType.ALL, SideType.ALLIES, true);
         lifeDrainAllies.forEach(function (target) {
             if (target.race === "undead") return;
-            BuffManager.generateBuff("B1030", target, damage)
+            var damage1 = Math.floor(combatParams.power * combatParams.attack.mod1);
+            BuffManager.generateBuff("B1030", target, damage1)
         })
     }
     var lifeDrainEnemies = combatParams.getTarget(TargetType.ALL, SideType.ENEMIES);
@@ -18588,7 +20560,8 @@ SkillManager.skillEffects["S2032"] = function (combatParams) {
     var targets = combatParams.getTarget(TargetType.FIRST, SideType.ENEMIES);
     targets.forEach(function (target) {
         var ogPow = combatParams.power;
-        if (combatParams.attacker.hp % 10 === 7) combatParams.power = Math.floor(combatParams.power * combatParams.attack.mod1); else if (combatParams.attacker.passive && combatParams.attacker.hp > 7) {
+        if (combatParams.attacker.hp % 10 === 7) combatParams.power = Math.floor(combatParams.power * combatParams.attack.mod1);
+        else if (combatParams.attacker.passive && combatParams.attacker.hp > 7) {
             var damage = (combatParams.attacker.hp % 10 + 3) % 10;
             target.takeDamage(damage)
         }
@@ -18752,7 +20725,8 @@ SkillManager.skillEffects["SM202"] = function (combatParams) {
     var originalDmg = combatParams.power;
     var targets = combatParams.getTarget(TargetType.FIRST, SideType.ENEMIES);
     targets.forEach(function (target) {
-        if (target.hpLessThan(combatParams.attack.mod1)) combatParams.power = Math.floor(originalDmg * combatParams.attack.mod2); else combatParams.power = originalDmg;
+        if (target.hpLessThan(combatParams.attack.mod1)) combatParams.power = Math.floor(originalDmg * combatParams.attack.mod2);
+        else combatParams.power = originalDmg;
         target.takeAttack(combatParams)
     })
 };
@@ -18924,12 +20898,12 @@ SkillManager.skillEffects["SM904B"] = function (combatParams) {
     target.playbook = PlaybookManager.generatePlayBookFromSkills("S0000", "S0000", "S0000", "SM904A");
     refreshSkillUnit(target)
 };
-SkillManager.skillEffects["SM904C"] = function (combatParams) {
-};
+SkillManager.skillEffects["SM904C"] = function (combatParams) {};
 SkillManager.skillEffects["SM905A"] = function (combatParams) {
     var targets = combatParams.getTarget(TargetType.ENEMIES, SideType.ENEMIES);
     var thisMob = combatParams.getTarget(TargetType.SELF, SideType.ALLIES)[0];
-    if (thisMob.state === null || thisMob.state === targets.length - 1) thisMob.state = 0; else thisMob.state += 1;
+    if (thisMob.state === null || thisMob.state === targets.length - 1) thisMob.state = 0;
+    else thisMob.state += 1;
     var target = targets[thisMob.state];
     target.takeAttack(combatParams);
     if (target.type === "Might") {
@@ -18972,8 +20946,7 @@ SkillManager.skillEffects["SM906"] = function (combatParams) {
         BuffManager.generateBuff("BM906", target, combatParams.power)
     })
 };
-SkillManager.skillEffects["SM906A"] = function (combatParams) {
-};
+SkillManager.skillEffects["SM906A"] = function (combatParams) {};
 SkillManager.skillEffects["SM906B"] = function (combatParams) {
     var target = combatParams.getTarget(TargetType.SELF, SideType.ALLIES)[0];
     target.state = null;
@@ -19010,8 +20983,7 @@ SkillManager.skillEffects["SM907B"] = function (combatParams) {
         target.heal(Math.floor(combatParams.power))
     })
 };
-SkillManager.skillEffects["SM907C"] = function (combatParams) {
-};
+SkillManager.skillEffects["SM907C"] = function (combatParams) {};
 SkillManager.skillEffects["SM907D"] = function (combatParams) {
     var self = combatParams.getTarget(TargetType.SELF, SideType.ALLIES)[0];
     BuffManager.generateBuff("BM907", self, 0)
@@ -19041,7 +21013,9 @@ SkillManager.skillEffects["SM909A"] = function (combatParams) {
     var stacks = self.getBuffStacks("BM909");
     targets.forEach(function (target) {
         var oldPower = combatParams.power;
-        if (self.hasBuff("BM909A1") && target.type === "Might") combatParams.power = combatParams.power * combatParams.attack.mod1; else if (self.hasBuff("BM909B1") && target.type === "Mind") combatParams.power = combatParams.power * combatParams.attack.mod1; else if (self.hasBuff("BM909C1") && target.type === "Moxie") combatParams.power = combatParams.power * combatParams.attack.mod1;
+        if (self.hasBuff("BM909A1") && target.type === "Might") combatParams.power = combatParams.power * combatParams.attack.mod1;
+        else if (self.hasBuff("BM909B1") && target.type === "Mind") combatParams.power = combatParams.power * combatParams.attack.mod1;
+        else if (self.hasBuff("BM909C1") && target.type === "Moxie") combatParams.power = combatParams.power * combatParams.attack.mod1;
         for (var i = 0; i <= stacks; i++) {
             target.takeAttack(combatParams)
         }
@@ -19061,7 +21035,9 @@ SkillManager.skillEffects["SM909B"] = function (combatParams) {
     }
     targets.forEach(function (target) {
         var oldPower = combatParams.power;
-        if (self.hasBuff("BM909A1") && target.type === "Might") combatParams.power = combatParams.power * combatParams.attack.mod1; else if (self.hasBuff("BM909B1") && target.type === "Mind") combatParams.power = combatParams.power * combatParams.attack.mod1; else if (self.hasBuff("BM909C1") && target.type === "Moxie") combatParams.power = combatParams.power * combatParams.attack.mod1;
+        if (self.hasBuff("BM909A1") && target.type === "Might") combatParams.power = combatParams.power * combatParams.attack.mod1;
+        else if (self.hasBuff("BM909B1") && target.type === "Mind") combatParams.power = combatParams.power * combatParams.attack.mod1;
+        else if (self.hasBuff("BM909C1") && target.type === "Moxie") combatParams.power = combatParams.power * combatParams.attack.mod1;
         target.takeAttack(combatParams);
         combatParams.power = oldPower
     })
@@ -19073,14 +21049,18 @@ SkillManager.skillEffects["SM909C"] = function (combatParams) {
     if (selfTarget.hasBuff("BM909C1")) {
         targets2.forEach(function (target) {
             var oldPower = combatParams.power;
-            if (selfTarget.hasBuff("BM909A1") && target.type === "Might") combatParams.power = combatParams.power * combatParams.attack.mod1; else if (selfTarget.hasBuff("BM909B1") && target.type === "Mind") combatParams.power = combatParams.power * combatParams.attack.mod1; else if (selfTarget.hasBuff("BM909C1") && target.type === "Moxie") combatParams.power = combatParams.power * combatParams.attack.mod1;
+            if (selfTarget.hasBuff("BM909A1") && target.type === "Might") combatParams.power = combatParams.power * combatParams.attack.mod1;
+            else if (selfTarget.hasBuff("BM909B1") && target.type === "Mind") combatParams.power = combatParams.power * combatParams.attack.mod1;
+            else if (selfTarget.hasBuff("BM909C1") && target.type === "Moxie") combatParams.power = combatParams.power * combatParams.attack.mod1;
             target.takeAttack(combatParams);
             combatParams.power = oldPower
         })
     } else {
         targets.forEach(function (target) {
             var oldPower = combatParams.power;
-            if (selfTarget.hasBuff("BM909A1") && target.type === "Might") combatParams.power = combatParams.power * combatParams.attack.mod1; else if (selfTarget.hasBuff("BM909B1") && target.type === "Mind") combatParams.power = combatParams.power * combatParams.attack.mod1; else if (selfTarget.hasBuff("BM909C1") && target.type === "Moxie") combatParams.power = combatParams.power * combatParams.attack.mod1;
+            if (selfTarget.hasBuff("BM909A1") && target.type === "Might") combatParams.power = combatParams.power * combatParams.attack.mod1;
+            else if (selfTarget.hasBuff("BM909B1") && target.type === "Mind") combatParams.power = combatParams.power * combatParams.attack.mod1;
+            else if (selfTarget.hasBuff("BM909C1") && target.type === "Moxie") combatParams.power = combatParams.power * combatParams.attack.mod1;
             target.takeAttack(combatParams);
             combatParams.power = oldPower
         })
@@ -19178,7 +21158,8 @@ SkillManager.skillEffects["SM910"] = function (combatParams) {
     if (reverseNow.length > 0) {
         var _target2 = reverseNow[0];
         _target2.takeAttack(combatParams);
-        if (_target2.hasBuff("BM910A")) BuffManager.removeBuff("BM910A", _target2); else BuffManager.generateBuff("BM910A", _target2);
+        if (_target2.hasBuff("BM910A")) BuffManager.removeBuff("BM910A", _target2);
+        else BuffManager.generateBuff("BM910A", _target2);
         return
     }
     var previousNow = targets.filter(function (t) {
@@ -19317,16 +21298,21 @@ SkillManager.skillEffects["SMP909"] = function (type, target, attack, skillParam
 };
 "use strict";
 var Tutorial = {
-    lvl: 0, sec: 0, createSave: function createSave() {
+    lvl: 0,
+    sec: 0,
+    createSave: function createSave() {
         var save = {};
         save.lvl = this.lvl;
         return save
-    }, loadSave: function loadSave(save) {
+    },
+    loadSave: function loadSave(save) {
         this.lvl = save.lvl
-    }, complete: function complete() {
+    },
+    complete: function complete() {
         var nonTutorialLevels = [33, 36, 39, 392, 42, 45, 48, 52, 56, 58, 62];
         return nonTutorialLevels.includes(this.lvl)
-    }, monitor: function monitor(ms) {
+    },
+    monitor: function monitor(ms) {
         this.sec += ms;
         if (this.sec < 1e3) return;
         this.sec = 0;
@@ -19491,10 +21477,10 @@ var Tutorial = {
             refreshTutorial()
         }
         if (this.lvl === 391 && Merchant.orders.map(function (o) {
-            return o.part
-        }).some(function (p) {
-            return p > 0
-        })) {
+                return o.part
+            }).some(function (p) {
+                return p > 0
+            })) {
             this.lvl = 392;
             refreshTutorial()
         }
@@ -19602,7 +21588,6 @@ function refreshTutorial() {
         $("#dungeonTab").addClass("hasEvent")
     } else $("#dungeonTab").removeClass("hasEvent")
 }
-
 $(document).on("animationend", ".tutorial", function () {
     $tutorial.removeClass("tutorialPulse")
 });
